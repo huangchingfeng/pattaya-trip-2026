@@ -346,20 +346,30 @@
       top: 0;
       left: 0;
       right: 0;
-      transition: none;
+      width: 100%;
+    }
+
+    /* 快速滾動動畫 */
+    @keyframes fast-spin {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-960px); }
     }
 
     .slot-reel.spinning {
-      filter: blur(2px);
+      filter: blur(3px);
+      animation: fast-spin 0.15s linear infinite;
     }
 
     .slot-reel.stopping {
       filter: blur(0);
-      transition: transform 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+      animation: none;
+      transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .slot-reel.stopped {
       filter: blur(0);
+      animation: none;
+      transition: none;
     }
 
     /* 單個題目項 */
@@ -863,7 +873,11 @@
     function initializeSlotReel() {
       const reel = document.getElementById('slotReel');
       reel.innerHTML = '';
-      reel.style.transform = 'translateY(0)';
+
+      // 清除所有 inline styles
+      reel.style.transform = '';
+      reel.style.transition = '';
+      reel.style.height = '';
       reel.className = 'slot-reel';
 
       // 顯示初始題目
@@ -933,25 +947,28 @@
         reel.appendChild(item);
       });
 
-      // 設定初始位置（從頂部開始）
-      reel.style.transition = 'none';
-      reel.style.transform = 'translateY(0)';
+      // 設定滾輪高度
+      const itemHeight = 320;
+      reel.style.height = (items.length * itemHeight) + 'px';
+
+      // 開始快速滾動動畫
+      reel.style.transform = '';
+      reel.style.transition = '';
       reel.className = 'slot-reel spinning';
 
-      // 強制重繪
-      reel.offsetHeight;
-
-      // 計算最終位置
-      const itemHeight = 320;
+      // 滾動 1 秒後開始減速停止
+      const spinDuration = 1000;
       const finalPosition = -itemHeight * (items.length - 1);
 
-      // 開始滾動動畫
       setTimeout(() => {
-        reel.className = 'slot-reel stopping';
-        reel.style.transform = `translateY(${finalPosition}px)`;
-      }, 50);
+        // 用 requestAnimationFrame 確保正確觸發 transition
+        requestAnimationFrame(() => {
+          reel.className = 'slot-reel stopping';
+          reel.style.transform = `translateY(${finalPosition}px)`;
+        });
+      }, spinDuration);
 
-      // 動畫結束
+      // 動畫結束（滾動 1s + 減速 1.2s = 2.2s）
       setTimeout(() => {
         reel.className = 'slot-reel stopped';
         isSpinning = false;
@@ -966,7 +983,7 @@
         // 更新進度條
         const progress = (usedIndices.length / currentQuestions.length) * 100;
         document.getElementById('progressFill').style.width = progress + '%';
-      }, 1600);
+      }, spinDuration + 1200);
     }
 
     function showComplete() {

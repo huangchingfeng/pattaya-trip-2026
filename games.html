@@ -420,82 +420,7 @@
       50% { transform: scale(1.05); }
     }
 
-    /* ==================== 遊戲2: 派對轉盤 ==================== */
-    .wheel-section {
-      width: 100%;
-      margin: 24px 0;
-    }
-
-    .wheel-display {
-      background: var(--bg-card);
-      border-radius: 20px;
-      padding: 32px 24px;
-      margin-bottom: 24px;
-      min-height: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .wheel-result-icon {
-      font-size: 4rem;
-      margin-bottom: 16px;
-      animation: bounce 0.5s ease;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .wheel-result-cn {
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: var(--neon-pink);
-      margin-bottom: 8px;
-    }
-
-    .wheel-result-thai {
-      font-size: 1.2rem;
-      color: var(--gold);
-      font-family: 'Noto Sans Thai', sans-serif;
-      margin-bottom: 16px;
-    }
-
-    .wheel-result-desc {
-      font-size: 1rem;
-      color: var(--text-secondary);
-    }
-
-    .wheel-placeholder {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-    }
-
-    .wheel-placeholder-thai {
-      font-size: 0.95rem;
-      color: var(--gold);
-      font-family: 'Noto Sans Thai', sans-serif;
-      margin-top: 8px;
-    }
-
-    .challenge-list {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .challenge-preview {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 12px 8px;
-      text-align: center;
-      font-size: 1.5rem;
-    }
-
-    /* ==================== 遊戲3: 射龍門 ==================== */
+    /* ==================== 遊戲2: 射龍門 ==================== */
     .dragon-gate {
       width: 100%;
       margin: 24px 0;
@@ -735,16 +660,6 @@
         <span class="game-arrow">→</span>
       </div>
 
-      <div class="game-card" onclick="startGame('wheel')">
-        <span class="game-icon">🎡</span>
-        <div class="game-info">
-          <div class="game-name-thai">วงล้อปาร์ตี้</div>
-          <div class="game-name-cn">派對轉盤</div>
-          <div class="game-desc">轉出挑戰任務，誰也逃不了！</div>
-        </div>
-        <span class="game-arrow">→</span>
-      </div>
-
       <div class="game-card" onclick="startGame('dragon')">
         <span class="game-icon">🐉</span>
         <div class="game-info">
@@ -824,49 +739,7 @@
       <button class="back-to-menu" onclick="backToMenu()">← กลับ 返回選單</button>
     </div>
 
-    <!-- 遊戲2: 派對轉盤 -->
-    <div id="wheelGame" class="game-area">
-      <div class="game-intro">
-        <div class="game-intro-title">🎡 派對轉盤</div>
-        <div class="game-intro-title-thai">วงล้อปาร์ตี้</div>
-        <div class="game-intro-text">
-          按下按鈕，隨機抽出一個派對挑戰任務！<br>
-          轉到什麼就要做什麼，沒在怕的吧？😎<br>
-          不敢做的話... 那就喝兩杯代替！🍻
-        </div>
-        <div class="game-intro-text-thai">
-          กดปุ่มเพื่อสุ่มภารกิจปาร์ตี้!<br>
-          หมุนได้อะไรก็ต้องทำ ไม่กลัวใช่ไหม? 😎<br>
-          ถ้าไม่กล้าทำ... ก็ดื่มสองแก้วแทน! 🍻
-        </div>
-      </div>
-
-      <div class="wheel-section">
-        <div class="wheel-display" id="wheelDisplay">
-          <div class="wheel-placeholder">按下按鈕開始轉！</div>
-          <div class="wheel-placeholder-thai">กดปุ่มเพื่อเริ่มหมุน!</div>
-          <div class="challenge-list">
-            <div class="challenge-preview">🍺</div>
-            <div class="challenge-preview">😂</div>
-            <div class="challenge-preview">🐷</div>
-            <div class="challenge-preview">💃</div>
-            <div class="challenge-preview">🎤</div>
-            <div class="challenge-preview">🏋️</div>
-            <div class="challenge-preview">💬</div>
-            <div class="challenge-preview">🎭</div>
-          </div>
-        </div>
-
-        <button class="btn btn-primary" id="spinBtn" onclick="spinWheel()">
-          <span class="btn-thai">หมุนเลย!</span>
-          🎡 轉起來！
-        </button>
-      </div>
-
-      <button class="back-to-menu" onclick="backToMenu()">← กลับ 返回選單</button>
-    </div>
-
-    <!-- 遊戲3: 射龍門 -->
+    <!-- 遊戲2: 射龍門 -->
     <div id="dragonGame" class="game-area">
       <div class="game-intro">
         <div class="game-intro-title" id="dragonTitle" onclick="handleCheatClick()">🐉 射龍門</div>
@@ -1052,63 +925,7 @@
       }, 1500);
     }
 
-    // ==================== 遊戲2: 派對轉盤 ====================
-    const challenges = [
-      { thai: 'ดื่มหนึ่งอึก!', cn: '喝一口！', icon: '🍺', desc: '乾掉你的飲料一口' },
-      { thai: 'เล่าเรื่องตลก', cn: '講個笑話', icon: '😂', desc: '讓大家笑出來才算過關' },
-      { thai: 'เลียนเสียงสัตว์', cn: '學動物叫', icon: '🐷', desc: '選一種動物，學牠叫 3 聲' },
-      { thai: 'เต้นรำ 10 วินาที', cn: '跳舞 10 秒', icon: '💃', desc: '放首歌，跳 10 秒鐘' },
-      { thai: 'ร้องเพลง!', cn: '唱一段歌', icon: '🎤', desc: '唱一小段你最愛的歌' },
-      { thai: 'สควอท 10 ครั้ง', cn: '深蹲 10 下', icon: '🏋️', desc: '標準深蹲，做完才算' },
-      { thai: 'ตอบความจริง', cn: '真心話', icon: '💬', desc: '誠實回答左邊的人一個問題' },
-      { thai: 'ท้าทาย!', cn: '大冒險', icon: '🎭', desc: '接受右邊的人給你的挑戰' },
-      { thai: 'ดื่มสองอึก!', cn: '喝兩口！', icon: '🍻', desc: '連續喝兩口' },
-      { thai: 'บอกความลับ', cn: '說個秘密', icon: '🤫', desc: '分享一個你的小秘密' },
-      { thai: 'กอดคนข้างๆ', cn: '抱旁邊的人', icon: '🤗', desc: '給左右任一人一個擁抱' },
-      { thai: 'ทำหน้าตลก', cn: '做鬼臉', icon: '🤪', desc: '做一個最醜的鬼臉' }
-    ];
-
-    let isSpinning = false;
-
-    function spinWheel() {
-      if (isSpinning) return;
-      isSpinning = true;
-
-      const displayEl = document.getElementById('wheelDisplay');
-      const spinBtn = document.getElementById('spinBtn');
-      spinBtn.disabled = true;
-
-      // 快速切換動畫
-      let count = 0;
-      const maxCount = 20 + Math.floor(Math.random() * 10);
-      const interval = setInterval(() => {
-        const randomChallenge = challenges[Math.floor(Math.random() * challenges.length)];
-        displayEl.innerHTML = `
-          <div class="wheel-result-icon">${randomChallenge.icon}</div>
-          <div class="wheel-result-cn">${randomChallenge.cn}</div>
-          <div class="wheel-result-thai">${randomChallenge.thai}</div>
-        `;
-        count++;
-
-        if (count >= maxCount) {
-          clearInterval(interval);
-
-          // 最終結果
-          const finalChallenge = challenges[Math.floor(Math.random() * challenges.length)];
-          displayEl.innerHTML = `
-            <div class="wheel-result-icon" style="animation: bounce 0.5s ease">${finalChallenge.icon}</div>
-            <div class="wheel-result-cn">${finalChallenge.cn}</div>
-            <div class="wheel-result-thai">${finalChallenge.thai}</div>
-            <div class="wheel-result-desc">${finalChallenge.desc}</div>
-          `;
-
-          isSpinning = false;
-          spinBtn.disabled = false;
-        }
-      }, 100);
-    }
-
-    // ==================== 遊戲3: 射龍門 ====================
+    // ==================== 遊戲2: 射龍門 ====================
     const cardValues = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
     const suits = ['♠', '♥', '♦', '♣'];
     let card1Val, card2Val, card3Val;

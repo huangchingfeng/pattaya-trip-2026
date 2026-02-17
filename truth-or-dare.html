@@ -12,13 +12,10 @@
       --neon-pink: #ff00ff;
       --neon-blue: #00ffff;
       --neon-purple: #bf00ff;
-      --neon-orange: #ff6b35;
-      --neon-green: #00ff88;
       --gold: #ffd700;
       --warm-pink: #ff6b6b;
       --hot-red: #e74c3c;
       --bg-primary: #0a0a0f;
-      --bg-secondary: #12121a;
       --bg-card: rgba(18, 18, 26, 0.95);
       --text-primary: #ffffff;
       --text-secondary: rgba(255, 255, 255, 0.8);
@@ -120,7 +117,7 @@
     }
 
     .version-title {
-      font-size: 2.5rem;
+      font-size: 4rem;
       margin-bottom: 8px;
     }
 
@@ -176,12 +173,6 @@
       font-family: 'Noto Sans Thai', sans-serif;
     }
 
-    .version-name-en {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-style: italic;
-    }
-
     .version-desc {
       font-size: 0.9rem;
       color: var(--text-secondary);
@@ -192,6 +183,16 @@
       margin-top: 16px;
       font-size: 0.85rem;
       color: var(--neon-blue);
+    }
+
+    .warning-badge {
+      display: inline-block;
+      background: rgba(231, 76, 60, 0.2);
+      color: var(--hot-red);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-top: 12px;
     }
 
     /* 遊戲區 */
@@ -210,303 +211,6 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ==================== 拉霸機樣式 ==================== */
-    .slot-machine {
-      width: 100%;
-      background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
-      border-radius: 24px;
-      padding: 20px;
-      margin-bottom: 24px;
-      position: relative;
-      box-shadow:
-        0 0 0 4px #2a2a4a,
-        0 0 0 8px #1a1a2e,
-        0 20px 60px rgba(0,0,0,0.5),
-        inset 0 2px 0 rgba(255,255,255,0.1);
-    }
-
-    .slot-machine::before {
-      content: '';
-      position: absolute;
-      top: -4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--neon-pink), var(--gold), var(--neon-blue));
-      border-radius: 2px;
-    }
-
-    .slot-machine.warmup {
-      box-shadow:
-        0 0 0 4px var(--warm-pink),
-        0 0 0 8px rgba(255, 107, 107, 0.3),
-        0 20px 60px rgba(255, 107, 107, 0.2),
-        inset 0 2px 0 rgba(255,255,255,0.1);
-    }
-
-    .slot-machine.spicy {
-      box-shadow:
-        0 0 0 4px var(--hot-red),
-        0 0 0 8px rgba(231, 76, 60, 0.3),
-        0 20px 60px rgba(231, 76, 60, 0.2),
-        inset 0 2px 0 rgba(255,255,255,0.1);
-    }
-
-    .slot-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-      padding: 0 8px;
-    }
-
-    .slot-lights {
-      display: flex;
-      gap: 8px;
-    }
-
-    .slot-light {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      animation: blink 0.5s ease-in-out infinite alternate;
-    }
-
-    .slot-light:nth-child(1) { background: var(--neon-pink); animation-delay: 0s; }
-    .slot-light:nth-child(2) { background: var(--gold); animation-delay: 0.1s; }
-    .slot-light:nth-child(3) { background: var(--neon-blue); animation-delay: 0.2s; }
-
-    @keyframes blink {
-      from { opacity: 0.4; }
-      to { opacity: 1; }
-    }
-
-    .slot-number {
-      font-size: 0.85rem;
-      color: var(--gold);
-      font-weight: 700;
-    }
-
-    /* 滾輪容器 */
-    .slot-container {
-      background: linear-gradient(180deg, #0a0a12 0%, #15152a 50%, #0a0a12 100%);
-      border-radius: 16px;
-      height: 320px;
-      overflow: hidden;
-      position: relative;
-      border: 3px solid #2a2a4a;
-    }
-
-    /* 遮罩效果 - 上下漸層 */
-    .slot-container::before,
-    .slot-container::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 80px;
-      z-index: 10;
-      pointer-events: none;
-    }
-
-    .slot-container::before {
-      top: 0;
-      background: linear-gradient(180deg, rgba(10,10,18,1) 0%, rgba(10,10,18,0) 100%);
-    }
-
-    .slot-container::after {
-      bottom: 0;
-      background: linear-gradient(0deg, rgba(10,10,18,1) 0%, rgba(10,10,18,0) 100%);
-    }
-
-    /* 中央高亮線 */
-    .slot-highlight {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 140px;
-      transform: translateY(-50%);
-      border-top: 2px solid var(--neon-pink);
-      border-bottom: 2px solid var(--neon-pink);
-      background: rgba(255, 0, 255, 0.05);
-      z-index: 5;
-      pointer-events: none;
-      box-shadow:
-        inset 0 0 30px rgba(255, 0, 255, 0.1),
-        0 0 20px rgba(255, 0, 255, 0.2);
-    }
-
-    /* 滾輪 */
-    .slot-reel {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-    }
-
-    /* 快速滾動動畫 */
-    @keyframes fast-spin {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-960px); }
-    }
-
-    .slot-reel.spinning {
-      filter: blur(3px);
-      animation: fast-spin 0.15s linear infinite;
-    }
-
-    .slot-reel.stopping {
-      filter: blur(0);
-      animation: none;
-      transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .slot-reel.stopped {
-      filter: blur(0);
-      animation: none;
-      transition: none;
-    }
-
-    /* 單個題目項 */
-    .slot-item {
-      height: 320px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 30px 20px;
-      text-align: center;
-    }
-
-    .slot-emoji {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-
-    .slot-text-cn {
-      font-size: 1.3rem;
-      font-weight: 700;
-      line-height: 1.5;
-      margin-bottom: 16px;
-      color: var(--text-primary);
-    }
-
-    .slot-text-thai {
-      font-size: 1rem;
-      color: var(--gold);
-      font-family: 'Noto Sans Thai', sans-serif;
-      line-height: 1.4;
-      margin-bottom: 12px;
-    }
-
-    .slot-text-en {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      font-style: italic;
-      line-height: 1.4;
-    }
-
-    /* 中獎動畫 */
-    @keyframes winner-bounce {
-      0%, 100% { transform: scale(1); }
-      25% { transform: scale(1.05); }
-      50% { transform: scale(0.98); }
-      75% { transform: scale(1.02); }
-    }
-
-    @keyframes winner-glow {
-      0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
-      50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 0, 255, 0.3); }
-    }
-
-    .slot-machine.winner {
-      animation: winner-bounce 0.6s ease, winner-glow 1s ease infinite;
-    }
-
-    .slot-machine.winner .slot-item.active {
-      animation: winner-bounce 0.5s ease;
-    }
-
-    /* ==================== 拉霸按鈕 ==================== */
-    .pull-btn {
-      width: 100%;
-      padding: 24px 32px;
-      border-radius: 20px;
-      font-size: 1.5rem;
-      font-weight: 900;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      background: linear-gradient(135deg, #ff0080, #ff8c00, #ff0080);
-      background-size: 200% 200%;
-      color: white;
-      box-shadow:
-        0 8px 32px rgba(255, 0, 128, 0.4),
-        inset 0 2px 0 rgba(255,255,255,0.2),
-        inset 0 -2px 0 rgba(0,0,0,0.2);
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-
-    .pull-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .pull-btn:hover::before {
-      left: 100%;
-    }
-
-    .pull-btn:hover {
-      transform: translateY(-4px) scale(1.02);
-      background-position: 100% 50%;
-      box-shadow:
-        0 12px 40px rgba(255, 0, 128, 0.6),
-        inset 0 2px 0 rgba(255,255,255,0.2),
-        inset 0 -2px 0 rgba(0,0,0,0.2);
-    }
-
-    .pull-btn:active {
-      transform: translateY(2px) scale(0.98);
-    }
-
-    .pull-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-      animation: shake 0.1s ease infinite;
-    }
-
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-2px); }
-      75% { transform: translateX(2px); }
-    }
-
-    .pull-btn .btn-main {
-      display: block;
-      font-size: 1.4rem;
-    }
-
-    .pull-btn .btn-thai {
-      display: block;
-      font-size: 1rem;
-      color: var(--gold);
-      font-family: 'Noto Sans Thai', sans-serif;
-      margin-top: 4px;
     }
 
     /* 進度條 */
@@ -531,6 +235,144 @@
     @keyframes progress-shine {
       from { background-position: 200% 0; }
       to { background-position: -200% 0; }
+    }
+
+    /* ==================== 題目顯示區 ==================== */
+    .question-display {
+      width: 100%;
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 40px 24px;
+      margin-bottom: 24px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .question-display.warmup {
+      border: 3px solid var(--warm-pink);
+      box-shadow: 0 0 40px rgba(255, 107, 107, 0.2);
+    }
+
+    .question-display.spicy {
+      border: 3px solid var(--hot-red);
+      box-shadow: 0 0 40px rgba(231, 76, 60, 0.2);
+    }
+
+    .question-number {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .question-emoji {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      animation: bounce 0.5s ease;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .question-cn {
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      color: var(--neon-pink);
+    }
+
+    .question-thai {
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .question-en {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .placeholder-text {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+    }
+
+    .placeholder-thai {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-top: 8px;
+      font-family: 'Noto Sans Thai', sans-serif;
+    }
+
+    /* 轉動中的閃爍效果 */
+    .question-display.spinning {
+      animation: glow-pulse 0.3s ease infinite;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 255, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(255, 0, 255, 0.6); }
+    }
+
+    /* 中獎效果 */
+    .question-display.winner .question-emoji {
+      animation: bounce 0.5s ease;
+    }
+
+    /* ==================== 按鈕 ==================== */
+    .spin-btn {
+      width: 100%;
+      padding: 24px 32px;
+      border-radius: 20px;
+      font-size: 1.5rem;
+      font-weight: 900;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #ff0080, #ff8c00, #ff0080);
+      background-size: 200% 200%;
+      color: white;
+      box-shadow: 0 8px 32px rgba(255, 0, 128, 0.4);
+      margin-bottom: 16px;
+    }
+
+    .spin-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      background-position: 100% 50%;
+      box-shadow: 0 12px 40px rgba(255, 0, 128, 0.6);
+    }
+
+    .spin-btn:active {
+      transform: translateY(2px) scale(0.98);
+    }
+
+    .spin-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .spin-btn .btn-thai {
+      display: block;
+      font-size: 1rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+      margin-top: 4px;
     }
 
     .btn-back {
@@ -589,31 +431,6 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(255, 0, 255, 0.6);
     }
-
-    /* 警告提示 */
-    .warning-badge {
-      display: inline-block;
-      background: rgba(231, 76, 60, 0.2);
-      color: var(--hot-red);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      margin-top: 12px;
-    }
-
-    /* 提示訊息 */
-    .hint-text {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin-bottom: 16px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .hint-text.show {
-      opacity: 1;
-    }
   </style>
 </head>
 <body>
@@ -642,7 +459,6 @@
         <div class="version-icon">💕</div>
         <div class="version-name">暖身版</div>
         <div class="version-name-thai">เวอร์ชันอุ่นเครื่อง</div>
-        <div class="version-name-en">Warm-up Edition</div>
         <div class="version-desc">戀愛、曖昧、初戀話題<br>適合剛認識的朋友</div>
         <div class="version-count">🎯 38 道題目</div>
       </div>
@@ -651,7 +467,6 @@
         <div class="version-icon">🔥</div>
         <div class="version-name">夜生活版</div>
         <div class="version-name-thai">เวอร์ชันไนท์ไลฟ์</div>
-        <div class="version-name-en">Nightlife Edition</div>
         <div class="version-desc">18禁深夜話題<br>僅限成人派對</div>
         <div class="version-count">🔥 90 道題目</div>
         <div class="warning-badge">🔞 18+ Only</div>
@@ -664,35 +479,16 @@
         <div class="progress-fill" id="progressFill" style="width: 0%"></div>
       </div>
 
-      <!-- 拉霸機 -->
-      <div class="slot-machine" id="slotMachine">
-        <div class="slot-header">
-          <div class="slot-lights">
-            <div class="slot-light"></div>
-            <div class="slot-light"></div>
-            <div class="slot-light"></div>
-          </div>
-          <div class="slot-number" id="slotNumber">#1</div>
-          <div class="slot-lights">
-            <div class="slot-light"></div>
-            <div class="slot-light"></div>
-            <div class="slot-light"></div>
-          </div>
-        </div>
-
-        <div class="slot-container">
-          <div class="slot-highlight"></div>
-          <div class="slot-reel" id="slotReel">
-            <!-- 動態生成題目 -->
-          </div>
-        </div>
+      <!-- 題目顯示區 -->
+      <div class="question-display" id="questionDisplay">
+        <div class="question-number" id="questionNumber">#1</div>
+        <div class="placeholder-text">按下按鈕開始轉！</div>
+        <div class="placeholder-thai">กดปุ่มเพื่อเริ่มหมุน!</div>
       </div>
 
-      <div class="hint-text" id="hintText">回答完畢後再拉一次！ ตอบแล้วดึงอีกครั้ง!</div>
-
-      <button class="pull-btn" id="pullBtn" onclick="spinSlot()">
-        <span class="btn-main">🎰 拉一下！</span>
-        <span class="btn-thai">ดึง!</span>
+      <button class="spin-btn" id="spinBtn" onclick="spinQuestion()">
+        <span>🎰 轉起來！</span>
+        <span class="btn-thai">หมุนเลย!</span>
       </button>
 
       <button class="btn-back" onclick="backToSelect()">← กลับ 返回選擇</button>
@@ -863,46 +659,21 @@
       document.getElementById('gameArea').classList.add('active');
       document.getElementById('completeScreen').classList.remove('active');
 
-      const machine = document.getElementById('slotMachine');
-      machine.className = 'slot-machine ' + version;
+      const displayEl = document.getElementById('questionDisplay');
+      displayEl.className = 'question-display ' + version;
 
-      // 初始化滾輪
-      initializeSlotReel();
-    }
-
-    function initializeSlotReel() {
-      const reel = document.getElementById('slotReel');
-      reel.innerHTML = '';
-
-      // 清除所有 inline styles
-      reel.style.transform = '';
-      reel.style.transition = '';
-      reel.style.height = '';
-      reel.className = 'slot-reel';
-
-      // 顯示初始題目
-      const randomIndex = Math.floor(Math.random() * currentQuestions.length);
-      const question = currentQuestions[randomIndex];
-
-      const item = createSlotItem(question, true);
-      reel.appendChild(item);
-
-      document.getElementById('hintText').classList.remove('show');
-    }
-
-    function createSlotItem(question, isActive = false) {
-      const item = document.createElement('div');
-      item.className = 'slot-item' + (isActive ? ' active' : '');
-      item.innerHTML = `
-        <div class="slot-emoji">${question.emoji}</div>
-        <div class="slot-text-cn">${question.cn}</div>
-        <div class="slot-text-thai">${question.th}</div>
-        <div class="slot-text-en">${question.en}</div>
+      // 重置顯示
+      displayEl.innerHTML = `
+        <div class="question-number" id="questionNumber">#1</div>
+        <div class="placeholder-text">按下按鈕開始轉！</div>
+        <div class="placeholder-thai">กดปุ่มเพื่อเริ่มหมุน!</div>
       `;
-      return item;
+
+      document.getElementById('progressFill').style.width = '0%';
+      document.getElementById('questionCount').textContent = '';
     }
 
-    function spinSlot() {
+    function spinQuestion() {
       if (isSpinning) return;
 
       // 檢查是否已經用完所有題目
@@ -912,14 +683,12 @@
       }
 
       isSpinning = true;
-      const pullBtn = document.getElementById('pullBtn');
-      const machine = document.getElementById('slotMachine');
-      const reel = document.getElementById('slotReel');
-      const hintText = document.getElementById('hintText');
+      const spinBtn = document.getElementById('spinBtn');
+      const displayEl = document.getElementById('questionDisplay');
 
-      pullBtn.disabled = true;
-      machine.classList.remove('winner');
-      hintText.classList.remove('show');
+      spinBtn.disabled = true;
+      displayEl.classList.add('spinning');
+      displayEl.classList.remove('winner');
 
       // 選擇最終停止的題目（尚未使用過的）
       let finalIndex;
@@ -930,60 +699,47 @@
       usedIndices.push(finalIndex);
       questionCount++;
 
-      // 生成滾動題目列表（包含重複以製造連續滾動效果）
-      const totalItems = 20; // 總共滾動的項目數
-      const items = [];
+      // 快速切換動畫（派對轉盤效果）
+      let count = 0;
+      const maxCount = 25 + Math.floor(Math.random() * 10); // 25-35 次切換
 
-      for (let i = 0; i < totalItems - 1; i++) {
-        const randomIdx = Math.floor(Math.random() * currentQuestions.length);
-        items.push(currentQuestions[randomIdx]);
-      }
-      items.push(currentQuestions[finalIndex]); // 最後一個是目標題目
+      const interval = setInterval(() => {
+        const randomQuestion = currentQuestions[Math.floor(Math.random() * currentQuestions.length)];
+        displayEl.innerHTML = `
+          <div class="question-number">#${questionCount}</div>
+          <div class="question-emoji">${randomQuestion.emoji}</div>
+          <div class="question-cn">${randomQuestion.cn}</div>
+          <div class="question-thai">${randomQuestion.th}</div>
+        `;
+        count++;
 
-      // 清空並重建滾輪
-      reel.innerHTML = '';
-      items.forEach((q, idx) => {
-        const item = createSlotItem(q, idx === items.length - 1);
-        reel.appendChild(item);
-      });
+        if (count >= maxCount) {
+          clearInterval(interval);
 
-      // 設定滾輪高度
-      const itemHeight = 320;
-      reel.style.height = (items.length * itemHeight) + 'px';
+          // 最終結果
+          const finalQuestion = currentQuestions[finalIndex];
+          displayEl.innerHTML = `
+            <div class="question-number">#${questionCount}</div>
+            <div class="question-emoji">${finalQuestion.emoji}</div>
+            <div class="question-cn">${finalQuestion.cn}</div>
+            <div class="question-thai">${finalQuestion.th}</div>
+            <div class="question-en">${finalQuestion.en}</div>
+          `;
 
-      // 開始快速滾動動畫
-      reel.style.transform = '';
-      reel.style.transition = '';
-      reel.className = 'slot-reel spinning';
+          displayEl.classList.remove('spinning');
+          displayEl.classList.add('winner');
 
-      // 滾動 2.5 秒後開始減速停止
-      const spinDuration = 2500;
-      const finalPosition = -itemHeight * (items.length - 1);
+          isSpinning = false;
+          spinBtn.disabled = false;
 
-      setTimeout(() => {
-        // 用 requestAnimationFrame 確保正確觸發 transition
-        requestAnimationFrame(() => {
-          reel.className = 'slot-reel stopping';
-          reel.style.transform = `translateY(${finalPosition}px)`;
-        });
-      }, spinDuration);
+          // 更新計數
+          document.getElementById('questionCount').textContent = `${questionCount}/${currentQuestions.length}`;
 
-      // 動畫結束（滾動 1s + 減速 1.2s = 2.2s）
-      setTimeout(() => {
-        reel.className = 'slot-reel stopped';
-        isSpinning = false;
-        pullBtn.disabled = false;
-        machine.classList.add('winner');
-        hintText.classList.add('show');
-
-        // 更新計數
-        document.getElementById('slotNumber').textContent = `#${questionCount}`;
-        document.getElementById('questionCount').textContent = `${questionCount}/${currentQuestions.length}`;
-
-        // 更新進度條
-        const progress = (usedIndices.length / currentQuestions.length) * 100;
-        document.getElementById('progressFill').style.width = progress + '%';
-      }, spinDuration + 1200);
+          // 更新進度條
+          const progress = (usedIndices.length / currentQuestions.length) * 100;
+          document.getElementById('progressFill').style.width = progress + '%';
+        }
+      }, 80); // 每 80ms 切換一次
     }
 
     function showComplete() {
@@ -997,8 +753,14 @@
       document.getElementById('completeScreen').classList.remove('active');
       document.getElementById('gameArea').classList.add('active');
       document.getElementById('progressFill').style.width = '0%';
-      document.getElementById('slotNumber').textContent = '#1';
-      initializeSlotReel();
+
+      const displayEl = document.getElementById('questionDisplay');
+      displayEl.innerHTML = `
+        <div class="question-number" id="questionNumber">#1</div>
+        <div class="placeholder-text">按下按鈕開始轉！</div>
+        <div class="placeholder-thai">กดปุ่มเพื่อเริ่มหมุน!</div>
+      `;
+      displayEl.classList.remove('winner');
     }
 
     function backToSelect() {

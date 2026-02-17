@@ -889,6 +889,12 @@
       </div>
 
       <div class="dragon-gate">
+        <!-- 發新牌按鈕放最上面 -->
+        <button class="btn btn-primary btn-large" id="dealBtn" onclick="dealCards()" style="margin-bottom: 20px; padding: 20px 60px; font-size: 1.3rem;">
+          🃏 點我發牌開始！
+          <span class="btn-thai" style="display: block; margin-top: 4px;">แตะเพื่อแจกไพ่!</span>
+        </button>
+
         <div class="cards-display">
           <div class="card" id="card1">
             <span id="card1Value">?</span>
@@ -921,14 +927,9 @@
           </button>
         </div>
 
-        <button class="btn btn-primary" id="dealBtn" onclick="dealCards()">
-          <span class="btn-thai">แจกไพ่ใหม่</span>
-          🃏 發新牌
-        </button>
-
         <div class="result-display" id="dragonResult">
-          <span style="color: var(--text-muted)">按「發新牌」開始遊戲</span>
-          <span class="result-thai">กด "แจกไพ่ใหม่" เพื่อเริ่มเกม</span>
+          <span style="color: var(--text-muted)">👆 點上方按鈕開始遊戲</span>
+          <span class="result-thai">👆 แตะปุ่มด้านบนเพื่อเริ่มเกม</span>
         </div>
       </div>
 
@@ -1136,8 +1137,9 @@
       document.getElementById('card3').className = 'card';
       document.getElementById('card3Value').textContent = '?';
       document.getElementById('card3Suit').textContent = '';
-      document.getElementById('dragonResult').innerHTML = '<span style="color: var(--text-muted)">按「發新牌」開始遊戲</span><span class="result-thai">กด "แจกไพ่ใหม่" เพื่อเริ่มเกม</span>';
+      document.getElementById('dragonResult').innerHTML = '<span style="color: var(--text-muted)">👆 點上方按鈕開始遊戲</span><span class="result-thai">👆 แตะปุ่มด้านบนเพื่อเริ่มเกม</span>';
       document.getElementById('dragonResult').className = 'result-display';
+      document.getElementById('dealBtn').innerHTML = '🃏 點我發牌開始！<span class="btn-thai" style="display: block; margin-top: 4px;">แตะเพื่อแจกไพ่!</span>';
       setDragonBtnsDisabled(true);
       gamePhase = 'deal';
     }
@@ -1190,6 +1192,9 @@
 
       setDragonBtnsDisabled(false);
       gamePhase = 'guess';
+
+      // 更新按鈕文字
+      document.getElementById('dealBtn').innerHTML = '🔄 再發一次<span class="btn-thai" style="display: block; margin-top: 4px;">แจกใหม่</span>';
     }
 
     function guessDragon(guess) {

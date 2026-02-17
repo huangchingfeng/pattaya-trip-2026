@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>芭達雅夜生活攻略 2026</title>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --neon-pink: #ff00ff;
+      --neon-blue: #00ffff;
+      --neon-purple: #bf00ff;
+      --neon-orange: #ff6b35;
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: rgba(18, 18, 26, 0.85);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.8);
+      --text-muted: rgba(255, 255, 255, 0.5);
+      --safe-top: env(safe-area-inset-top, 20px);
+      --safe-bottom: env(safe-area-inset-bottom, 20px);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* 頁面切換導航 */
+    .page-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 8px) 16px 12px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-btn {
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      color: white;
+      box-shadow: 0 0 20px rgba(255,0,255,0.4);
+    }
+
+    .nav-btn:not(.active) {
+      background: transparent;
+      border-color: var(--text-muted);
+      color: var(--text-muted);
+    }
+
+    .nav-btn:not(.active):hover {
+      border-color: var(--neon-pink);
+      color: var(--neon-pink);
+    }
+
+    /* 內容區 */
+    .content-wrapper {
+      padding-top: calc(var(--safe-top) + 70px);
+      padding-bottom: calc(var(--safe-bottom) + 80px);
+    }
+
+    /* 頁面區塊 */
+    .section {
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    /* 動態背景 */
+    .animated-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(-45deg, #0a0a0f, #1a0a2e, #0a1a2e, #0a0a0f);
+      background-size: 400% 400%;
+      animation: gradient-shift 15s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 標題區 */
+    .hero-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .big-number {
+      font-size: clamp(5rem, 20vw, 10rem);
+      font-weight: 900;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--neon-pink);
+      text-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+      line-height: 1;
+    }
+
+    .neon-title {
+      font-size: clamp(2rem, 8vw, 4rem);
+      font-weight: 900;
+      color: var(--text-primary);
+      text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
+      margin: 16px 0;
+      animation: neon-pulse 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes neon-pulse {
+      from { text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink); }
+      to { text-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink), 0 0 60px var(--neon-pink); }
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    /* 統計網格 */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 400px;
+      width: 100%;
+      margin: 24px auto;
+    }
+
+    .stat-item {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--neon-blue);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* 區塊標題 */
+    .section-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* ==================== 泰語學習區 ==================== */
+    #thai-section {
+      padding: 40px 16px;
+    }
+
+    /* 分類標籤 */
+    .category-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 24px;
+      max-width: 600px;
+    }
+
+    .category-tab {
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: var(--bg-card);
+      color: var(--text-secondary);
+    }
+
+    .category-tab:hover {
+      transform: translateY(-2px);
+    }
+
+    .category-tab.active {
+      color: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    /* 情境搜尋 */
+    .scenario-input-wrapper {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto 32px;
+    }
+
+    .scenario-input {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 2px solid rgba(255,255,255,0.1);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-size: 1rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .scenario-input:focus {
+      outline: none;
+      border-color: var(--neon-pink);
+      box-shadow: 0 0 20px rgba(255,0,255,0.2);
+    }
+
+    .scenario-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .ai-suggestion {
+      margin-top: 12px;
+      padding: 16px;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+      border-radius: 12px;
+      border: 1px solid rgba(102, 126, 234, 0.3);
+      display: none;
+    }
+
+    .ai-suggestion.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .ai-suggestion-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--neon-blue);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 泰語卡片網格 */
+    .phrases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .phrase-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .phrase-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--neon-pink);
+      box-shadow: 0 8px 25px rgba(255,0,255,0.2);
+    }
+
+    .phrase-card:active {
+      transform: scale(0.95);
+    }
+
+    .phrase-emoji {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .phrase-chinese {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .phrase-thai {
+      font-size: 0.85rem;
+      color: var(--neon-blue);
+      margin-bottom: 4px;
+    }
+
+    .phrase-phonetic {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.05);
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    /* 載入更多 */
+    .load-more-btn {
+      margin: 32px auto;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .load-more-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255,0,255,0.4);
+    }
+
+    .phrase-count {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 16px;
+    }
+
+    /* ==================== 泰語 Modal ==================== */
+    .thai-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .thai-modal.active {
+      display: flex;
+    }
+
+    .thai-modal-content {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 24px;
+      padding: 40px 24px;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      animation: scale-in 0.3s ease;
+    }
+
+    @keyframes scale-in {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .thai-modal-emoji {
+      font-size: 4rem;
+      margin-bottom: 16px;
+    }
+
+    .thai-modal-thai {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 16px;
+      line-height: 1.3;
+      word-break: keep-all;
+    }
+
+    .thai-modal-chinese {
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 8px;
+    }
+
+    .thai-modal-phonetic {
+      font-size: 1.2rem;
+      color: #ffd700;
+      background: rgba(0,0,0,0.3);
+      padding: 12px 24px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .thai-modal-scenario {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 24px;
+    }
+
+    .thai-modal-close {
+      padding: 14px 48px;
+      background: white;
+      color: #667eea;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ==================== 夜生活區 ==================== */
+    .nightlife-section {
+      padding: 40px 16px;
+    }
+
+    .venue-list {
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .venue-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 16px 0;
+      border-left: 4px solid var(--neon-pink);
+      transition: transform 0.3s ease;
+    }
+
+    .venue-card:hover {
+      transform: translateX(4px);
+    }
+
+    .venue-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .venue-info {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .venue-tag {
+      display: inline-block;
+      background: rgba(255, 0, 255, 0.2);
+      color: var(--neon-pink);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-top: 8px;
+    }
+
+    /* 時間軸 */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+      text-align: left;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--neon-blue), var(--neon-pink), var(--neon-purple));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+      padding-left: 16px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--neon-pink);
+      box-shadow: 0 0 10px var(--neon-pink);
+    }
+
+    .timeline-time {
+      font-size: 0.9rem;
+      color: var(--neon-blue);
+      font-weight: 700;
+    }
+
+    .timeline-content {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* 玻璃卡片 */
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 24px;
+      margin: 16px 0;
+      text-align: left;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .glass-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: var(--neon-blue);
+    }
+
+    .glass-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* 底部導航 */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 12px 16px calc(var(--safe-bottom) + 12px);
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      z-index: 1000;
+    }
+
+    .bottom-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .bottom-nav-item.active,
+    .bottom-nav-item:hover {
+      color: var(--neon-pink);
+    }
+
+    .bottom-nav-item span:first-child {
+      font-size: 1.5rem;
+    }
+
+    /* 隱藏區塊 */
+    .section-content {
+      display: none;
+    }
+
+    .section-content.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
+
+  <!-- 頁面導航 -->
+  <nav class="page-nav">
+    <a href="day.html" class="nav-btn">☀️ 白天</a>
+    <a href="night.html" class="nav-btn active">🌙 夜晚</a>
+  </nav>
+
+  <!-- 內容區 -->
+  <div class="content-wrapper">
+
+    <!-- 首頁區塊 -->
+    <section id="home" class="section-content active">
+      <div class="hero-section">
+        <div class="big-number">6</div>
+        <h1 class="neon-title">夜芭達雅</h1>
+        <p class="subtitle">2026/3/16 - 3/22 完整攻略</p>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">6</div>
+            <div class="stat-label">精彩夜晚</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-label">夜生活區</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">推薦場所</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">320</div>
+            <div class="stat-label">泰語金句</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 泰語學習區 -->
+    <section id="thai" class="section-content">
+      <div class="section-header">
+        <h2 class="section-title">泰語必學 320+</h2>
+        <p class="section-subtitle">點擊卡片查看詳細發音</p>
+      </div>
+
+      <!-- 情境搜尋 -->
+      <div class="scenario-input-wrapper">
+        <input type="text" class="scenario-input" id="scenarioInput"
+               placeholder="描述你的情境，例如：想跟酒吧女生搭訕...">
+        <div class="ai-suggestion" id="aiSuggestion">
+          <div class="ai-suggestion-header">
+            <span>💡</span>
+            <span>AI 建議</span>
+          </div>
+          <div id="suggestionText"></div>
+        </div>
+      </div>
+
+      <!-- 分類標籤 -->
+      <div class="category-tabs" id="categoryTabs">
+        <!-- 動態生成 -->
+      </div>
+
+      <!-- 泰語卡片 -->
+      <div class="phrases-grid" id="phrasesGrid">
+        <!-- 動態生成 -->
+      </div>
+
+      <div class="phrase-count" id="phraseCount">顯示 0 / 0 句</div>
+
+      <button class="load-more-btn" id="loadMoreBtn" style="display: none;">
+        載入更多
+      </button>
+    </section>
+
+    <!-- 夜生活區 -->
+    <section id="nightlife" class="section-content">
+      <div class="section-header">
+        <h2 class="section-title">夜生活攻略</h2>
+        <p class="section-subtitle">Walking Street & 更多</p>
+      </div>
+
+      <div class="venue-list">
+        <h3 style="color: var(--neon-pink); margin-bottom: 16px;">🔥 Walking Street</h3>
+
+        <div class="venue-card">
+          <div class="venue-name">Republic Club</div>
+          <div class="venue-info">全球 Top 90 夜店・國際 DJ 駐場</div>
+          <span class="venue-tag">2026 最熱</span>
+        </div>
+
+        <div class="venue-card" style="border-color: var(--neon-blue);">
+          <div class="venue-name">Insomnia</div>
+          <div class="venue-info">經典 EDM 電音・營業到凌晨 4 點</div>
+          <span class="venue-tag" style="background: rgba(0,255,255,0.2); color: var(--neon-blue);">必去</span>
+        </div>
+
+        <div class="venue-card" style="border-color: var(--neon-purple);">
+          <div class="venue-name">MYST</div>
+          <div class="venue-info">玩到早上 7-8 點・超長待機</div>
+          <span class="venue-tag" style="background: rgba(191,0,255,0.2); color: var(--neon-purple);">夜貓首選</span>
+        </div>
+
+        <div class="venue-card" style="border-color: var(--neon-orange);">
+          <div class="venue-name">808 Club</div>
+          <div class="venue-info">最時尚設計・Hip-hop/R&B</div>
+          <span class="venue-tag" style="background: rgba(255,107,53,0.2); color: var(--neon-orange);">潮人最愛</span>
+        </div>
+
+        <h3 style="color: var(--neon-blue); margin: 32px 0 16px;">🍸 Rooftop Bar</h3>
+
+        <div class="venue-card" style="border-color: var(--neon-orange);">
+          <div class="venue-name">Horizon Bar</div>
+          <div class="venue-info">Hilton 34F・180 度海灣景觀</div>
+          <span class="venue-tag" style="background: rgba(255,107,53,0.2); color: var(--neon-orange);">最推薦</span>
+        </div>
+
+        <div class="venue-card" style="border-color: var(--neon-blue);">
+          <div class="venue-name">D.I.B Sky Bar</div>
+          <div class="venue-info">38F 芭達雅最高・日落雷射秀</div>
+          <span class="venue-tag" style="background: rgba(0,255,255,0.2); color: var(--neon-blue);">最高</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 攻略區 -->
+    <section id="guide" class="section-content">
+      <div class="section-header">
+        <h2 class="section-title">玩樂攻略</h2>
+        <p class="section-subtitle">內行人的夜間動線</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">19:00 - 21:00</div>
+          <div class="timeline-content">人妖秀暖場<br><small style="color: var(--text-muted);">Tiffany's / Alcazar</small></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">21:00 - 00:00</div>
+          <div class="timeline-content">Walking Street 主場<br><small style="color: var(--text-muted);">逛酒吧、看表演</small></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">00:00 - 02:00</div>
+          <div class="timeline-content">夜店高峰時段<br><small style="color: var(--text-muted);">Hollywood / MYST</small></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">02:00 之後</div>
+          <div class="timeline-content">轉戰 Soi Buakhao<br><small style="color: var(--text-muted);">續攤、深夜美食</small></div>
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <h3>🎯 酒吧遊戲</h3>
+        <p>
+          <strong>Connect 4 四子棋</strong> - 每間酒吧都有，輸的人請一杯<br><br>
+          <strong>Jenga 疊疊樂</strong> - 塔倒了就輸，超適合互動<br><br>
+          <strong>Thai Hi-Lo 骰子</strong> - 猜大小，簡單刺激<br><br>
+          <em style="color: var(--neon-blue);">萬用開場白：「เล่นเกมไหม」（冷給買）= 要玩遊戲嗎？</em>
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <h3>⚠️ 安全提醒</h3>
+        <p>
+          <strong style="color: #ff6b6b;">🚫 電子菸禁令</strong> - 被抓罰 30,000 泰銖甚至遣返！<br><br>
+          <strong style="color: #ffd93d;">💰 永遠先問價格</strong> - 點酒前確認，結帳逐項核對<br><br>
+          <strong style="color: #6bcb77;">🚕 用 Grab 叫車</strong> - 價格透明、有紀錄、最安全<br><br>
+          <em>觀光警察：<strong style="color: var(--neon-blue);">1155</strong>（24小時英語服務）</em>
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 底部導航 -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-item active" data-section="home">
+      <span>🏠</span>
+      <span>首頁</span>
+    </div>
+    <div class="bottom-nav-item" data-section="thai">
+      <span>🇹🇭</span>
+      <span>泰語</span>
+    </div>
+    <div class="bottom-nav-item" data-section="nightlife">
+      <span>🌃</span>
+      <span>夜生活</span>
+    </div>
+    <a href="games.html" class="bottom-nav-item" style="text-decoration: none;">
+      <span>🎮</span>
+      <span>遊戲</span>
+    </a>
+    <div class="bottom-nav-item" data-section="guide">
+      <span>📖</span>
+      <span>攻略</span>
+    </div>
+  </nav>
+
+  <!-- 泰語 Modal -->
+  <div class="thai-modal" id="thaiModal">
+    <div class="thai-modal-content">
+      <div class="thai-modal-emoji" id="modalEmoji">💖</div>
+      <div class="thai-modal-thai" id="modalThai">สวัสดี</div>
+      <div class="thai-modal-chinese" id="modalChinese">你好</div>
+      <div class="thai-modal-phonetic" id="modalPhonetic">🗣️ 薩瓦滴</div>
+      <div class="thai-modal-scenario" id="modalScenario">使用情境：打招呼</div>
+      <button class="thai-modal-close" onclick="closeThaiModal()">關閉</button>
+    </div>
+  </div>
+
+  <script>
+    // 泰語資料 (內嵌以避免 CORS 問題)
+    const phrasesData = {"metadata":{"title":"芭達雅旅遊泰語完整寶典","description":"芭達雅之旅 2026 專用泰語會話集 - 300+ 實用句型","total_phrases":320,"categories":20,"last_updated":"2026-02-17"},"categories":[{"id":"greetings","name":"基本打招呼","icon":"👋","color":"#667eea","phrases":[{"thai":"สวัสดีครับ","phonetic":"薩瓦滴咖","chinese":"你好（男生用）","scenario":"見面打招呼"},{"thai":"สวัสดีค่ะ","phonetic":"薩瓦滴咖","chinese":"你好（女生用）","scenario":"見面打招呼"},{"thai":"เป็นอย่างไรบ้าง","phonetic":"棚央萊邦","chinese":"你好嗎？","scenario":"問候"},{"thai":"สบายดีไหม","phonetic":"沙敗滴買","chinese":"你好嗎？（較親切）","scenario":"問候朋友"},{"thai":"สบายดีครับ","phonetic":"沙敗滴咖","chinese":"我很好","scenario":"回應問候"},{"thai":"ยินดีที่ได้รู้จัก","phonetic":"因滴替代入扎","chinese":"很高興認識你","scenario":"初次見面"},{"thai":"คุณชื่ออะไร","phonetic":"坤丘阿萊","chinese":"你叫什麼名字？","scenario":"詢問名字"},{"thai":"ผมชื่อ...","phonetic":"碰丘...","chinese":"我叫...（男生用）","scenario":"自我介紹"},{"thai":"ฉันชื่อ...","phonetic":"餐丘...","chinese":"我叫...（女生用）","scenario":"自我介紹"},{"thai":"ลาก่อน","phonetic":"拉棍","chinese":"再見","scenario":"道別"},{"thai":"ไว้เจอกัน","phonetic":"外皆甘","chinese":"下次見","scenario":"道別"},{"thai":"โชคดี","phonetic":"綽滴","chinese":"祝好運","scenario":"道別祝福"},{"thai":"ราตรีสวัสดิ์","phonetic":"拉翠沙瓦","chinese":"晚安","scenario":"晚上道別"},{"thai":"แล้วเจอกัน","phonetic":"了皆甘","chinese":"待會見","scenario":"短暫分開"},{"thai":"มาจากไหน","phonetic":"媽扎乃","chinese":"你從哪裡來？","scenario":"詢問來歷"},{"thai":"มาจากไต้หวัน","phonetic":"媽扎台灣","chinese":"我來自台灣","scenario":"自我介紹"}]},{"id":"thanks","name":"感謝道歉","icon":"🙏","color":"#f093fb","phrases":[{"thai":"ขอบคุณครับ","phonetic":"靠坤咖","chinese":"謝謝（男生用）","scenario":"表達感謝"},{"thai":"ขอบคุณค่ะ","phonetic":"靠坤咖","chinese":"謝謝（女生用）","scenario":"表達感謝"},{"thai":"ขอบคุณมาก","phonetic":"靠坤媽","chinese":"非常感謝","scenario":"強調感謝"},{"thai":"ไม่เป็นไร","phonetic":"麥棚萊","chinese":"沒關係/不客氣","scenario":"回應感謝或道歉"},{"thai":"ขอโทษครับ","phonetic":"靠透咖","chinese":"對不起/不好意思","scenario":"道歉"},{"thai":"ฉันไม่ได้ตั้งใจ","phonetic":"餐買代當災","chinese":"我不是故意的","scenario":"解釋錯誤"},{"thai":"ขอโทษที่มาสาย","phonetic":"靠透替媽賽","chinese":"抱歉我遲到了","scenario":"遲到道歉"},{"thai":"ให้อภัยฉันได้ไหม","phonetic":"害阿拍餐代買","chinese":"你能原諒我嗎？","scenario":"請求原諒"},{"thai":"ด้วยความยินดี","phonetic":"對框因滴","chinese":"我很樂意","scenario":"表示願意"},{"thai":"ช่างมันเถอะ","phonetic":"昌滿特","chinese":"算了吧/別放心上","scenario":"叫人不要在意"},{"thai":"ยินดีต้อนรับ","phonetic":"因滴盾辣","chinese":"歡迎","scenario":"歡迎別人"},{"thai":"คุณใจดีมาก","phonetic":"坤災滴媽","chinese":"你人真好","scenario":"稱讚對方"}]},{"id":"restaurant","name":"餐廳點餐","icon":"🍜","color":"#ff6b6b","phrases":[{"thai":"เอาอะไรดี","phonetic":"奧阿萊滴","chinese":"要點什麼？","scenario":"服務生詢問"},{"thai":"เมนูครับ","phonetic":"美奴咖","chinese":"請給我菜單","scenario":"要菜單"},{"thai":"แนะนำอะไรดี","phonetic":"捏南阿萊滴","chinese":"有什麼推薦？","scenario":"請服務生推薦"},{"thai":"ขอ...หนึ่งที่","phonetic":"靠...能替","chinese":"我要一份...","scenario":"點餐"},{"thai":"อร่อยมาก","phonetic":"阿蘿依媽","chinese":"很好吃","scenario":"稱讚食物"},{"thai":"เผ็ดมาก","phonetic":"配媽","chinese":"很辣","scenario":"形容辣度"},{"thai":"ไม่เผ็ด","phonetic":"麥配","chinese":"不要辣","scenario":"點餐備註"},{"thai":"เผ็ดน้อย","phonetic":"配挪","chinese":"小辣","scenario":"點餐備註"},{"thai":"เผ็ดมาก","phonetic":"配媽","chinese":"大辣","scenario":"點餐備註"},{"thai":"เช็คบิลครับ","phonetic":"切賓咖","chinese":"買單","scenario":"結帳"},{"thai":"แยกจ่าย","phonetic":"耶災","chinese":"分開付","scenario":"AA制"},{"thai":"ฉันเลี้ยง","phonetic":"餐涼","chinese":"我請客","scenario":"表示請客"},{"thai":"น้ำเปล่า","phonetic":"南包","chinese":"白開水","scenario":"點水"},{"thai":"ขอน้ำแข็ง","phonetic":"靠南肯","chinese":"請加冰","scenario":"要冰塊"},{"thai":"ไม่เอาน้ำแข็ง","phonetic":"麥奧南肯","chinese":"不要冰","scenario":"不加冰"},{"thai":"อิ่มแล้ว","phonetic":"因了","chinese":"我飽了","scenario":"表示吃飽"},{"thai":"ของหวาน","phonetic":"孔萬","chinese":"甜點","scenario":"點甜點"},{"thai":"เอากลับบ้าน","phonetic":"奧格班","chinese":"外帶","scenario":"打包"},{"thai":"กินที่นี่","phonetic":"gin替尼","chinese":"內用","scenario":"在店裡吃"},{"thai":"ห้องน้ำอยู่ไหน","phonetic":"轟南尤乃","chinese":"廁所在哪？","scenario":"問廁所"}]},{"id":"shopping","name":"購物殺價","icon":"🛍️","color":"#ffd93d","phrases":[{"thai":"เท่าไหร่","phonetic":"逃萊","chinese":"多少錢？","scenario":"詢問價格"},{"thai":"แพงมาก","phonetic":"碰媽","chinese":"太貴了","scenario":"殺價開場"},{"thai":"ลดได้ไหม","phonetic":"落代買","chinese":"可以便宜一點嗎？","scenario":"殺價"},{"thai":"ลดหน่อยได้ไหม","phonetic":"落挪代買","chinese":"打點折好嗎？","scenario":"殺價"},{"thai":"ถูกกว่านี้ได้ไหม","phonetic":"托瓜尼代買","chinese":"能更便宜嗎？","scenario":"繼續殺價"},{"thai":"ราคาสุดท้าย","phonetic":"辣咖速台","chinese":"最後價格/最低多少？","scenario":"詢問底價"},{"thai":"ซื้อหลายชิ้นลดได้ไหม","phonetic":"蘇來親落代買","chinese":"買多件能打折嗎？","scenario":"大量購買殺價"},{"thai":"เอาอันนี้","phonetic":"奧安尼","chinese":"我要這個","scenario":"決定購買"},{"thai":"ไม่เอา ขอบคุณ","phonetic":"麥奧 靠坤","chinese":"不要，謝謝","scenario":"婉拒"},{"thai":"ดูก่อน","phonetic":"肚棍","chinese":"我先看看","scenario":"表示還在考慮"},{"thai":"มีสีอื่นไหม","phonetic":"米西聞買","chinese":"有其他顏色嗎？","scenario":"詢問款式"},{"thai":"มีไซส์อื่นไหม","phonetic":"米塞聞買","chinese":"有其他尺寸嗎？","scenario":"詢問尺寸"},{"thai":"ลองได้ไหม","phonetic":"龍代買","chinese":"可以試穿嗎？","scenario":"試穿"},{"thai":"รับบัตรเครดิตไหม","phonetic":"辣巴科滴買","chinese":"可以刷卡嗎？","scenario":"付款方式"},{"thai":"จ่ายสด","phonetic":"災索","chinese":"付現金","scenario":"付現"},{"thai":"ขอถุง","phonetic":"靠統","chinese":"請給我袋子","scenario":"要袋子"},{"thai":"ไม่ต้องถุง","phonetic":"麥動統","chinese":"不用袋子","scenario":"環保"}]},{"id":"transport","name":"交通出行","icon":"🚕","color":"#6bcb77","phrases":[{"thai":"ไป...ครับ","phonetic":"拜...咖","chinese":"去...","scenario":"告訴司機目的地"},{"thai":"ไปที่นี่","phonetic":"拜替尼","chinese":"去這裡（指地圖）","scenario":"指著地圖"},{"thai":"ไปเท่าไหร่","phonetic":"拜逃萊","chinese":"去那裡多少錢？","scenario":"問車資"},{"thai":"ใช้มิเตอร์ได้ไหม","phonetic":"猜咪特代買","chinese":"可以跳錶嗎？","scenario":"要求跳錶計費"},{"thai":"จอดตรงนี้","phonetic":"叫動尼","chinese":"在這裡停","scenario":"要求停車"},{"thai":"จอดหน้านั้น","phonetic":"叫那南","chinese":"在前面停","scenario":"要求前方停車"},{"thai":"ช้าหน่อย","phonetic":"差挪","chinese":"慢一點","scenario":"要求開慢"},{"thai":"เร็วได้ไหม","phonetic":"了代買","chinese":"可以快一點嗎？","scenario":"趕時間"},{"thai":"ไกลไหม","phonetic":"蓋買","chinese":"遠嗎？","scenario":"詢問距離"},{"thai":"ใกล้ไหม","phonetic":"蓋買","chinese":"近嗎？","scenario":"詢問距離"},{"thai":"กี่นาที","phonetic":"key那替","chinese":"要幾分鐘？","scenario":"問時間"},{"thai":"เลี้ยวซ้าย","phonetic":"料賽","chinese":"左轉","scenario":"指路"},{"thai":"เลี้ยวขวา","phonetic":"料瓜","chinese":"右轉","scenario":"指路"},{"thai":"ตรงไป","phonetic":"動拜","chinese":"直走","scenario":"指路"},{"thai":"กลับรถ","phonetic":"格落","chinese":"迴轉","scenario":"指路"},{"thai":"รถติด","phonetic":"落滴","chinese":"塞車","scenario":"描述交通"}]},{"id":"massage","name":"按摩SPA","icon":"💆","color":"#a8e6cf","phrases":[{"thai":"นวดแผนไทย","phonetic":"努潘台","chinese":"泰式按摩","scenario":"選擇按摩類型"},{"thai":"นวดน้ำมัน","phonetic":"努南滿","chinese":"精油按摩","scenario":"選擇按摩類型"},{"thai":"นวดฝ่าเท้า","phonetic":"努發濤","chinese":"腳底按摩","scenario":"選擇按摩類型"},{"thai":"กี่ชั่วโมง","phonetic":"key丘猛","chinese":"幾個小時？","scenario":"詢問時長"},{"thai":"หนึ่งชั่วโมง","phonetic":"能丘猛","chinese":"一個小時","scenario":"選擇時長"},{"thai":"สองชั่วโมง","phonetic":"松丘猛","chinese":"兩個小時","scenario":"選擇時長"},{"thai":"เบาหน่อย","phonetic":"包挪","chinese":"輕一點","scenario":"力道調整"},{"thai":"แรงหน่อย","phonetic":"嚷挪","chinese":"重一點","scenario":"力道調整"},{"thai":"ตรงนี้เจ็บ","phonetic":"動尼接","chinese":"這裡痛","scenario":"告知痛點"},{"thai":"ตรงนี้ไม่ต้อง","phonetic":"動尼麥動","chinese":"這裡不用按","scenario":"避開某處"},{"thai":"สบายมาก","phonetic":"沙敗媽","chinese":"很舒服","scenario":"表達感受"},{"thai":"เก่งมาก","phonetic":"根媽","chinese":"按得很好","scenario":"稱讚技術"},{"thai":"พอแล้ว","phonetic":"潑了","chinese":"夠了/可以了","scenario":"表示結束"}]},{"id":"bar-drinks","name":"酒吧點酒","icon":"🍺","color":"#30cfd0","phrases":[{"thai":"เบียร์สิงห์","phonetic":"比星","chinese":"勝獅啤酒","scenario":"點酒"},{"thai":"เบียร์ช้าง","phonetic":"比昌","chinese":"大象啤酒","scenario":"點酒"},{"thai":"เบียร์ลีโอ","phonetic":"比里歐","chinese":"LEO啤酒","scenario":"點酒"},{"thai":"วิสกี้","phonetic":"威士key","chinese":"威士忌","scenario":"點酒"},{"thai":"เหล้า","phonetic":"老","chinese":"酒/烈酒","scenario":"泛稱酒類"},{"thai":"ช้อต","phonetic":"收","chinese":"Shot","scenario":"點烈酒"},{"thai":"ค็อกเทล","phonetic":"扣貼","chinese":"調酒/雞尾酒","scenario":"點調酒"},{"thai":"โซดา","phonetic":"蘇打","chinese":"蘇打水","scenario":"點飲料"},{"thai":"น้ำแข็ง","phonetic":"南肯","chinese":"冰塊","scenario":"加冰"},{"thai":"อีกแก้ว","phonetic":"億給","chinese":"再來一杯","scenario":"續杯"},{"thai":"อีกขวด","phonetic":"億夸","chinese":"再來一瓶","scenario":"續瓶"},{"thai":"ถังเบียร์","phonetic":"堂比","chinese":"一桶啤酒","scenario":"點啤酒桶"},{"thai":"ไม่ดื่มแล้ว","phonetic":"麥東了","chinese":"我不喝了","scenario":"停止喝酒"},{"thai":"เมาแล้ว","phonetic":"貓了","chinese":"我醉了","scenario":"表示喝醉"}]},{"id":"toasts","name":"乾杯敬酒","icon":"🍻","color":"#ff9a56","phrases":[{"thai":"ชนแก้ว","phonetic":"衝給","chinese":"乾杯！","scenario":"碰杯"},{"thai":"หมดแก้ว","phonetic":"莫給","chinese":"乾了！一口乾","scenario":"一飲而盡"},{"thai":"ดื่มหมด","phonetic":"東莫","chinese":"喝光","scenario":"喝完"},{"thai":"ครึ่งแก้ว","phonetic":"更給","chinese":"半杯","scenario":"喝一半"},{"thai":"สุขสันต์","phonetic":"速三","chinese":"快樂/祝福","scenario":"祝福"},{"thai":"โชคดี","phonetic":"綽滴","chinese":"好運","scenario":"敬酒祝福"},{"thai":"ขอให้สนุก","phonetic":"靠害沙努","chinese":"祝你玩得開心","scenario":"派對祝福"},{"thai":"ไชโย","phonetic":"猜唷","chinese":"萬歲！/乾杯！","scenario":"歡呼"},{"thai":"เมาไม่ขับ","phonetic":"貓麥卡","chinese":"喝酒不開車","scenario":"提醒安全"},{"thai":"ดื่มช้าๆ","phonetic":"東差差","chinese":"慢慢喝","scenario":"勸人慢慢來"}]},{"id":"bar-games","name":"酒吧遊戲","icon":"🎯","color":"#764ba2","phrases":[{"thai":"เล่นเกมไหม","phonetic":"冷給買","chinese":"要玩遊戲嗎？","scenario":"邀請玩遊戲"},{"thai":"ฉันชนะ","phonetic":"餐差那","chinese":"我贏了","scenario":"宣告勝利"},{"thai":"คุณชนะ","phonetic":"坤差那","chinese":"你贏了","scenario":"承認輸"},{"thai":"เสมอกัน","phonetic":"色默甘","chinese":"平手","scenario":"平局"},{"thai":"เล่นอีกไหม","phonetic":"冷億買","chinese":"再玩一局？","scenario":"再來"},{"thai":"แพ้แล้ว ดื่ม","phonetic":"配了 東","chinese":"輸了就喝","scenario":"遊戲規則"},{"thai":"ลูกเต๋า","phonetic":"路逃","chinese":"骰子","scenario":"遊戲道具"},{"thai":"ไพ่","phonetic":"排","chinese":"撲克牌","scenario":"遊戲道具"},{"thai":"เป่ายิ้งฉุบ","phonetic":"包因丘","chinese":"剪刀石頭布","scenario":"猜拳"},{"thai":"ใหญ่หรือเล็ก","phonetic":"呀了累","chinese":"大還是小？","scenario":"猜骰子"},{"thai":"คู่หรือคี่","phonetic":"古了key","chinese":"雙數還是單數？","scenario":"猜數字"},{"thai":"Connect Four","phonetic":"康耐福","chinese":"四子棋","scenario":"酒吧常見遊戲"},{"thai":"Jenga","phonetic":"間卡","chinese":"疊疊樂","scenario":"酒吧常見遊戲"}]},{"id":"compliments","name":"讚美稱讚","icon":"😍","color":"#f5576c","phrases":[{"thai":"สวยมาก","phonetic":"蘇威媽","chinese":"好漂亮","scenario":"稱讚女生"},{"thai":"หล่อมาก","phonetic":"摟媽","chinese":"好帥","scenario":"稱讚男生"},{"thai":"น่ารักมาก","phonetic":"那辣媽","chinese":"好可愛","scenario":"稱讚可愛"},{"thai":"เซ็กซี่มาก","phonetic":"色洗媽","chinese":"好性感","scenario":"稱讚性感"},{"thai":"ยิ้มสวย","phonetic":"因蘇威","chinese":"笑容很美","scenario":"稱讚笑容"},{"thai":"ตาสวย","phonetic":"達蘇威","chinese":"眼睛很美","scenario":"稱讚眼睛"},{"thai":"ผิวสวย","phonetic":"批蘇威","chinese":"皮膚很好","scenario":"稱讚皮膚"},{"thai":"รูปร่างดี","phonetic":"路朗滴","chinese":"身材好","scenario":"稱讚身材"},{"thai":"แต่งตัวดี","phonetic":"當抖滴","chinese":"穿得好看","scenario":"稱讚穿著"},{"thai":"เก่งมาก","phonetic":"根媽","chinese":"好厲害","scenario":"稱讚能力"},{"thai":"คุณพิเศษ","phonetic":"坤披色","chinese":"你很特別","scenario":"特別稱讚"},{"thai":"ฉันชอบ","phonetic":"餐翹","chinese":"我喜歡","scenario":"表示喜歡"},{"thai":"สุดยอด","phonetic":"速唷","chinese":"太棒了","scenario":"讚嘆"}]},{"id":"flirting","name":"撩妹金句","icon":"💘","color":"#fa709a","phrases":[{"thai":"ขอเบอร์โทรได้ไหม","phonetic":"靠被偷代買","chinese":"可以給我電話嗎？","scenario":"要電話"},{"thai":"ขอไลน์ได้ไหม","phonetic":"靠賴代買","chinese":"可以加Line嗎？","scenario":"要Line"},{"thai":"คืนนี้ว่างไหม","phonetic":"坤尼旺買","chinese":"今晚有空嗎？","scenario":"約會"},{"thai":"ไปทานข้าวด้วยกันไหม","phonetic":"拜但考對甘買","chinese":"一起吃飯好嗎？","scenario":"約吃飯"},{"thai":"ไปเที่ยวด้วยกันไหม","phonetic":"拜條對甘買","chinese":"一起去玩好嗎？","scenario":"約出去"},{"thai":"คุยกับคุณสนุกมาก","phonetic":"貴嘎坤沙努媽","chinese":"跟你聊天很開心","scenario":"表達喜歡"},{"thai":"เธอทำให้ฉันมีความสุข","phonetic":"特探害餐米框速","chinese":"你讓我很開心","scenario":"表白"},{"thai":"ฉันชอบคุณตั้งแต่แรกเห็น","phonetic":"餐翹坤當帶辣痕","chinese":"第一眼就喜歡你","scenario":"一見鍾情"},{"thai":"เธอมีแฟนหรือยัง","phonetic":"特米反了楊","chinese":"你有男/女朋友嗎？","scenario":"確認單身"},{"thai":"ฉันโสด","phonetic":"餐索","chinese":"我單身","scenario":"表示單身"},{"thai":"คิดถึงมาก","phonetic":"key停媽","chinese":"很想你","scenario":"思念"},{"thai":"ฉันรักเธอ","phonetic":"餐辣特","chinese":"我愛你","scenario":"告白"},{"thai":"กอดได้ไหม","phonetic":"割代買","chinese":"可以抱一下嗎？","scenario":"請求擁抱"},{"thai":"จูบได้ไหม","phonetic":"朱代買","chinese":"可以親一下嗎？","scenario":"請求親吻"},{"thai":"เหนื่อยไหม วิ่งอยู่ในใจฉันทั้งวัน","phonetic":"內買 穩尤乃災餐唐萬","chinese":"累嗎？在我心裡跑一整天","scenario":"撩妹金句"},{"thai":"รอยยิ้มของเธอสวยมาก","phonetic":"蘿因孔特蘇威媽","chinese":"你的笑容好美","scenario":"稱讚笑容"},{"thai":"อยากเจอเธออีก","phonetic":"壓皆特億","chinese":"想再見到你","scenario":"表達想念"}]},{"id":"decline","name":"婉拒推辭","icon":"🙅","color":"#778899","phrases":[{"thai":"ไม่เอา ขอบคุณ","phonetic":"麥奧 靠坤","chinese":"不要，謝謝","scenario":"婉拒"},{"thai":"ไม่ว่าง","phonetic":"麥旺","chinese":"我沒空","scenario":"拒絕邀約"},{"thai":"ไม่สะดวก","phonetic":"麥沙對","chinese":"不方便","scenario":"委婉拒絕"},{"thai":"ไม่สนใจ","phonetic":"麥三災","chinese":"沒興趣","scenario":"表示無興趣"},{"thai":"ฉันมีแฟนแล้ว","phonetic":"餐米反了","chinese":"我有男/女朋友了","scenario":"拒絕搭訕"},{"thai":"ไว้ครั้งหน้า","phonetic":"外康那","chinese":"下次吧","scenario":"推遲"},{"thai":"แพงไป","phonetic":"碰拜","chinese":"太貴了","scenario":"拒絕買"},{"thai":"ขอคิดก่อน","phonetic":"靠key棍","chinese":"讓我想想","scenario":"不想馬上決定"},{"thai":"ไม่ไหว","phonetic":"麥外","chinese":"不行/受不了","scenario":"表示做不到"},{"thai":"พอแล้ว","phonetic":"潑了","chinese":"夠了","scenario":"停止"},{"thai":"หยุด","phonetic":"尤","chinese":"停！","scenario":"停止"},{"thai":"ออกไป","phonetic":"噢拜","chinese":"出去","scenario":"叫人離開"}]},{"id":"emotions","name":"情感表達","icon":"💖","color":"#ee5a24","phrases":[{"thai":"ฉันมีความสุขมาก","phonetic":"餐米框速媽","chinese":"我非常開心","scenario":"表達喜悅"},{"thai":"ดีใจมากเลย","phonetic":"滴災媽勒","chinese":"太高興了","scenario":"非常高興"},{"thai":"สนุกมาก","phonetic":"沙努媽","chinese":"好好玩/超有趣","scenario":"玩得開心"},{"thai":"ฉันเศร้าใจ","phonetic":"餐刷災","chinese":"我很難過","scenario":"表達傷心"},{"thai":"เสียใจมาก","phonetic":"細災媽","chinese":"非常遺憾/很傷心","scenario":"深度悲傷"},{"thai":"ฉันโกรธมาก","phonetic":"餐割媽","chinese":"我很生氣","scenario":"表達憤怒"},{"thai":"ใจเย็นๆ","phonetic":"災顏顏","chinese":"冷靜點","scenario":"安撫情緒"},{"thai":"ตกใจ","phonetic":"多災","chinese":"嚇到了/驚訝","scenario":"表達驚訝"},{"thai":"อาย","phonetic":"愛","chinese":"害羞","scenario":"表示害羞"},{"thai":"เบื่อแล้ว","phonetic":"碧了","chinese":"好無聊/煩了","scenario":"感到無聊"},{"thai":"เหนื่อยมาก","phonetic":"內媽","chinese":"好累","scenario":"表達疲憊"},{"thai":"หิวมาก","phonetic":"希媽","chinese":"好餓","scenario":"表達飢餓"},{"thai":"กลัว","phonetic":"瓜","chinese":"害怕","scenario":"表達恐懼"},{"thai":"ตื่นเต้น","phonetic":"等等","chinese":"興奮","scenario":"表達興奮"}]},{"id":"gogobar","name":"GoGo Bar","icon":"💃","color":"#e056fd","phrases":[{"thai":"ขอเลี้ยงเครื่องดื่มได้ไหม","phonetic":"靠涼葛東代買","chinese":"請你喝一杯好嗎？","scenario":"請Lady Drink"},{"thai":"ค่าตัวเท่าไหร่","phonetic":"咖抖逃萊","chinese":"Bar Fine多少？","scenario":"詢問帶出費"},{"thai":"เบอร์อะไร","phonetic":"被阿萊","chinese":"你的號碼？","scenario":"詢問號碼牌"},{"thai":"มานั่งด้วยกันไหม","phonetic":"媽囊對甘買","chinese":"過來坐好嗎？","scenario":"邀請坐"},{"thai":"กี่โมงเลิก","phonetic":"key猛勒","chinese":"幾點下班？","scenario":"詢問下班時間"},{"thai":"ไปกับฉันได้ไหม","phonetic":"拜嘎餐代買","chinese":"可以跟我走嗎？","scenario":"邀請離開"},{"thai":"คุณสวยที่สุดในร้าน","phonetic":"坤蘇威替速乃蘭","chinese":"你是店裡最漂亮的","scenario":"稱讚"},{"thai":"เต้นเก่งมาก","phonetic":"等根媽","chinese":"跳得很好","scenario":"稱讚舞技"},{"thai":"ช้อตไหม","phonetic":"收買","chinese":"要來杯Shot嗎？","scenario":"點酒"},{"thai":"ไปต่อไหม","phonetic":"拜多買","chinese":"要續攤嗎？","scenario":"繼續玩"},{"thai":"แพงไป ลดได้ไหม","phonetic":"碰拜落代買","chinese":"太貴，能便宜嗎？","scenario":"殺價"},{"thai":"คืนนี้ว่าง","phonetic":"坤尼旺","chinese":"今晚我有空","scenario":"表示有空"}]},{"id":"emergency","name":"緊急求助","icon":"🆘","color":"#c0392b","phrases":[{"thai":"ช่วยด้วย","phonetic":"除對","chinese":"救命！","scenario":"求救"},{"thai":"เรียกตำรวจ","phonetic":"里嘎談落","chinese":"叫警察","scenario":"報警"},{"thai":"เรียกหมอ","phonetic":"里嘎摩","chinese":"叫醫生","scenario":"需要醫療"},{"thai":"ฉันต้องการความช่วยเหลือ","phonetic":"餐動甘框除了","chinese":"我需要幫助","scenario":"求助"},{"thai":"โรงพยาบาลอยู่ไหน","phonetic":"隆帕亞邦尤乃","chinese":"醫院在哪？","scenario":"找醫院"},{"thai":"ฉันป่วย","phonetic":"餐不","chinese":"我生病了","scenario":"身體不適"},{"thai":"ฉันแพ้...","phonetic":"餐配...","chinese":"我對...過敏","scenario":"過敏"},{"thai":"ปวดหัว","phonetic":"不花","chinese":"頭痛","scenario":"症狀"},{"thai":"ปวดท้อง","phonetic":"不統","chinese":"肚子痛","scenario":"症狀"},{"thai":"ฉันทำหาย","phonetic":"餐探害","chinese":"我弄丟了","scenario":"遺失物品"},{"thai":"ถูกขโมย","phonetic":"托卡麼","chinese":"被偷了","scenario":"遭竊"},{"thai":"สถานทูตไต้หวัน","phonetic":"沙探土台灣","chinese":"台灣代表處","scenario":"尋求領事協助"},{"thai":"ฉันหลงทาง","phonetic":"餐龍堂","chinese":"我迷路了","scenario":"迷路"}]},{"id":"numbers","name":"數字金額","icon":"🔢","color":"#3498db","phrases":[{"thai":"หนึ่ง","phonetic":"能","chinese":"1","scenario":"數字"},{"thai":"สอง","phonetic":"松","chinese":"2","scenario":"數字"},{"thai":"สาม","phonetic":"三","chinese":"3","scenario":"數字"},{"thai":"สี่","phonetic":"西","chinese":"4","scenario":"數字"},{"thai":"ห้า","phonetic":"哈","chinese":"5","scenario":"數字"},{"thai":"หก","phonetic":"霍","chinese":"6","scenario":"數字"},{"thai":"เจ็ด","phonetic":"接","chinese":"7","scenario":"數字"},{"thai":"แปด","phonetic":"北","chinese":"8","scenario":"數字"},{"thai":"เก้า","phonetic":"告","chinese":"9","scenario":"數字"},{"thai":"สิบ","phonetic":"洗","chinese":"10","scenario":"數字"},{"thai":"ยี่สิบ","phonetic":"以洗","chinese":"20","scenario":"數字"},{"thai":"ร้อย","phonetic":"蘿依","chinese":"100","scenario":"數字"},{"thai":"พัน","phonetic":"潘","chinese":"1000","scenario":"數字"},{"thai":"หมื่น","phonetic":"們","chinese":"10000","scenario":"數字"},{"thai":"บาท","phonetic":"巴","chinese":"泰銖","scenario":"貨幣單位"}]},{"id":"time","name":"時間日期","icon":"🕐","color":"#9b59b6","phrases":[{"thai":"กี่โมง","phonetic":"key猛","chinese":"幾點？","scenario":"問時間"},{"thai":"ตอนนี้กี่โมง","phonetic":"動尼key猛","chinese":"現在幾點？","scenario":"問時間"},{"thai":"เช้า","phonetic":"早","chinese":"早上","scenario":"時段"},{"thai":"เที่ยง","phonetic":"天","chinese":"中午","scenario":"時段"},{"thai":"บ่าย","phonetic":"敗","chinese":"下午","scenario":"時段"},{"thai":"เย็น","phonetic":"顏","chinese":"傍晚","scenario":"時段"},{"thai":"กลางคืน","phonetic":"光坤","chinese":"晚上","scenario":"時段"},{"thai":"วันนี้","phonetic":"萬尼","chinese":"今天","scenario":"日期"},{"thai":"พรุ่งนี้","phonetic":"砰尼","chinese":"明天","scenario":"日期"},{"thai":"เมื่อวาน","phonetic":"門萬","chinese":"昨天","scenario":"日期"},{"thai":"สัปดาห์หน้า","phonetic":"沙打那","chinese":"下週","scenario":"日期"},{"thai":"เดี๋ยว","phonetic":"刁","chinese":"等一下","scenario":"時間"},{"thai":"เดี๋ยวก่อน","phonetic":"刁棍","chinese":"等一等","scenario":"請等待"},{"thai":"ตอนไหน","phonetic":"動乃","chinese":"什麼時候？","scenario":"問時間"}]},{"id":"beach","name":"海灘玩水","icon":"🏖️","color":"#1abc9c","phrases":[{"thai":"ชายหาด","phonetic":"差哈","chinese":"海灘","scenario":"地點"},{"thai":"ทะเล","phonetic":"他雷","chinese":"大海","scenario":"地點"},{"thai":"เกาะ","phonetic":"故","chinese":"島嶼","scenario":"地點"},{"thai":"ว่ายน้ำ","phonetic":"外南","chinese":"游泳","scenario":"活動"},{"thai":"ดำน้ำ","phonetic":"當南","chinese":"潛水","scenario":"活動"},{"thai":"เรือ","phonetic":"路","chinese":"船","scenario":"交通"},{"thai":"เรือเร็ว","phonetic":"路了","chinese":"快艇","scenario":"交通"},{"thai":"เช่าเตียง","phonetic":"早天","chinese":"租躺椅","scenario":"海灘設備"},{"thai":"ครีมกันแดด","phonetic":"科林甘呆","chinese":"防曬乳","scenario":"防曬"},{"thai":"ร่ม","phonetic":"隆","chinese":"傘/陽傘","scenario":"遮陽"},{"thai":"อันตราย","phonetic":"安打來","chinese":"危險","scenario":"警告"},{"thai":"ระวัง","phonetic":"辣旺","chinese":"小心","scenario":"警告"},{"thai":"คลื่นแรง","phonetic":"困嚷","chinese":"浪大","scenario":"海況"},{"thai":"พระอาทิตย์ตก","phonetic":"帕阿滴多","chinese":"日落","scenario":"美景"}]},{"id":"hotel","name":"飯店住宿","icon":"🏨","color":"#2c3e50","phrases":[{"thai":"มีห้องว่างไหม","phonetic":"米轟旺買","chinese":"有空房嗎？","scenario":"訂房"},{"thai":"เช็คอิน","phonetic":"切因","chinese":"入住","scenario":"辦理入住"},{"thai":"เช็คเอาท์","phonetic":"切奧","chinese":"退房","scenario":"退房"},{"thai":"กุญแจห้อง","phonetic":"滾折轟","chinese":"房間鑰匙","scenario":"要鑰匙"},{"thai":"ห้องเดี่ยว","phonetic":"轟刁","chinese":"單人房","scenario":"房型"},{"thai":"ห้องคู่","phonetic":"轟古","chinese":"雙人房","scenario":"房型"},{"thai":"เตียงใหญ่","phonetic":"天呀","chinese":"大床","scenario":"床型"},{"thai":"Wi-Fi รหัสอะไร","phonetic":"外發辣哈阿萊","chinese":"WiFi密碼是？","scenario":"上網"},{"thai":"แอร์","phonetic":"耶","chinese":"冷氣","scenario":"設備"},{"thai":"น้ำร้อน","phonetic":"南隆","chinese":"熱水","scenario":"設備"},{"thai":"ทำความสะอาด","phonetic":"探框沙阿","chinese":"打掃","scenario":"房務"},{"thai":"ผ้าเช็ดตัว","phonetic":"帕切抖","chinese":"毛巾","scenario":"備品"},{"thai":"อาหารเช้า","phonetic":"阿韓早","chinese":"早餐","scenario":"餐點"}]},{"id":"weather","name":"天氣聊天","icon":"☀️","color":"#f39c12","phrases":[{"thai":"วันนี้ร้อนมาก","phonetic":"萬尼隆媽","chinese":"今天好熱","scenario":"聊天氣"},{"thai":"ร้อนจัง","phonetic":"隆將","chinese":"好熱啊","scenario":"感嘆"},{"thai":"อากาศดีมาก","phonetic":"阿嘎滴媽","chinese":"天氣很好","scenario":"稱讚天氣"},{"thai":"ฝนตกหรือเปล่า","phonetic":"風多了包","chinese":"有下雨嗎？","scenario":"詢問天氣"},{"thai":"ฝนตกแล้ว","phonetic":"風多了","chinese":"下雨了","scenario":"告知天氣"},{"thai":"อย่าลืมพกร่ม","phonetic":"亞冷泡隆","chinese":"別忘帶傘","scenario":"提醒"},{"thai":"เย็นสบาย","phonetic":"顏沙敗","chinese":"涼爽舒服","scenario":"形容天氣"},{"thai":"แดดแรงมาก","phonetic":"呆嚷媽","chinese":"太陽好大","scenario":"形容天氣"}]}]};
+
+    let currentCategory = 'all';
+    let displayedCount = 0;
+    const ITEMS_PER_PAGE = 24;
+
+    // 初始化泰語資料
+    function initPhrasesData() {
+      initCategoryTabs();
+      renderPhrases();
+    }
+
+    // 初始化分類標籤
+    function initCategoryTabs() {
+      const tabsContainer = document.getElementById('categoryTabs');
+
+      // 全部標籤
+      const allTab = document.createElement('button');
+      allTab.className = 'category-tab active';
+      allTab.textContent = '🎯 全部';
+      allTab.style.background = 'linear-gradient(135deg, var(--neon-pink), var(--neon-purple))';
+      allTab.onclick = () => selectCategory('all', allTab);
+      tabsContainer.appendChild(allTab);
+
+      // 各分類標籤
+      phrasesData.categories.forEach(cat => {
+        const tab = document.createElement('button');
+        tab.className = 'category-tab';
+        tab.textContent = `${cat.icon} ${cat.name}`;
+        tab.onclick = () => selectCategory(cat.id, tab);
+        tabsContainer.appendChild(tab);
+      });
+    }
+
+    // 選擇分類
+    function selectCategory(categoryId, tabElement) {
+      currentCategory = categoryId;
+      displayedCount = 0;
+
+      // 更新標籤樣式
+      document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.classList.remove('active');
+        tab.style.background = 'var(--bg-card)';
+      });
+      tabElement.classList.add('active');
+
+      const category = phrasesData.categories.find(c => c.id === categoryId);
+      tabElement.style.background = categoryId === 'all'
+        ? 'linear-gradient(135deg, var(--neon-pink), var(--neon-purple))'
+        : category?.color || 'var(--neon-pink)';
+
+      renderPhrases();
+    }
+
+    // 渲染泰語卡片
+    function renderPhrases() {
+      const grid = document.getElementById('phrasesGrid');
+      grid.innerHTML = '';
+
+      let allPhrases = [];
+
+      if (currentCategory === 'all') {
+        phrasesData.categories.forEach(cat => {
+          cat.phrases.forEach(phrase => {
+            allPhrases.push({ ...phrase, icon: cat.icon, color: cat.color, categoryName: cat.name });
+          });
+        });
+      } else {
+        const category = phrasesData.categories.find(c => c.id === currentCategory);
+        if (category) {
+          allPhrases = category.phrases.map(phrase => ({
+            ...phrase,
+            icon: category.icon,
+            color: category.color,
+            categoryName: category.name
+          }));
+        }
+      }
+
+      // 顯示部分項目
+      const toShow = allPhrases.slice(0, displayedCount + ITEMS_PER_PAGE);
+      displayedCount = toShow.length;
+
+      toShow.forEach(phrase => {
+        const card = document.createElement('div');
+        card.className = 'phrase-card';
+        card.innerHTML = `
+          <div class="phrase-emoji">${phrase.icon}</div>
+          <div class="phrase-chinese">${phrase.chinese}</div>
+          <div class="phrase-thai">${phrase.thai}</div>
+          <div class="phrase-phonetic">${phrase.phonetic}</div>
+        `;
+        card.onclick = () => showThaiModal(phrase);
+        grid.appendChild(card);
+      });
+
+      // 更新計數
+      document.getElementById('phraseCount').textContent = `顯示 ${displayedCount} / ${allPhrases.length} 句`;
+
+      // 顯示/隱藏載入更多按鈕
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      loadMoreBtn.style.display = displayedCount < allPhrases.length ? 'block' : 'none';
+      loadMoreBtn.onclick = () => {
+        renderPhrases();
+      };
+    }
+
+    // 顯示泰語 Modal
+    function showThaiModal(phrase) {
+      document.getElementById('modalEmoji').textContent = phrase.icon;
+      document.getElementById('modalThai').textContent = phrase.thai;
+      document.getElementById('modalChinese').textContent = phrase.chinese;
+      document.getElementById('modalPhonetic').textContent = '🗣️ ' + phrase.phonetic;
+      document.getElementById('modalScenario').textContent = '使用情境：' + (phrase.scenario || phrase.categoryName);
+      document.getElementById('thaiModal').classList.add('active');
+    }
+
+    function closeThaiModal() {
+      document.getElementById('thaiModal').classList.remove('active');
+    }
+
+    // 點擊背景關閉 Modal
+    document.getElementById('thaiModal').addEventListener('click', function(e) {
+      if (e.target === this) closeThaiModal();
+    });
+
+    // 情境搜尋
+    const scenarioInput = document.getElementById('scenarioInput');
+    const aiSuggestion = document.getElementById('aiSuggestion');
+    const suggestionText = document.getElementById('suggestionText');
+
+    let searchTimeout;
+    scenarioInput.addEventListener('input', function() {
+      clearTimeout(searchTimeout);
+      const query = this.value.trim().toLowerCase();
+
+      if (query.length < 2) {
+        aiSuggestion.classList.remove('active');
+        return;
+      }
+
+      searchTimeout = setTimeout(() => {
+        const suggestions = searchPhrases(query);
+        if (suggestions.length > 0) {
+          suggestionText.innerHTML = suggestions.map(p =>
+            `<div style="margin: 8px 0; cursor: pointer;" onclick='showThaiModal(${JSON.stringify(p).replace(/'/g, "&#39;")})'>
+              <strong>${p.icon} ${p.chinese}</strong><br>
+              <span style="color: var(--neon-blue)">${p.thai}</span>
+              <span style="color: var(--text-muted)">(${p.phonetic})</span>
+            </div>`
+          ).join('');
+          aiSuggestion.classList.add('active');
+        } else {
+          suggestionText.innerHTML = '沒有找到相關的泰語句型，試試其他關鍵字！';
+          aiSuggestion.classList.add('active');
+        }
+      }, 300);
+    });
+
+    function searchPhrases(query) {
+      const results = [];
+      const keywords = query.split(/\s+/);
+
+      phrasesData.categories.forEach(cat => {
+        cat.phrases.forEach(phrase => {
+          const searchText = `${phrase.chinese} ${phrase.scenario || ''} ${cat.name}`.toLowerCase();
+          const matches = keywords.every(kw => searchText.includes(kw));
+          if (matches) {
+            results.push({ ...phrase, icon: cat.icon, color: cat.color, categoryName: cat.name });
+          }
+        });
+      });
+
+      return results.slice(0, 5);
+    }
+
+    // 底部導航切換
+    document.querySelectorAll('.bottom-nav-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const section = this.dataset.section;
+
+        // 更新導航樣式
+        document.querySelectorAll('.bottom-nav-item').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+
+        // 切換區塊
+        document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+        document.getElementById(section).classList.add('active');
+
+        // 滾動到頂部
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // 初始化
+    initPhrasesData();
+  </script>
+</body>
+</html>

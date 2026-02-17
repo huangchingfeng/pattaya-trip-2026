@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>芭達雅白天行程 2026</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --sun-yellow: #ffd93d;
+      --sun-orange: #ff9a56;
+      --ocean-blue: #00b4d8;
+      --sky-blue: #90e0ef;
+      --sand-beige: #f4d35e;
+      --palm-green: #2ec4b6;
+      --bg-primary: #fafafa;
+      --bg-secondary: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.95);
+      --text-primary: #1a1a2e;
+      --text-secondary: #4a4a6a;
+      --text-muted: #8a8aaa;
+      --safe-top: env(safe-area-inset-top, 20px);
+      --safe-bottom: env(safe-area-inset-bottom, 20px);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* 頁面切換導航 */
+    .page-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 8px) 16px 12px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-btn {
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(135deg, var(--sun-yellow), var(--sun-orange));
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 217, 61, 0.4);
+    }
+
+    .nav-btn:not(.active) {
+      background: transparent;
+      border-color: var(--text-muted);
+      color: var(--text-muted);
+    }
+
+    .nav-btn:not(.active):hover {
+      border-color: var(--sun-orange);
+      color: var(--sun-orange);
+    }
+
+    /* 動態背景 */
+    .animated-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(-45deg, #e0f7fa, #fff9c4, #ffecb3, #e1f5fe);
+      background-size: 400% 400%;
+      animation: gradient-shift 20s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 內容區 */
+    .content-wrapper {
+      padding-top: calc(var(--safe-top) + 70px);
+      padding-bottom: calc(var(--safe-bottom) + 80px);
+    }
+
+    /* 區塊 */
+    .section-content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .section-content.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 首頁區塊 */
+    .hero-section {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .sun-icon {
+      font-size: 5rem;
+      animation: sun-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes sun-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .day-title {
+      font-size: clamp(2rem, 8vw, 4rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--sun-orange), var(--ocean-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 16px 0;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    /* 統計網格 */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 400px;
+      width: 100%;
+      margin: 24px auto;
+    }
+
+    .stat-item {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--ocean-blue);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* 區塊標題 */
+    .section-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* 活動卡片 */
+    .activity-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 24px;
+      margin: 12px 0;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border-left: 5px solid var(--ocean-blue);
+    }
+
+    .activity-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .activity-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .activity-icon {
+      font-size: 2rem;
+    }
+
+    .activity-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .activity-info {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .activity-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--ocean-blue), var(--palm-green));
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-top: 12px;
+    }
+
+    /* 景點網格 */
+    .spots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .spot-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .spot-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .spot-icon {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .spot-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .spot-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* 時間軸 */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+      text-align: left;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--sun-yellow), var(--ocean-blue), var(--palm-green));
+      border-radius: 3px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+      padding-left: 20px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 8px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--sun-orange);
+      border: 3px solid white;
+      box-shadow: 0 2px 8px rgba(255, 154, 86, 0.4);
+    }
+
+    .timeline-time {
+      font-size: 0.9rem;
+      color: var(--ocean-blue);
+      font-weight: 700;
+    }
+
+    .timeline-content {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* 美食卡片 */
+    .food-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 12px 0;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .food-emoji {
+      font-size: 2.5rem;
+    }
+
+    .food-info {
+      flex: 1;
+    }
+
+    .food-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .food-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .food-price {
+      font-size: 0.85rem;
+      color: var(--palm-green);
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    /* 提示卡片 */
+    .tip-card {
+      background: linear-gradient(135deg, rgba(0,180,216,0.1), rgba(46,196,182,0.1));
+      border: 2px solid var(--ocean-blue);
+      border-radius: 20px;
+      padding: 24px;
+      margin: 16px 0;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .tip-card h3 {
+      font-size: 1.1rem;
+      color: var(--ocean-blue);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tip-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* 泰語速查 */
+    .quick-thai {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 12px 0;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .quick-thai-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .quick-thai-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .quick-thai-item:last-child {
+      border-bottom: none;
+    }
+
+    .quick-thai-chinese {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+
+    .quick-thai-phonetic {
+      font-size: 0.9rem;
+      color: var(--ocean-blue);
+      font-weight: 700;
+    }
+
+    /* 底部導航 */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 12px 16px calc(var(--safe-bottom) + 12px);
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      z-index: 1000;
+    }
+
+    .bottom-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .bottom-nav-item.active,
+    .bottom-nav-item:hover {
+      color: var(--sun-orange);
+    }
+
+    .bottom-nav-item span:first-child {
+      font-size: 1.5rem;
+    }
+
+    /* CTA 按鈕 */
+    .cta-button {
+      display: inline-block;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, var(--sun-yellow), var(--sun-orange));
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      margin-top: 24px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 154, 86, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
+
+  <!-- 頁面導航 -->
+  <nav class="page-nav">
+    <a href="day.html" class="nav-btn active">☀️ 白天</a>
+    <a href="night.html" class="nav-btn">🌙 夜晚</a>
+  </nav>
+
+  <!-- 內容區 -->
+  <div class="content-wrapper">
+
+    <!-- 首頁區塊 -->
+    <section id="home" class="section-content active">
+      <div class="hero-section">
+        <div class="sun-icon">☀️</div>
+        <h1 class="day-title">白天芭達雅</h1>
+        <p class="subtitle">2026/3/16 - 3/22 陽光海灘行程</p>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">5</div>
+            <div class="stat-label">必去海灘</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">8</div>
+            <div class="stat-label">熱門景點</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">美食推薦</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">放鬆時光</div>
+          </div>
+        </div>
+
+        <a href="#" class="cta-button" onclick="switchSection('beach')">開始探索 →</a>
+      </div>
+    </section>
+
+    <!-- 海灘區塊 -->
+    <section id="beach" class="section-content">
+      <div class="section-header">
+        <h2 class="section-title">🏖️ 海灘玩水</h2>
+        <p class="section-subtitle">芭達雅最美的海灘</p>
+      </div>
+
+      <div class="spots-grid">
+        <div class="spot-card">
+          <div class="spot-icon">🏝️</div>
+          <div class="spot-name">珊瑚島</div>
+          <div class="spot-desc">水上活動天堂</div>
+        </div>
+        <div class="spot-card">
+          <div class="spot-icon">🌴</div>
+          <div class="spot-name">中天海灘</div>
+          <div class="spot-desc">最佳看日落</div>
+        </div>
+        <div class="spot-card">
+          <div class="spot-icon">🏊</div>
+          <div class="spot-name">芭達雅海灘</div>
+          <div class="spot-desc">最熱鬧沙灘</div>
+        </div>
+        <div class="spot-card">
+          <div class="spot-icon">🐚</div>
+          <div class="spot-name">納克魯亞</div>
+          <div class="spot-desc">寧靜小漁村</div>
+        </div>
+        <div class="spot-card">
+          <div class="spot-icon">🚤</div>
+          <div class="spot-name">格蘭島</div>
+          <div class="spot-desc">浮潛聖地</div>
+        </div>
+        <div class="spot-card">
+          <div class="spot-icon">🌊</div>
+          <div class="spot-name">Wong Amat</div>
+          <div class="spot-desc">度假村集中</div>
+        </div>
+      </div>
+
+      <div class="activity-card" style="margin-top: 32px; border-color: var(--sun-orange);">
+        <div class="activity-header">
+          <span class="activity-icon">🛥️</span>
+          <span class="activity-title">珊瑚島一日遊</span>
+        </div>
+        <div class="activity-info">
+          早上 9 點出發，包含快艇來回、浮潛裝備、海鮮午餐。
+          可體驗香蕉船、拖曳傘、水上摩托車等活動。
+        </div>
+        <span class="activity-tag">💰 約 1,500 THB/人</span>
+      </div>
+
+      <div class="tip-card">
+        <h3>💡 海灘小撇步</h3>
+        <p>
+          • 躺椅租借約 100-200 THB/天<br>
+          • 一定要帶防曬乳 SPF50+<br>
+          • 珊瑚島建議避開週末人潮<br>
+          • 中天海灘 17:00 後最適合看夕陽
+        </p>
+      </div>
+    </section>
+
+    <!-- 景點區塊 -->
+    <section id="spots" class="section-content">
+      <div class="section-header">
+        <h2 class="section-title">📸 熱門景點</h2>
+        <p class="section-subtitle">必打卡的芭達雅地標</p>
+      </div>
+
+      <div class="activity-card" style="border-color: var(--palm-green);">
+        <div class="activity-header">
+          <span class="activity-icon">🏛️</span>
+          <span class="activity-title">真理寺 Sanctuary of Truth</span>
+        </div>
+        <div class="activity-info">
+          全木造藝術聖殿，高達 105 米，雕刻精美絕倫。
+          是芭達雅最具代表性的建築奇觀。
+        </div>
+        <span class="activity-tag">⏰ 08:00-18:00 | 500 THB</span>
+      </div>
+
+      <div class="activity-card" style="border-color: var(--ocean-blue);">
+        <div class="activity-header">
+          <span class="activity-icon">🎡</span>
+          <span class="activity-title">Pattaya Park Tower</span>
+        </div>
+        <div class="activity-info">
+          55 樓高空旋轉餐廳，可俯瞰整個芭達雅灣。
+          還有刺激的高空跳傘體驗。
+        </div>
+        <span class="activity-tag">💰 400 THB (含自助餐)</span>
+      </div>
+
+      <div class="activity-card" style="border-color: var(--sun-yellow);">
+        <div class="activity-header">
+          <span class="activity-icon">🐘</span>
+          <span class="activity-title">Nong Nooch 熱帶花園</span>
+        </div>
+        <div class="activity-info">
+          亞洲最大熱帶植物園，有大象表演、泰國文化村、
+          各式主題花園，可以玩一整天。
+        </div>
+        <span class="activity-tag">⏰ 08:00-18:00 | 800 THB</span>
+      </div>
+
+      <div class="activity-card" style="border-color: var(--sun-orange);">
+        <div class="activity-header">
+          <span class="activity-icon">🛍️</span>
+          <span class="activity-title">Terminal 21 Pattaya</span>
+        </div>
+        <div class="activity-info">
+          以世界機場為主題的購物中心，每層樓代表不同城市。
+          美食街價格實惠，冷氣超涼！
+        </div>
+        <span class="activity-tag">🆓 免費入場 | 10:00-23:00</span>
+      </div>
+    </section>
+
+    <!-- 美食區塊 -->
+    <section id="food" class="section-content">
+      <div class="section-header">
+        <h2 class="section-title">🍜 美食推薦</h2>
+        <p class="section-subtitle">不能錯過的在地美味</p>
+      </div>
+
+      <div class="food-card">
+        <span class="food-emoji">🍛</span>
+        <div class="food-info">
+          <div class="food-name">打拋豬飯</div>
+          <div class="food-desc">泰國國民美食，辣炒豬肉配荷包蛋</div>
+          <div class="food-price">50-80 THB</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <span class="food-emoji">🍜</span>
+        <div class="food-info">
+          <div class="food-name">泰式船麵</div>
+          <div class="food-desc">Ben House 一碗只要 15 THB，解酒神器</div>
+          <div class="food-price">15 THB/碗</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <span class="food-emoji">🦀</span>
+        <div class="food-info">
+          <div class="food-name">咖哩螃蟹</div>
+          <div class="food-desc">張龍記 24 小時營業，宵夜首選</div>
+          <div class="food-price">400-600 THB</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <span class="food-emoji">🍢</span>
+        <div class="food-info">
+          <div class="food-name">泰式烤肉串</div>
+          <div class="food-desc">街邊攤販，便宜又好吃</div>
+          <div class="food-price">10-20 THB/串</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <span class="food-emoji">🥭</span>
+        <div class="food-info">
+          <div class="food-name">芒果糯米飯</div>
+          <div class="food-desc">泰國甜點代表，椰奶香濃</div>
+          <div class="food-price">80-120 THB</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <span class="food-emoji">🍹</span>
+        <div class="food-info">
+          <div class="food-name">泰式奶茶</div>
+          <div class="food-desc">橘色特調，香甜消暑</div>
+          <div class="food-price">30-50 THB</div>
+        </div>
+      </div>
+
+      <div class="quick-thai">
+        <div class="quick-thai-title">🗣️ 點餐必備泰語</div>
+        <div class="quick-thai-item">
+          <span class="quick-thai-chinese">這個多少錢？</span>
+          <span class="quick-thai-phonetic">逃萊</span>
+        </div>
+        <div class="quick-thai-item">
+          <span class="quick-thai-chinese">很好吃</span>
+          <span class="quick-thai-phonetic">阿蘿依媽</span>
+        </div>
+        <div class="quick-thai-item">
+          <span class="quick-thai-chinese">不要辣</span>
+          <span class="quick-thai-phonetic">麥配</span>
+        </div>
+        <div class="quick-thai-item">
+          <span class="quick-thai-chinese">買單</span>
+          <span class="quick-thai-phonetic">切賓咖</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 按摩區塊 -->
+    <section id="relax" class="section-content">
+      <div class="section-header">
+        <h2 class="section-title">💆 按摩放鬆</h2>
+        <p class="section-subtitle">來泰國一定要按摩！</p>
+      </div>
+
+      <div class="activity-card" style="border-color: var(--palm-green);">
+        <div class="activity-header">
+          <span class="activity-icon">🧘</span>
+          <span class="activity-title">泰式古法按摩</span>
+        </div>
+        <div class="activity-info">
+          傳統泰式按摩，會拉筋、壓穴道，結束後全身舒暢。
+          適合肩頸痠痛、長途飛行後。
+        </div>
+        <span class="activity-tag">💰 300-500 THB/小時</span>
+      </div>
+
+      <div class="activity-card" style="border-color: var(--ocean-blue);">
+        <div class="activity-header">
+          <span class="activity-icon">🌿</span>
+          <span class="activity-title">精油 SPA</span>
+        </div>
+        <div class="activity-info">
+          芳香精油搭配輕柔手法，完全放鬆身心。
+          適合白天曬完太陽後做。
+        </div>
+        <span class="activity-tag">💰 600-1,000 THB/小時</span>
+      </div>
+
+      <div class="activity-card" style="border-color: var(--sun-yellow);">
+        <div class="activity-header">
+          <span class="activity-icon">🦶</span>
+          <span class="activity-title">腳底按摩</span>
+        </div>
+        <div class="activity-info">
+          逛街走累了首選！舒緩雙腳疲勞，
+          很多店都有按到睡著的服務。
+        </div>
+        <span class="activity-tag">💰 200-300 THB/小時</span>
+      </div>
+
+      <div class="quick-thai">
+        <div class="quick-thai-title">🗣️ 按摩必備泰語</div>
+        <div class="quick-thai-item">
+          <span class="quick-thai-chinese">輕一點</span>
+          <span class="quick-thai-phonetic">包挪</span>
+        </div>
+        <div class="quick-thai-item">
+          <span class="quick-thai-chinese">重一點</span>
+          <span class="quick-thai-phonetic">嚷挪</span>
+        </div>
+        <div class="quick-thai-item">
+          <span class="quick-thai-chinese">這裡痛</span>
+          <span class="quick-thai-phonetic">動尼接</span>
+        </div>
+        <div class="quick-thai-item">
+          <span class="quick-thai-chinese">很舒服</span>
+          <span class="quick-thai-phonetic">沙敗媽</span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <h3>💡 按摩小撇步</h3>
+        <p>
+          • 小費約 50-100 THB（滿意就給）<br>
+          • 可先在 Google Maps 看評價<br>
+          • 連鎖店如 Let's Relax 品質穩定<br>
+          • 酒後不建議做深層按摩
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 底部導航 -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-item active" data-section="home">
+      <span>🏠</span>
+      <span>首頁</span>
+    </div>
+    <div class="bottom-nav-item" data-section="beach">
+      <span>🏖️</span>
+      <span>海灘</span>
+    </div>
+    <div class="bottom-nav-item" data-section="spots">
+      <span>📸</span>
+      <span>景點</span>
+    </div>
+    <div class="bottom-nav-item" data-section="food">
+      <span>🍜</span>
+      <span>美食</span>
+    </div>
+    <div class="bottom-nav-item" data-section="relax">
+      <span>💆</span>
+      <span>按摩</span>
+    </div>
+  </nav>
+
+  <script>
+    function switchSection(sectionId) {
+      // 更新導航樣式
+      document.querySelectorAll('.bottom-nav-item').forEach(i => i.classList.remove('active'));
+      document.querySelector(`[data-section="${sectionId}"]`)?.classList.add('active');
+
+      // 切換區塊
+      document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+
+      // 滾動到頂部
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 底部導航切換
+    document.querySelectorAll('.bottom-nav-item').forEach(item => {
+      item.addEventListener('click', function() {
+        switchSection(this.dataset.section);
+      });
+    });
+  </script>
+</body>
+</html>

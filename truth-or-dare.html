@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ความจริงหรือท้า 真心話大冒險 Truth or Dare</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Sans+Thai:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --neon-pink: #ff00ff;
+      --neon-blue: #00ffff;
+      --neon-purple: #bf00ff;
+      --neon-orange: #ff6b35;
+      --neon-green: #00ff88;
+      --gold: #ffd700;
+      --warm-pink: #ff6b6b;
+      --hot-red: #e74c3c;
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: rgba(18, 18, 26, 0.95);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.8);
+      --text-muted: rgba(255, 255, 255, 0.5);
+      --safe-top: env(safe-area-inset-top, 20px);
+      --safe-bottom: env(safe-area-inset-bottom, 20px);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans TC', 'Noto Sans Thai', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* 動態背景 */
+    .animated-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(-45deg, #0a0a0f, #2d1f3d, #1a0a2e, #0a0a0f);
+      background-size: 400% 400%;
+      animation: gradient-shift 15s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 頂部導航 */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 12px) 20px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .back-btn {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .top-title {
+      text-align: center;
+    }
+
+    .top-title-main {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .top-title-sub {
+      font-size: 0.7rem;
+      color: var(--gold);
+    }
+
+    .question-count {
+      font-size: 0.85rem;
+      color: var(--neon-pink);
+      font-weight: 700;
+    }
+
+    /* 內容區 */
+    .content {
+      padding: calc(var(--safe-top) + 90px) 20px calc(var(--safe-bottom) + 40px);
+      max-width: 500px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 版本選擇 */
+    .version-select {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 20px;
+    }
+
+    .version-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .version-title {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .version-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .version-card {
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 32px 24px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 3px solid transparent;
+      text-align: center;
+    }
+
+    .version-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .version-card.warmup {
+      border-color: var(--warm-pink);
+    }
+
+    .version-card.warmup:hover {
+      box-shadow: 0 8px 40px rgba(255, 107, 107, 0.3);
+    }
+
+    .version-card.spicy {
+      border-color: var(--hot-red);
+    }
+
+    .version-card.spicy:hover {
+      box-shadow: 0 8px 40px rgba(231, 76, 60, 0.3);
+    }
+
+    .version-icon {
+      font-size: 4rem;
+      margin-bottom: 16px;
+    }
+
+    .version-name {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .version-name-thai {
+      font-size: 1rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+    }
+
+    .version-name-en {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .version-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 12px;
+    }
+
+    .version-count {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: var(--neon-blue);
+    }
+
+    /* 遊戲區 */
+    .game-area {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+
+    .game-area.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 問題卡片 */
+    .question-card {
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 40px 24px;
+      width: 100%;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .question-card.warmup {
+      border: 3px solid var(--warm-pink);
+      box-shadow: 0 0 40px rgba(255, 107, 107, 0.2);
+    }
+
+    .question-card.spicy {
+      border: 3px solid var(--hot-red);
+      box-shadow: 0 0 40px rgba(231, 76, 60, 0.2);
+    }
+
+    .question-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple), var(--neon-blue));
+    }
+
+    .question-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .question-emoji {
+      font-size: 3rem;
+      margin-bottom: 24px;
+    }
+
+    .question-text-cn {
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    .question-text-thai {
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .question-text-en {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* 按鈕 */
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 18px 24px;
+      border-radius: 16px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-next {
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      color: white;
+      box-shadow: 0 4px 20px rgba(255, 0, 255, 0.4);
+    }
+
+    .btn-next:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 0, 255, 0.6);
+    }
+
+    .btn-skip {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border: 2px solid var(--text-muted);
+    }
+
+    .btn-skip:hover {
+      border-color: var(--neon-blue);
+      color: var(--neon-blue);
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    .btn-thai {
+      font-size: 0.75rem;
+      color: var(--gold);
+      display: block;
+      font-family: 'Noto Sans Thai', sans-serif;
+      margin-top: 4px;
+    }
+
+    .btn-back {
+      padding: 12px 32px;
+      background: transparent;
+      border: 2px solid var(--text-muted);
+      border-radius: 25px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-back:hover {
+      border-color: var(--neon-blue);
+      color: var(--neon-blue);
+    }
+
+    /* 進度條 */
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    /* 完成畫面 */
+    .complete-screen {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .complete-icon {
+      font-size: 5rem;
+      margin-bottom: 24px;
+    }
+
+    .complete-title {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .complete-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    /* 警告提示 */
+    .warning-badge {
+      display: inline-block;
+      background: rgba(231, 76, 60, 0.2);
+      color: var(--hot-red);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-top: 12px;
+    }
+
+    /* 語言切換 */
+    .lang-toggle {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .lang-btn {
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      border: 2px solid var(--text-muted);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--neon-pink);
+      border-color: var(--neon-pink);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
+
+  <!-- 頂部導航 -->
+  <nav class="top-nav">
+    <a href="games.html" class="back-btn">← กลับ 返回</a>
+    <div class="top-title">
+      <div class="top-title-main">真心話大冒險</div>
+      <div class="top-title-sub">ความจริงหรือท้า • Truth or Dare</div>
+    </div>
+    <span class="question-count" id="questionCount"></span>
+  </nav>
+
+  <div class="content">
+
+    <!-- 版本選擇 -->
+    <div id="versionSelect" class="version-select">
+      <div class="version-header">
+        <div class="version-title">💬</div>
+        <div class="version-subtitle">選擇遊戲版本<br>เลือกเวอร์ชัน • Choose Version</div>
+      </div>
+
+      <div class="version-card warmup" onclick="startGame('warmup')">
+        <div class="version-icon">💕</div>
+        <div class="version-name">暖身版</div>
+        <div class="version-name-thai">เวอร์ชันอุ่นเครื่อง</div>
+        <div class="version-name-en">Warm-up Edition</div>
+        <div class="version-desc">戀愛、曖昧、初戀話題<br>適合剛認識的朋友</div>
+        <div class="version-count">🎯 38 道題目</div>
+      </div>
+
+      <div class="version-card spicy" onclick="startGame('spicy')">
+        <div class="version-icon">🔥</div>
+        <div class="version-name">夜生活版</div>
+        <div class="version-name-thai">เวอร์ชันไนท์ไลฟ์</div>
+        <div class="version-name-en">Nightlife Edition</div>
+        <div class="version-desc">18禁深夜話題<br>僅限成人派對</div>
+        <div class="version-count">🔥 90 道題目</div>
+        <div class="warning-badge">🔞 18+ Only</div>
+      </div>
+    </div>
+
+    <!-- 遊戲區 -->
+    <div id="gameArea" class="game-area">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+
+      <div class="question-card" id="questionCard">
+        <div class="question-number" id="questionNumber">#1</div>
+        <div class="question-emoji" id="questionEmoji">💭</div>
+        <div class="question-text-cn" id="questionCN">問題載入中...</div>
+        <div class="question-text-thai" id="questionTH">กำลังโหลด...</div>
+        <div class="question-text-en" id="questionEN">Loading...</div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-skip" onclick="skipQuestion()">
+          跳過<span class="btn-thai">ข้าม</span>
+        </button>
+        <button class="btn btn-next" onclick="nextQuestion()">
+          下一題<span class="btn-thai">ถัดไป</span>
+        </button>
+      </div>
+
+      <button class="btn-back" onclick="backToSelect()">← กลับ 返回選擇</button>
+    </div>
+
+    <!-- 完成畫面 -->
+    <div id="completeScreen" class="game-area">
+      <div class="complete-screen">
+        <div class="complete-icon">🎉</div>
+        <div class="complete-title">玩完了！</div>
+        <div class="complete-subtitle">
+          จบเกมแล้ว! • Game Complete!<br><br>
+          希望大家玩得開心！<br>
+          หวังว่าทุกคนจะสนุก!
+        </div>
+        <button class="btn btn-next" onclick="restartGame()" style="max-width: 200px;">
+          再玩一次<span class="btn-thai">เล่นอีกครั้ง</span>
+        </button>
+        <br><br>
+        <button class="btn-back" onclick="backToSelect()">← 返回選擇版本</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // ==================== 問題資料庫 ====================
+
+    const warmupQuestions = [
+      { cn: "有沒有喜歡的人？有的話他在現場嗎？", th: "มีคนที่ชอบไหม? ถ้ามี เขาอยู่ที่นี่ไหม?", en: "Do you have a crush? If yes, are they here?", emoji: "💗" },
+      { cn: "如果一定要和前任複合，你會選擇哪一任復合？", th: "ถ้าต้องกลับไปคบกับแฟนเก่า คุณจะเลือกคนไหน?", en: "If you had to get back with an ex, which one would you choose?", emoji: "💔" },
+      { cn: "另一半都怎麼叫你？（前任也可以）", th: "แฟนเรียกคุณว่าอะไร? (แฟนเก่าก็ได้)", en: "What does your partner call you? (Ex counts too)", emoji: "🥰" },
+      { cn: "你覺得自己是外貿協會嗎？", th: "คุณคิดว่าตัวเองเป็นคนดูหน้าตาไหม?", en: "Do you consider yourself shallow about looks?", emoji: "👀" },
+      { cn: "最理想的對象接近哪個藝人？", th: "คนในอุดมคติของคุณเหมือนดาราคนไหน?", en: "Which celebrity does your ideal type look like?", emoji: "⭐" },
+      { cn: "對另一半的身高有沒有要求？", th: "คุณมีข้อกำหนดเรื่องส่วนสูงไหม?", en: "Do you have height requirements for a partner?", emoji: "📏" },
+      { cn: "希望另一半有什麼專長？或職業？", th: "อยากให้แฟนมีความสามารถหรืออาชีพอะไร?", en: "What skills or profession do you want your partner to have?", emoji: "💼" },
+      { cn: "最討厭什麼類型的人？", th: "คุณเกลียดคนประเภทไหนมากที่สุด?", en: "What type of person do you hate the most?", emoji: "😤" },
+      { cn: "你的初戀是幾歲？", th: "รักแรกของคุณเกิดขึ้นตอนอายุเท่าไหร่?", en: "How old were you during your first love?", emoji: "💝" },
+      { cn: "你總共交往過幾個人？", th: "คุณคบกับกี่คนมาแล้ว?", en: "How many people have you dated in total?", emoji: "💑" },
+      { cn: "為什麼跟前任分手？", th: "ทำไมถึงเลิกกับแฟนเก่า?", en: "Why did you break up with your ex?", emoji: "💔" },
+      { cn: "有談過遠距離戀愛嗎？沒有的話可以接受嗎？", th: "เคยคบทางไกลไหม? ถ้าไม่เคย ยอมรับได้ไหม?", en: "Have you been in a long-distance relationship? Would you accept one?", emoji: "🌍" },
+      { cn: "男生／女生的什麼舉動會讓你心動？", th: "ผู้ชาย/ผู้หญิง ทำอะไรแล้วทำให้คุณใจเต้น?", en: "What actions from guys/girls make your heart flutter?", emoji: "💓" },
+      { cn: "有暗戀別人或一見鍾情過嗎？", th: "เคยแอบชอบใครหรือรักแรกพบไหม?", en: "Have you ever had a secret crush or love at first sight?", emoji: "😍" },
+      { cn: "你覺得結婚的必要條件是什麼？", th: "คุณคิดว่าเงื่อนไขที่จำเป็นสำหรับการแต่งงานคืออะไร?", en: "What do you think are the necessary conditions for marriage?", emoji: "💍" },
+      { cn: "在場裡的所有人中，你覺得誰最有吸引力？", th: "ในทุกคนที่อยู่ที่นี่ คุณคิดว่าใครน่าดึงดูดที่สุด?", en: "Among everyone here, who do you find most attractive?", emoji: "✨" },
+      { cn: "第一次約會覺得最瞎的地點是？", th: "สถานที่เดทครั้งแรกที่แย่ที่สุดคือที่ไหน?", en: "What's the worst place for a first date?", emoji: "📍" },
+      { cn: "約會對象如果有車有房會加分嗎？", th: "ถ้าคนที่เดทด้วยมีรถมีบ้าน จะได้คะแนนเพิ่มไหม?", en: "Is it a plus if your date has a car and house?", emoji: "🚗" },
+      { cn: "遇過最瞎的約會經驗是什麼？", th: "ประสบการณ์เดทที่แย่ที่สุดของคุณคืออะไร?", en: "What's your worst dating experience?", emoji: "🙈" },
+      { cn: "玩交友軟體遇過最瞎的經驗是？", th: "ประสบการณ์ที่แย่ที่สุดจากแอปหาคู่คืออะไร?", en: "What's your worst dating app experience?", emoji: "📱" },
+      { cn: "玩交友軟體最快見面的紀錄是多久？", th: "เร็วที่สุดที่เจอกันจากแอปหาคู่คือนานแค่ไหน?", en: "What's your fastest record from match to meeting?", emoji: "⏱️" },
+      { cn: "玩交友軟體封鎖過別人嗎？為什麼？", th: "เคยบล็อคใครในแอปหาคู่ไหม? ทำไม?", en: "Have you blocked anyone on dating apps? Why?", emoji: "🚫" },
+      { cn: "長得好看但沒錢 vs 長得醜但家財萬貫，會選哪個交往？", th: "หน้าตาดีแต่ไม่มีเงิน vs หน้าตาไม่ดีแต่รวยมาก เลือกคบใคร?", en: "Good-looking but poor vs ugly but rich - which would you date?", emoji: "💰" },
+      { cn: "你覺得你是戀愛腦嗎？如果是你做過最戀愛腦的事蹟是？", th: "คุณคิดว่าตัวเองเป็นคนบ้ารักไหม? ถ้าใช่ สิ่งที่บ้ารักที่สุดที่เคยทำคืออะไร?", en: "Are you a hopeless romantic? What's the most romantic thing you've done?", emoji: "🥺" },
+      { cn: "曾經被提過分手嗎？為什麼？", th: "เคยถูกบอกเลิกไหม? ทำไม?", en: "Have you ever been dumped? Why?", emoji: "😢" },
+      { cn: "被劈腿過嗎？", th: "เคยถูกนอกใจไหม?", en: "Have you ever been cheated on?", emoji: "💔" },
+      { cn: "被人告白過或被追過嗎？次數是？", th: "เคยถูกสารภาพรักหรือถูกจีบไหม? กี่ครั้ง?", en: "Have you been confessed to or pursued? How many times?", emoji: "💌" },
+      { cn: "覺得AA制度怎麼樣？", th: "คุณคิดยังไงกับการแบ่งจ่าย?", en: "What do you think about splitting the bill?", emoji: "💵" },
+      { cn: "對象的年收至少要多少才夠？", th: "รายได้ต่อปีขั้นต่ำของคู่ครองต้องเป็นเท่าไหร่?", en: "What's the minimum annual income for a partner?", emoji: "💸" },
+      { cn: "之前是怎麼走出失戀的？", th: "คุณเคยก้าวผ่านอกหักยังไง?", en: "How did you get over a heartbreak before?", emoji: "🌈" },
+      { cn: "可以跟前任當朋友嗎？", th: "สามารถเป็นเพื่อนกับแฟนเก่าได้ไหม?", en: "Can you be friends with your ex?", emoji: "🤝" },
+      { cn: "覺得男女之間存在純友誼嗎？", th: "คุณคิดว่ามิตรภาพบริสุทธิ์ระหว่างชายหญิงมีจริงไหม?", en: "Do you believe in pure friendship between men and women?", emoji: "👫" },
+      { cn: "相信世上有命中注定的對象嗎？", th: "คุณเชื่อในเนื้อคู่ไหม?", en: "Do you believe in soulmates?", emoji: "💫" },
+      { cn: "願意讓另一半看手機嗎？為什麼？", th: "ยินดีให้แฟนดูโทรศัพท์ไหม? ทำไม?", en: "Would you let your partner check your phone? Why?", emoji: "📱" },
+      { cn: "有談過班對或是辦公室戀情嗎？", th: "เคยคบกับเพื่อนร่วมชั้นหรือเพื่อนร่วมงานไหม?", en: "Have you dated a classmate or coworker?", emoji: "🏢" },
+      { cn: "你有沒有用過小號偷看前任的現任過嗎？", th: "เคยใช้บัญชีปลอมแอบดูแฟนใหม่ของแฟนเก่าไหม?", en: "Have you used a fake account to stalk your ex's new partner?", emoji: "🕵️" },
+      { cn: "你曾經被同性的人吸引過嗎？", th: "คุณเคยถูกดึงดูดโดยเพศเดียวกันไหม?", en: "Have you ever been attracted to someone of the same sex?", emoji: "🌈" }
+    ];
+
+    const spicyQuestions = [
+      { cn: "描述一個會讓你興奮的狀況或場景。", th: "อธิบายสถานการณ์หรือฉากที่ทำให้คุณตื่นเต้น", en: "Describe a situation or scene that turns you on.", emoji: "🔥" },
+      { cn: "你喜歡的姿勢或體位？", th: "ท่าที่คุณชอบคืออะไร?", en: "What's your favorite position?", emoji: "🛏️" },
+      { cn: "整個過程，讓你最享受的部分是？", th: "ส่วนไหนของกระบวนการทั้งหมดที่คุณเพลิดเพลินมากที่สุด?", en: "What part of the whole process do you enjoy most?", emoji: "✨" },
+      { cn: "關於剃毛，你是怎麼看待的？", th: "คุณคิดยังไงเรื่องการโกนขน?", en: "What's your view on shaving?", emoji: "🪒" },
+      { cn: "精神出軌跟肉體出軌，你比較不能接受哪一個？", th: "นอกใจทางใจ vs นอกใจทางกาย คุณรับไม่ได้กับอันไหนมากกว่า?", en: "Emotional cheating vs physical cheating - which is worse?", emoji: "💔" },
+      { cn: "開燈還是關燈做？", th: "ทำตอนเปิดไฟหรือปิดไฟ?", en: "Lights on or lights off?", emoji: "💡" },
+      { cn: "在調情或是做的時候，你說過最濕鹹的句子是什麼？", th: "ประโยคที่เซ็กซี่ที่สุดที่คุณเคยพูดตอนจีบหรือตอนทำคืออะไร?", en: "What's the dirtiest thing you've said while flirting or doing it?", emoji: "🗣️" },
+      { cn: "在做的時候，妳喜歡伴侶做什麼／說什麼？不喜歡什麼？", th: "ตอนทำ คุณชอบให้คู่ทำอะไร/พูดอะไร? ไม่ชอบอะไร?", en: "What do you like/dislike your partner doing or saying during?", emoji: "💬" },
+      { cn: "最喜歡異性身上的哪個部位？", th: "ส่วนไหนของเพศตรงข้ามที่คุณชอบมากที่สุด?", en: "What body part of the opposite sex do you like most?", emoji: "👀" },
+      { cn: "自己來的頻率？", th: "คุณทำด้วยตัวเองบ่อยแค่ไหน?", en: "How often do you do it yourself?", emoji: "🙈" },
+      { cn: "用三個形容詞，形容做的時候的你。", th: "ใช้คำคุณศัพท์ 3 คำ อธิบายตัวคุณตอนทำ", en: "Use 3 adjectives to describe yourself during.", emoji: "📝" },
+      { cn: "身上哪個部位最敏感？", th: "ส่วนไหนของร่างกายที่ไวที่สุด?", en: "What's the most sensitive part of your body?", emoji: "⚡" },
+      { cn: "最喜歡自己身體的哪個部位？", th: "ส่วนไหนของร่างกายตัวเองที่ชอบมากที่สุด?", en: "What body part of yourself do you like most?", emoji: "💪" },
+      { cn: "曾經幻想在哪裡做？", th: "เคยฝันว่าอยากทำที่ไหน?", en: "Where have you fantasized about doing it?", emoji: "🏖️" },
+      { cn: "目前的幻想中，你想先實踐什麼？", th: "ในความฝันปัจจุบัน คุณอยากลองอะไรก่อน?", en: "What fantasy do you want to try first?", emoji: "💭" },
+      { cn: "親吻、擁抱、還是愛撫？", th: "จูบ กอด หรือลูบไล้?", en: "Kissing, hugging, or caressing?", emoji: "💋" },
+      { cn: "你有沒有什麼不為人知的性癖？", th: "คุณมีความชอบทางเพศที่ไม่มีใครรู้ไหม?", en: "Do you have any secret kinks?", emoji: "🤫" },
+      { cn: "描述一個你做過的春夢。包含場景和身份。", th: "อธิบายความฝันที่เซ็กซี่ที่คุณเคยฝัน รวมถึงฉากและตัวตน", en: "Describe a wet dream you've had, including scene and identities.", emoji: "💤" },
+      { cn: "一個最難忘的做/自己來的經驗。", th: "ประสบการณ์ที่น่าจดจำที่สุดในการทำ/ทำเอง", en: "Your most memorable experience doing it/yourself.", emoji: "🌟" },
+      { cn: "自己來還是做？", th: "ทำเองหรือทำกับคนอื่น?", en: "Solo or with someone?", emoji: "🤔" },
+      { cn: "你做過／遇過最浪漫的事？", th: "สิ่งที่โรแมนติกที่สุดที่คุณเคยทำ/พบ?", en: "The most romantic thing you've done/experienced?", emoji: "🌹" },
+      { cn: "做的時候，最怕遇到什麼狀況？", th: "ตอนทำ คุณกลัวเจอสถานการณ์อะไรมากที่สุด?", en: "What situation do you fear most during?", emoji: "😰" },
+      { cn: "嘗試過約砲嗎？有的話幾個？", th: "เคยลองนัดเจอไหม? ถ้าเคย กี่คน?", en: "Have you tried hooking up? How many?", emoji: "📲" },
+      { cn: "喜歡滴臘或手銬等拘束類的嗎？", th: "ชอบหยดเทียนหรือกุญแจมือพวกนั้นไหม?", en: "Do you like wax dripping or handcuffs?", emoji: "🔗" },
+      { cn: "什麼時候會硬／會濕？", th: "เมื่อไหร่ที่จะแข็ง/เปียก?", en: "What makes you hard/wet?", emoji: "💧" },
+      { cn: "你喜歡在什麼時候自己來？喜歡在什麼時候做？", th: "ชอบทำเองเมื่อไหร่? ชอบทำกับคนอื่นเมื่อไหร่?", en: "When do you like to do it yourself? When with others?", emoji: "🕐" },
+      { cn: "最能挑起你慾望的制服或職業。", th: "เครื่องแบบหรืออาชีพที่กระตุ้นความต้องการของคุณมากที่สุด", en: "What uniform or profession turns you on most?", emoji: "👔" },
+      { cn: "初體驗的故事。沒有的話，你希望對象是什麼樣的？", th: "เรื่องราวประสบการณ์ครั้งแรก ถ้าไม่มี คุณอยากให้เป็นแบบไหน?", en: "Your first time story. If none, what would you want?", emoji: "🔰" },
+      { cn: "聽覺、視覺、觸覺、味覺、嗅覺中，哪個最能引起慾望？", th: "การได้ยิน การมองเห็น การสัมผัส การรับรส การดมกลิ่น อันไหนกระตุ้นความต้องการมากที่สุด?", en: "Hearing, sight, touch, taste, smell - which arouses you most?", emoji: "👂" },
+      { cn: "第一次見到陌生的異性，會先看哪個地方？", th: "เมื่อเจอเพศตรงข้ามคนแปลกหน้าครั้งแรก จะมองที่ไหนก่อน?", en: "When first meeting a stranger of opposite sex, where do you look first?", emoji: "👁️" },
+      { cn: "在場的所有人，你最欣賞誰的身材？", th: "ในทุกคนที่อยู่ที่นี่ คุณชื่นชมรูปร่างของใครมากที่สุด?", en: "Among everyone here, whose body do you admire most?", emoji: "💪" },
+      { cn: "在做的時候，你會如何稱呼伴侶？希望被怎麼稱呼？", th: "ตอนทำ คุณจะเรียกคู่ว่าอะไร? อยากให้ถูกเรียกว่าอะไร?", en: "What do you call your partner during? What do you want to be called?", emoji: "🗣️" },
+      { cn: "玩具跟自己來，你覺得最大的差別在哪？", th: "ของเล่นกับทำเอง คุณคิดว่าความแตกต่างที่ใหญ่ที่สุดคืออะไร?", en: "What's the biggest difference between toys and doing it yourself?", emoji: "🎮" },
+      { cn: "幫對方塗抹乳液、防曬油，會興奮嗎？", th: "ทาโลชั่นหรือครีมกันแดดให้คนอื่น จะตื่นเต้นไหม?", en: "Does applying lotion or sunscreen on someone excite you?", emoji: "🧴" },
+      { cn: "除去生殖器外，最喜歡舔/被舔哪個部位？", th: "นอกจากอวัยวะเพศ ชอบเลีย/ถูกเลียตรงไหนมากที่สุด?", en: "Besides genitals, what part do you most like licking/being licked?", emoji: "👅" },
+      { cn: "可接受不洗澡直接做嗎？", th: "ยอมรับการทำโดยไม่อาบน้ำได้ไหม?", en: "Can you accept doing it without showering?", emoji: "🚿" },
+      { cn: "你覺得你是一個肉慾的人嗎？", th: "คุณคิดว่าตัวเองเป็นคนมีความต้องการทางเพศสูงไหม?", en: "Do you consider yourself a lustful person?", emoji: "🔥" },
+      { cn: "可以接受多久沒有？可以接受一天幾次？", th: "ยอมรับได้นานแค่ไหนที่ไม่มี? ยอมรับวันละกี่ครั้ง?", en: "How long without? How many times a day?", emoji: "📅" },
+      { cn: "有沒有嘗試過在非封閉空間/公開場合自己來或做？", th: "เคยลองทำเองหรือทำในที่ไม่ปิดมิดชิด/ที่สาธารณะไหม?", en: "Have you tried in non-private/public spaces?", emoji: "🌳" },
+      { cn: "如果能在世界上任選一個人，你會想跟誰發生一夜情？", th: "ถ้าเลือกใครก็ได้ในโลก คุณอยากมีอะไรกับใคร?", en: "If you could pick anyone in the world for a one-night stand, who?", emoji: "🌍" },
+      { cn: "滿意伴侶的身形嗎？理想伴侶的身形是什麼樣？", th: "พอใจกับรูปร่างของคู่ไหม? รูปร่างในอุดมคติเป็นแบบไหน?", en: "Satisfied with your partner's body? What's your ideal body type?", emoji: "🎯" },
+      { cn: "說一個你曾幻想過的身邊友人。", th: "บอกคนที่คุณเคยจินตนาการถึงในกลุ่มเพื่อน", en: "Name a friend you've fantasized about.", emoji: "🤭" },
+      { cn: "有進去過情趣用品店嗎？什麼狀況？", th: "เคยเข้าร้านขายของเล่นผู้ใหญ่ไหม? สถานการณ์เป็นยังไง?", en: "Have you been to an adult shop? What was the situation?", emoji: "🏪" },
+      { cn: "有嘗試過窒息式嗎？", th: "เคยลองแบบหายใจไม่ออกไหม?", en: "Have you tried breath play?", emoji: "😵" },
+      { cn: "有嘗試過精油按摩嗎？感受如何？", th: "เคยลองนวดน้ำมันหอมระเหยไหม? รู้สึกยังไง?", en: "Have you tried oil massage? How did it feel?", emoji: "💆" },
+      { cn: "有沒有遇過任何特殊癖好？你有什麼特殊癖好？", th: "เคยเจอความชอบพิเศษไหม? คุณมีความชอบพิเศษอะไร?", en: "Have you encountered any special kinks? What are yours?", emoji: "🎭" },
+      { cn: "你做過最大膽的舉動是什麼？", th: "สิ่งที่กล้าหาญที่สุดที่คุณเคยทำคืออะไร?", en: "What's the boldest thing you've done?", emoji: "🦁" },
+      { cn: "有沒有在網路上發過自己的裸照？", th: "เคยโพสต์ภาพเปลือยของตัวเองบนอินเทอร์เน็ตไหม?", en: "Have you ever posted your nude online?", emoji: "📸" },
+      { cn: "你有情趣用品嗎？能形容一下是什麼樣子嗎？", th: "คุณมีของเล่นผู้ใหญ่ไหม? อธิบายหน่อยได้ไหมว่าเป็นยังไง?", en: "Do you have adult toys? Can you describe them?", emoji: "🎁" },
+      { cn: "關於「做前看片」這件事，你是怎麼看的？", th: "คุณคิดยังไงเรื่องการดูหนังก่อนทำ?", en: "What do you think about watching before doing it?", emoji: "📺" },
+      { cn: "說一個會讓大家意外的事情。", th: "บอกอะไรสักอย่างที่จะทำให้ทุกคนแปลกใจ", en: "Tell something that would surprise everyone.", emoji: "😲" },
+      { cn: "襯衫、睡衣跟情趣睡衣選一個。", th: "เชิ้ต ชุดนอน หรือชุดนอนเซ็กซี่ เลือกอันเดียว", en: "Dress shirt, pajamas, or lingerie - pick one.", emoji: "👗" },
+      { cn: "你的酒品好嗎？有沒有看過或聽過喝醉之後的荒唐事？", th: "คุณดื่มเก่งไหม? เคยเห็นหรือได้ยินเรื่องบ้าๆหลังเมาไหม?", en: "How's your alcohol tolerance? Any crazy drunk stories?", emoji: "🍺" },
+      { cn: "可接受後面嗎？第一次開發的情形是什麼樣？", th: "ยอมรับด้านหลังได้ไหม? ครั้งแรกเป็นยังไง?", en: "Can you accept the back? How was your first time?", emoji: "🍑" },
+      { cn: "你曾幻想過的對象裡，有沒有出現過家人／朋友的伴侶？", th: "ในคนที่คุณเคยฝัน มีญาติหรือแฟนของเพื่อนไหม?", en: "Have you fantasized about family/friend's partners?", emoji: "🤔" },
+      { cn: "有沒有撞見其他人在做？", th: "เคยเห็นคนอื่นกำลังทำไหม?", en: "Have you ever walked in on someone?", emoji: "🚪" },
+      { cn: "有沒有對伴侶的某個部位，有特殊的癖好？", th: "มีความชอบพิเศษกับส่วนใดส่วนหนึ่งของคู่ไหม?", en: "Do you have a special fetish for any of your partner's body parts?", emoji: "❤️" },
+      { cn: "上一次自己來、做，分別是什麼時候？", th: "ครั้งล่าสุดที่ทำเองและทำกับคนอื่นคือเมื่อไหร่?", en: "When was the last time you did it yourself/with someone?", emoji: "📆" },
+      { cn: "有沒有幻想過在場的人？誰？", th: "เคยจินตนาการถึงคนที่อยู่ที่นี่ไหม? ใคร?", en: "Have you fantasized about anyone here? Who?", emoji: "👀" },
+      { cn: "有沒有被內射／內射他人的經驗？", th: "เคยมีประสบการณ์ถูกปล่อยข้างใน/ปล่อยข้างในคนอื่นไหม?", en: "Have you experienced finishing inside/someone finishing inside?", emoji: "💦" },
+      { cn: "對於被意淫這件事，你的看法是什麼？", th: "คุณคิดยังไงกับการถูกจินตนาการทางเพศ?", en: "What's your view on being fantasized about?", emoji: "💭" },
+      { cn: "有沒有口的經驗？", th: "เคยมีประสบการณ์ใช้ปากไหม?", en: "Have you had oral experience?", emoji: "👄" },
+      { cn: "描述伴侶做了什麼，會讓你想推倒他？", th: "อธิบายว่าคู่ทำอะไรที่ทำให้คุณอยากผลักเขาลง?", en: "What does your partner do that makes you want to push them down?", emoji: "🛋️" },
+      { cn: "有測過BDSM的屬性嗎？你覺得符合你的癖好嗎？", th: "เคยทดสอบ BDSM ไหม? คุณคิดว่าตรงกับความชอบของคุณไหม?", en: "Have you taken a BDSM test? Does it match your preferences?", emoji: "⛓️" },
+      { cn: "在場的人挑一位帶出場的話，你會選誰？為什麼？", th: "ถ้าเลือกคนที่นี่พาออกไป จะเลือกใคร? ทำไม?", en: "If you had to pick someone here to take home, who and why?", emoji: "🚶" },
+      { cn: "有沒有嘗試過多人運動？有的話，詳述體驗；沒有的話，想嗎？", th: "เคยลองทำหลายคนไหม? ถ้าเคย เล่าประสบการณ์; ถ้าไม่ อยากลองไหม?", en: "Have you tried group activities? Share experience or would you try?", emoji: "👥" },
+      { cn: "初吻是什麼時候？", th: "จูบแรกคือเมื่อไหร่?", en: "When was your first kiss?", emoji: "💋" },
+      { cn: "現場哪個人你親的下去？", th: "คนไหนที่นี่ที่คุณกล้าจูบ?", en: "Who here would you be willing to kiss?", emoji: "😘" },
+      { cn: "第一次是什麼時候？", th: "ครั้งแรกคือเมื่อไหร่?", en: "When was your first time?", emoji: "🔞" },
+      { cn: "最喜歡什麼姿勢？", th: "ชอบท่าไหนมากที่สุด?", en: "What's your favorite position?", emoji: "🏋️" },
+      { cn: "有約跑過嗎？", th: "เคยนัดเจอเพื่อทำไหม?", en: "Have you ever hooked up?", emoji: "📱" },
+      { cn: "看片最喜歡的類型是？", th: "ประเภทหนังที่ชอบดูมากที่สุดคืออะไร?", en: "What's your favorite type of video?", emoji: "🎬" },
+      { cn: "你覺得前戲重要嗎？", th: "คุณคิดว่าการเล้าโลมสำคัญไหม?", en: "Do you think foreplay is important?", emoji: "⏳" },
+      { cn: "有曾經嘗試過SM嗎？會想嘗試看看嗎？", th: "เคยลอง SM ไหม? อยากลองไหม?", en: "Have you tried SM? Would you want to?", emoji: "🎭" },
+      { cn: "你覺得你色嗎？滿分100分你覺得你幾分？", th: "คุณคิดว่าตัวเองเซ็กซี่ไหม? เต็ม 100 คุณให้ตัวเองกี่คะแนน?", en: "Do you think you're sexy? Rate yourself out of 100.", emoji: "💯" },
+      { cn: "可以接受多久沒有？", th: "ยอมรับได้นานแค่ไหนที่ไม่มี?", en: "How long can you go without?", emoji: "📅" },
+      { cn: "買過什麼情趣用品？", th: "เคยซื้อของเล่นผู้ใหญ่อะไรบ้าง?", en: "What adult toys have you bought?", emoji: "🛒" },
+      { cn: "你相信酒後亂性嗎？", th: "คุณเชื่อเรื่องเมาแล้วทำไหม?", en: "Do you believe in drunk mistakes?", emoji: "🍷" },
+      { cn: "你想嘗試過多人運動嗎？", th: "อยากลองทำหลายคนไหม?", en: "Do you want to try group activities?", emoji: "👥" },
+      { cn: "你有曾經無套過嗎？", th: "เคยไม่ใส่ถุงไหม?", en: "Have you ever gone without protection?", emoji: "🎈" },
+      { cn: "你跟另一半拍過色色自拍影片嗎？", th: "เคยถ่ายวิดีโอเซ็กซี่กับแฟนไหม?", en: "Have you made sexy videos with your partner?", emoji: "📹" }
+    ];
+
+    // ==================== 遊戲狀態 ====================
+    let currentVersion = null;
+    let currentQuestions = [];
+    let usedIndices = [];
+    let questionCount = 0;
+
+    // ==================== 遊戲功能 ====================
+    function startGame(version) {
+      currentVersion = version;
+      currentQuestions = version === 'warmup' ? [...warmupQuestions] : [...spicyQuestions];
+      usedIndices = [];
+      questionCount = 0;
+
+      document.getElementById('versionSelect').style.display = 'none';
+      document.getElementById('gameArea').classList.add('active');
+      document.getElementById('completeScreen').classList.remove('active');
+
+      const card = document.getElementById('questionCard');
+      card.className = 'question-card ' + version;
+
+      showRandomQuestion();
+    }
+
+    function showRandomQuestion() {
+      if (usedIndices.length >= currentQuestions.length) {
+        showComplete();
+        return;
+      }
+
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * currentQuestions.length);
+      } while (usedIndices.includes(randomIndex));
+
+      usedIndices.push(randomIndex);
+      questionCount++;
+
+      const question = currentQuestions[randomIndex];
+      document.getElementById('questionEmoji').textContent = question.emoji;
+      document.getElementById('questionCN').textContent = question.cn;
+      document.getElementById('questionTH').textContent = question.th;
+      document.getElementById('questionEN').textContent = question.en;
+      document.getElementById('questionNumber').textContent = `#${questionCount}`;
+      document.getElementById('questionCount').textContent = `${questionCount}/${currentQuestions.length}`;
+
+      const progress = (usedIndices.length / currentQuestions.length) * 100;
+      document.getElementById('progressFill').style.width = progress + '%';
+    }
+
+    function nextQuestion() {
+      showRandomQuestion();
+    }
+
+    function skipQuestion() {
+      showRandomQuestion();
+    }
+
+    function showComplete() {
+      document.getElementById('gameArea').classList.remove('active');
+      document.getElementById('completeScreen').classList.add('active');
+    }
+
+    function restartGame() {
+      usedIndices = [];
+      questionCount = 0;
+      document.getElementById('completeScreen').classList.remove('active');
+      document.getElementById('gameArea').classList.add('active');
+      showRandomQuestion();
+    }
+
+    function backToSelect() {
+      document.getElementById('gameArea').classList.remove('active');
+      document.getElementById('completeScreen').classList.remove('active');
+      document.getElementById('versionSelect').style.display = 'flex';
+      document.getElementById('questionCount').textContent = '';
+    }
+  </script>
+</body>
+</html>

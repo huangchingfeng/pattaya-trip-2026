@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>เกมปาร์ตี้ 派對遊戲 - 芭達雅之旅 2026</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Sans+Thai:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --neon-pink: #ff00ff;
+      --neon-blue: #00ffff;
+      --neon-purple: #bf00ff;
+      --neon-orange: #ff6b35;
+      --neon-green: #00ff88;
+      --gold: #ffd700;
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: rgba(18, 18, 26, 0.9);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.8);
+      --text-muted: rgba(255, 255, 255, 0.5);
+      --safe-top: env(safe-area-inset-top, 20px);
+      --safe-bottom: env(safe-area-inset-bottom, 20px);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans TC', 'Noto Sans Thai', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .thai-text {
+      font-family: 'Noto Sans Thai', sans-serif;
+    }
+
+    /* 動態背景 */
+    .animated-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(-45deg, #0a0a0f, #1a0a2e, #0a1a2e, #0a0a0f);
+      background-size: 400% 400%;
+      animation: gradient-shift 15s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 頂部導航 */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 12px) 20px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .back-btn {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .top-title {
+      text-align: center;
+    }
+
+    .top-title-thai {
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+    }
+
+    .top-title-cn {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .top-spacer {
+      width: 60px;
+    }
+
+    /* 內容區 */
+    .content {
+      padding: calc(var(--safe-top) + 90px) 20px calc(var(--safe-bottom) + 40px);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* 頁面標題 */
+    .page-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .page-title-thai {
+      font-size: 1.2rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+      margin-bottom: 4px;
+    }
+
+    .page-title-cn {
+      font-size: 2rem;
+      font-weight: 900;
+      text-shadow: 0 0 20px var(--neon-pink);
+    }
+
+    /* 遊戲選擇區 */
+    .games-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .game-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 24px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .game-card:hover {
+      border-color: var(--neon-pink);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(255, 0, 255, 0.2);
+    }
+
+    .game-card:active {
+      transform: scale(0.98);
+    }
+
+    .game-icon {
+      font-size: 3rem;
+      flex-shrink: 0;
+    }
+
+    .game-info {
+      flex: 1;
+    }
+
+    .game-name-thai {
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+    }
+
+    .game-name-cn {
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .game-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .game-arrow {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+    }
+
+    /* 遊戲區域 */
+    .game-area {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .game-area.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 遊戲介紹區 */
+    .game-intro {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 24px;
+      border-left: 4px solid var(--neon-pink);
+      text-align: left;
+      width: 100%;
+    }
+
+    .game-intro-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .game-intro-title-thai {
+      font-size: 1rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+      margin-bottom: 16px;
+    }
+
+    .game-intro-text {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .game-intro-text-thai {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+    }
+
+    .game-header {
+      margin-bottom: 24px;
+    }
+
+    .game-title-thai {
+      font-size: 1rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+      margin-bottom: 4px;
+    }
+
+    .game-title-cn {
+      font-size: 2rem;
+      font-weight: 900;
+      text-shadow: 0 0 20px var(--neon-pink);
+    }
+
+    /* 通用按鈕 */
+    .btn {
+      padding: 16px 40px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      color: white;
+      box-shadow: 0 4px 20px rgba(255, 0, 255, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 0, 255, 0.6);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 2px solid var(--text-muted);
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    .btn-thai {
+      font-size: 0.8rem;
+      color: var(--gold);
+      display: block;
+      font-family: 'Noto Sans Thai', sans-serif;
+    }
+
+    /* ==================== 遊戲1: Hi-Lo 骰子 ==================== */
+    .dice-container {
+      display: flex;
+      gap: 20px;
+      margin: 32px 0;
+    }
+
+    .dice {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #1a1a2e;
+      font-weight: 900;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .dice.rolling {
+      animation: dice-roll 0.1s linear infinite;
+    }
+
+    @keyframes dice-roll {
+      0% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(90deg) scale(1.1); }
+      50% { transform: rotate(180deg) scale(1); }
+      75% { transform: rotate(270deg) scale(1.1); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .choice-btns {
+      display: flex;
+      gap: 16px;
+      margin: 24px 0;
+      width: 100%;
+    }
+
+    .choice-btn {
+      flex: 1;
+      padding: 24px 16px;
+      border-radius: 16px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .choice-btn.hi {
+      background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+      color: white;
+    }
+
+    .choice-btn.lo {
+      background: linear-gradient(135deg, #00b894, #00cec9);
+      color: white;
+    }
+
+    .choice-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    .choice-btn.selected {
+      border-color: white;
+      box-shadow: 0 0 30px currentColor;
+    }
+
+    .choice-thai {
+      font-size: 0.9rem;
+      font-family: 'Noto Sans Thai', sans-serif;
+      opacity: 0.9;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .result-display {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin: 24px 0;
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border-radius: 16px;
+      background: var(--bg-card);
+      width: 100%;
+    }
+
+    .result-display.win {
+      color: var(--neon-green);
+      text-shadow: 0 0 20px var(--neon-green);
+      animation: pulse 0.5s ease;
+      border: 2px solid var(--neon-green);
+    }
+
+    .result-display.lose {
+      color: #ff6b6b;
+      text-shadow: 0 0 20px #ff6b6b;
+      border: 2px solid #ff6b6b;
+    }
+
+    .result-thai {
+      font-size: 1rem;
+      font-family: 'Noto Sans Thai', sans-serif;
+      margin-top: 8px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* ==================== 遊戲2: 派對轉盤 ==================== */
+    .wheel-section {
+      width: 100%;
+      margin: 24px 0;
+    }
+
+    .wheel-display {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 32px 24px;
+      margin-bottom: 24px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wheel-result-icon {
+      font-size: 4rem;
+      margin-bottom: 16px;
+      animation: bounce 0.5s ease;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .wheel-result-cn {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--neon-pink);
+      margin-bottom: 8px;
+    }
+
+    .wheel-result-thai {
+      font-size: 1.2rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+      margin-bottom: 16px;
+    }
+
+    .wheel-result-desc {
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+
+    .wheel-placeholder {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .wheel-placeholder-thai {
+      font-size: 0.95rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+      margin-top: 8px;
+    }
+
+    .challenge-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .challenge-preview {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 12px 8px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    /* ==================== 遊戲3: 射龍門 ==================== */
+    .dragon-gate {
+      width: 100%;
+      margin: 24px 0;
+    }
+
+    .cards-display {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .card {
+      width: 80px;
+      height: 120px;
+      background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 900;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      border: 3px solid rgba(255,255,255,0.2);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .card.red {
+      color: #e74c3c;
+    }
+
+    .card.black {
+      color: #2c3e50;
+      background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+    }
+
+    .card.hidden {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: transparent;
+    }
+
+    .card.hidden::after {
+      content: '?';
+      color: white;
+      font-size: 3rem;
+    }
+
+    .card-suit {
+      font-size: 1rem;
+      margin-top: 4px;
+    }
+
+    .gate-indicator {
+      font-size: 2rem;
+      color: var(--gold);
+    }
+
+    .dragon-btns {
+      display: flex;
+      gap: 12px;
+      margin: 24px 0;
+      width: 100%;
+    }
+
+    .dragon-btn {
+      flex: 1;
+      padding: 20px 16px;
+      border-radius: 16px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dragon-btn.in {
+      background: linear-gradient(135deg, #00b894, #00cec9);
+      color: white;
+    }
+
+    .dragon-btn.out {
+      background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+      color: white;
+    }
+
+    .dragon-btn.hit {
+      background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+      color: white;
+    }
+
+    .dragon-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    .dragon-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .dragon-btn-thai {
+      font-size: 0.8rem;
+      font-family: 'Noto Sans Thai', sans-serif;
+      display: block;
+      margin-top: 4px;
+      opacity: 0.9;
+    }
+
+    /* ==================== 遊戲4: 反應力挑戰 ==================== */
+    .reaction-area {
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 320px;
+      background: var(--bg-card);
+      border-radius: 24px;
+      margin: 24px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .reaction-area .thai {
+      font-size: 1rem;
+      font-family: 'Noto Sans Thai', sans-serif;
+      color: var(--gold);
+      margin-top: 8px;
+    }
+
+    .reaction-area.waiting {
+      background: #ff6b6b;
+      color: white;
+    }
+
+    .reaction-area.ready {
+      background: var(--neon-green);
+      cursor: pointer;
+    }
+
+    .reaction-area.ready::after {
+      content: '點我！กดเลย!';
+      font-size: 2rem;
+      font-weight: 900;
+      color: #1a1a2e;
+    }
+
+    .reaction-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 24px 0;
+      width: 100%;
+    }
+
+    .reaction-stat {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .reaction-stat-value {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--neon-blue);
+    }
+
+    .reaction-stat-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .reaction-stat-thai {
+      font-size: 0.65rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+    }
+
+    /* 返回按鈕 */
+    .back-to-menu {
+      margin-top: 32px;
+      padding: 12px 32px;
+      background: transparent;
+      border: 2px solid var(--text-muted);
+      border-radius: 25px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-menu:hover {
+      border-color: var(--neon-blue);
+      color: var(--neon-blue);
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
+
+  <!-- 頂部導航 -->
+  <nav class="top-nav">
+    <a href="night.html" class="back-btn">← กลับ 返回</a>
+    <div class="top-title">
+      <div class="top-title-thai">เกมปาร์ตี้</div>
+      <div class="top-title-cn">派對遊戲</div>
+    </div>
+    <div class="top-spacer"></div>
+  </nav>
+
+  <div class="content">
+
+    <!-- 遊戲選單 -->
+    <div id="gamesMenu" class="games-menu">
+      <div class="page-header">
+        <div class="page-title-thai">เลือกเกม</div>
+        <div class="page-title-cn">🎮 選擇遊戲</div>
+      </div>
+
+      <div class="game-card" onclick="startGame('hilo')">
+        <span class="game-icon">🎲</span>
+        <div class="game-info">
+          <div class="game-name-thai">ไฮ-โล</div>
+          <div class="game-name-cn">Hi-Lo 骰子</div>
+          <div class="game-desc">猜大小，輸了喝一杯！</div>
+        </div>
+        <span class="game-arrow">→</span>
+      </div>
+
+      <div class="game-card" onclick="startGame('wheel')">
+        <span class="game-icon">🎡</span>
+        <div class="game-info">
+          <div class="game-name-thai">วงล้อปาร์ตี้</div>
+          <div class="game-name-cn">派對轉盤</div>
+          <div class="game-desc">轉出挑戰任務，誰也逃不了！</div>
+        </div>
+        <span class="game-arrow">→</span>
+      </div>
+
+      <div class="game-card" onclick="startGame('dragon')">
+        <span class="game-icon">🐉</span>
+        <div class="game-info">
+          <div class="game-name-thai">ยิงมังกร</div>
+          <div class="game-name-cn">射龍門</div>
+          <div class="game-desc">猜中間的牌，過關或喝酒！</div>
+        </div>
+        <span class="game-arrow">→</span>
+      </div>
+
+      <div class="game-card" onclick="startGame('reaction')">
+        <span class="game-icon">⚡</span>
+        <div class="game-info">
+          <div class="game-name-thai">ทดสอบปฏิกิริยา</div>
+          <div class="game-name-cn">反應力挑戰</div>
+          <div class="game-desc">測試反應速度！เมาแล้วยากขึ้น 喝了更刺激</div>
+        </div>
+        <span class="game-arrow">→</span>
+      </div>
+
+      <a href="truth-or-dare.html" class="game-card" style="text-decoration: none;">
+        <span class="game-icon">💬</span>
+        <div class="game-info">
+          <div class="game-name-thai">ความจริงหรือท้า</div>
+          <div class="game-name-cn">真心話大冒險</div>
+          <div class="game-desc">暖身版 + 夜生活版 | 三語版本</div>
+        </div>
+        <span class="game-arrow">→</span>
+      </a>
+    </div>
+
+    <!-- 遊戲1: Hi-Lo 骰子 -->
+    <div id="hiloGame" class="game-area">
+      <div class="game-intro">
+        <div class="game-intro-title">🎲 Hi-Lo 骰子</div>
+        <div class="game-intro-title-thai">ไฮ-โล ลูกเต๋า</div>
+        <div class="game-intro-text">
+          經典泰國酒吧遊戲！搖兩顆骰子，猜總和是「大」還是「小」。<br>
+          • 大 (ใหญ่)：總和 8-12<br>
+          • 小 (เล็ก)：總和 2-6<br>
+          • 總和 7 = 平手重來<br>
+          • 猜錯就喝一杯！🍺
+        </div>
+        <div class="game-intro-text-thai">
+          เกมคลาสสิกของบาร์ไทย! โยนลูกเต๋าสองลูก ทายว่าผลรวมจะ "ใหญ่" หรือ "เล็ก"<br>
+          ใหญ่: ผลรวม 8-12 | เล็ก: ผลรวม 2-6 | ผลรวม 7 = เสมอ<br>
+          ทายผิดต้องดื่ม! 🍺
+        </div>
+      </div>
+
+      <div class="dice-container">
+        <div class="dice" id="dice1">?</div>
+        <div class="dice" id="dice2">?</div>
+      </div>
+
+      <div class="choice-btns">
+        <button class="choice-btn hi" id="hiBtn" onclick="selectChoice('hi')">
+          大 8-12
+          <span class="choice-thai">ใหญ่</span>
+        </button>
+        <button class="choice-btn lo" id="loBtn" onclick="selectChoice('lo')">
+          小 2-6
+          <span class="choice-thai">เล็ก</span>
+        </button>
+      </div>
+
+      <button class="btn btn-primary" id="rollBtn" onclick="rollDice()">
+        <span class="btn-thai">โยนลูกเต๋า!</span>
+        🎲 搖骰子！
+      </button>
+
+      <div class="result-display" id="hiloResult">
+        <span style="color: var(--text-muted)">先選大或小，再搖骰子</span>
+        <span class="result-thai">เลือกใหญ่หรือเล็กก่อน แล้วโยน</span>
+      </div>
+
+      <button class="back-to-menu" onclick="backToMenu()">← กลับ 返回選單</button>
+    </div>
+
+    <!-- 遊戲2: 派對轉盤 -->
+    <div id="wheelGame" class="game-area">
+      <div class="game-intro">
+        <div class="game-intro-title">🎡 派對轉盤</div>
+        <div class="game-intro-title-thai">วงล้อปาร์ตี้</div>
+        <div class="game-intro-text">
+          按下按鈕，隨機抽出一個派對挑戰任務！<br>
+          轉到什麼就要做什麼，沒在怕的吧？😎<br>
+          不敢做的話... 那就喝兩杯代替！🍻
+        </div>
+        <div class="game-intro-text-thai">
+          กดปุ่มเพื่อสุ่มภารกิจปาร์ตี้!<br>
+          หมุนได้อะไรก็ต้องทำ ไม่กลัวใช่ไหม? 😎<br>
+          ถ้าไม่กล้าทำ... ก็ดื่มสองแก้วแทน! 🍻
+        </div>
+      </div>
+
+      <div class="wheel-section">
+        <div class="wheel-display" id="wheelDisplay">
+          <div class="wheel-placeholder">按下按鈕開始轉！</div>
+          <div class="wheel-placeholder-thai">กดปุ่มเพื่อเริ่มหมุน!</div>
+          <div class="challenge-list">
+            <div class="challenge-preview">🍺</div>
+            <div class="challenge-preview">😂</div>
+            <div class="challenge-preview">🐷</div>
+            <div class="challenge-preview">💃</div>
+            <div class="challenge-preview">🎤</div>
+            <div class="challenge-preview">🏋️</div>
+            <div class="challenge-preview">💬</div>
+            <div class="challenge-preview">🎭</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" id="spinBtn" onclick="spinWheel()">
+          <span class="btn-thai">หมุนเลย!</span>
+          🎡 轉起來！
+        </button>
+      </div>
+
+      <button class="back-to-menu" onclick="backToMenu()">← กลับ 返回選單</button>
+    </div>
+
+    <!-- 遊戲3: 射龍門 -->
+    <div id="dragonGame" class="game-area">
+      <div class="game-intro">
+        <div class="game-intro-title">🐉 射龍門</div>
+        <div class="game-intro-title-thai">ยิงมังกร (In-Between)</div>
+        <div class="game-intro-text">
+          經典喝酒遊戲！先翻開左右兩張牌當作「龍門」。<br>
+          然後猜中間那張牌的數字：<br>
+          • 在裡面 (ในประตู)：數字介於兩張牌之間 → 過關！✅<br>
+          • 在外面 (นอกประตู)：數字在範圍外 → 過關！✅<br>
+          • 撞柱 (ชนเสา)：數字跟門柱一樣 → 喝兩杯！🍺🍺<br>
+          猜錯就喝一杯！
+        </div>
+        <div class="game-intro-text-thai">
+          เกมดื่มคลาสสิก! เปิดไพ่ซ้ายขวาเป็น "ประตู"<br>
+          แล้วทายไพ่ตรงกลาง:<br>
+          • ในประตู: ตัวเลขอยู่ระหว่างไพ่สองใบ → ผ่าน! ✅<br>
+          • นอกประตู: ตัวเลขอยู่นอกช่วง → ผ่าน! ✅<br>
+          • ชนเสา: ตัวเลขเท่ากับไพ่ประตู → ดื่มสองแก้ว! 🍺🍺
+        </div>
+      </div>
+
+      <div class="dragon-gate">
+        <div class="cards-display">
+          <div class="card" id="card1">
+            <span id="card1Value">?</span>
+            <span class="card-suit" id="card1Suit"></span>
+          </div>
+          <div class="gate-indicator">🚪</div>
+          <div class="card hidden" id="card2">
+            <span id="card2Value">?</span>
+            <span class="card-suit" id="card2Suit"></span>
+          </div>
+          <div class="gate-indicator">🚪</div>
+          <div class="card" id="card3">
+            <span id="card3Value">?</span>
+            <span class="card-suit" id="card3Suit"></span>
+          </div>
+        </div>
+
+        <div class="dragon-btns" id="dragonBtns">
+          <button class="dragon-btn in" onclick="guessDragon('in')" id="dragonInBtn">
+            在裡面
+            <span class="dragon-btn-thai">ในประตู</span>
+          </button>
+          <button class="dragon-btn hit" onclick="guessDragon('hit')" id="dragonHitBtn">
+            撞柱
+            <span class="dragon-btn-thai">ชนเสา</span>
+          </button>
+          <button class="dragon-btn out" onclick="guessDragon('out')" id="dragonOutBtn">
+            在外面
+            <span class="dragon-btn-thai">นอกประตู</span>
+          </button>
+        </div>
+
+        <button class="btn btn-primary" id="dealBtn" onclick="dealCards()">
+          <span class="btn-thai">แจกไพ่ใหม่</span>
+          🃏 發新牌
+        </button>
+
+        <div class="result-display" id="dragonResult">
+          <span style="color: var(--text-muted)">按「發新牌」開始遊戲</span>
+          <span class="result-thai">กด "แจกไพ่ใหม่" เพื่อเริ่มเกม</span>
+        </div>
+      </div>
+
+      <button class="back-to-menu" onclick="backToMenu()">← กลับ 返回選單</button>
+    </div>
+
+    <!-- 遊戲4: 反應力挑戰 -->
+    <div id="reactionGame" class="game-area">
+      <div class="game-intro">
+        <div class="game-intro-title">⚡ 反應力挑戰</div>
+        <div class="game-intro-title-thai">ทดสอบปฏิกิริยา</div>
+        <div class="game-intro-text">
+          測試你的反應速度！點擊開始後，等待畫面變綠色。<br>
+          綠色出現的瞬間立刻點擊！<br>
+          • 200ms 以下 = 超神！🔥<br>
+          • 200-300ms = 很快！⚡<br>
+          • 300-400ms = 還不錯 👍<br>
+          • 400ms 以上 = 是不是喝太多了？🍺
+        </div>
+        <div class="game-intro-text-thai">
+          ทดสอบความเร็วในการตอบสนอง! กดเริ่มแล้วรอหน้าจอเปลี่ยนเป็นสีเขียว<br>
+          เมื่อเห็นสีเขียว กดทันที!<br>
+          ต่ำกว่า 200ms = เทพมาก! 🔥 | 200-300ms = เร็วมาก! ⚡<br>
+          300-400ms = ดีเลย 👍 | มากกว่า 400ms = เมาหรือเปล่า? 🍺
+        </div>
+      </div>
+
+      <div class="reaction-stats">
+        <div class="reaction-stat">
+          <div class="reaction-stat-value" id="reactionBest">--</div>
+          <div class="reaction-stat-thai">ดีที่สุด</div>
+          <div class="reaction-stat-label">最佳紀錄</div>
+        </div>
+        <div class="reaction-stat">
+          <div class="reaction-stat-value" id="reactionLast">--</div>
+          <div class="reaction-stat-thai">ครั้งล่าสุด</div>
+          <div class="reaction-stat-label">上次成績</div>
+        </div>
+        <div class="reaction-stat">
+          <div class="reaction-stat-value" id="reactionTries">0</div>
+          <div class="reaction-stat-thai">จำนวนครั้ง</div>
+          <div class="reaction-stat-label">嘗試次數</div>
+        </div>
+      </div>
+
+      <div class="reaction-area" id="reactionArea" onclick="handleReactionClick()">
+        กดเพื่อเริ่ม<br>點擊開始
+        <div class="thai">แตะที่นี่</div>
+      </div>
+
+      <button class="back-to-menu" onclick="backToMenu()">← กลับ 返回選單</button>
+    </div>
+
+  </div>
+
+  <script>
+    // ==================== 通用功能 ====================
+    function startGame(gameId) {
+      document.getElementById('gamesMenu').style.display = 'none';
+      document.querySelectorAll('.game-area').forEach(g => g.classList.remove('active'));
+      document.getElementById(gameId + 'Game').classList.add('active');
+
+      if (gameId === 'dragon') initDragon();
+    }
+
+    function backToMenu() {
+      document.querySelectorAll('.game-area').forEach(g => g.classList.remove('active'));
+      document.getElementById('gamesMenu').style.display = 'flex';
+    }
+
+    // ==================== 遊戲1: Hi-Lo 骰子 ====================
+    let selectedChoice = null;
+
+    function selectChoice(choice) {
+      selectedChoice = choice;
+      document.getElementById('hiBtn').classList.toggle('selected', choice === 'hi');
+      document.getElementById('loBtn').classList.toggle('selected', choice === 'lo');
+    }
+
+    function rollDice() {
+      if (!selectedChoice) {
+        alert('กรุณาเลือกก่อน! 請先選擇大或小！');
+        return;
+      }
+
+      const dice1El = document.getElementById('dice1');
+      const dice2El = document.getElementById('dice2');
+      const resultEl = document.getElementById('hiloResult');
+
+      dice1El.classList.add('rolling');
+      dice2El.classList.add('rolling');
+      dice1El.textContent = '?';
+      dice2El.textContent = '?';
+      resultEl.innerHTML = '<span style="color: var(--text-muted)">搖骰子中...</span><span class="result-thai">กำลังโยน...</span>';
+      resultEl.className = 'result-display';
+
+      document.getElementById('rollBtn').disabled = true;
+
+      setTimeout(() => {
+        const d1 = Math.floor(Math.random() * 6) + 1;
+        const d2 = Math.floor(Math.random() * 6) + 1;
+        const total = d1 + d2;
+
+        dice1El.classList.remove('rolling');
+        dice2El.classList.remove('rolling');
+        dice1El.textContent = d1;
+        dice2El.textContent = d2;
+
+        let result;
+        if (total === 7) {
+          resultEl.innerHTML = `🎲 總和 ${total}<br>平手！重來一局<div class="result-thai">เสมอ! เล่นใหม่</div>`;
+          resultEl.className = 'result-display';
+        } else if ((total >= 8 && selectedChoice === 'hi') || (total <= 6 && selectedChoice === 'lo')) {
+          resultEl.innerHTML = `🎲 總和 ${total}<br>🎉 你贏了！過關！<div class="result-thai">คุณชนะ! ผ่าน!</div>`;
+          resultEl.className = 'result-display win';
+        } else {
+          resultEl.innerHTML = `🎲 總和 ${total}<br>😅 猜錯了！喝一杯！<div class="result-thai">ผิด! ดื่มหนึ่งแก้ว!</div>`;
+          resultEl.className = 'result-display lose';
+        }
+
+        document.getElementById('rollBtn').disabled = false;
+        selectedChoice = null;
+        document.getElementById('hiBtn').classList.remove('selected');
+        document.getElementById('loBtn').classList.remove('selected');
+      }, 1500);
+    }
+
+    // ==================== 遊戲2: 派對轉盤 ====================
+    const challenges = [
+      { thai: 'ดื่มหนึ่งอึก!', cn: '喝一口！', icon: '🍺', desc: '乾掉你的飲料一口' },
+      { thai: 'เล่าเรื่องตลก', cn: '講個笑話', icon: '😂', desc: '讓大家笑出來才算過關' },
+      { thai: 'เลียนเสียงสัตว์', cn: '學動物叫', icon: '🐷', desc: '選一種動物，學牠叫 3 聲' },
+      { thai: 'เต้นรำ 10 วินาที', cn: '跳舞 10 秒', icon: '💃', desc: '放首歌，跳 10 秒鐘' },
+      { thai: 'ร้องเพลง!', cn: '唱一段歌', icon: '🎤', desc: '唱一小段你最愛的歌' },
+      { thai: 'สควอท 10 ครั้ง', cn: '深蹲 10 下', icon: '🏋️', desc: '標準深蹲，做完才算' },
+      { thai: 'ตอบความจริง', cn: '真心話', icon: '💬', desc: '誠實回答左邊的人一個問題' },
+      { thai: 'ท้าทาย!', cn: '大冒險', icon: '🎭', desc: '接受右邊的人給你的挑戰' },
+      { thai: 'ดื่มสองอึก!', cn: '喝兩口！', icon: '🍻', desc: '連續喝兩口' },
+      { thai: 'บอกความลับ', cn: '說個秘密', icon: '🤫', desc: '分享一個你的小秘密' },
+      { thai: 'กอดคนข้างๆ', cn: '抱旁邊的人', icon: '🤗', desc: '給左右任一人一個擁抱' },
+      { thai: 'ทำหน้าตลก', cn: '做鬼臉', icon: '🤪', desc: '做一個最醜的鬼臉' }
+    ];
+
+    let isSpinning = false;
+
+    function spinWheel() {
+      if (isSpinning) return;
+      isSpinning = true;
+
+      const displayEl = document.getElementById('wheelDisplay');
+      const spinBtn = document.getElementById('spinBtn');
+      spinBtn.disabled = true;
+
+      // 快速切換動畫
+      let count = 0;
+      const maxCount = 20 + Math.floor(Math.random() * 10);
+      const interval = setInterval(() => {
+        const randomChallenge = challenges[Math.floor(Math.random() * challenges.length)];
+        displayEl.innerHTML = `
+          <div class="wheel-result-icon">${randomChallenge.icon}</div>
+          <div class="wheel-result-cn">${randomChallenge.cn}</div>
+          <div class="wheel-result-thai">${randomChallenge.thai}</div>
+        `;
+        count++;
+
+        if (count >= maxCount) {
+          clearInterval(interval);
+
+          // 最終結果
+          const finalChallenge = challenges[Math.floor(Math.random() * challenges.length)];
+          displayEl.innerHTML = `
+            <div class="wheel-result-icon" style="animation: bounce 0.5s ease">${finalChallenge.icon}</div>
+            <div class="wheel-result-cn">${finalChallenge.cn}</div>
+            <div class="wheel-result-thai">${finalChallenge.thai}</div>
+            <div class="wheel-result-desc">${finalChallenge.desc}</div>
+          `;
+
+          isSpinning = false;
+          spinBtn.disabled = false;
+        }
+      }, 100);
+    }
+
+    // ==================== 遊戲3: 射龍門 ====================
+    const cardValues = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+    const suits = ['♠', '♥', '♦', '♣'];
+    let card1Val, card2Val, card3Val;
+    let gamePhase = 'deal'; // 'deal', 'guess', 'result'
+
+    function getCardNumber(val) {
+      if (val === 'A') return 1;
+      if (val === 'J') return 11;
+      if (val === 'Q') return 12;
+      if (val === 'K') return 13;
+      return parseInt(val);
+    }
+
+    function initDragon() {
+      document.getElementById('card1').className = 'card';
+      document.getElementById('card1Value').textContent = '?';
+      document.getElementById('card1Suit').textContent = '';
+      document.getElementById('card2').className = 'card hidden';
+      document.getElementById('card2Value').textContent = '?';
+      document.getElementById('card2Suit').textContent = '';
+      document.getElementById('card3').className = 'card';
+      document.getElementById('card3Value').textContent = '?';
+      document.getElementById('card3Suit').textContent = '';
+      document.getElementById('dragonResult').innerHTML = '<span style="color: var(--text-muted)">按「發新牌」開始遊戲</span><span class="result-thai">กด "แจกไพ่ใหม่" เพื่อเริ่มเกม</span>';
+      document.getElementById('dragonResult').className = 'result-display';
+      setDragonBtnsDisabled(true);
+      gamePhase = 'deal';
+    }
+
+    function setDragonBtnsDisabled(disabled) {
+      document.getElementById('dragonInBtn').disabled = disabled;
+      document.getElementById('dragonHitBtn').disabled = disabled;
+      document.getElementById('dragonOutBtn').disabled = disabled;
+    }
+
+    function dealCards() {
+      // 發三張牌
+      card1Val = cardValues[Math.floor(Math.random() * cardValues.length)];
+      card2Val = cardValues[Math.floor(Math.random() * cardValues.length)];
+      card3Val = cardValues[Math.floor(Math.random() * cardValues.length)];
+
+      const suit1 = suits[Math.floor(Math.random() * suits.length)];
+      const suit2 = suits[Math.floor(Math.random() * suits.length)];
+      const suit3 = suits[Math.floor(Math.random() * suits.length)];
+
+      // 顯示左右兩張牌
+      const card1El = document.getElementById('card1');
+      const card3El = document.getElementById('card3');
+
+      card1El.className = 'card ' + (suit1 === '♥' || suit1 === '♦' ? 'red' : 'black');
+      document.getElementById('card1Value').textContent = card1Val;
+      document.getElementById('card1Suit').textContent = suit1;
+
+      card3El.className = 'card ' + (suit3 === '♥' || suit3 === '♦' ? 'red' : 'black');
+      document.getElementById('card3Value').textContent = card3Val;
+      document.getElementById('card3Suit').textContent = suit3;
+
+      // 中間牌保持隱藏
+      document.getElementById('card2').className = 'card hidden';
+      document.getElementById('card2Value').textContent = card2Val;
+      document.getElementById('card2Suit').textContent = suit2;
+
+      // 計算範圍
+      const num1 = getCardNumber(card1Val);
+      const num3 = getCardNumber(card3Val);
+      const min = Math.min(num1, num3);
+      const max = Math.max(num1, num3);
+
+      document.getElementById('dragonResult').innerHTML = `
+        <span>龍門範圍：${min} - ${max}</span>
+        <span class="result-thai">ช่วงประตู: ${min} - ${max}</span>
+        <span style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">請猜中間的牌！ทายไพ่ตรงกลาง!</span>
+      `;
+      document.getElementById('dragonResult').className = 'result-display';
+
+      setDragonBtnsDisabled(false);
+      gamePhase = 'guess';
+    }
+
+    function guessDragon(guess) {
+      if (gamePhase !== 'guess') return;
+
+      const num1 = getCardNumber(card1Val);
+      const num2 = getCardNumber(card2Val);
+      const num3 = getCardNumber(card3Val);
+      const min = Math.min(num1, num3);
+      const max = Math.max(num1, num3);
+
+      // 揭示中間的牌
+      const suit2 = document.getElementById('card2Suit').textContent;
+      const card2El = document.getElementById('card2');
+      card2El.className = 'card ' + (suit2 === '♥' || suit2 === '♦' ? 'red' : 'black');
+
+      // 判斷結果
+      const isHit = (num2 === num1 || num2 === num3); // 撞柱
+      const isIn = (num2 > min && num2 < max); // 在裡面
+      const isOut = (num2 < min || num2 > max) && !isHit; // 在外面
+
+      let win = false;
+      let resultText = '';
+      let resultThai = '';
+
+      if (guess === 'hit') {
+        if (isHit) {
+          win = true;
+          resultText = `🎯 ${card2Val} 撞柱！猜對了！`;
+          resultThai = `${card2Val} ชนเสา! ทายถูก!`;
+        } else {
+          resultText = `❌ ${card2Val} 沒有撞柱，猜錯！喝一杯`;
+          resultThai = `${card2Val} ไม่ชนเสา ผิด! ดื่มหนึ่งแก้ว`;
+        }
+      } else if (guess === 'in') {
+        if (isHit) {
+          resultText = `💥 ${card2Val} 撞柱！喝兩杯！`;
+          resultThai = `${card2Val} ชนเสา! ดื่มสองแก้ว!`;
+        } else if (isIn) {
+          win = true;
+          resultText = `✅ ${card2Val} 在裡面！過關！`;
+          resultThai = `${card2Val} ในประตู! ผ่าน!`;
+        } else {
+          resultText = `❌ ${card2Val} 在外面，猜錯！喝一杯`;
+          resultThai = `${card2Val} นอกประตู ผิด! ดื่มหนึ่งแก้ว`;
+        }
+      } else if (guess === 'out') {
+        if (isHit) {
+          resultText = `💥 ${card2Val} 撞柱！喝兩杯！`;
+          resultThai = `${card2Val} ชนเสา! ดื่มสองแก้ว!`;
+        } else if (isOut) {
+          win = true;
+          resultText = `✅ ${card2Val} 在外面！過關！`;
+          resultThai = `${card2Val} นอกประตู! ผ่าน!`;
+        } else {
+          resultText = `❌ ${card2Val} 在裡面，猜錯！喝一杯`;
+          resultThai = `${card2Val} ในประตู ผิด! ดื่มหนึ่งแก้ว`;
+        }
+      }
+
+      const resultEl = document.getElementById('dragonResult');
+      resultEl.innerHTML = `<span>${resultText}</span><span class="result-thai">${resultThai}</span>`;
+      resultEl.className = 'result-display ' + (win ? 'win' : 'lose');
+
+      setDragonBtnsDisabled(true);
+      gamePhase = 'result';
+    }
+
+    // ==================== 遊戲4: 反應力挑戰 ====================
+    let reactionState = 'idle';
+    let reactionStartTime = 0;
+    let reactionTimeout = null;
+    let reactionBest = Infinity;
+    let reactionTries = 0;
+
+    function handleReactionClick() {
+      const area = document.getElementById('reactionArea');
+
+      if (reactionState === 'idle') {
+        reactionState = 'waiting';
+        area.className = 'reaction-area waiting';
+        area.innerHTML = 'รอสีเขียว...<br>等待綠色...<div class="thai">อย่าเพิ่งกด!</div>';
+
+        const delay = 1000 + Math.random() * 4000;
+        reactionTimeout = setTimeout(() => {
+          reactionState = 'ready';
+          reactionStartTime = Date.now();
+          area.className = 'reaction-area ready';
+          area.innerHTML = '';
+        }, delay);
+
+      } else if (reactionState === 'waiting') {
+        clearTimeout(reactionTimeout);
+        reactionState = 'idle';
+        area.className = 'reaction-area';
+        area.innerHTML = '🚫 เร็วไป! 太早了！<br>กดใหม่ 點擊重新開始';
+
+      } else if (reactionState === 'ready') {
+        const reactionTime = Date.now() - reactionStartTime;
+        reactionTries++;
+
+        if (reactionTime < reactionBest) {
+          reactionBest = reactionTime;
+          document.getElementById('reactionBest').textContent = reactionBest + 'ms';
+        }
+
+        document.getElementById('reactionLast').textContent = reactionTime + 'ms';
+        document.getElementById('reactionTries').textContent = reactionTries;
+
+        reactionState = 'idle';
+        area.className = 'reaction-area';
+
+        let message = '';
+        let msgThai = '';
+        if (reactionTime < 200) { message = '超神！🔥'; msgThai = 'เทพมาก!'; }
+        else if (reactionTime < 300) { message = '很快！⚡'; msgThai = 'เร็วมาก!'; }
+        else if (reactionTime < 400) { message = '還不錯 👍'; msgThai = 'ดีเลย!'; }
+        else { message = '喝太多了吧？🍺'; msgThai = 'เมาหรือเปล่า?'; }
+
+        area.innerHTML = `<span style="font-size: 2.5rem; font-weight: 900">${reactionTime}ms</span><br>${message}<br><span class="thai">${msgThai}</span><br><small style="color: var(--text-muted)">點擊再試一次 กดเพื่อลองอีก</small>`;
+      }
+    }
+  </script>
+</body>
+</html>

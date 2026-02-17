@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>芭達雅之旅 2026</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --safe-top: env(safe-area-inset-top, 20px);
+      --safe-bottom: env(safe-area-inset-bottom, 20px);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      background: #0a0a0f;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 動態背景 - 白天漸變到晚上 */
+    .animated-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        135deg,
+        #ffd93d 0%,
+        #ff9a56 15%,
+        #ff6b6b 30%,
+        #c56cf0 50%,
+        #5f27cd 70%,
+        #0a0a0f 100%
+      );
+      background-size: 400% 400%;
+      animation: gradient-cycle 10s ease infinite;
+    }
+
+    @keyframes gradient-cycle {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 500px;
+    }
+
+    .logo {
+      font-size: 4rem;
+      margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .title {
+      font-size: clamp(2.5rem, 10vw, 4rem);
+      font-weight: 900;
+      margin-bottom: 8px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+
+    .date {
+      font-size: 1rem;
+      opacity: 0.7;
+      margin-bottom: 48px;
+    }
+
+    .choose-text {
+      font-size: 1rem;
+      opacity: 0.8;
+      margin-bottom: 24px;
+    }
+
+    .mode-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .mode-btn {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 32px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+
+    .mode-btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .mode-btn:active {
+      transform: scale(0.98);
+    }
+
+    .day-btn {
+      background: linear-gradient(135deg, #ffd93d 0%, #ff9a56 100%);
+      color: #1a1a2e;
+      box-shadow: 0 8px 30px rgba(255, 217, 61, 0.4);
+    }
+
+    .day-btn:hover {
+      box-shadow: 0 12px 40px rgba(255, 217, 61, 0.6);
+    }
+
+    .night-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      box-shadow: 0 8px 30px rgba(118, 75, 162, 0.4);
+    }
+
+    .night-btn:hover {
+      box-shadow: 0 12px 40px rgba(118, 75, 162, 0.6);
+    }
+
+    .mode-icon {
+      font-size: 2.5rem;
+    }
+
+    .mode-info {
+      flex: 1;
+    }
+
+    .mode-title {
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .mode-desc {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .mode-arrow {
+      font-size: 1.5rem;
+      opacity: 0.6;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #ffd93d;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    .footer {
+      margin-top: 48px;
+      font-size: 0.75rem;
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
+
+  <div class="content">
+    <div class="logo">🏖️🌴🌙</div>
+    <h1 class="title">芭達雅之旅</h1>
+    <p class="subtitle">Pattaya Trip 2026</p>
+    <p class="date">2026/3/16 - 3/22</p>
+
+    <p class="choose-text">選擇你要探索的行程</p>
+
+    <div class="mode-buttons">
+      <a href="day.html" class="mode-btn day-btn">
+        <span class="mode-icon">☀️</span>
+        <div class="mode-info">
+          <div class="mode-title">白天行程</div>
+          <div class="mode-desc">海灘・景點・美食・按摩</div>
+        </div>
+        <span class="mode-arrow">→</span>
+      </a>
+
+      <a href="night.html" class="mode-btn night-btn">
+        <span class="mode-icon">🌙</span>
+        <div class="mode-info">
+          <div class="mode-title">夜間行程</div>
+          <div class="mode-desc">夜店・酒吧・泰語320+・攻略</div>
+        </div>
+        <span class="mode-arrow">→</span>
+      </a>
+
+      <a href="games.html" class="mode-btn" style="background: linear-gradient(135deg, #e056fd, #ff6b6b); color: white; box-shadow: 0 8px 30px rgba(224, 86, 253, 0.4);">
+        <span class="mode-icon">🎮</span>
+        <div class="mode-info">
+          <div class="mode-title">派對遊戲</div>
+          <div class="mode-desc">骰子・轉盤・猜拳・反應力</div>
+        </div>
+        <span class="mode-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">7</div>
+        <div class="stat-label">天行程</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">320+</div>
+        <div class="stat-label">泰語句型</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">5</div>
+        <div class="stat-label">派對遊戲</div>
+      </div>
+    </div>
+
+    <p class="footer">
+      由 Claude Agent Team 協作產出<br>
+      4 專家並行研究 × 320 泰語句型 × 完整攻略
+    </p>
+  </div>
+</body>
+</html>

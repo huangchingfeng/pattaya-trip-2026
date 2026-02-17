@@ -1,0 +1,1042 @@
+{
+  "metadata": {
+    "title": "泰語進階對話和特殊場景用語",
+    "description": "芭達雅夜生活之旅 2026 專用泰語會話集",
+    "total_phrases": 115,
+    "categories": 8,
+    "last_updated": "2026-02-17",
+    "sources": [
+      "https://talkpal.ai/vocabulary/emotional-vocabulary-in-the-thai-language/",
+      "https://treasuresofthailand.com/romantic-thai-phrases-for-flirting-love/",
+      "https://www.expatden.com/learn-thai/express-feeling-in-thai-happy-and-sad/",
+      "https://pickup-thai.com/14-romantic-phrases-to-say-to-your-s-o/",
+      "https://www.thaipod101.com/blog/2019/09/12/how-to-say-sorry-in-thai/",
+      "https://ling-app.com/blog/weather-in-thai/"
+    ]
+  },
+  "categories": {
+    "emotions": {
+      "category_name": "情感表達",
+      "category_description": "開心、難過、生氣、驚訝、害羞等情感表達",
+      "phrases": [
+        {
+          "id": "emo_001",
+          "thai": "ฉันมีความสุขมาก",
+          "romanization": "chan mee kwaam-suk maak",
+          "chinese_phonetic": "餐米框速媽",
+          "meaning": "我非常開心",
+          "scenario": "表達喜悅時使用，如收到禮物、聽到好消息"
+        },
+        {
+          "id": "emo_002",
+          "thai": "ดีใจมากเลย",
+          "romanization": "dee-jai maak loei",
+          "chinese_phonetic": "滴災媽勒",
+          "meaning": "太高興了",
+          "scenario": "非常興奮開心時，比較強烈的表達"
+        },
+        {
+          "id": "emo_003",
+          "thai": "สนุกมาก",
+          "romanization": "sa-nuk maak",
+          "chinese_phonetic": "沙努媽",
+          "meaning": "好好玩/超有趣",
+          "scenario": "玩遊戲、派對後表達感受"
+        },
+        {
+          "id": "emo_004",
+          "thai": "วันนี้เป็นวันที่ดีมาก",
+          "romanization": "wan-nee bpen wan tee dee maak",
+          "chinese_phonetic": "萬尼棚萬替滴媽",
+          "meaning": "今天是很棒的一天",
+          "scenario": "結束美好的一天時使用"
+        },
+        {
+          "id": "emo_005",
+          "thai": "ฉันเศร้าใจ",
+          "romanization": "chan sao-jai",
+          "chinese_phonetic": "餐刷災",
+          "meaning": "我很難過",
+          "scenario": "表達傷心、難過的情緒"
+        },
+        {
+          "id": "emo_006",
+          "thai": "เสียใจมาก",
+          "romanization": "sia-jai maak",
+          "chinese_phonetic": "細災媽",
+          "meaning": "非常遺憾/很傷心",
+          "scenario": "深度悲傷或遺憾時使用"
+        },
+        {
+          "id": "emo_007",
+          "thai": "ใจหาย",
+          "romanization": "jai-haai",
+          "chinese_phonetic": "災害",
+          "meaning": "心都碎了/心很痛",
+          "scenario": "極度傷心時使用，字面是「心不見了」"
+        },
+        {
+          "id": "emo_008",
+          "thai": "ฉันโกรธมาก",
+          "romanization": "chan grot maak",
+          "chinese_phonetic": "餐割媽",
+          "meaning": "我很生氣",
+          "scenario": "表達憤怒情緒"
+        },
+        {
+          "id": "emo_009",
+          "thai": "หัวร้อน",
+          "romanization": "hua-ron",
+          "chinese_phonetic": "華隆",
+          "meaning": "火大/頭很熱",
+          "scenario": "表達煩躁、暴怒，俗語"
+        },
+        {
+          "id": "emo_010",
+          "thai": "หงุดหงิด",
+          "romanization": "ngut-ngit",
+          "chinese_phonetic": "哥哥",
+          "meaning": "煩躁/不耐煩",
+          "scenario": "小事煩人、不順心時使用"
+        },
+        {
+          "id": "emo_011",
+          "thai": "ใจเย็นๆ",
+          "romanization": "jai-yen-yen",
+          "chinese_phonetic": "災顏顏",
+          "meaning": "冷靜點",
+          "scenario": "安撫對方情緒，叫人冷靜"
+        },
+        {
+          "id": "emo_012",
+          "thai": "ตกใจ",
+          "romanization": "dtok-jai",
+          "chinese_phonetic": "多災",
+          "meaning": "嚇到了/驚訝",
+          "scenario": "被突然嚇到、震驚時使用"
+        },
+        {
+          "id": "emo_013",
+          "thai": "แปลกใจมาก",
+          "romanization": "bplaek-jai maak",
+          "chinese_phonetic": "北災媽",
+          "meaning": "太驚訝了/太神奇了",
+          "scenario": "對某事感到訝異"
+        },
+        {
+          "id": "emo_014",
+          "thai": "โอ้โห",
+          "romanization": "oh-ho",
+          "chinese_phonetic": "喔吼",
+          "meaning": "哇！（驚嘆）",
+          "scenario": "看到驚人事物時的驚嘆語"
+        },
+        {
+          "id": "emo_015",
+          "thai": "อาย",
+          "romanization": "aai",
+          "chinese_phonetic": "愛",
+          "meaning": "害羞",
+          "scenario": "感到不好意思、害羞時"
+        },
+        {
+          "id": "emo_016",
+          "thai": "ขี้อาย",
+          "romanization": "kii-aai",
+          "chinese_phonetic": "key愛",
+          "meaning": "很害羞/容易害羞",
+          "scenario": "形容一個人個性害羞"
+        },
+        {
+          "id": "emo_017",
+          "thai": "หน้าแดง",
+          "romanization": "naa-daeng",
+          "chinese_phonetic": "那登",
+          "meaning": "臉紅了",
+          "scenario": "害羞到臉紅"
+        },
+        {
+          "id": "emo_018",
+          "thai": "เบื่อแล้ว",
+          "romanization": "bua laew",
+          "chinese_phonetic": "碧了",
+          "meaning": "好無聊/煩了",
+          "scenario": "覺得無聊、厭煩時"
+        },
+        {
+          "id": "emo_019",
+          "thai": "คิดถึงมาก",
+          "romanization": "kit-teung maak",
+          "chinese_phonetic": "key停媽",
+          "meaning": "好想你",
+          "scenario": "表達思念"
+        },
+        {
+          "id": "emo_020",
+          "thai": "รู้สึกดีมาก",
+          "romanization": "ruu-seuk dee maak",
+          "chinese_phonetic": "路色滴媽",
+          "meaning": "感覺很好",
+          "scenario": "整體感受很棒時使用"
+        }
+      ]
+    },
+    "appearance": {
+      "category_name": "外貌身材",
+      "category_description": "描述外表、身材、皮膚等",
+      "phrases": [
+        {
+          "id": "app_001",
+          "thai": "เธอสูงมาก",
+          "romanization": "ter suung maak",
+          "chinese_phonetic": "特松媽",
+          "meaning": "她/你好高",
+          "scenario": "描述身高高的人"
+        },
+        {
+          "id": "app_002",
+          "thai": "เขาเตี้ยนิดหน่อย",
+          "romanization": "kao dtia nit-noi",
+          "chinese_phonetic": "考爹呀尼諾",
+          "meaning": "他有點矮",
+          "scenario": "描述身高較矮的人"
+        },
+        {
+          "id": "app_003",
+          "thai": "ผอมมาก",
+          "romanization": "pom maak",
+          "chinese_phonetic": "泡媽",
+          "meaning": "好瘦",
+          "scenario": "描述身材纖瘦"
+        },
+        {
+          "id": "app_004",
+          "thai": "อ้วนนิดหน่อย",
+          "romanization": "uan nit-noi",
+          "chinese_phonetic": "暗尼諾",
+          "meaning": "有點胖",
+          "scenario": "委婉說有點胖"
+        },
+        {
+          "id": "app_005",
+          "thai": "แข็งแรงมาก",
+          "romanization": "kaeng-raeng maak",
+          "chinese_phonetic": "肯嚷媽",
+          "meaning": "很壯/很強壯",
+          "scenario": "描述肌肉結實的人"
+        },
+        {
+          "id": "app_006",
+          "thai": "รูปร่างดี",
+          "romanization": "ruup-raang dee",
+          "chinese_phonetic": "路朗滴",
+          "meaning": "身材好",
+          "scenario": "稱讚對方身材"
+        },
+        {
+          "id": "app_007",
+          "thai": "ผิวขาวมาก",
+          "romanization": "piu kaao maak",
+          "chinese_phonetic": "批考媽",
+          "meaning": "皮膚好白",
+          "scenario": "泰國人喜歡白皮膚，這是稱讚"
+        },
+        {
+          "id": "app_008",
+          "thai": "ผิวสีน้ำตาล",
+          "romanization": "piu sii nam-dtaan",
+          "chinese_phonetic": "批西南談",
+          "meaning": "小麥色皮膚",
+          "scenario": "描述健康的棕色皮膚"
+        },
+        {
+          "id": "app_009",
+          "thai": "สวยมาก",
+          "romanization": "suay maak",
+          "chinese_phonetic": "蘇威媽",
+          "meaning": "好漂亮",
+          "scenario": "稱讚女生漂亮，萬用稱讚"
+        },
+        {
+          "id": "app_010",
+          "thai": "หล่อมาก",
+          "romanization": "lor maak",
+          "chinese_phonetic": "摟媽",
+          "meaning": "好帥",
+          "scenario": "稱讚男生帥"
+        },
+        {
+          "id": "app_011",
+          "thai": "น่ารักมาก",
+          "romanization": "naa-rak maak",
+          "chinese_phonetic": "那辣媽",
+          "meaning": "好可愛",
+          "scenario": "稱讚可愛，男女都可用"
+        },
+        {
+          "id": "app_012",
+          "thai": "ตาโต",
+          "romanization": "dtaa dtoh",
+          "chinese_phonetic": "達多",
+          "meaning": "眼睛大",
+          "scenario": "描述大眼睛，是稱讚"
+        },
+        {
+          "id": "app_013",
+          "thai": "จมูกโด่ง",
+          "romanization": "ja-muuk dohng",
+          "chinese_phonetic": "扎母動",
+          "meaning": "鼻子挺",
+          "scenario": "稱讚高挺的鼻子"
+        },
+        {
+          "id": "app_014",
+          "thai": "ยิ้มสวย",
+          "romanization": "yim suay",
+          "chinese_phonetic": "因蘇威",
+          "meaning": "笑容很美",
+          "scenario": "稱讚對方的笑容"
+        },
+        {
+          "id": "app_015",
+          "thai": "ผมยาวสวย",
+          "romanization": "pom yaao suay",
+          "chinese_phonetic": "碰唷蘇威",
+          "meaning": "長髮好美",
+          "scenario": "稱讚女生的長髮"
+        }
+      ]
+    },
+    "weather": {
+      "category_name": "天氣聊天",
+      "category_description": "熱、冷、下雨、天氣好等日常聊天",
+      "phrases": [
+        {
+          "id": "wea_001",
+          "thai": "วันนี้ร้อนมาก",
+          "romanization": "wan-nii ron maak",
+          "chinese_phonetic": "萬尼隆媽",
+          "meaning": "今天好熱",
+          "scenario": "抱怨天氣熱，泰國夏天常用"
+        },
+        {
+          "id": "wea_002",
+          "thai": "ร้อนจัง",
+          "romanization": "ron jang",
+          "chinese_phonetic": "隆將",
+          "meaning": "好熱啊",
+          "scenario": "感嘆熱的口語說法"
+        },
+        {
+          "id": "wea_003",
+          "thai": "อากาศดีมาก",
+          "romanization": "aa-gaat dee maak",
+          "chinese_phonetic": "阿嘎滴媽",
+          "meaning": "天氣很好",
+          "scenario": "天氣舒適時的閒聊"
+        },
+        {
+          "id": "wea_004",
+          "thai": "ฝนตกหรือเปล่า",
+          "romanization": "fon dtok rue bplao",
+          "chinese_phonetic": "風多了包",
+          "meaning": "有下雨嗎？",
+          "scenario": "詢問是否下雨"
+        },
+        {
+          "id": "wea_005",
+          "thai": "ฝนตกแล้ว",
+          "romanization": "fon dtok laew",
+          "chinese_phonetic": "風多了",
+          "meaning": "下雨了",
+          "scenario": "告知正在下雨"
+        },
+        {
+          "id": "wea_006",
+          "thai": "อย่าลืมพกร่ม",
+          "romanization": "yaa luem pok rom",
+          "chinese_phonetic": "亞冷泡隆",
+          "meaning": "別忘了帶傘",
+          "scenario": "提醒對方帶雨傘"
+        },
+        {
+          "id": "wea_007",
+          "thai": "เย็นสบาย",
+          "romanization": "yen sa-baai",
+          "chinese_phonetic": "顏沙敗",
+          "meaning": "涼爽舒服",
+          "scenario": "形容天氣涼爽宜人"
+        },
+        {
+          "id": "wea_008",
+          "thai": "หนาวไหม",
+          "romanization": "naao mai",
+          "chinese_phonetic": "鬧買",
+          "meaning": "會冷嗎？",
+          "scenario": "詢問對方是否覺得冷"
+        },
+        {
+          "id": "wea_009",
+          "thai": "แดดแรงมาก",
+          "romanization": "daet raeng maak",
+          "chinese_phonetic": "呆嚷媽",
+          "meaning": "太陽好大",
+          "scenario": "陽光強烈時"
+        },
+        {
+          "id": "wea_010",
+          "thai": "มีเมฆเยอะ",
+          "romanization": "mee mek yer",
+          "chinese_phonetic": "米美耶",
+          "meaning": "雲很多",
+          "scenario": "描述多雲的天氣"
+        }
+      ]
+    },
+    "hobbies": {
+      "category_name": "興趣愛好",
+      "category_description": "喜歡什麼、音樂、電影、運動等",
+      "phrases": [
+        {
+          "id": "hob_001",
+          "thai": "คุณชอบทำอะไร",
+          "romanization": "kun chop tam a-rai",
+          "chinese_phonetic": "坤翹談阿萊",
+          "meaning": "你喜歡做什麼？",
+          "scenario": "詢問對方的興趣愛好"
+        },
+        {
+          "id": "hob_002",
+          "thai": "ฉันชอบฟังเพลง",
+          "romanization": "chan chop fang pleng",
+          "chinese_phonetic": "餐翹方冷",
+          "meaning": "我喜歡聽音樂",
+          "scenario": "分享自己愛聽音樂"
+        },
+        {
+          "id": "hob_003",
+          "thai": "ชอบเพลงแนวไหน",
+          "romanization": "chop pleng naew nai",
+          "chinese_phonetic": "翹冷內乃",
+          "meaning": "你喜歡什麼類型的歌？",
+          "scenario": "詢問對方喜歡的音樂風格"
+        },
+        {
+          "id": "hob_004",
+          "thai": "ฉันชอบดูหนัง",
+          "romanization": "chan chop duu nang",
+          "chinese_phonetic": "餐翹肚囊",
+          "meaning": "我喜歡看電影",
+          "scenario": "分享喜歡看電影"
+        },
+        {
+          "id": "hob_005",
+          "thai": "หนังเรื่องนี้สนุกมาก",
+          "romanization": "nang reuang nii sa-nuk maak",
+          "chinese_phonetic": "囊嚷尼沙努媽",
+          "meaning": "這部電影很好看",
+          "scenario": "分享看完電影的感想"
+        },
+        {
+          "id": "hob_006",
+          "thai": "คุณชอบกีฬาอะไร",
+          "romanization": "kun chop gii-laa a-rai",
+          "chinese_phonetic": "坤翹key拉阿萊",
+          "meaning": "你喜歡什麼運動？",
+          "scenario": "詢問對方喜歡的運動"
+        },
+        {
+          "id": "hob_007",
+          "thai": "ฉันชอบเล่นฟุตบอล",
+          "romanization": "chan chop len fut-bon",
+          "chinese_phonetic": "餐翹冷夫般",
+          "meaning": "我喜歡踢足球",
+          "scenario": "表達喜歡足球"
+        },
+        {
+          "id": "hob_008",
+          "thai": "ชอบว่ายน้ำไหม",
+          "romanization": "chop waai-naam mai",
+          "chinese_phonetic": "翹外南買",
+          "meaning": "你喜歡游泳嗎？",
+          "scenario": "詢問對方是否愛游泳"
+        },
+        {
+          "id": "hob_009",
+          "thai": "ฉันชอบถ่ายรูป",
+          "romanization": "chan chop taai-ruup",
+          "chinese_phonetic": "餐翹太路",
+          "meaning": "我喜歡拍照",
+          "scenario": "表達喜歡攝影"
+        },
+        {
+          "id": "hob_010",
+          "thai": "ไปเที่ยวด้วยกันไหม",
+          "romanization": "bpai tiao duay gan mai",
+          "chinese_phonetic": "拜條對甘買",
+          "meaning": "一起去玩好嗎？",
+          "scenario": "邀約對方一起出去玩"
+        },
+        {
+          "id": "hob_011",
+          "thai": "คุณชอบอ่านหนังสือไหม",
+          "romanization": "kun chop aan nang-sue mai",
+          "chinese_phonetic": "坤翹安囊蘇買",
+          "meaning": "你喜歡看書嗎？",
+          "scenario": "詢問對方閱讀習慣"
+        },
+        {
+          "id": "hob_012",
+          "thai": "ชอบเต้นรำ",
+          "romanization": "chop dten ram",
+          "chinese_phonetic": "翹等蘭",
+          "meaning": "喜歡跳舞",
+          "scenario": "表達喜歡跳舞"
+        },
+        {
+          "id": "hob_013",
+          "thai": "ไปคาราโอเกะกันไหม",
+          "romanization": "bpai kaa-raa-oh-ge gan mai",
+          "chinese_phonetic": "拜卡拉OK甘買",
+          "meaning": "一起去唱KTV好嗎？",
+          "scenario": "邀約唱歌"
+        },
+        {
+          "id": "hob_014",
+          "thai": "ร้องเพลงเก่งมาก",
+          "romanization": "rong pleng geng maak",
+          "chinese_phonetic": "隆冷根媽",
+          "meaning": "你唱歌好厲害",
+          "scenario": "稱讚對方唱歌好聽"
+        },
+        {
+          "id": "hob_015",
+          "thai": "เล่นเกมไหม",
+          "romanization": "len gem mai",
+          "chinese_phonetic": "冷給買",
+          "meaning": "要玩遊戲嗎？",
+          "scenario": "酒吧裡邀對方玩遊戲"
+        }
+      ]
+    },
+    "work": {
+      "category_name": "工作職業",
+      "category_description": "你做什麼工作、我是XX、放假等",
+      "phrases": [
+        {
+          "id": "wrk_001",
+          "thai": "คุณทำงานอะไร",
+          "romanization": "kun tam-ngaan a-rai",
+          "chinese_phonetic": "坤探安阿萊",
+          "meaning": "你做什麼工作？",
+          "scenario": "初次見面詢問職業"
+        },
+        {
+          "id": "wrk_002",
+          "thai": "ฉันทำธุรกิจ",
+          "romanization": "chan tam tu-ra-git",
+          "chinese_phonetic": "餐探土辣給",
+          "meaning": "我做生意/自己當老闆",
+          "scenario": "說自己是企業主或商人"
+        },
+        {
+          "id": "wrk_003",
+          "thai": "ฉันเป็นวิศวกร",
+          "romanization": "chan bpen wit-sa-wa-gon",
+          "chinese_phonetic": "餐棚威沙哇棍",
+          "meaning": "我是工程師",
+          "scenario": "介紹自己職業"
+        },
+        {
+          "id": "wrk_004",
+          "thai": "ฉันเป็นครู",
+          "romanization": "chan bpen kruu",
+          "chinese_phonetic": "餐棚酷",
+          "meaning": "我是老師",
+          "scenario": "介紹自己職業"
+        },
+        {
+          "id": "wrk_005",
+          "thai": "งานยุ่งมาก",
+          "romanization": "ngaan yung maak",
+          "chinese_phonetic": "安用媽",
+          "meaning": "工作很忙",
+          "scenario": "描述工作繁忙"
+        },
+        {
+          "id": "wrk_006",
+          "thai": "วันนี้หยุด",
+          "romanization": "wan-nii yut",
+          "chinese_phonetic": "萬尼尤",
+          "meaning": "今天休假",
+          "scenario": "告知今天放假"
+        },
+        {
+          "id": "wrk_007",
+          "thai": "มาเที่ยวพักผ่อน",
+          "romanization": "maa tiao pak-pon",
+          "chinese_phonetic": "媽條帕澎",
+          "meaning": "來度假放鬆",
+          "scenario": "說明來泰國的目的是度假"
+        },
+        {
+          "id": "wrk_008",
+          "thai": "กี่โมงเลิกงาน",
+          "romanization": "gii mohng lerk ngaan",
+          "chinese_phonetic": "key猛勒安",
+          "meaning": "幾點下班？",
+          "scenario": "詢問對方下班時間"
+        },
+        {
+          "id": "wrk_009",
+          "thai": "เหนื่อยมาก",
+          "romanization": "neuay maak",
+          "chinese_phonetic": "內媽",
+          "meaning": "好累",
+          "scenario": "工作後表達疲憊"
+        },
+        {
+          "id": "wrk_010",
+          "thai": "พักก่อนนะ",
+          "romanization": "pak gon na",
+          "chinese_phonetic": "趴棍那",
+          "meaning": "先休息一下吧",
+          "scenario": "建議對方休息"
+        }
+      ]
+    },
+    "flirting": {
+      "category_name": "撩妹金句",
+      "category_description": "各種調情、搭訕、浪漫表達",
+      "phrases": [
+        {
+          "id": "fli_001",
+          "thai": "ขอเบอร์โทรได้ไหม",
+          "romanization": "kor ber toh dai mai",
+          "chinese_phonetic": "靠被偷代買",
+          "meaning": "可以給我電話號碼嗎？",
+          "scenario": "搭訕要電話"
+        },
+        {
+          "id": "fli_002",
+          "thai": "ขอไลน์ได้ไหม",
+          "romanization": "kor line dai mai",
+          "chinese_phonetic": "靠賴代買",
+          "meaning": "可以加Line嗎？",
+          "scenario": "要對方的Line帳號"
+        },
+        {
+          "id": "fli_003",
+          "thai": "คุณน่ารักที่สุด",
+          "romanization": "kun naa-rak tii-sut",
+          "chinese_phonetic": "坤那辣替速",
+          "meaning": "你是最可愛的",
+          "scenario": "稱讚對方是最可愛的"
+        },
+        {
+          "id": "fli_004",
+          "thai": "เธอทำให้ฉันมีความสุข",
+          "romanization": "ter tam hai chan mii kwaam-suk",
+          "chinese_phonetic": "特探害餐米框速",
+          "meaning": "你讓我很開心",
+          "scenario": "表達對方帶來的快樂"
+        },
+        {
+          "id": "fli_005",
+          "thai": "คุยกับคุณสนุกมาก",
+          "romanization": "kui gap kun sa-nuk maak",
+          "chinese_phonetic": "貴嘎坤沙努媽",
+          "meaning": "跟你聊天很開心",
+          "scenario": "表達享受和對方聊天"
+        },
+        {
+          "id": "fli_006",
+          "thai": "ไปทานข้าวด้วยกันไหม",
+          "romanization": "bpai taan kaao duay gan mai",
+          "chinese_phonetic": "拜但考對甘買",
+          "meaning": "一起去吃飯好嗎？",
+          "scenario": "約吃飯"
+        },
+        {
+          "id": "fli_007",
+          "thai": "คืนนี้ว่างไหม",
+          "romanization": "keun nii waang mai",
+          "chinese_phonetic": "坤尼旺買",
+          "meaning": "今晚有空嗎？",
+          "scenario": "約對方晚上見面"
+        },
+        {
+          "id": "fli_008",
+          "thai": "ฉันชอบคุณตั้งแต่แรกเห็น",
+          "romanization": "chan chop kun dtang-dtae raek hen",
+          "chinese_phonetic": "餐翹坤當帶辣痕",
+          "meaning": "我第一眼就喜歡你",
+          "scenario": "一見鍾情的表白"
+        },
+        {
+          "id": "fli_009",
+          "thai": "เธอไม่เหมือนใคร",
+          "romanization": "ter mai meuan krai",
+          "chinese_phonetic": "特買免萊",
+          "meaning": "你跟別人不一樣",
+          "scenario": "稱讚對方獨特"
+        },
+        {
+          "id": "fli_010",
+          "thai": "คิดถึงทุกวัน",
+          "romanization": "kit-teung tuk wan",
+          "chinese_phonetic": "key停土萬",
+          "meaning": "每天都想你",
+          "scenario": "表達思念"
+        },
+        {
+          "id": "fli_011",
+          "thai": "หน้ากากต้านไวรัส แต่เธอน่ารักต้านไม่ไหว",
+          "romanization": "naa-gaak dtaan wai-rat, dtae ter naa-rak dtaan mai wai",
+          "chinese_phonetic": "那嘎但外啦，但特那辣但買外",
+          "meaning": "口罩能防病毒，但你的可愛我防不住",
+          "scenario": "現代版泰式撩妹金句"
+        },
+        {
+          "id": "fli_012",
+          "thai": "เหนื่อยไหม วิ่งอยู่ในใจฉันทั้งวัน",
+          "romanization": "neuay mai wing yuu nai jai chan tang wan",
+          "chinese_phonetic": "內買，穩尤乃災餐唐萬",
+          "meaning": "你累嗎？在我心裡跑了一整天",
+          "scenario": "經典浪漫撩妹句"
+        },
+        {
+          "id": "fli_013",
+          "thai": "ถ้าเธอเป็นดอกไม้ ฉันจะรดน้ำทุกวัน",
+          "romanization": "taa ter bpen dok-mai chan ja rot-naam tuk wan",
+          "chinese_phonetic": "他特棚多買，餐扎落南土萬",
+          "meaning": "如果你是花，我每天都會澆水",
+          "scenario": "浪漫比喻"
+        },
+        {
+          "id": "fli_014",
+          "thai": "รอยยิ้มของเธอสวยมาก",
+          "romanization": "roi-yim kong ter suay maak",
+          "chinese_phonetic": "蘿因孔特蘇威媽",
+          "meaning": "你的笑容好美",
+          "scenario": "稱讚對方笑容"
+        },
+        {
+          "id": "fli_015",
+          "thai": "อยากเจอเธออีก",
+          "romanization": "yaak jer ter iik",
+          "chinese_phonetic": "壓皆特億",
+          "meaning": "想再見到你",
+          "scenario": "表達想再見面"
+        },
+        {
+          "id": "fli_016",
+          "thai": "เธอมีแฟนหรือยัง",
+          "romanization": "ter mii faen rue yang",
+          "chinese_phonetic": "特米反了楊",
+          "meaning": "你有男/女朋友了嗎？",
+          "scenario": "確認對方感情狀態"
+        },
+        {
+          "id": "fli_017",
+          "thai": "ฉันโสด",
+          "romanization": "chan soht",
+          "chinese_phonetic": "餐索",
+          "meaning": "我單身",
+          "scenario": "表明自己單身"
+        },
+        {
+          "id": "fli_018",
+          "thai": "เป็นแฟนกันไหม",
+          "romanization": "bpen faen gan mai",
+          "chinese_phonetic": "棚反甘買",
+          "meaning": "當我男/女朋友好嗎？",
+          "scenario": "正式交往的告白"
+        },
+        {
+          "id": "fli_019",
+          "thai": "ฉันรักเธอ",
+          "romanization": "chan rak ter",
+          "chinese_phonetic": "餐辣特",
+          "meaning": "我愛你",
+          "scenario": "表達愛意"
+        },
+        {
+          "id": "fli_020",
+          "thai": "กอดได้ไหม",
+          "romanization": "got dai mai",
+          "chinese_phonetic": "割代買",
+          "meaning": "可以抱一下嗎？",
+          "scenario": "請求擁抱"
+        }
+      ]
+    },
+    "apology": {
+      "category_name": "道歉解釋",
+      "category_description": "對不起、沒關係、我不是故意的等",
+      "phrases": [
+        {
+          "id": "apo_001",
+          "thai": "ขอโทษครับ/ค่ะ",
+          "romanization": "kor toht krap/ka",
+          "chinese_phonetic": "靠透咖",
+          "meaning": "對不起/不好意思",
+          "scenario": "萬用道歉語，也可當「借過」"
+        },
+        {
+          "id": "apo_002",
+          "thai": "ไม่เป็นไร",
+          "romanization": "mai bpen rai",
+          "chinese_phonetic": "麥棚萊",
+          "meaning": "沒關係/沒事",
+          "scenario": "回應對方道歉，表示不在意"
+        },
+        {
+          "id": "apo_003",
+          "thai": "ฉันไม่ได้ตั้งใจ",
+          "romanization": "chan mai dai dtang-jai",
+          "chinese_phonetic": "餐買代當災",
+          "meaning": "我不是故意的",
+          "scenario": "解釋非蓄意行為"
+        },
+        {
+          "id": "apo_004",
+          "thai": "ขอโทษที่มาสาย",
+          "romanization": "kor toht tii maa saai",
+          "chinese_phonetic": "靠透替媽賽",
+          "meaning": "抱歉我遲到了",
+          "scenario": "遲到時道歉"
+        },
+        {
+          "id": "apo_005",
+          "thai": "เสียใจด้วยนะ",
+          "romanization": "sia-jai duay na",
+          "chinese_phonetic": "細災對那",
+          "meaning": "我很遺憾/很抱歉",
+          "scenario": "表達同情或歉意"
+        },
+        {
+          "id": "apo_006",
+          "thai": "ฉันผิดเอง",
+          "romanization": "chan pit eng",
+          "chinese_phonetic": "餐批恩",
+          "meaning": "是我的錯",
+          "scenario": "承認自己的錯誤"
+        },
+        {
+          "id": "apo_007",
+          "thai": "ให้อภัยฉันได้ไหม",
+          "romanization": "hai a-pai chan dai mai",
+          "chinese_phonetic": "害阿拍餐代買",
+          "meaning": "你能原諒我嗎？",
+          "scenario": "請求對方原諒"
+        },
+        {
+          "id": "apo_008",
+          "thai": "จะไม่ทำอีกแล้ว",
+          "romanization": "ja mai tam iik laew",
+          "chinese_phonetic": "扎買探億了",
+          "meaning": "不會再這樣了",
+          "scenario": "保證不再犯"
+        },
+        {
+          "id": "apo_009",
+          "thai": "ช่างมันเถอะ",
+          "romanization": "chang man ter",
+          "chinese_phonetic": "昌滿特",
+          "meaning": "算了吧/別放心上",
+          "scenario": "叫對方不要在意"
+        },
+        {
+          "id": "apo_010",
+          "thai": "ขอโทษ ผมเข้าใจผิด",
+          "romanization": "kor toht pom kao-jai pit",
+          "chinese_phonetic": "靠透碰考災批",
+          "meaning": "抱歉，我誤會了",
+          "scenario": "承認自己誤解了"
+        }
+      ]
+    },
+    "gogobar": {
+      "category_name": "GoGo Bar 專用",
+      "category_description": "在 GoGo Bar 會用到的對話和術語",
+      "phrases": [
+        {
+          "id": "gogo_001",
+          "thai": "ขอเลี้ยงเครื่องดื่มได้ไหม",
+          "romanization": "kor liang krueng-duem dai mai",
+          "chinese_phonetic": "靠涼葛東代買",
+          "meaning": "我可以請你喝一杯嗎？",
+          "scenario": "請對方喝 Lady Drink"
+        },
+        {
+          "id": "gogo_002",
+          "thai": "ค่าตัวเท่าไหร่",
+          "romanization": "kaa-dtua tao-rai",
+          "chinese_phonetic": "咖抖逃萊",
+          "meaning": "Bar Fine 多少錢？",
+          "scenario": "詢問帶出去的費用"
+        },
+        {
+          "id": "gogo_003",
+          "thai": "ชนแก้ว",
+          "romanization": "chon gaew",
+          "chinese_phonetic": "衝給",
+          "meaning": "乾杯！",
+          "scenario": "碰杯、敬酒"
+        },
+        {
+          "id": "gogo_004",
+          "thai": "หมดแก้ว",
+          "romanization": "mot gaew",
+          "chinese_phonetic": "莫給",
+          "meaning": "乾了！/一口乾",
+          "scenario": "喝完整杯"
+        },
+        {
+          "id": "gogo_005",
+          "thai": "ไปกับฉันได้ไหม",
+          "romanization": "bpai gap chan dai mai",
+          "chinese_phonetic": "拜嘎餐代買",
+          "meaning": "可以跟我走嗎？",
+          "scenario": "詢問對方是否願意離開"
+        },
+        {
+          "id": "gogo_006",
+          "thai": "เบอร์อะไร",
+          "romanization": "ber a-rai",
+          "chinese_phonetic": "被阿萊",
+          "meaning": "幾號？/你的號碼是？",
+          "scenario": "詢問舞者的號碼牌"
+        },
+        {
+          "id": "gogo_007",
+          "thai": "มานั่งด้วยกันไหม",
+          "romanization": "maa nang duay gan mai",
+          "chinese_phonetic": "媽囊對甘買",
+          "meaning": "要過來坐嗎？",
+          "scenario": "邀請對方坐在旁邊"
+        },
+        {
+          "id": "gogo_008",
+          "thai": "กี่โมงเลิก",
+          "romanization": "gii mohng lerk",
+          "chinese_phonetic": "key猛勒",
+          "meaning": "幾點結束？/幾點下班？",
+          "scenario": "詢問營業結束或下班時間"
+        },
+        {
+          "id": "gogo_009",
+          "thai": "เช็คบินหน่อย",
+          "romanization": "chek bin noi",
+          "chinese_phonetic": "切賓挪",
+          "meaning": "買單/結帳",
+          "scenario": "要求結帳"
+        },
+        {
+          "id": "gogo_010",
+          "thai": "แพงไป ลดได้ไหม",
+          "romanization": "paeng bpai lot dai mai",
+          "chinese_phonetic": "碰拜落代買",
+          "meaning": "太貴了，可以便宜一點嗎？",
+          "scenario": "殺價、議價"
+        },
+        {
+          "id": "gogo_011",
+          "thai": "ฉันเลี้ยง",
+          "romanization": "chan liang",
+          "chinese_phonetic": "餐涼",
+          "meaning": "我請客",
+          "scenario": "表示由自己付錢"
+        },
+        {
+          "id": "gogo_012",
+          "thai": "ไม่เอา ขอบคุณ",
+          "romanization": "mai ao kop-kun",
+          "chinese_phonetic": "麥奧靠坤",
+          "meaning": "不要，謝謝",
+          "scenario": "婉拒推銷或邀請"
+        },
+        {
+          "id": "gogo_013",
+          "thai": "คุณสวยที่สุดในร้าน",
+          "romanization": "kun suay tii-sut nai raan",
+          "chinese_phonetic": "坤蘇威替速乃蘭",
+          "meaning": "你是店裡最漂亮的",
+          "scenario": "稱讚對方"
+        },
+        {
+          "id": "gogo_014",
+          "thai": "ช้อตไหม",
+          "romanization": "shot mai",
+          "chinese_phonetic": "收買",
+          "meaning": "要來一杯 shot 嗎？",
+          "scenario": "詢問是否要點烈酒"
+        },
+        {
+          "id": "gogo_015",
+          "thai": "ไปต่อไหม",
+          "romanization": "bpai dtor mai",
+          "chinese_phonetic": "拜多買",
+          "meaning": "要續攤嗎？/還要去別的地方嗎？",
+          "scenario": "詢問是否要繼續玩"
+        }
+      ]
+    }
+  },
+  "quick_reference": {
+    "essential_phrases": [
+      {
+        "thai": "สวัสดีครับ/ค่ะ",
+        "romanization": "sa-wat-dee krap/ka",
+        "phonetic": "沙哇滴咖",
+        "meaning": "你好"
+      },
+      {
+        "thai": "ขอบคุณครับ/ค่ะ",
+        "romanization": "kop-kun krap/ka",
+        "phonetic": "靠坤咖",
+        "meaning": "謝謝"
+      },
+      {
+        "thai": "ไม่เป็นไร",
+        "romanization": "mai bpen rai",
+        "phonetic": "麥棚萊",
+        "meaning": "沒關係"
+      },
+      {
+        "thai": "เท่าไหร่",
+        "romanization": "tao-rai",
+        "phonetic": "逃萊",
+        "meaning": "多少錢？"
+      },
+      {
+        "thai": "อร่อยมาก",
+        "romanization": "a-roi maak",
+        "phonetic": "阿蘿依媽",
+        "meaning": "很好吃"
+      }
+    ],
+    "polite_particles": {
+      "male": {
+        "thai": "ครับ",
+        "romanization": "krap",
+        "phonetic": "咖",
+        "note": "男性在句尾加，表示禮貌"
+      },
+      "female": {
+        "thai": "ค่ะ",
+        "romanization": "ka",
+        "phonetic": "咖",
+        "note": "女性在句尾加，表示禮貌"
+      }
+    },
+    "tips": [
+      "泰語有 5 個聲調，中文諧音只是近似發音",
+      "句尾加 ครับ/ค่ะ 會更禮貌",
+      "很多泰國人的 'r' 發音會弱化成 'l'",
+      "用暱稱比用正式名字更親切",
+      "即使發音不完美，當地人也會欣賞你的努力"
+    ]
+  }
+}

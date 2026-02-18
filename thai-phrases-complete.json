@@ -3,7 +3,7 @@
     "title": "芭達雅旅遊泰語完整寶典",
     "description": "芭達雅之旅 2026 專用泰語會話集 - 410+ 實用句型",
     "total_phrases": 410,
-    "categories": 21,
+    "categories": 22,
     "last_updated": "2026-02-18"
   },
   "categories": [
@@ -13,22 +13,102 @@
       "icon": "👋",
       "color": "#667eea",
       "phrases": [
-        {"thai": "สวัสดีครับ", "phonetic": "薩瓦滴咖", "chinese": "你好（男生用）", "scenario": "見面打招呼"},
-        {"thai": "สวัสดีค่ะ", "phonetic": "薩瓦滴咖", "chinese": "你好（女生用）", "scenario": "見面打招呼"},
-        {"thai": "เป็นอย่างไรบ้าง", "phonetic": "棚央萊邦", "chinese": "你好嗎？", "scenario": "問候"},
-        {"thai": "สบายดีไหม", "phonetic": "沙敗滴買", "chinese": "你好嗎？（較親切）", "scenario": "問候朋友"},
-        {"thai": "สบายดีครับ", "phonetic": "沙敗滴咖", "chinese": "我很好", "scenario": "回應問候"},
-        {"thai": "ยินดีที่ได้รู้จัก", "phonetic": "因滴替代入扎", "chinese": "很高興認識你", "scenario": "初次見面"},
-        {"thai": "คุณชื่ออะไร", "phonetic": "坤丘阿萊", "chinese": "你叫什麼名字？", "scenario": "詢問名字"},
-        {"thai": "ผมชื่อ...", "phonetic": "碰丘...", "chinese": "我叫...（男生用）", "scenario": "自我介紹"},
-        {"thai": "ฉันชื่อ...", "phonetic": "餐丘...", "chinese": "我叫...（女生用）", "scenario": "自我介紹"},
-        {"thai": "ลาก่อน", "phonetic": "拉棍", "chinese": "再見", "scenario": "道別"},
-        {"thai": "ไว้เจอกัน", "phonetic": "外皆甘", "chinese": "下次見", "scenario": "道別"},
-        {"thai": "โชคดี", "phonetic": "綽滴", "chinese": "祝好運", "scenario": "道別祝福"},
-        {"thai": "ราตรีสวัสดิ์", "phonetic": "拉翠沙瓦", "chinese": "晚安", "scenario": "晚上道別"},
-        {"thai": "แล้วเจอกัน", "phonetic": "了皆甘", "chinese": "待會見", "scenario": "短暫分開"},
-        {"thai": "มาจากไหน", "phonetic": "媽扎乃", "chinese": "你從哪裡來？", "scenario": "詢問來歷"},
-        {"thai": "มาจากไต้หวัน", "phonetic": "媽扎台灣", "chinese": "我來自台灣", "scenario": "自我介紹"}
+        {
+          "thai": "สวัสดีครับ",
+          "phonetic": "薩瓦滴咖",
+          "chinese": "你好（男生用）",
+          "scenario": "見面打招呼"
+        },
+        {
+          "thai": "สวัสดีค่ะ",
+          "phonetic": "薩瓦滴咖",
+          "chinese": "你好（女生用）",
+          "scenario": "見面打招呼"
+        },
+        {
+          "thai": "เป็นอย่างไรบ้าง",
+          "phonetic": "棚央萊邦",
+          "chinese": "你好嗎？",
+          "scenario": "問候"
+        },
+        {
+          "thai": "สบายดีไหม",
+          "phonetic": "沙敗滴買",
+          "chinese": "你好嗎？（較親切）",
+          "scenario": "問候朋友"
+        },
+        {
+          "thai": "สบายดีครับ",
+          "phonetic": "沙敗滴咖",
+          "chinese": "我很好",
+          "scenario": "回應問候"
+        },
+        {
+          "thai": "ยินดีที่ได้รู้จัก",
+          "phonetic": "因滴替代入扎",
+          "chinese": "很高興認識你",
+          "scenario": "初次見面"
+        },
+        {
+          "thai": "คุณชื่ออะไร",
+          "phonetic": "坤丘阿萊",
+          "chinese": "你叫什麼名字？",
+          "scenario": "詢問名字"
+        },
+        {
+          "thai": "ผมชื่อ...",
+          "phonetic": "碰丘...",
+          "chinese": "我叫...（男生用）",
+          "scenario": "自我介紹"
+        },
+        {
+          "thai": "ฉันชื่อ...",
+          "phonetic": "餐丘...",
+          "chinese": "我叫...（女生用）",
+          "scenario": "自我介紹"
+        },
+        {
+          "thai": "ลาก่อน",
+          "phonetic": "拉棍",
+          "chinese": "再見",
+          "scenario": "道別"
+        },
+        {
+          "thai": "ไว้เจอกัน",
+          "phonetic": "外皆甘",
+          "chinese": "下次見",
+          "scenario": "道別"
+        },
+        {
+          "thai": "โชคดี",
+          "phonetic": "綽滴",
+          "chinese": "祝好運",
+          "scenario": "道別祝福"
+        },
+        {
+          "thai": "ราตรีสวัสดิ์",
+          "phonetic": "拉翠沙瓦",
+          "chinese": "晚安",
+          "scenario": "晚上道別"
+        },
+        {
+          "thai": "แล้วเจอกัน",
+          "phonetic": "了皆甘",
+          "chinese": "待會見",
+          "scenario": "短暫分開"
+        },
+        {
+          "thai": "มาจากไหน",
+          "phonetic": "媽扎乃",
+          "chinese": "你從哪裡來？",
+          "scenario": "詢問來歷"
+        },
+        {
+          "thai": "มาจากไต้หวัน",
+          "phonetic": "媽扎台灣",
+          "chinese": "我來自台灣",
+          "scenario": "自我介紹"
+        }
       ]
     },
     {
@@ -37,18 +117,78 @@
       "icon": "🙏",
       "color": "#f093fb",
       "phrases": [
-        {"thai": "ขอบคุณครับ", "phonetic": "靠坤咖", "chinese": "謝謝（男生用）", "scenario": "表達感謝"},
-        {"thai": "ขอบคุณค่ะ", "phonetic": "靠坤咖", "chinese": "謝謝（女生用）", "scenario": "表達感謝"},
-        {"thai": "ขอบคุณมาก", "phonetic": "靠坤媽", "chinese": "非常感謝", "scenario": "強調感謝"},
-        {"thai": "ไม่เป็นไร", "phonetic": "麥棚萊", "chinese": "沒關係/不客氣", "scenario": "回應感謝或道歉"},
-        {"thai": "ขอโทษครับ", "phonetic": "靠透咖", "chinese": "對不起/不好意思", "scenario": "道歉"},
-        {"thai": "ฉันไม่ได้ตั้งใจ", "phonetic": "餐買代當災", "chinese": "我不是故意的", "scenario": "解釋錯誤"},
-        {"thai": "ขอโทษที่มาสาย", "phonetic": "靠透替媽賽", "chinese": "抱歉我遲到了", "scenario": "遲到道歉"},
-        {"thai": "ให้อภัยฉันได้ไหม", "phonetic": "害阿拍餐代買", "chinese": "你能原諒我嗎？", "scenario": "請求原諒"},
-        {"thai": "ด้วยความยินดี", "phonetic": "對框因滴", "chinese": "我很樂意", "scenario": "表示願意"},
-        {"thai": "ช่างมันเถอะ", "phonetic": "昌滿特", "chinese": "算了吧/別放心上", "scenario": "叫人不要在意"},
-        {"thai": "ยินดีต้อนรับ", "phonetic": "因滴盾辣", "chinese": "歡迎", "scenario": "歡迎別人"},
-        {"thai": "คุณใจดีมาก", "phonetic": "坤災滴媽", "chinese": "你人真好", "scenario": "稱讚對方"}
+        {
+          "thai": "ขอบคุณครับ",
+          "phonetic": "靠坤咖",
+          "chinese": "謝謝（男生用）",
+          "scenario": "表達感謝"
+        },
+        {
+          "thai": "ขอบคุณค่ะ",
+          "phonetic": "靠坤咖",
+          "chinese": "謝謝（女生用）",
+          "scenario": "表達感謝"
+        },
+        {
+          "thai": "ขอบคุณมาก",
+          "phonetic": "靠坤媽",
+          "chinese": "非常感謝",
+          "scenario": "強調感謝"
+        },
+        {
+          "thai": "ไม่เป็นไร",
+          "phonetic": "麥棚萊",
+          "chinese": "沒關係/不客氣",
+          "scenario": "回應感謝或道歉"
+        },
+        {
+          "thai": "ขอโทษครับ",
+          "phonetic": "靠透咖",
+          "chinese": "對不起/不好意思",
+          "scenario": "道歉"
+        },
+        {
+          "thai": "ฉันไม่ได้ตั้งใจ",
+          "phonetic": "餐買代當災",
+          "chinese": "我不是故意的",
+          "scenario": "解釋錯誤"
+        },
+        {
+          "thai": "ขอโทษที่มาสาย",
+          "phonetic": "靠透替媽賽",
+          "chinese": "抱歉我遲到了",
+          "scenario": "遲到道歉"
+        },
+        {
+          "thai": "ให้อภัยฉันได้ไหม",
+          "phonetic": "害阿拍餐代買",
+          "chinese": "你能原諒我嗎？",
+          "scenario": "請求原諒"
+        },
+        {
+          "thai": "ด้วยความยินดี",
+          "phonetic": "對框因滴",
+          "chinese": "我很樂意",
+          "scenario": "表示願意"
+        },
+        {
+          "thai": "ช่างมันเถอะ",
+          "phonetic": "昌滿特",
+          "chinese": "算了吧/別放心上",
+          "scenario": "叫人不要在意"
+        },
+        {
+          "thai": "ยินดีต้อนรับ",
+          "phonetic": "因滴盾辣",
+          "chinese": "歡迎",
+          "scenario": "歡迎別人"
+        },
+        {
+          "thai": "คุณใจดีมาก",
+          "phonetic": "坤災滴媽",
+          "chinese": "你人真好",
+          "scenario": "稱讚對方"
+        }
       ]
     },
     {
@@ -57,26 +197,126 @@
       "icon": "🍜",
       "color": "#ff6b6b",
       "phrases": [
-        {"thai": "เอาอะไรดี", "phonetic": "奧阿萊滴", "chinese": "要點什麼？", "scenario": "服務生詢問"},
-        {"thai": "เมนูครับ", "phonetic": "美奴咖", "chinese": "請給我菜單", "scenario": "要菜單"},
-        {"thai": "แนะนำอะไรดี", "phonetic": "捏南阿萊滴", "chinese": "有什麼推薦？", "scenario": "請服務生推薦"},
-        {"thai": "ขอ...หนึ่งที่", "phonetic": "靠...能替", "chinese": "我要一份...", "scenario": "點餐"},
-        {"thai": "อร่อยมาก", "phonetic": "阿蘿依媽", "chinese": "很好吃", "scenario": "稱讚食物"},
-        {"thai": "เผ็ดมาก", "phonetic": "配媽", "chinese": "很辣", "scenario": "形容辣度"},
-        {"thai": "ไม่เผ็ด", "phonetic": "麥配", "chinese": "不要辣", "scenario": "點餐備註"},
-        {"thai": "เผ็ดน้อย", "phonetic": "配挪", "chinese": "小辣", "scenario": "點餐備註"},
-        {"thai": "เผ็ดมาก", "phonetic": "配媽", "chinese": "大辣", "scenario": "點餐備註"},
-        {"thai": "เช็คบิลครับ", "phonetic": "切賓咖", "chinese": "買單", "scenario": "結帳"},
-        {"thai": "แยกจ่าย", "phonetic": "耶災", "chinese": "分開付", "scenario": "AA制"},
-        {"thai": "ฉันเลี้ยง", "phonetic": "餐涼", "chinese": "我請客", "scenario": "表示請客"},
-        {"thai": "น้ำเปล่า", "phonetic": "南包", "chinese": "白開水", "scenario": "點水"},
-        {"thai": "ขอน้ำแข็ง", "phonetic": "靠南肯", "chinese": "請加冰", "scenario": "要冰塊"},
-        {"thai": "ไม่เอาน้ำแข็ง", "phonetic": "麥奧南肯", "chinese": "不要冰", "scenario": "不加冰"},
-        {"thai": "อิ่มแล้ว", "phonetic": "因了", "chinese": "我飽了", "scenario": "表示吃飽"},
-        {"thai": "ของหวาน", "phonetic": "孔萬", "chinese": "甜點", "scenario": "點甜點"},
-        {"thai": "เอากลับบ้าน", "phonetic": "奧格班", "chinese": "外帶", "scenario": "打包"},
-        {"thai": "กินที่นี่", "phonetic": "gin替尼", "chinese": "內用", "scenario": "在店裡吃"},
-        {"thai": "ห้องน้ำอยู่ไหน", "phonetic": "轟南尤乃", "chinese": "廁所在哪？", "scenario": "問廁所"}
+        {
+          "thai": "เอาอะไรดี",
+          "phonetic": "奧阿萊滴",
+          "chinese": "要點什麼？",
+          "scenario": "服務生詢問"
+        },
+        {
+          "thai": "เมนูครับ",
+          "phonetic": "美奴咖",
+          "chinese": "請給我菜單",
+          "scenario": "要菜單"
+        },
+        {
+          "thai": "แนะนำอะไรดี",
+          "phonetic": "捏南阿萊滴",
+          "chinese": "有什麼推薦？",
+          "scenario": "請服務生推薦"
+        },
+        {
+          "thai": "ขอ...หนึ่งที่",
+          "phonetic": "靠...能替",
+          "chinese": "我要一份...",
+          "scenario": "點餐"
+        },
+        {
+          "thai": "อร่อยมาก",
+          "phonetic": "阿蘿依媽",
+          "chinese": "很好吃",
+          "scenario": "稱讚食物"
+        },
+        {
+          "thai": "เผ็ดมาก",
+          "phonetic": "配媽",
+          "chinese": "很辣",
+          "scenario": "形容辣度"
+        },
+        {
+          "thai": "ไม่เผ็ด",
+          "phonetic": "麥配",
+          "chinese": "不要辣",
+          "scenario": "點餐備註"
+        },
+        {
+          "thai": "เผ็ดน้อย",
+          "phonetic": "配挪",
+          "chinese": "小辣",
+          "scenario": "點餐備註"
+        },
+        {
+          "thai": "เผ็ดมาก",
+          "phonetic": "配媽",
+          "chinese": "大辣",
+          "scenario": "點餐備註"
+        },
+        {
+          "thai": "เช็คบิลครับ",
+          "phonetic": "切賓咖",
+          "chinese": "買單",
+          "scenario": "結帳"
+        },
+        {
+          "thai": "แยกจ่าย",
+          "phonetic": "耶災",
+          "chinese": "分開付",
+          "scenario": "AA制"
+        },
+        {
+          "thai": "ฉันเลี้ยง",
+          "phonetic": "餐涼",
+          "chinese": "我請客",
+          "scenario": "表示請客"
+        },
+        {
+          "thai": "น้ำเปล่า",
+          "phonetic": "南包",
+          "chinese": "白開水",
+          "scenario": "點水"
+        },
+        {
+          "thai": "ขอน้ำแข็ง",
+          "phonetic": "靠南肯",
+          "chinese": "請加冰",
+          "scenario": "要冰塊"
+        },
+        {
+          "thai": "ไม่เอาน้ำแข็ง",
+          "phonetic": "麥奧南肯",
+          "chinese": "不要冰",
+          "scenario": "不加冰"
+        },
+        {
+          "thai": "อิ่มแล้ว",
+          "phonetic": "因了",
+          "chinese": "我飽了",
+          "scenario": "表示吃飽"
+        },
+        {
+          "thai": "ของหวาน",
+          "phonetic": "孔萬",
+          "chinese": "甜點",
+          "scenario": "點甜點"
+        },
+        {
+          "thai": "เอากลับบ้าน",
+          "phonetic": "奧格班",
+          "chinese": "外帶",
+          "scenario": "打包"
+        },
+        {
+          "thai": "กินที่นี่",
+          "phonetic": "gin替尼",
+          "chinese": "內用",
+          "scenario": "在店裡吃"
+        },
+        {
+          "thai": "ห้องน้ำอยู่ไหน",
+          "phonetic": "轟南尤乃",
+          "chinese": "廁所在哪？",
+          "scenario": "問廁所"
+        }
       ]
     },
     {
@@ -85,23 +325,108 @@
       "icon": "🛍️",
       "color": "#ffd93d",
       "phrases": [
-        {"thai": "เท่าไหร่", "phonetic": "逃萊", "chinese": "多少錢？", "scenario": "詢問價格"},
-        {"thai": "แพงมาก", "phonetic": "碰媽", "chinese": "太貴了", "scenario": "殺價開場"},
-        {"thai": "ลดได้ไหม", "phonetic": "落代買", "chinese": "可以便宜一點嗎？", "scenario": "殺價"},
-        {"thai": "ลดหน่อยได้ไหม", "phonetic": "落挪代買", "chinese": "打點折好嗎？", "scenario": "殺價"},
-        {"thai": "ถูกกว่านี้ได้ไหม", "phonetic": "托瓜尼代買", "chinese": "能更便宜嗎？", "scenario": "繼續殺價"},
-        {"thai": "ราคาสุดท้าย", "phonetic": "辣咖速台", "chinese": "最後價格/最低多少？", "scenario": "詢問底價"},
-        {"thai": "ซื้อหลายชิ้นลดได้ไหม", "phonetic": "蘇來親落代買", "chinese": "買多件能打折嗎？", "scenario": "大量購買殺價"},
-        {"thai": "เอาอันนี้", "phonetic": "奧安尼", "chinese": "我要這個", "scenario": "決定購買"},
-        {"thai": "ไม่เอา ขอบคุณ", "phonetic": "麥奧 靠坤", "chinese": "不要，謝謝", "scenario": "婉拒"},
-        {"thai": "ดูก่อน", "phonetic": "肚棍", "chinese": "我先看看", "scenario": "表示還在考慮"},
-        {"thai": "มีสีอื่นไหม", "phonetic": "米西聞買", "chinese": "有其他顏色嗎？", "scenario": "詢問款式"},
-        {"thai": "มีไซส์อื่นไหม", "phonetic": "米塞聞買", "chinese": "有其他尺寸嗎？", "scenario": "詢問尺寸"},
-        {"thai": "ลองได้ไหม", "phonetic": "龍代買", "chinese": "可以試穿嗎？", "scenario": "試穿"},
-        {"thai": "รับบัตรเครดิตไหม", "phonetic": "辣巴科滴買", "chinese": "可以刷卡嗎？", "scenario": "付款方式"},
-        {"thai": "จ่ายสด", "phonetic": "災索", "chinese": "付現金", "scenario": "付現"},
-        {"thai": "ขอถุง", "phonetic": "靠統", "chinese": "請給我袋子", "scenario": "要袋子"},
-        {"thai": "ไม่ต้องถุง", "phonetic": "麥動統", "chinese": "不用袋子", "scenario": "環保"}
+        {
+          "thai": "เท่าไหร่",
+          "phonetic": "逃萊",
+          "chinese": "多少錢？",
+          "scenario": "詢問價格"
+        },
+        {
+          "thai": "แพงมาก",
+          "phonetic": "碰媽",
+          "chinese": "太貴了",
+          "scenario": "殺價開場"
+        },
+        {
+          "thai": "ลดได้ไหม",
+          "phonetic": "落代買",
+          "chinese": "可以便宜一點嗎？",
+          "scenario": "殺價"
+        },
+        {
+          "thai": "ลดหน่อยได้ไหม",
+          "phonetic": "落挪代買",
+          "chinese": "打點折好嗎？",
+          "scenario": "殺價"
+        },
+        {
+          "thai": "ถูกกว่านี้ได้ไหม",
+          "phonetic": "托瓜尼代買",
+          "chinese": "能更便宜嗎？",
+          "scenario": "繼續殺價"
+        },
+        {
+          "thai": "ราคาสุดท้าย",
+          "phonetic": "辣咖速台",
+          "chinese": "最後價格/最低多少？",
+          "scenario": "詢問底價"
+        },
+        {
+          "thai": "ซื้อหลายชิ้นลดได้ไหม",
+          "phonetic": "蘇來親落代買",
+          "chinese": "買多件能打折嗎？",
+          "scenario": "大量購買殺價"
+        },
+        {
+          "thai": "เอาอันนี้",
+          "phonetic": "奧安尼",
+          "chinese": "我要這個",
+          "scenario": "決定購買"
+        },
+        {
+          "thai": "ไม่เอา ขอบคุณ",
+          "phonetic": "麥奧 靠坤",
+          "chinese": "不要，謝謝",
+          "scenario": "婉拒"
+        },
+        {
+          "thai": "ดูก่อน",
+          "phonetic": "肚棍",
+          "chinese": "我先看看",
+          "scenario": "表示還在考慮"
+        },
+        {
+          "thai": "มีสีอื่นไหม",
+          "phonetic": "米西聞買",
+          "chinese": "有其他顏色嗎？",
+          "scenario": "詢問款式"
+        },
+        {
+          "thai": "มีไซส์อื่นไหม",
+          "phonetic": "米塞聞買",
+          "chinese": "有其他尺寸嗎？",
+          "scenario": "詢問尺寸"
+        },
+        {
+          "thai": "ลองได้ไหม",
+          "phonetic": "龍代買",
+          "chinese": "可以試穿嗎？",
+          "scenario": "試穿"
+        },
+        {
+          "thai": "รับบัตรเครดิตไหม",
+          "phonetic": "辣巴科滴買",
+          "chinese": "可以刷卡嗎？",
+          "scenario": "付款方式"
+        },
+        {
+          "thai": "จ่ายสด",
+          "phonetic": "災索",
+          "chinese": "付現金",
+          "scenario": "付現"
+        },
+        {
+          "thai": "ขอถุง",
+          "phonetic": "靠統",
+          "chinese": "請給我袋子",
+          "scenario": "要袋子"
+        },
+        {
+          "thai": "ไม่ต้องถุง",
+          "phonetic": "麥動統",
+          "chinese": "不用袋子",
+          "scenario": "環保"
+        }
       ]
     },
     {
@@ -110,22 +435,102 @@
       "icon": "🚕",
       "color": "#6bcb77",
       "phrases": [
-        {"thai": "ไป...ครับ", "phonetic": "拜...咖", "chinese": "去...", "scenario": "告訴司機目的地"},
-        {"thai": "ไปที่นี่", "phonetic": "拜替尼", "chinese": "去這裡（指地圖）", "scenario": "指著地圖"},
-        {"thai": "ไปเท่าไหร่", "phonetic": "拜逃萊", "chinese": "去那裡多少錢？", "scenario": "問車資"},
-        {"thai": "ใช้มิเตอร์ได้ไหม", "phonetic": "猜咪特代買", "chinese": "可以跳錶嗎？", "scenario": "要求跳錶計費"},
-        {"thai": "จอดตรงนี้", "phonetic": "叫動尼", "chinese": "在這裡停", "scenario": "要求停車"},
-        {"thai": "จอดหน้านั้น", "phonetic": "叫那南", "chinese": "在前面停", "scenario": "要求前方停車"},
-        {"thai": "ช้าหน่อย", "phonetic": "差挪", "chinese": "慢一點", "scenario": "要求開慢"},
-        {"thai": "เร็วได้ไหม", "phonetic": "了代買", "chinese": "可以快一點嗎？", "scenario": "趕時間"},
-        {"thai": "ไกลไหม", "phonetic": "蓋買", "chinese": "遠嗎？", "scenario": "詢問距離"},
-        {"thai": "ใกล้ไหม", "phonetic": "蓋買", "chinese": "近嗎？", "scenario": "詢問距離"},
-        {"thai": "กี่นาที", "phonetic": "key那替", "chinese": "要幾分鐘？", "scenario": "問時間"},
-        {"thai": "เลี้ยวซ้าย", "phonetic": "料賽", "chinese": "左轉", "scenario": "指路"},
-        {"thai": "เลี้ยวขวา", "phonetic": "料瓜", "chinese": "右轉", "scenario": "指路"},
-        {"thai": "ตรงไป", "phonetic": "動拜", "chinese": "直走", "scenario": "指路"},
-        {"thai": "กลับรถ", "phonetic": "格落", "chinese": "迴轉", "scenario": "指路"},
-        {"thai": "รถติด", "phonetic": "落滴", "chinese": "塞車", "scenario": "描述交通"}
+        {
+          "thai": "ไป...ครับ",
+          "phonetic": "拜...咖",
+          "chinese": "去...",
+          "scenario": "告訴司機目的地"
+        },
+        {
+          "thai": "ไปที่นี่",
+          "phonetic": "拜替尼",
+          "chinese": "去這裡（指地圖）",
+          "scenario": "指著地圖"
+        },
+        {
+          "thai": "ไปเท่าไหร่",
+          "phonetic": "拜逃萊",
+          "chinese": "去那裡多少錢？",
+          "scenario": "問車資"
+        },
+        {
+          "thai": "ใช้มิเตอร์ได้ไหม",
+          "phonetic": "猜咪特代買",
+          "chinese": "可以跳錶嗎？",
+          "scenario": "要求跳錶計費"
+        },
+        {
+          "thai": "จอดตรงนี้",
+          "phonetic": "叫動尼",
+          "chinese": "在這裡停",
+          "scenario": "要求停車"
+        },
+        {
+          "thai": "จอดหน้านั้น",
+          "phonetic": "叫那南",
+          "chinese": "在前面停",
+          "scenario": "要求前方停車"
+        },
+        {
+          "thai": "ช้าหน่อย",
+          "phonetic": "差挪",
+          "chinese": "慢一點",
+          "scenario": "要求開慢"
+        },
+        {
+          "thai": "เร็วได้ไหม",
+          "phonetic": "了代買",
+          "chinese": "可以快一點嗎？",
+          "scenario": "趕時間"
+        },
+        {
+          "thai": "ไกลไหม",
+          "phonetic": "蓋買",
+          "chinese": "遠嗎？",
+          "scenario": "詢問距離"
+        },
+        {
+          "thai": "ใกล้ไหม",
+          "phonetic": "蓋買",
+          "chinese": "近嗎？",
+          "scenario": "詢問距離"
+        },
+        {
+          "thai": "กี่นาที",
+          "phonetic": "key那替",
+          "chinese": "要幾分鐘？",
+          "scenario": "問時間"
+        },
+        {
+          "thai": "เลี้ยวซ้าย",
+          "phonetic": "料賽",
+          "chinese": "左轉",
+          "scenario": "指路"
+        },
+        {
+          "thai": "เลี้ยวขวา",
+          "phonetic": "料瓜",
+          "chinese": "右轉",
+          "scenario": "指路"
+        },
+        {
+          "thai": "ตรงไป",
+          "phonetic": "動拜",
+          "chinese": "直走",
+          "scenario": "指路"
+        },
+        {
+          "thai": "กลับรถ",
+          "phonetic": "格落",
+          "chinese": "迴轉",
+          "scenario": "指路"
+        },
+        {
+          "thai": "รถติด",
+          "phonetic": "落滴",
+          "chinese": "塞車",
+          "scenario": "描述交通"
+        }
       ]
     },
     {
@@ -134,19 +539,84 @@
       "icon": "💆",
       "color": "#a8e6cf",
       "phrases": [
-        {"thai": "นวดแผนไทย", "phonetic": "努潘台", "chinese": "泰式按摩", "scenario": "選擇按摩類型"},
-        {"thai": "นวดน้ำมัน", "phonetic": "努南滿", "chinese": "精油按摩", "scenario": "選擇按摩類型"},
-        {"thai": "นวดฝ่าเท้า", "phonetic": "努發濤", "chinese": "腳底按摩", "scenario": "選擇按摩類型"},
-        {"thai": "กี่ชั่วโมง", "phonetic": "key丘猛", "chinese": "幾個小時？", "scenario": "詢問時長"},
-        {"thai": "หนึ่งชั่วโมง", "phonetic": "能丘猛", "chinese": "一個小時", "scenario": "選擇時長"},
-        {"thai": "สองชั่วโมง", "phonetic": "松丘猛", "chinese": "兩個小時", "scenario": "選擇時長"},
-        {"thai": "เบาหน่อย", "phonetic": "包挪", "chinese": "輕一點", "scenario": "力道調整"},
-        {"thai": "แรงหน่อย", "phonetic": "嚷挪", "chinese": "重一點", "scenario": "力道調整"},
-        {"thai": "ตรงนี้เจ็บ", "phonetic": "動尼接", "chinese": "這裡痛", "scenario": "告知痛點"},
-        {"thai": "ตรงนี้ไม่ต้อง", "phonetic": "動尼麥動", "chinese": "這裡不用按", "scenario": "避開某處"},
-        {"thai": "สบายมาก", "phonetic": "沙敗媽", "chinese": "很舒服", "scenario": "表達感受"},
-        {"thai": "เก่งมาก", "phonetic": "根媽", "chinese": "按得很好", "scenario": "稱讚技術"},
-        {"thai": "พอแล้ว", "phonetic": "潑了", "chinese": "夠了/可以了", "scenario": "表示結束"}
+        {
+          "thai": "นวดแผนไทย",
+          "phonetic": "努潘台",
+          "chinese": "泰式按摩",
+          "scenario": "選擇按摩類型"
+        },
+        {
+          "thai": "นวดน้ำมัน",
+          "phonetic": "努南滿",
+          "chinese": "精油按摩",
+          "scenario": "選擇按摩類型"
+        },
+        {
+          "thai": "นวดฝ่าเท้า",
+          "phonetic": "努發濤",
+          "chinese": "腳底按摩",
+          "scenario": "選擇按摩類型"
+        },
+        {
+          "thai": "กี่ชั่วโมง",
+          "phonetic": "key丘猛",
+          "chinese": "幾個小時？",
+          "scenario": "詢問時長"
+        },
+        {
+          "thai": "หนึ่งชั่วโมง",
+          "phonetic": "能丘猛",
+          "chinese": "一個小時",
+          "scenario": "選擇時長"
+        },
+        {
+          "thai": "สองชั่วโมง",
+          "phonetic": "松丘猛",
+          "chinese": "兩個小時",
+          "scenario": "選擇時長"
+        },
+        {
+          "thai": "เบาหน่อย",
+          "phonetic": "包挪",
+          "chinese": "輕一點",
+          "scenario": "力道調整"
+        },
+        {
+          "thai": "แรงหน่อย",
+          "phonetic": "嚷挪",
+          "chinese": "重一點",
+          "scenario": "力道調整"
+        },
+        {
+          "thai": "ตรงนี้เจ็บ",
+          "phonetic": "動尼接",
+          "chinese": "這裡痛",
+          "scenario": "告知痛點"
+        },
+        {
+          "thai": "ตรงนี้ไม่ต้อง",
+          "phonetic": "動尼麥動",
+          "chinese": "這裡不用按",
+          "scenario": "避開某處"
+        },
+        {
+          "thai": "สบายมาก",
+          "phonetic": "沙敗媽",
+          "chinese": "很舒服",
+          "scenario": "表達感受"
+        },
+        {
+          "thai": "เก่งมาก",
+          "phonetic": "根媽",
+          "chinese": "按得很好",
+          "scenario": "稱讚技術"
+        },
+        {
+          "thai": "พอแล้ว",
+          "phonetic": "潑了",
+          "chinese": "夠了/可以了",
+          "scenario": "表示結束"
+        }
       ]
     },
     {
@@ -155,20 +625,90 @@
       "icon": "🍺",
       "color": "#30cfd0",
       "phrases": [
-        {"thai": "เบียร์สิงห์", "phonetic": "比星", "chinese": "勝獅啤酒", "scenario": "點酒"},
-        {"thai": "เบียร์ช้าง", "phonetic": "比昌", "chinese": "大象啤酒", "scenario": "點酒"},
-        {"thai": "เบียร์ลีโอ", "phonetic": "比里歐", "chinese": "LEO啤酒", "scenario": "點酒"},
-        {"thai": "วิสกี้", "phonetic": "威士key", "chinese": "威士忌", "scenario": "點酒"},
-        {"thai": "เหล้า", "phonetic": "老", "chinese": "酒/烈酒", "scenario": "泛稱酒類"},
-        {"thai": "ช้อต", "phonetic": "收", "chinese": "Shot", "scenario": "點烈酒"},
-        {"thai": "ค็อกเทล", "phonetic": "扣貼", "chinese": "調酒/雞尾酒", "scenario": "點調酒"},
-        {"thai": "โซดา", "phonetic": "蘇打", "chinese": "蘇打水", "scenario": "點飲料"},
-        {"thai": "น้ำแข็ง", "phonetic": "南肯", "chinese": "冰塊", "scenario": "加冰"},
-        {"thai": "อีกแก้ว", "phonetic": "億給", "chinese": "再來一杯", "scenario": "續杯"},
-        {"thai": "อีกขวด", "phonetic": "億夸", "chinese": "再來一瓶", "scenario": "續瓶"},
-        {"thai": "ถังเบียร์", "phonetic": "堂比", "chinese": "一桶啤酒", "scenario": "點啤酒桶"},
-        {"thai": "ไม่ดื่มแล้ว", "phonetic": "麥東了", "chinese": "我不喝了", "scenario": "停止喝酒"},
-        {"thai": "เมาแล้ว", "phonetic": "貓了", "chinese": "我醉了", "scenario": "表示喝醉"}
+        {
+          "thai": "เบียร์สิงห์",
+          "phonetic": "比星",
+          "chinese": "勝獅啤酒",
+          "scenario": "點酒"
+        },
+        {
+          "thai": "เบียร์ช้าง",
+          "phonetic": "比昌",
+          "chinese": "大象啤酒",
+          "scenario": "點酒"
+        },
+        {
+          "thai": "เบียร์ลีโอ",
+          "phonetic": "比里歐",
+          "chinese": "LEO啤酒",
+          "scenario": "點酒"
+        },
+        {
+          "thai": "วิสกี้",
+          "phonetic": "威士key",
+          "chinese": "威士忌",
+          "scenario": "點酒"
+        },
+        {
+          "thai": "เหล้า",
+          "phonetic": "老",
+          "chinese": "酒/烈酒",
+          "scenario": "泛稱酒類"
+        },
+        {
+          "thai": "ช้อต",
+          "phonetic": "收",
+          "chinese": "Shot",
+          "scenario": "點烈酒"
+        },
+        {
+          "thai": "ค็อกเทล",
+          "phonetic": "扣貼",
+          "chinese": "調酒/雞尾酒",
+          "scenario": "點調酒"
+        },
+        {
+          "thai": "โซดา",
+          "phonetic": "蘇打",
+          "chinese": "蘇打水",
+          "scenario": "點飲料"
+        },
+        {
+          "thai": "น้ำแข็ง",
+          "phonetic": "南肯",
+          "chinese": "冰塊",
+          "scenario": "加冰"
+        },
+        {
+          "thai": "อีกแก้ว",
+          "phonetic": "億給",
+          "chinese": "再來一杯",
+          "scenario": "續杯"
+        },
+        {
+          "thai": "อีกขวด",
+          "phonetic": "億夸",
+          "chinese": "再來一瓶",
+          "scenario": "續瓶"
+        },
+        {
+          "thai": "ถังเบียร์",
+          "phonetic": "堂比",
+          "chinese": "一桶啤酒",
+          "scenario": "點啤酒桶"
+        },
+        {
+          "thai": "ไม่ดื่มแล้ว",
+          "phonetic": "麥東了",
+          "chinese": "我不喝了",
+          "scenario": "停止喝酒"
+        },
+        {
+          "thai": "เมาแล้ว",
+          "phonetic": "貓了",
+          "chinese": "我醉了",
+          "scenario": "表示喝醉"
+        }
       ]
     },
     {
@@ -177,16 +717,66 @@
       "icon": "🍻",
       "color": "#ff9a56",
       "phrases": [
-        {"thai": "ชนแก้ว", "phonetic": "衝給", "chinese": "乾杯！", "scenario": "碰杯"},
-        {"thai": "หมดแก้ว", "phonetic": "莫給", "chinese": "乾了！一口乾", "scenario": "一飲而盡"},
-        {"thai": "ดื่มหมด", "phonetic": "東莫", "chinese": "喝光", "scenario": "喝完"},
-        {"thai": "ครึ่งแก้ว", "phonetic": "更給", "chinese": "半杯", "scenario": "喝一半"},
-        {"thai": "สุขสันต์", "phonetic": "速三", "chinese": "快樂/祝福", "scenario": "祝福"},
-        {"thai": "โชคดี", "phonetic": "綽滴", "chinese": "好運", "scenario": "敬酒祝福"},
-        {"thai": "ขอให้สนุก", "phonetic": "靠害沙努", "chinese": "祝你玩得開心", "scenario": "派對祝福"},
-        {"thai": "ไชโย", "phonetic": "猜唷", "chinese": "萬歲！/乾杯！", "scenario": "歡呼"},
-        {"thai": "เมาไม่ขับ", "phonetic": "貓麥卡", "chinese": "喝酒不開車", "scenario": "提醒安全"},
-        {"thai": "ดื่มช้าๆ", "phonetic": "東差差", "chinese": "慢慢喝", "scenario": "勸人慢慢來"}
+        {
+          "thai": "ชนแก้ว",
+          "phonetic": "衝給",
+          "chinese": "乾杯！",
+          "scenario": "碰杯"
+        },
+        {
+          "thai": "หมดแก้ว",
+          "phonetic": "莫給",
+          "chinese": "乾了！一口乾",
+          "scenario": "一飲而盡"
+        },
+        {
+          "thai": "ดื่มหมด",
+          "phonetic": "東莫",
+          "chinese": "喝光",
+          "scenario": "喝完"
+        },
+        {
+          "thai": "ครึ่งแก้ว",
+          "phonetic": "更給",
+          "chinese": "半杯",
+          "scenario": "喝一半"
+        },
+        {
+          "thai": "สุขสันต์",
+          "phonetic": "速三",
+          "chinese": "快樂/祝福",
+          "scenario": "祝福"
+        },
+        {
+          "thai": "โชคดี",
+          "phonetic": "綽滴",
+          "chinese": "好運",
+          "scenario": "敬酒祝福"
+        },
+        {
+          "thai": "ขอให้สนุก",
+          "phonetic": "靠害沙努",
+          "chinese": "祝你玩得開心",
+          "scenario": "派對祝福"
+        },
+        {
+          "thai": "ไชโย",
+          "phonetic": "猜唷",
+          "chinese": "萬歲！/乾杯！",
+          "scenario": "歡呼"
+        },
+        {
+          "thai": "เมาไม่ขับ",
+          "phonetic": "貓麥卡",
+          "chinese": "喝酒不開車",
+          "scenario": "提醒安全"
+        },
+        {
+          "thai": "ดื่มช้าๆ",
+          "phonetic": "東差差",
+          "chinese": "慢慢喝",
+          "scenario": "勸人慢慢來"
+        }
       ]
     },
     {
@@ -195,19 +785,84 @@
       "icon": "🎯",
       "color": "#764ba2",
       "phrases": [
-        {"thai": "เล่นเกมไหม", "phonetic": "冷給買", "chinese": "要玩遊戲嗎？", "scenario": "邀請玩遊戲"},
-        {"thai": "ฉันชนะ", "phonetic": "餐差那", "chinese": "我贏了", "scenario": "宣告勝利"},
-        {"thai": "คุณชนะ", "phonetic": "坤差那", "chinese": "你贏了", "scenario": "承認輸"},
-        {"thai": "เสมอกัน", "phonetic": "色默甘", "chinese": "平手", "scenario": "平局"},
-        {"thai": "เล่นอีกไหม", "phonetic": "冷億買", "chinese": "再玩一局？", "scenario": "再來"},
-        {"thai": "แพ้แล้ว ดื่ม", "phonetic": "配了 東", "chinese": "輸了就喝", "scenario": "遊戲規則"},
-        {"thai": "ลูกเต๋า", "phonetic": "路逃", "chinese": "骰子", "scenario": "遊戲道具"},
-        {"thai": "ไพ่", "phonetic": "排", "chinese": "撲克牌", "scenario": "遊戲道具"},
-        {"thai": "เป่ายิ้งฉุบ", "phonetic": "包因丘", "chinese": "剪刀石頭布", "scenario": "猜拳"},
-        {"thai": "ใหญ่หรือเล็ก", "phonetic": "呀了累", "chinese": "大還是小？", "scenario": "猜骰子"},
-        {"thai": "คู่หรือคี่", "phonetic": "古了key", "chinese": "雙數還是單數？", "scenario": "猜數字"},
-        {"thai": "Connect Four", "phonetic": "康耐福", "chinese": "四子棋", "scenario": "酒吧常見遊戲"},
-        {"thai": "Jenga", "phonetic": "間卡", "chinese": "疊疊樂", "scenario": "酒吧常見遊戲"}
+        {
+          "thai": "เล่นเกมไหม",
+          "phonetic": "冷給買",
+          "chinese": "要玩遊戲嗎？",
+          "scenario": "邀請玩遊戲"
+        },
+        {
+          "thai": "ฉันชนะ",
+          "phonetic": "餐差那",
+          "chinese": "我贏了",
+          "scenario": "宣告勝利"
+        },
+        {
+          "thai": "คุณชนะ",
+          "phonetic": "坤差那",
+          "chinese": "你贏了",
+          "scenario": "承認輸"
+        },
+        {
+          "thai": "เสมอกัน",
+          "phonetic": "色默甘",
+          "chinese": "平手",
+          "scenario": "平局"
+        },
+        {
+          "thai": "เล่นอีกไหม",
+          "phonetic": "冷億買",
+          "chinese": "再玩一局？",
+          "scenario": "再來"
+        },
+        {
+          "thai": "แพ้แล้ว ดื่ม",
+          "phonetic": "配了 東",
+          "chinese": "輸了就喝",
+          "scenario": "遊戲規則"
+        },
+        {
+          "thai": "ลูกเต๋า",
+          "phonetic": "路逃",
+          "chinese": "骰子",
+          "scenario": "遊戲道具"
+        },
+        {
+          "thai": "ไพ่",
+          "phonetic": "排",
+          "chinese": "撲克牌",
+          "scenario": "遊戲道具"
+        },
+        {
+          "thai": "เป่ายิ้งฉุบ",
+          "phonetic": "包因丘",
+          "chinese": "剪刀石頭布",
+          "scenario": "猜拳"
+        },
+        {
+          "thai": "ใหญ่หรือเล็ก",
+          "phonetic": "呀了累",
+          "chinese": "大還是小？",
+          "scenario": "猜骰子"
+        },
+        {
+          "thai": "คู่หรือคี่",
+          "phonetic": "古了key",
+          "chinese": "雙數還是單數？",
+          "scenario": "猜數字"
+        },
+        {
+          "thai": "Connect Four",
+          "phonetic": "康耐福",
+          "chinese": "四子棋",
+          "scenario": "酒吧常見遊戲"
+        },
+        {
+          "thai": "Jenga",
+          "phonetic": "間卡",
+          "chinese": "疊疊樂",
+          "scenario": "酒吧常見遊戲"
+        }
       ]
     },
     {
@@ -216,44 +871,520 @@
       "icon": "😍",
       "color": "#f5576c",
       "phrases": [
-        {"thai": "สวยมาก", "phonetic": "蘇威媽", "chinese": "好漂亮", "scenario": "稱讚女生"},
-        {"thai": "หล่อมาก", "phonetic": "摟媽", "chinese": "好帥", "scenario": "稱讚男生"},
-        {"thai": "น่ารักมาก", "phonetic": "那辣媽", "chinese": "好可愛", "scenario": "稱讚可愛"},
-        {"thai": "เซ็กซี่มาก", "phonetic": "色洗媽", "chinese": "好性感", "scenario": "稱讚性感"},
-        {"thai": "ยิ้มสวย", "phonetic": "因蘇威", "chinese": "笑容很美", "scenario": "稱讚笑容"},
-        {"thai": "ตาสวย", "phonetic": "達蘇威", "chinese": "眼睛很美", "scenario": "稱讚眼睛"},
-        {"thai": "ผิวสวย", "phonetic": "批蘇威", "chinese": "皮膚很好", "scenario": "稱讚皮膚"},
-        {"thai": "รูปร่างดี", "phonetic": "路朗滴", "chinese": "身材好", "scenario": "稱讚身材"},
-        {"thai": "แต่งตัวดี", "phonetic": "當抖滴", "chinese": "穿得好看", "scenario": "稱讚穿著"},
-        {"thai": "เก่งมาก", "phonetic": "根媽", "chinese": "好厲害", "scenario": "稱讚能力"},
-        {"thai": "คุณพิเศษ", "phonetic": "坤披色", "chinese": "你很特別", "scenario": "特別稱讚"},
-        {"thai": "ฉันชอบ", "phonetic": "餐翹", "chinese": "我喜歡", "scenario": "表示喜歡"},
-        {"thai": "สุดยอด", "phonetic": "速唷", "chinese": "太棒了", "scenario": "讚嘆"}
+        {
+          "thai": "สวยมาก",
+          "phonetic": "蘇威媽",
+          "chinese": "好漂亮",
+          "scenario": "稱讚女生"
+        },
+        {
+          "thai": "หล่อมาก",
+          "phonetic": "摟媽",
+          "chinese": "好帥",
+          "scenario": "稱讚男生"
+        },
+        {
+          "thai": "น่ารักมาก",
+          "phonetic": "那辣媽",
+          "chinese": "好可愛",
+          "scenario": "稱讚可愛"
+        },
+        {
+          "thai": "เซ็กซี่มาก",
+          "phonetic": "色洗媽",
+          "chinese": "好性感",
+          "scenario": "稱讚性感"
+        },
+        {
+          "thai": "ยิ้มสวย",
+          "phonetic": "因蘇威",
+          "chinese": "笑容很美",
+          "scenario": "稱讚笑容"
+        },
+        {
+          "thai": "ตาสวย",
+          "phonetic": "達蘇威",
+          "chinese": "眼睛很美",
+          "scenario": "稱讚眼睛"
+        },
+        {
+          "thai": "ผิวสวย",
+          "phonetic": "批蘇威",
+          "chinese": "皮膚很好",
+          "scenario": "稱讚皮膚"
+        },
+        {
+          "thai": "รูปร่างดี",
+          "phonetic": "路朗滴",
+          "chinese": "身材好",
+          "scenario": "稱讚身材"
+        },
+        {
+          "thai": "แต่งตัวดี",
+          "phonetic": "當抖滴",
+          "chinese": "穿得好看",
+          "scenario": "稱讚穿著"
+        },
+        {
+          "thai": "เก่งมาก",
+          "phonetic": "根媽",
+          "chinese": "好厲害",
+          "scenario": "稱讚能力"
+        },
+        {
+          "thai": "คุณพิเศษ",
+          "phonetic": "坤披色",
+          "chinese": "你很特別",
+          "scenario": "特別稱讚"
+        },
+        {
+          "thai": "ฉันชอบ",
+          "phonetic": "餐翹",
+          "chinese": "我喜歡",
+          "scenario": "表示喜歡"
+        },
+        {
+          "thai": "สุดยอด",
+          "phonetic": "速唷",
+          "chinese": "太棒了",
+          "scenario": "讚嘆"
+        }
       ]
     },
     {
-      "id": "flirting",
-      "name": "撩妹金句",
-      "icon": "💘",
-      "color": "#fa709a",
+      "id": "flirting-words",
+      "name": "親密詞彙 🔞",
+      "icon": "💕",
+      "color": "#ff69b4",
       "phrases": [
-        {"thai": "ขอเบอร์โทรได้ไหม", "phonetic": "靠被偷代買", "chinese": "可以給我電話嗎？", "scenario": "要電話"},
-        {"thai": "ขอไลน์ได้ไหม", "phonetic": "靠賴代買", "chinese": "可以加Line嗎？", "scenario": "要Line"},
-        {"thai": "คืนนี้ว่างไหม", "phonetic": "坤尼旺買", "chinese": "今晚有空嗎？", "scenario": "約會"},
-        {"thai": "ไปทานข้าวด้วยกันไหม", "phonetic": "拜但考對甘買", "chinese": "一起吃飯好嗎？", "scenario": "約吃飯"},
-        {"thai": "ไปเที่ยวด้วยกันไหม", "phonetic": "拜條對甘買", "chinese": "一起去玩好嗎？", "scenario": "約出去"},
-        {"thai": "คุยกับคุณสนุกมาก", "phonetic": "貴嘎坤沙努媽", "chinese": "跟你聊天很開心", "scenario": "表達喜歡"},
-        {"thai": "เธอทำให้ฉันมีความสุข", "phonetic": "特探害餐米框速", "chinese": "你讓我很開心", "scenario": "表白"},
-        {"thai": "ฉันชอบคุณตั้งแต่แรกเห็น", "phonetic": "餐翹坤當帶辣痕", "chinese": "第一眼就喜歡你", "scenario": "一見鍾情"},
-        {"thai": "เธอมีแฟนหรือยัง", "phonetic": "特米反了楊", "chinese": "你有男/女朋友嗎？", "scenario": "確認單身"},
-        {"thai": "ฉันโสด", "phonetic": "餐索", "chinese": "我單身", "scenario": "表示單身"},
-        {"thai": "คิดถึงมาก", "phonetic": "key停媽", "chinese": "很想你", "scenario": "思念"},
-        {"thai": "ฉันรักเธอ", "phonetic": "餐辣特", "chinese": "我愛你", "scenario": "告白"},
-        {"thai": "กอดได้ไหม", "phonetic": "割代買", "chinese": "可以抱一下嗎？", "scenario": "請求擁抱"},
-        {"thai": "จูบได้ไหม", "phonetic": "朱代買", "chinese": "可以親一下嗎？", "scenario": "請求親吻"},
-        {"thai": "เหนื่อยไหม วิ่งอยู่ในใจฉันทั้งวัน", "phonetic": "內買 穩尤乃災餐唐萬", "chinese": "累嗎？在我心裡跑一整天", "scenario": "撩妹金句"},
-        {"thai": "รอยยิ้มของเธอสวยมาก", "phonetic": "蘿因孔特蘇威媽", "chinese": "你的笑容好美", "scenario": "稱讚笑容"},
-        {"thai": "อยากเจอเธออีก", "phonetic": "壓皆特億", "chinese": "想再見到你", "scenario": "表達想念"}
+        {
+          "thai": "สวย",
+          "phonetic": "蘇威",
+          "chinese": "美、漂亮",
+          "scenario": "基本讚美"
+        },
+        {
+          "thai": "หล่อ",
+          "phonetic": "羅",
+          "chinese": "帥",
+          "scenario": "讚美男生"
+        },
+        {
+          "thai": "น่ารัก",
+          "phonetic": "那辣",
+          "chinese": "可愛",
+          "scenario": "讚美"
+        },
+        {
+          "thai": "เซ็กซี่",
+          "phonetic": "塞西",
+          "chinese": "性感",
+          "scenario": "讚美"
+        },
+        {
+          "thai": "หุ่นดี",
+          "phonetic": "呼滴",
+          "chinese": "身材好",
+          "scenario": "讚美身材"
+        },
+        {
+          "thai": "ผิวขาว",
+          "phonetic": "皮考",
+          "chinese": "皮膚白",
+          "scenario": "讚美膚色"
+        },
+        {
+          "thai": "ผิวเนียน",
+          "phonetic": "皮年",
+          "chinese": "皮膚嫩",
+          "scenario": "讚美膚質"
+        },
+        {
+          "thai": "ตา",
+          "phonetic": "達",
+          "chinese": "眼睛",
+          "scenario": "五官"
+        },
+        {
+          "thai": "จมูก",
+          "phonetic": "加木",
+          "chinese": "鼻子",
+          "scenario": "五官"
+        },
+        {
+          "thai": "ปาก",
+          "phonetic": "巴",
+          "chinese": "嘴巴",
+          "scenario": "五官"
+        },
+        {
+          "thai": "ริมฝีปาก",
+          "phonetic": "林非巴",
+          "chinese": "嘴唇",
+          "scenario": "五官"
+        },
+        {
+          "thai": "ยิ้ม",
+          "phonetic": "音",
+          "chinese": "笑容",
+          "scenario": "表情"
+        },
+        {
+          "thai": "หัวเราะ",
+          "phonetic": "花落",
+          "chinese": "笑",
+          "scenario": "表情"
+        },
+        {
+          "thai": "ทรงผม",
+          "phonetic": "宋碰",
+          "chinese": "髮型",
+          "scenario": "外貌"
+        },
+        {
+          "thai": "ผม",
+          "phonetic": "碰",
+          "chinese": "頭髮",
+          "scenario": "外貌"
+        },
+        {
+          "thai": "ชอบ",
+          "phonetic": "丘",
+          "chinese": "喜歡",
+          "scenario": "情感"
+        },
+        {
+          "thai": "รัก",
+          "phonetic": "辣",
+          "chinese": "愛",
+          "scenario": "情感"
+        },
+        {
+          "thai": "คิดถึง",
+          "phonetic": "key聽",
+          "chinese": "想念",
+          "scenario": "情感"
+        },
+        {
+          "thai": "จูบ",
+          "phonetic": "租",
+          "chinese": "親吻",
+          "scenario": "親密動作"
+        },
+        {
+          "thai": "กอด",
+          "phonetic": "告",
+          "chinese": "擁抱",
+          "scenario": "親密動作"
+        },
+        {
+          "thai": "จับมือ",
+          "phonetic": "扎謀",
+          "chinese": "牽手",
+          "scenario": "親密動作"
+        },
+        {
+          "thai": "นอน",
+          "phonetic": "農",
+          "chinese": "睡覺",
+          "scenario": "動作"
+        },
+        {
+          "thai": "พิเศษ",
+          "phonetic": "皮洗",
+          "chinese": "特別",
+          "scenario": "形容詞"
+        },
+        {
+          "thai": "สบาย",
+          "phonetic": "沙敗",
+          "chinese": "舒服",
+          "scenario": "感受"
+        },
+        {
+          "thai": "อุ่น",
+          "phonetic": "溫",
+          "chinese": "溫暖",
+          "scenario": "感受"
+        }
+      ]
+    },
+    {
+      "id": "flirting-sentences",
+      "name": "親密句型 🔞",
+      "icon": "💋",
+      "color": "#ff1493",
+      "phrases": [
+        {
+          "thai": "คุณสวยมาก",
+          "phonetic": "坤蘇威媽",
+          "chinese": "你很美",
+          "scenario": "讚美外貌"
+        },
+        {
+          "thai": "คุณหล่อมาก",
+          "phonetic": "坤羅媽",
+          "chinese": "你很帥",
+          "scenario": "讚美男生"
+        },
+        {
+          "thai": "หุ่นดีมาก",
+          "phonetic": "呼滴媽",
+          "chinese": "身材很好",
+          "scenario": "讚美身材"
+        },
+        {
+          "thai": "ยิ้มสวยมาก",
+          "phonetic": "音蘇威媽",
+          "chinese": "笑得很美",
+          "scenario": "讚美笑容"
+        },
+        {
+          "thai": "ยิ้มน่ารัก",
+          "phonetic": "音那辣",
+          "chinese": "笑起來很可愛",
+          "scenario": "讚美笑容"
+        },
+        {
+          "thai": "หน้าตาเหมือนดารา",
+          "phonetic": "那達孟達辣",
+          "chinese": "長得像明星",
+          "scenario": "讚美外貌"
+        },
+        {
+          "thai": "ผิวสวยมาก",
+          "phonetic": "皮蘇威媽",
+          "chinese": "皮膚很美",
+          "scenario": "讚美膚質"
+        },
+        {
+          "thai": "ดูอายุน้อย",
+          "phonetic": "都阿優挪",
+          "chinese": "看起來很年輕",
+          "scenario": "讚美年齡"
+        },
+        {
+          "thai": "เหมือนอายุ 18",
+          "phonetic": "孟阿優洗北",
+          "chinese": "看起來像18歲",
+          "scenario": "讚美年輕"
+        },
+        {
+          "thai": "เซ็กซี่มาก",
+          "phonetic": "塞西媽",
+          "chinese": "很性感",
+          "scenario": "讚美性感"
+        },
+        {
+          "thai": "ชอบคุณมาก",
+          "phonetic": "丘坤媽",
+          "chinese": "很喜歡你",
+          "scenario": "表達好感"
+        },
+        {
+          "thai": "รักคุณ",
+          "phonetic": "辣坤",
+          "chinese": "我愛你",
+          "scenario": "表達愛意"
+        },
+        {
+          "thai": "คิดถึงคุณ",
+          "phonetic": "key聽坤",
+          "chinese": "想你",
+          "scenario": "表達思念"
+        },
+        {
+          "thai": "คิดถึงมาก",
+          "phonetic": "key聽媽",
+          "chinese": "很想你",
+          "scenario": "表達思念"
+        },
+        {
+          "thai": "อยากจะจูบ",
+          "phonetic": "壓嘎租",
+          "chinese": "想親你",
+          "scenario": "親密表達"
+        },
+        {
+          "thai": "อยากกอด",
+          "phonetic": "壓告",
+          "chinese": "想抱你",
+          "scenario": "親密表達"
+        },
+        {
+          "thai": "ริมฝีปากสวย",
+          "phonetic": "林非巴蘇威",
+          "chinese": "嘴唇很美",
+          "scenario": "讚美嘴唇"
+        },
+        {
+          "thai": "จูบเก่งมาก",
+          "phonetic": "租根媽",
+          "chinese": "親得很好",
+          "scenario": "親密互動"
+        },
+        {
+          "thai": "อยากอยู่กับคุณ",
+          "phonetic": "壓尤嘎坤",
+          "chinese": "想跟你在一起",
+          "scenario": "表達情感"
+        },
+        {
+          "thai": "รู้สึกดีมาก",
+          "phonetic": "路色滴媽",
+          "chinese": "感覺很好",
+          "scenario": "表達感受"
+        },
+        {
+          "thai": "คุณคือคนพิเศษ",
+          "phonetic": "坤科坤皮洗",
+          "chinese": "你是特別的人",
+          "scenario": "表達讚賞"
+        },
+        {
+          "thai": "อยากให้คุณมีความสุข",
+          "phonetic": "壓海坤米框蘇",
+          "chinese": "希望你快樂",
+          "scenario": "表達關心"
+        },
+        {
+          "thai": "นอนด้วยกันไหม",
+          "phonetic": "農對甘買",
+          "chinese": "要一起睡嗎",
+          "scenario": "親密邀請"
+        },
+        {
+          "thai": "กลับบ้านด้วยกัน",
+          "phonetic": "嘎班對甘",
+          "chinese": "一起回家",
+          "scenario": "邀請"
+        },
+        {
+          "thai": "คืนนี้อยู่กับฉัน",
+          "phonetic": "坤尼尤嘎餐",
+          "chinese": "今晚跟我在一起",
+          "scenario": "邀請"
+        },
+        {
+          "thai": "อยู่ทั้งคืน",
+          "phonetic": "尤湯坤",
+          "chinese": "待整晚",
+          "scenario": "時間"
+        },
+        {
+          "thai": "พรุ่งนี้เจอกัน",
+          "phonetic": "砰尼就甘",
+          "chinese": "明天見",
+          "scenario": "約會"
+        },
+        {
+          "thai": "เจอกันอีก",
+          "phonetic": "就甘衣",
+          "chinese": "再見面",
+          "scenario": "約會"
+        },
+        {
+          "thai": "รอคุณนะ",
+          "phonetic": "落坤那",
+          "chinese": "等你喔",
+          "scenario": "表達期待"
+        },
+        {
+          "thai": "คิดถึงเสมอ",
+          "phonetic": "key聽沙莫",
+          "chinese": "一直想你",
+          "scenario": "表達思念"
+        },
+        {
+          "thai": "เป็นแฟนกันไหม",
+          "phonetic": "奔份甘買",
+          "chinese": "要在一起嗎",
+          "scenario": "表白"
+        },
+        {
+          "thai": "เป็นของฉัน",
+          "phonetic": "奔孔餐",
+          "chinese": "是我的人",
+          "scenario": "宣告"
+        },
+        {
+          "thai": "เป็นของคุณ",
+          "phonetic": "奔孔坤",
+          "chinese": "是你的人",
+          "scenario": "表達承諾"
+        },
+        {
+          "thai": "รักเดียว",
+          "phonetic": "辣丟",
+          "chinese": "唯一的愛",
+          "scenario": "表達專情"
+        },
+        {
+          "thai": "ไม่ลืมคุณ",
+          "phonetic": "買冷坤",
+          "chinese": "不會忘記你",
+          "scenario": "表達承諾"
+        },
+        {
+          "thai": "จำได้เสมอ",
+          "phonetic": "詹代沙莫",
+          "chinese": "一直記得",
+          "scenario": "表達記憶"
+        },
+        {
+          "thai": "พิเศษที่สุด",
+          "phonetic": "皮洗替速",
+          "chinese": "最特別的",
+          "scenario": "表達珍視"
+        },
+        {
+          "thai": "คุณคือทุกอย่าง",
+          "phonetic": "坤科圖央",
+          "chinese": "你是我的一切",
+          "scenario": "表達深情"
+        },
+        {
+          "thai": "ชอบทุกอย่างของคุณ",
+          "phonetic": "丘圖央孔坤",
+          "chinese": "喜歡你的一切",
+          "scenario": "表達喜愛"
+        },
+        {
+          "thai": "อยากดูแลคุณ",
+          "phonetic": "壓都來坤",
+          "chinese": "想照顧你",
+          "scenario": "表達關心"
+        },
+        {
+          "thai": "เป็นห่วงคุณ",
+          "phonetic": "奔洪坤",
+          "chinese": "擔心你",
+          "scenario": "表達關心"
+        },
+        {
+          "thai": "มีแต่คุณคนเดียว",
+          "phonetic": "米呆坤坤丟",
+          "chinese": "只有你一個",
+          "scenario": "表達專一"
+        },
+        {
+          "thai": "ไม่มีใครเหมือนคุณ",
+          "phonetic": "買米快孟坤",
+          "chinese": "沒有人像你",
+          "scenario": "表達獨特"
+        },
+        {
+          "thai": "คุณทำให้ฉันมีความสุข",
+          "phonetic": "坤探海餐米框蘇",
+          "chinese": "你讓我很快樂",
+          "scenario": "表達感謝"
+        },
+        {
+          "thai": "อยากให้เราอยู่ด้วยกัน",
+          "phonetic": "壓海勞尤對甘",
+          "chinese": "希望我們在一起",
+          "scenario": "表達願望"
+        }
       ]
     },
     {
@@ -262,18 +1393,78 @@
       "icon": "🙅",
       "color": "#778899",
       "phrases": [
-        {"thai": "ไม่เอา ขอบคุณ", "phonetic": "麥奧 靠坤", "chinese": "不要，謝謝", "scenario": "婉拒"},
-        {"thai": "ไม่ว่าง", "phonetic": "麥旺", "chinese": "我沒空", "scenario": "拒絕邀約"},
-        {"thai": "ไม่สะดวก", "phonetic": "麥沙對", "chinese": "不方便", "scenario": "委婉拒絕"},
-        {"thai": "ไม่สนใจ", "phonetic": "麥三災", "chinese": "沒興趣", "scenario": "表示無興趣"},
-        {"thai": "ฉันมีแฟนแล้ว", "phonetic": "餐米反了", "chinese": "我有男/女朋友了", "scenario": "拒絕搭訕"},
-        {"thai": "ไว้ครั้งหน้า", "phonetic": "外康那", "chinese": "下次吧", "scenario": "推遲"},
-        {"thai": "แพงไป", "phonetic": "碰拜", "chinese": "太貴了", "scenario": "拒絕買"},
-        {"thai": "ขอคิดก่อน", "phonetic": "靠key棍", "chinese": "讓我想想", "scenario": "不想馬上決定"},
-        {"thai": "ไม่ไหว", "phonetic": "麥外", "chinese": "不行/受不了", "scenario": "表示做不到"},
-        {"thai": "พอแล้ว", "phonetic": "潑了", "chinese": "夠了", "scenario": "停止"},
-        {"thai": "หยุด", "phonetic": "尤", "chinese": "停！", "scenario": "停止"},
-        {"thai": "ออกไป", "phonetic": "噢拜", "chinese": "出去", "scenario": "叫人離開"}
+        {
+          "thai": "ไม่เอา ขอบคุณ",
+          "phonetic": "麥奧 靠坤",
+          "chinese": "不要，謝謝",
+          "scenario": "婉拒"
+        },
+        {
+          "thai": "ไม่ว่าง",
+          "phonetic": "麥旺",
+          "chinese": "我沒空",
+          "scenario": "拒絕邀約"
+        },
+        {
+          "thai": "ไม่สะดวก",
+          "phonetic": "麥沙對",
+          "chinese": "不方便",
+          "scenario": "委婉拒絕"
+        },
+        {
+          "thai": "ไม่สนใจ",
+          "phonetic": "麥三災",
+          "chinese": "沒興趣",
+          "scenario": "表示無興趣"
+        },
+        {
+          "thai": "ฉันมีแฟนแล้ว",
+          "phonetic": "餐米反了",
+          "chinese": "我有男/女朋友了",
+          "scenario": "拒絕搭訕"
+        },
+        {
+          "thai": "ไว้ครั้งหน้า",
+          "phonetic": "外康那",
+          "chinese": "下次吧",
+          "scenario": "推遲"
+        },
+        {
+          "thai": "แพงไป",
+          "phonetic": "碰拜",
+          "chinese": "太貴了",
+          "scenario": "拒絕買"
+        },
+        {
+          "thai": "ขอคิดก่อน",
+          "phonetic": "靠key棍",
+          "chinese": "讓我想想",
+          "scenario": "不想馬上決定"
+        },
+        {
+          "thai": "ไม่ไหว",
+          "phonetic": "麥外",
+          "chinese": "不行/受不了",
+          "scenario": "表示做不到"
+        },
+        {
+          "thai": "พอแล้ว",
+          "phonetic": "潑了",
+          "chinese": "夠了",
+          "scenario": "停止"
+        },
+        {
+          "thai": "หยุด",
+          "phonetic": "尤",
+          "chinese": "停！",
+          "scenario": "停止"
+        },
+        {
+          "thai": "ออกไป",
+          "phonetic": "噢拜",
+          "chinese": "出去",
+          "scenario": "叫人離開"
+        }
       ]
     },
     {
@@ -282,20 +1473,90 @@
       "icon": "💖",
       "color": "#ee5a24",
       "phrases": [
-        {"thai": "ฉันมีความสุขมาก", "phonetic": "餐米框速媽", "chinese": "我非常開心", "scenario": "表達喜悅"},
-        {"thai": "ดีใจมากเลย", "phonetic": "滴災媽勒", "chinese": "太高興了", "scenario": "非常高興"},
-        {"thai": "สนุกมาก", "phonetic": "沙努媽", "chinese": "好好玩/超有趣", "scenario": "玩得開心"},
-        {"thai": "ฉันเศร้าใจ", "phonetic": "餐刷災", "chinese": "我很難過", "scenario": "表達傷心"},
-        {"thai": "เสียใจมาก", "phonetic": "細災媽", "chinese": "非常遺憾/很傷心", "scenario": "深度悲傷"},
-        {"thai": "ฉันโกรธมาก", "phonetic": "餐割媽", "chinese": "我很生氣", "scenario": "表達憤怒"},
-        {"thai": "ใจเย็นๆ", "phonetic": "災顏顏", "chinese": "冷靜點", "scenario": "安撫情緒"},
-        {"thai": "ตกใจ", "phonetic": "多災", "chinese": "嚇到了/驚訝", "scenario": "表達驚訝"},
-        {"thai": "อาย", "phonetic": "愛", "chinese": "害羞", "scenario": "表示害羞"},
-        {"thai": "เบื่อแล้ว", "phonetic": "碧了", "chinese": "好無聊/煩了", "scenario": "感到無聊"},
-        {"thai": "เหนื่อยมาก", "phonetic": "內媽", "chinese": "好累", "scenario": "表達疲憊"},
-        {"thai": "หิวมาก", "phonetic": "希媽", "chinese": "好餓", "scenario": "表達飢餓"},
-        {"thai": "กลัว", "phonetic": "瓜", "chinese": "害怕", "scenario": "表達恐懼"},
-        {"thai": "ตื่นเต้น", "phonetic": "等等", "chinese": "興奮", "scenario": "表達興奮"}
+        {
+          "thai": "ฉันมีความสุขมาก",
+          "phonetic": "餐米框速媽",
+          "chinese": "我非常開心",
+          "scenario": "表達喜悅"
+        },
+        {
+          "thai": "ดีใจมากเลย",
+          "phonetic": "滴災媽勒",
+          "chinese": "太高興了",
+          "scenario": "非常高興"
+        },
+        {
+          "thai": "สนุกมาก",
+          "phonetic": "沙努媽",
+          "chinese": "好好玩/超有趣",
+          "scenario": "玩得開心"
+        },
+        {
+          "thai": "ฉันเศร้าใจ",
+          "phonetic": "餐刷災",
+          "chinese": "我很難過",
+          "scenario": "表達傷心"
+        },
+        {
+          "thai": "เสียใจมาก",
+          "phonetic": "細災媽",
+          "chinese": "非常遺憾/很傷心",
+          "scenario": "深度悲傷"
+        },
+        {
+          "thai": "ฉันโกรธมาก",
+          "phonetic": "餐割媽",
+          "chinese": "我很生氣",
+          "scenario": "表達憤怒"
+        },
+        {
+          "thai": "ใจเย็นๆ",
+          "phonetic": "災顏顏",
+          "chinese": "冷靜點",
+          "scenario": "安撫情緒"
+        },
+        {
+          "thai": "ตกใจ",
+          "phonetic": "多災",
+          "chinese": "嚇到了/驚訝",
+          "scenario": "表達驚訝"
+        },
+        {
+          "thai": "อาย",
+          "phonetic": "愛",
+          "chinese": "害羞",
+          "scenario": "表示害羞"
+        },
+        {
+          "thai": "เบื่อแล้ว",
+          "phonetic": "碧了",
+          "chinese": "好無聊/煩了",
+          "scenario": "感到無聊"
+        },
+        {
+          "thai": "เหนื่อยมาก",
+          "phonetic": "內媽",
+          "chinese": "好累",
+          "scenario": "表達疲憊"
+        },
+        {
+          "thai": "หิวมาก",
+          "phonetic": "希媽",
+          "chinese": "好餓",
+          "scenario": "表達飢餓"
+        },
+        {
+          "thai": "กลัว",
+          "phonetic": "瓜",
+          "chinese": "害怕",
+          "scenario": "表達恐懼"
+        },
+        {
+          "thai": "ตื่นเต้น",
+          "phonetic": "等等",
+          "chinese": "興奮",
+          "scenario": "表達興奮"
+        }
       ]
     },
     {
@@ -304,18 +1565,78 @@
       "icon": "💃",
       "color": "#e056fd",
       "phrases": [
-        {"thai": "ขอเลี้ยงเครื่องดื่มได้ไหม", "phonetic": "靠涼葛東代買", "chinese": "請你喝一杯好嗎？", "scenario": "請Lady Drink"},
-        {"thai": "ค่าตัวเท่าไหร่", "phonetic": "咖抖逃萊", "chinese": "Bar Fine多少？", "scenario": "詢問帶出費"},
-        {"thai": "เบอร์อะไร", "phonetic": "被阿萊", "chinese": "你的號碼？", "scenario": "詢問號碼牌"},
-        {"thai": "มานั่งด้วยกันไหม", "phonetic": "媽囊對甘買", "chinese": "過來坐好嗎？", "scenario": "邀請坐"},
-        {"thai": "กี่โมงเลิก", "phonetic": "key猛勒", "chinese": "幾點下班？", "scenario": "詢問下班時間"},
-        {"thai": "ไปกับฉันได้ไหม", "phonetic": "拜嘎餐代買", "chinese": "可以跟我走嗎？", "scenario": "邀請離開"},
-        {"thai": "คุณสวยที่สุดในร้าน", "phonetic": "坤蘇威替速乃蘭", "chinese": "你是店裡最漂亮的", "scenario": "稱讚"},
-        {"thai": "เต้นเก่งมาก", "phonetic": "等根媽", "chinese": "跳得很好", "scenario": "稱讚舞技"},
-        {"thai": "ช้อตไหม", "phonetic": "收買", "chinese": "要來杯Shot嗎？", "scenario": "點酒"},
-        {"thai": "ไปต่อไหม", "phonetic": "拜多買", "chinese": "要續攤嗎？", "scenario": "繼續玩"},
-        {"thai": "แพงไป ลดได้ไหม", "phonetic": "碰拜落代買", "chinese": "太貴，能便宜嗎？", "scenario": "殺價"},
-        {"thai": "คืนนี้ว่าง", "phonetic": "坤尼旺", "chinese": "今晚我有空", "scenario": "表示有空"}
+        {
+          "thai": "ขอเลี้ยงเครื่องดื่มได้ไหม",
+          "phonetic": "靠涼葛東代買",
+          "chinese": "請你喝一杯好嗎？",
+          "scenario": "請Lady Drink"
+        },
+        {
+          "thai": "ค่าตัวเท่าไหร่",
+          "phonetic": "咖抖逃萊",
+          "chinese": "Bar Fine多少？",
+          "scenario": "詢問帶出費"
+        },
+        {
+          "thai": "เบอร์อะไร",
+          "phonetic": "被阿萊",
+          "chinese": "你的號碼？",
+          "scenario": "詢問號碼牌"
+        },
+        {
+          "thai": "มานั่งด้วยกันไหม",
+          "phonetic": "媽囊對甘買",
+          "chinese": "過來坐好嗎？",
+          "scenario": "邀請坐"
+        },
+        {
+          "thai": "กี่โมงเลิก",
+          "phonetic": "key猛勒",
+          "chinese": "幾點下班？",
+          "scenario": "詢問下班時間"
+        },
+        {
+          "thai": "ไปกับฉันได้ไหม",
+          "phonetic": "拜嘎餐代買",
+          "chinese": "可以跟我走嗎？",
+          "scenario": "邀請離開"
+        },
+        {
+          "thai": "คุณสวยที่สุดในร้าน",
+          "phonetic": "坤蘇威替速乃蘭",
+          "chinese": "你是店裡最漂亮的",
+          "scenario": "稱讚"
+        },
+        {
+          "thai": "เต้นเก่งมาก",
+          "phonetic": "等根媽",
+          "chinese": "跳得很好",
+          "scenario": "稱讚舞技"
+        },
+        {
+          "thai": "ช้อตไหม",
+          "phonetic": "收買",
+          "chinese": "要來杯Shot嗎？",
+          "scenario": "點酒"
+        },
+        {
+          "thai": "ไปต่อไหม",
+          "phonetic": "拜多買",
+          "chinese": "要續攤嗎？",
+          "scenario": "繼續玩"
+        },
+        {
+          "thai": "แพงไป ลดได้ไหม",
+          "phonetic": "碰拜落代買",
+          "chinese": "太貴，能便宜嗎？",
+          "scenario": "殺價"
+        },
+        {
+          "thai": "คืนนี้ว่าง",
+          "phonetic": "坤尼旺",
+          "chinese": "今晚我有空",
+          "scenario": "表示有空"
+        }
       ]
     },
     {
@@ -324,56 +1645,306 @@
       "icon": "💋",
       "color": "#ff1493",
       "phrases": [
-        {"thai": "คุณหน้าตาสวยมาก", "phonetic": "坤那達蘇威媽", "chinese": "你長得很美", "scenario": "讚美外貌"},
-        {"thai": "หุ่นดีมาก", "phonetic": "呼滴媽", "chinese": "身材很好", "scenario": "讚美身材"},
-        {"thai": "ทรงผมสวย", "phonetic": "宋碰蘇威", "chinese": "髮型很美", "scenario": "讚美髮型"},
-        {"thai": "ตาสวย", "phonetic": "達蘇威", "chinese": "眼睛很美", "scenario": "讚美五官"},
-        {"thai": "ยิ้มน่ารัก", "phonetic": "音那辣", "chinese": "笑起來很可愛", "scenario": "讚美笑容"},
-        {"thai": "ยิ้มสวย", "phonetic": "音蘇威", "chinese": "笑得很美", "scenario": "讚美笑容"},
-        {"thai": "หน้าตาเหมือนดารา", "phonetic": "那達孟達辣", "chinese": "長得像明星", "scenario": "讚美外貌"},
-        {"thai": "ผิวสวยมาก", "phonetic": "皮蘇威媽", "chinese": "皮膚很美", "scenario": "讚美膚質"},
-        {"thai": "ผิวเนียน", "phonetic": "皮年", "chinese": "皮膚很嫩", "scenario": "讚美膚質"},
-        {"thai": "ดูอายุน้อย", "phonetic": "都阿優挪", "chinese": "看起來很年輕", "scenario": "讚美年齡"},
-        {"thai": "เหมือนอายุ 18", "phonetic": "孟阿優洗北", "chinese": "看起來像18歲", "scenario": "讚美年輕"},
-        {"thai": "ร่างกายสวย", "phonetic": "辣甘蘇威", "chinese": "身體很美", "scenario": "讚美身材"},
-        {"thai": "ทรงสวย", "phonetic": "宋蘇威", "chinese": "曲線很美", "scenario": "讚美身材"},
-        {"thai": "เซ็กซี่มาก", "phonetic": "塞西媽", "chinese": "很性感", "scenario": "讚美性感"},
-        {"thai": "น่าเอ็นดู", "phonetic": "那安都", "chinese": "很可愛", "scenario": "表達喜愛"},
-        {"thai": "ชอบคุณ", "phonetic": "丘坤", "chinese": "我喜歡你", "scenario": "表達好感"},
-        {"thai": "ชอบมาก", "phonetic": "丘媽", "chinese": "很喜歡", "scenario": "表達好感"},
-        {"thai": "รักคุณ", "phonetic": "辣坤", "chinese": "我愛你", "scenario": "表達愛意"},
-        {"thai": "คิดถึง", "phonetic": "key聽", "chinese": "想你", "scenario": "表達思念"},
-        {"thai": "คิดถึงมาก", "phonetic": "key聽媽", "chinese": "很想你", "scenario": "表達思念"},
-        {"thai": "อยากจะจูบ", "phonetic": "壓嘎租", "chinese": "想親你", "scenario": "親密表達"},
-        {"thai": "ริมฝีปากสวย", "phonetic": "林非巴蘇威", "chinese": "嘴唇很美", "scenario": "讚美嘴唇"},
-        {"thai": "จูบเก่งมาก", "phonetic": "租根媽", "chinese": "親得很好", "scenario": "親密互動"},
-        {"thai": "อยากกอด", "phonetic": "壓告", "chinese": "想抱抱", "scenario": "親密表達"},
-        {"thai": "อยากอยู่กับคุณ", "phonetic": "壓尤嘎坤", "chinese": "想跟你在一起", "scenario": "表達情感"},
-        {"thai": "อยากอยู่ด้วยกัน", "phonetic": "壓尤對甘", "chinese": "想一起", "scenario": "表達願望"},
-        {"thai": "ที่นี่สบายมาก", "phonetic": "替尼沙敗媽", "chinese": "這裡很舒服", "scenario": "表達感受"},
-        {"thai": "รู้สึกดี", "phonetic": "路色滴", "chinese": "感覺很好", "scenario": "表達感受"},
-        {"thai": "อุ่นใจ", "phonetic": "溫載", "chinese": "很溫暖", "scenario": "表達感受"},
-        {"thai": "คุณพิเศษ", "phonetic": "坤皮洗", "chinese": "你很特別", "scenario": "表達讚賞"},
-        {"thai": "คุณคือคนพิเศษ", "phonetic": "坤科坤皮洗", "chinese": "你是特別的人", "scenario": "表達讚賞"},
-        {"thai": "อยากให้คุณมีความสุข", "phonetic": "壓海坤米框蘇", "chinese": "希望你快樂", "scenario": "表達關心"},
-        {"thai": "ดูแลคุณ", "phonetic": "都來坤", "chinese": "照顧你", "scenario": "表達關心"},
-        {"thai": "เป็นห่วง", "phonetic": "奔洪", "chinese": "擔心你", "scenario": "表達關心"},
-        {"thai": "นอนด้วยกัน", "phonetic": "農對甘", "chinese": "一起睡", "scenario": "親密邀請"},
-        {"thai": "กลับบ้านด้วยกัน", "phonetic": "嘎班對甘", "chinese": "一起回家", "scenario": "邀請"},
-        {"thai": "คืนนี้อยู่กับฉัน", "phonetic": "坤尼尤嘎餐", "chinese": "今晚跟我在一起", "scenario": "邀請"},
-        {"thai": "ทั้งคืน", "phonetic": "湯坤", "chinese": "整晚", "scenario": "時間"},
-        {"thai": "พรุ่งนี้เจอกัน", "phonetic": "砰尼就甘", "chinese": "明天見", "scenario": "約會"},
-        {"thai": "เจอกันอีก", "phonetic": "就甘衣", "chinese": "再見面", "scenario": "約會"},
-        {"thai": "รอคุณ", "phonetic": "落坤", "chinese": "等你", "scenario": "表達期待"},
-        {"thai": "คิดถึงเสมอ", "phonetic": "key聽沙莫", "chinese": "一直想你", "scenario": "表達思念"},
-        {"thai": "เป็นแฟนกันไหม", "phonetic": "奔份甘買", "chinese": "要在一起嗎", "scenario": "表白"},
-        {"thai": "เป็นของฉัน", "phonetic": "奔孔餐", "chinese": "是我的", "scenario": "宣告"},
-        {"thai": "เป็นของคุณ", "phonetic": "奔孔坤", "chinese": "是你的", "scenario": "表達承諾"},
-        {"thai": "รักเดียว", "phonetic": "辣丟", "chinese": "唯一的愛", "scenario": "表達專情"},
-        {"thai": "ไม่ลืม", "phonetic": "買冷", "chinese": "不會忘記", "scenario": "表達承諾"},
-        {"thai": "จำได้", "phonetic": "詹代", "chinese": "記得", "scenario": "表達記憶"},
-        {"thai": "พิเศษที่สุด", "phonetic": "皮洗替速", "chinese": "最特別的", "scenario": "表達珍視"},
-        {"thai": "เธอคือทุกอย่าง", "phonetic": "特科圖央", "chinese": "你是我的一切", "scenario": "表達深情"}
+        {
+          "thai": "คุณหน้าตาสวยมาก",
+          "phonetic": "坤那達蘇威媽",
+          "chinese": "你長得很美",
+          "scenario": "讚美外貌"
+        },
+        {
+          "thai": "หุ่นดีมาก",
+          "phonetic": "呼滴媽",
+          "chinese": "身材很好",
+          "scenario": "讚美身材"
+        },
+        {
+          "thai": "ทรงผมสวย",
+          "phonetic": "宋碰蘇威",
+          "chinese": "髮型很美",
+          "scenario": "讚美髮型"
+        },
+        {
+          "thai": "ตาสวย",
+          "phonetic": "達蘇威",
+          "chinese": "眼睛很美",
+          "scenario": "讚美五官"
+        },
+        {
+          "thai": "ยิ้มน่ารัก",
+          "phonetic": "音那辣",
+          "chinese": "笑起來很可愛",
+          "scenario": "讚美笑容"
+        },
+        {
+          "thai": "ยิ้มสวย",
+          "phonetic": "音蘇威",
+          "chinese": "笑得很美",
+          "scenario": "讚美笑容"
+        },
+        {
+          "thai": "หน้าตาเหมือนดารา",
+          "phonetic": "那達孟達辣",
+          "chinese": "長得像明星",
+          "scenario": "讚美外貌"
+        },
+        {
+          "thai": "ผิวสวยมาก",
+          "phonetic": "皮蘇威媽",
+          "chinese": "皮膚很美",
+          "scenario": "讚美膚質"
+        },
+        {
+          "thai": "ผิวเนียน",
+          "phonetic": "皮年",
+          "chinese": "皮膚很嫩",
+          "scenario": "讚美膚質"
+        },
+        {
+          "thai": "ดูอายุน้อย",
+          "phonetic": "都阿優挪",
+          "chinese": "看起來很年輕",
+          "scenario": "讚美年齡"
+        },
+        {
+          "thai": "เหมือนอายุ 18",
+          "phonetic": "孟阿優洗北",
+          "chinese": "看起來像18歲",
+          "scenario": "讚美年輕"
+        },
+        {
+          "thai": "ร่างกายสวย",
+          "phonetic": "辣甘蘇威",
+          "chinese": "身體很美",
+          "scenario": "讚美身材"
+        },
+        {
+          "thai": "ทรงสวย",
+          "phonetic": "宋蘇威",
+          "chinese": "曲線很美",
+          "scenario": "讚美身材"
+        },
+        {
+          "thai": "เซ็กซี่มาก",
+          "phonetic": "塞西媽",
+          "chinese": "很性感",
+          "scenario": "讚美性感"
+        },
+        {
+          "thai": "น่าเอ็นดู",
+          "phonetic": "那安都",
+          "chinese": "很可愛",
+          "scenario": "表達喜愛"
+        },
+        {
+          "thai": "ชอบคุณ",
+          "phonetic": "丘坤",
+          "chinese": "我喜歡你",
+          "scenario": "表達好感"
+        },
+        {
+          "thai": "ชอบมาก",
+          "phonetic": "丘媽",
+          "chinese": "很喜歡",
+          "scenario": "表達好感"
+        },
+        {
+          "thai": "รักคุณ",
+          "phonetic": "辣坤",
+          "chinese": "我愛你",
+          "scenario": "表達愛意"
+        },
+        {
+          "thai": "คิดถึง",
+          "phonetic": "key聽",
+          "chinese": "想你",
+          "scenario": "表達思念"
+        },
+        {
+          "thai": "คิดถึงมาก",
+          "phonetic": "key聽媽",
+          "chinese": "很想你",
+          "scenario": "表達思念"
+        },
+        {
+          "thai": "อยากจะจูบ",
+          "phonetic": "壓嘎租",
+          "chinese": "想親你",
+          "scenario": "親密表達"
+        },
+        {
+          "thai": "ริมฝีปากสวย",
+          "phonetic": "林非巴蘇威",
+          "chinese": "嘴唇很美",
+          "scenario": "讚美嘴唇"
+        },
+        {
+          "thai": "จูบเก่งมาก",
+          "phonetic": "租根媽",
+          "chinese": "親得很好",
+          "scenario": "親密互動"
+        },
+        {
+          "thai": "อยากกอด",
+          "phonetic": "壓告",
+          "chinese": "想抱抱",
+          "scenario": "親密表達"
+        },
+        {
+          "thai": "อยากอยู่กับคุณ",
+          "phonetic": "壓尤嘎坤",
+          "chinese": "想跟你在一起",
+          "scenario": "表達情感"
+        },
+        {
+          "thai": "อยากอยู่ด้วยกัน",
+          "phonetic": "壓尤對甘",
+          "chinese": "想一起",
+          "scenario": "表達願望"
+        },
+        {
+          "thai": "ที่นี่สบายมาก",
+          "phonetic": "替尼沙敗媽",
+          "chinese": "這裡很舒服",
+          "scenario": "表達感受"
+        },
+        {
+          "thai": "รู้สึกดี",
+          "phonetic": "路色滴",
+          "chinese": "感覺很好",
+          "scenario": "表達感受"
+        },
+        {
+          "thai": "อุ่นใจ",
+          "phonetic": "溫載",
+          "chinese": "很溫暖",
+          "scenario": "表達感受"
+        },
+        {
+          "thai": "คุณพิเศษ",
+          "phonetic": "坤皮洗",
+          "chinese": "你很特別",
+          "scenario": "表達讚賞"
+        },
+        {
+          "thai": "คุณคือคนพิเศษ",
+          "phonetic": "坤科坤皮洗",
+          "chinese": "你是特別的人",
+          "scenario": "表達讚賞"
+        },
+        {
+          "thai": "อยากให้คุณมีความสุข",
+          "phonetic": "壓海坤米框蘇",
+          "chinese": "希望你快樂",
+          "scenario": "表達關心"
+        },
+        {
+          "thai": "ดูแลคุณ",
+          "phonetic": "都來坤",
+          "chinese": "照顧你",
+          "scenario": "表達關心"
+        },
+        {
+          "thai": "เป็นห่วง",
+          "phonetic": "奔洪",
+          "chinese": "擔心你",
+          "scenario": "表達關心"
+        },
+        {
+          "thai": "นอนด้วยกัน",
+          "phonetic": "農對甘",
+          "chinese": "一起睡",
+          "scenario": "親密邀請"
+        },
+        {
+          "thai": "กลับบ้านด้วยกัน",
+          "phonetic": "嘎班對甘",
+          "chinese": "一起回家",
+          "scenario": "邀請"
+        },
+        {
+          "thai": "คืนนี้อยู่กับฉัน",
+          "phonetic": "坤尼尤嘎餐",
+          "chinese": "今晚跟我在一起",
+          "scenario": "邀請"
+        },
+        {
+          "thai": "ทั้งคืน",
+          "phonetic": "湯坤",
+          "chinese": "整晚",
+          "scenario": "時間"
+        },
+        {
+          "thai": "พรุ่งนี้เจอกัน",
+          "phonetic": "砰尼就甘",
+          "chinese": "明天見",
+          "scenario": "約會"
+        },
+        {
+          "thai": "เจอกันอีก",
+          "phonetic": "就甘衣",
+          "chinese": "再見面",
+          "scenario": "約會"
+        },
+        {
+          "thai": "รอคุณ",
+          "phonetic": "落坤",
+          "chinese": "等你",
+          "scenario": "表達期待"
+        },
+        {
+          "thai": "คิดถึงเสมอ",
+          "phonetic": "key聽沙莫",
+          "chinese": "一直想你",
+          "scenario": "表達思念"
+        },
+        {
+          "thai": "เป็นแฟนกันไหม",
+          "phonetic": "奔份甘買",
+          "chinese": "要在一起嗎",
+          "scenario": "表白"
+        },
+        {
+          "thai": "เป็นของฉัน",
+          "phonetic": "奔孔餐",
+          "chinese": "是我的",
+          "scenario": "宣告"
+        },
+        {
+          "thai": "เป็นของคุณ",
+          "phonetic": "奔孔坤",
+          "chinese": "是你的",
+          "scenario": "表達承諾"
+        },
+        {
+          "thai": "รักเดียว",
+          "phonetic": "辣丟",
+          "chinese": "唯一的愛",
+          "scenario": "表達專情"
+        },
+        {
+          "thai": "ไม่ลืม",
+          "phonetic": "買冷",
+          "chinese": "不會忘記",
+          "scenario": "表達承諾"
+        },
+        {
+          "thai": "จำได้",
+          "phonetic": "詹代",
+          "chinese": "記得",
+          "scenario": "表達記憶"
+        },
+        {
+          "thai": "พิเศษที่สุด",
+          "phonetic": "皮洗替速",
+          "chinese": "最特別的",
+          "scenario": "表達珍視"
+        },
+        {
+          "thai": "เธอคือทุกอย่าง",
+          "phonetic": "特科圖央",
+          "chinese": "你是我的一切",
+          "scenario": "表達深情"
+        }
       ]
     },
     {
@@ -382,19 +1953,84 @@
       "icon": "🆘",
       "color": "#c0392b",
       "phrases": [
-        {"thai": "ช่วยด้วย", "phonetic": "除對", "chinese": "救命！", "scenario": "求救"},
-        {"thai": "เรียกตำรวจ", "phonetic": "里嘎談落", "chinese": "叫警察", "scenario": "報警"},
-        {"thai": "เรียกหมอ", "phonetic": "里嘎摩", "chinese": "叫醫生", "scenario": "需要醫療"},
-        {"thai": "ฉันต้องการความช่วยเหลือ", "phonetic": "餐動甘框除了", "chinese": "我需要幫助", "scenario": "求助"},
-        {"thai": "โรงพยาบาลอยู่ไหน", "phonetic": "隆帕亞邦尤乃", "chinese": "醫院在哪？", "scenario": "找醫院"},
-        {"thai": "ฉันป่วย", "phonetic": "餐不", "chinese": "我生病了", "scenario": "身體不適"},
-        {"thai": "ฉันแพ้...", "phonetic": "餐配...", "chinese": "我對...過敏", "scenario": "過敏"},
-        {"thai": "ปวดหัว", "phonetic": "不花", "chinese": "頭痛", "scenario": "症狀"},
-        {"thai": "ปวดท้อง", "phonetic": "不統", "chinese": "肚子痛", "scenario": "症狀"},
-        {"thai": "ฉันทำหาย", "phonetic": "餐探害", "chinese": "我弄丟了", "scenario": "遺失物品"},
-        {"thai": "ถูกขโมย", "phonetic": "托卡麼", "chinese": "被偷了", "scenario": "遭竊"},
-        {"thai": "สถานทูตไต้หวัน", "phonetic": "沙探土台灣", "chinese": "台灣代表處", "scenario": "尋求領事協助"},
-        {"thai": "ฉันหลงทาง", "phonetic": "餐龍堂", "chinese": "我迷路了", "scenario": "迷路"}
+        {
+          "thai": "ช่วยด้วย",
+          "phonetic": "除對",
+          "chinese": "救命！",
+          "scenario": "求救"
+        },
+        {
+          "thai": "เรียกตำรวจ",
+          "phonetic": "里嘎談落",
+          "chinese": "叫警察",
+          "scenario": "報警"
+        },
+        {
+          "thai": "เรียกหมอ",
+          "phonetic": "里嘎摩",
+          "chinese": "叫醫生",
+          "scenario": "需要醫療"
+        },
+        {
+          "thai": "ฉันต้องการความช่วยเหลือ",
+          "phonetic": "餐動甘框除了",
+          "chinese": "我需要幫助",
+          "scenario": "求助"
+        },
+        {
+          "thai": "โรงพยาบาลอยู่ไหน",
+          "phonetic": "隆帕亞邦尤乃",
+          "chinese": "醫院在哪？",
+          "scenario": "找醫院"
+        },
+        {
+          "thai": "ฉันป่วย",
+          "phonetic": "餐不",
+          "chinese": "我生病了",
+          "scenario": "身體不適"
+        },
+        {
+          "thai": "ฉันแพ้...",
+          "phonetic": "餐配...",
+          "chinese": "我對...過敏",
+          "scenario": "過敏"
+        },
+        {
+          "thai": "ปวดหัว",
+          "phonetic": "不花",
+          "chinese": "頭痛",
+          "scenario": "症狀"
+        },
+        {
+          "thai": "ปวดท้อง",
+          "phonetic": "不統",
+          "chinese": "肚子痛",
+          "scenario": "症狀"
+        },
+        {
+          "thai": "ฉันทำหาย",
+          "phonetic": "餐探害",
+          "chinese": "我弄丟了",
+          "scenario": "遺失物品"
+        },
+        {
+          "thai": "ถูกขโมย",
+          "phonetic": "托卡麼",
+          "chinese": "被偷了",
+          "scenario": "遭竊"
+        },
+        {
+          "thai": "สถานทูตไต้หวัน",
+          "phonetic": "沙探土台灣",
+          "chinese": "台灣代表處",
+          "scenario": "尋求領事協助"
+        },
+        {
+          "thai": "ฉันหลงทาง",
+          "phonetic": "餐龍堂",
+          "chinese": "我迷路了",
+          "scenario": "迷路"
+        }
       ]
     },
     {
@@ -403,21 +2039,96 @@
       "icon": "🔢",
       "color": "#3498db",
       "phrases": [
-        {"thai": "หนึ่ง", "phonetic": "能", "chinese": "1", "scenario": "數字"},
-        {"thai": "สอง", "phonetic": "松", "chinese": "2", "scenario": "數字"},
-        {"thai": "สาม", "phonetic": "三", "chinese": "3", "scenario": "數字"},
-        {"thai": "สี่", "phonetic": "西", "chinese": "4", "scenario": "數字"},
-        {"thai": "ห้า", "phonetic": "哈", "chinese": "5", "scenario": "數字"},
-        {"thai": "หก", "phonetic": "霍", "chinese": "6", "scenario": "數字"},
-        {"thai": "เจ็ด", "phonetic": "接", "chinese": "7", "scenario": "數字"},
-        {"thai": "แปด", "phonetic": "北", "chinese": "8", "scenario": "數字"},
-        {"thai": "เก้า", "phonetic": "告", "chinese": "9", "scenario": "數字"},
-        {"thai": "สิบ", "phonetic": "洗", "chinese": "10", "scenario": "數字"},
-        {"thai": "ยี่สิบ", "phonetic": "以洗", "chinese": "20", "scenario": "數字"},
-        {"thai": "ร้อย", "phonetic": "蘿依", "chinese": "100", "scenario": "數字"},
-        {"thai": "พัน", "phonetic": "潘", "chinese": "1000", "scenario": "數字"},
-        {"thai": "หมื่น", "phonetic": "們", "chinese": "10000", "scenario": "數字"},
-        {"thai": "บาท", "phonetic": "巴", "chinese": "泰銖", "scenario": "貨幣單位"}
+        {
+          "thai": "หนึ่ง",
+          "phonetic": "能",
+          "chinese": "1",
+          "scenario": "數字"
+        },
+        {
+          "thai": "สอง",
+          "phonetic": "松",
+          "chinese": "2",
+          "scenario": "數字"
+        },
+        {
+          "thai": "สาม",
+          "phonetic": "三",
+          "chinese": "3",
+          "scenario": "數字"
+        },
+        {
+          "thai": "สี่",
+          "phonetic": "西",
+          "chinese": "4",
+          "scenario": "數字"
+        },
+        {
+          "thai": "ห้า",
+          "phonetic": "哈",
+          "chinese": "5",
+          "scenario": "數字"
+        },
+        {
+          "thai": "หก",
+          "phonetic": "霍",
+          "chinese": "6",
+          "scenario": "數字"
+        },
+        {
+          "thai": "เจ็ด",
+          "phonetic": "接",
+          "chinese": "7",
+          "scenario": "數字"
+        },
+        {
+          "thai": "แปด",
+          "phonetic": "北",
+          "chinese": "8",
+          "scenario": "數字"
+        },
+        {
+          "thai": "เก้า",
+          "phonetic": "告",
+          "chinese": "9",
+          "scenario": "數字"
+        },
+        {
+          "thai": "สิบ",
+          "phonetic": "洗",
+          "chinese": "10",
+          "scenario": "數字"
+        },
+        {
+          "thai": "ยี่สิบ",
+          "phonetic": "以洗",
+          "chinese": "20",
+          "scenario": "數字"
+        },
+        {
+          "thai": "ร้อย",
+          "phonetic": "蘿依",
+          "chinese": "100",
+          "scenario": "數字"
+        },
+        {
+          "thai": "พัน",
+          "phonetic": "潘",
+          "chinese": "1000",
+          "scenario": "數字"
+        },
+        {
+          "thai": "หมื่น",
+          "phonetic": "們",
+          "chinese": "10000",
+          "scenario": "數字"
+        },
+        {
+          "thai": "บาท",
+          "phonetic": "巴",
+          "chinese": "泰銖",
+          "scenario": "貨幣單位"
+        }
       ]
     },
     {
@@ -426,20 +2137,90 @@
       "icon": "🕐",
       "color": "#9b59b6",
       "phrases": [
-        {"thai": "กี่โมง", "phonetic": "key猛", "chinese": "幾點？", "scenario": "問時間"},
-        {"thai": "ตอนนี้กี่โมง", "phonetic": "動尼key猛", "chinese": "現在幾點？", "scenario": "問時間"},
-        {"thai": "เช้า", "phonetic": "早", "chinese": "早上", "scenario": "時段"},
-        {"thai": "เที่ยง", "phonetic": "天", "chinese": "中午", "scenario": "時段"},
-        {"thai": "บ่าย", "phonetic": "敗", "chinese": "下午", "scenario": "時段"},
-        {"thai": "เย็น", "phonetic": "顏", "chinese": "傍晚", "scenario": "時段"},
-        {"thai": "กลางคืน", "phonetic": "光坤", "chinese": "晚上", "scenario": "時段"},
-        {"thai": "วันนี้", "phonetic": "萬尼", "chinese": "今天", "scenario": "日期"},
-        {"thai": "พรุ่งนี้", "phonetic": "砰尼", "chinese": "明天", "scenario": "日期"},
-        {"thai": "เมื่อวาน", "phonetic": "門萬", "chinese": "昨天", "scenario": "日期"},
-        {"thai": "สัปดาห์หน้า", "phonetic": "沙打那", "chinese": "下週", "scenario": "日期"},
-        {"thai": "เดี๋ยว", "phonetic": "刁", "chinese": "等一下", "scenario": "時間"},
-        {"thai": "เดี๋ยวก่อน", "phonetic": "刁棍", "chinese": "等一等", "scenario": "請等待"},
-        {"thai": "ตอนไหน", "phonetic": "動乃", "chinese": "什麼時候？", "scenario": "問時間"}
+        {
+          "thai": "กี่โมง",
+          "phonetic": "key猛",
+          "chinese": "幾點？",
+          "scenario": "問時間"
+        },
+        {
+          "thai": "ตอนนี้กี่โมง",
+          "phonetic": "動尼key猛",
+          "chinese": "現在幾點？",
+          "scenario": "問時間"
+        },
+        {
+          "thai": "เช้า",
+          "phonetic": "早",
+          "chinese": "早上",
+          "scenario": "時段"
+        },
+        {
+          "thai": "เที่ยง",
+          "phonetic": "天",
+          "chinese": "中午",
+          "scenario": "時段"
+        },
+        {
+          "thai": "บ่าย",
+          "phonetic": "敗",
+          "chinese": "下午",
+          "scenario": "時段"
+        },
+        {
+          "thai": "เย็น",
+          "phonetic": "顏",
+          "chinese": "傍晚",
+          "scenario": "時段"
+        },
+        {
+          "thai": "กลางคืน",
+          "phonetic": "光坤",
+          "chinese": "晚上",
+          "scenario": "時段"
+        },
+        {
+          "thai": "วันนี้",
+          "phonetic": "萬尼",
+          "chinese": "今天",
+          "scenario": "日期"
+        },
+        {
+          "thai": "พรุ่งนี้",
+          "phonetic": "砰尼",
+          "chinese": "明天",
+          "scenario": "日期"
+        },
+        {
+          "thai": "เมื่อวาน",
+          "phonetic": "門萬",
+          "chinese": "昨天",
+          "scenario": "日期"
+        },
+        {
+          "thai": "สัปดาห์หน้า",
+          "phonetic": "沙打那",
+          "chinese": "下週",
+          "scenario": "日期"
+        },
+        {
+          "thai": "เดี๋ยว",
+          "phonetic": "刁",
+          "chinese": "等一下",
+          "scenario": "時間"
+        },
+        {
+          "thai": "เดี๋ยวก่อน",
+          "phonetic": "刁棍",
+          "chinese": "等一等",
+          "scenario": "請等待"
+        },
+        {
+          "thai": "ตอนไหน",
+          "phonetic": "動乃",
+          "chinese": "什麼時候？",
+          "scenario": "問時間"
+        }
       ]
     },
     {
@@ -448,20 +2229,90 @@
       "icon": "🏖️",
       "color": "#1abc9c",
       "phrases": [
-        {"thai": "ชายหาด", "phonetic": "差哈", "chinese": "海灘", "scenario": "地點"},
-        {"thai": "ทะเล", "phonetic": "他雷", "chinese": "大海", "scenario": "地點"},
-        {"thai": "เกาะ", "phonetic": "故", "chinese": "島嶼", "scenario": "地點"},
-        {"thai": "ว่ายน้ำ", "phonetic": "外南", "chinese": "游泳", "scenario": "活動"},
-        {"thai": "ดำน้ำ", "phonetic": "當南", "chinese": "潛水", "scenario": "活動"},
-        {"thai": "เรือ", "phonetic": "路", "chinese": "船", "scenario": "交通"},
-        {"thai": "เรือเร็ว", "phonetic": "路了", "chinese": "快艇", "scenario": "交通"},
-        {"thai": "เช่าเตียง", "phonetic": "早天", "chinese": "租躺椅", "scenario": "海灘設備"},
-        {"thai": "ครีมกันแดด", "phonetic": "科林甘呆", "chinese": "防曬乳", "scenario": "防曬"},
-        {"thai": "ร่ม", "phonetic": "隆", "chinese": "傘/陽傘", "scenario": "遮陽"},
-        {"thai": "อันตราย", "phonetic": "安打來", "chinese": "危險", "scenario": "警告"},
-        {"thai": "ระวัง", "phonetic": "辣旺", "chinese": "小心", "scenario": "警告"},
-        {"thai": "คลื่นแรง", "phonetic": "困嚷", "chinese": "浪大", "scenario": "海況"},
-        {"thai": "พระอาทิตย์ตก", "phonetic": "帕阿滴多", "chinese": "日落", "scenario": "美景"}
+        {
+          "thai": "ชายหาด",
+          "phonetic": "差哈",
+          "chinese": "海灘",
+          "scenario": "地點"
+        },
+        {
+          "thai": "ทะเล",
+          "phonetic": "他雷",
+          "chinese": "大海",
+          "scenario": "地點"
+        },
+        {
+          "thai": "เกาะ",
+          "phonetic": "故",
+          "chinese": "島嶼",
+          "scenario": "地點"
+        },
+        {
+          "thai": "ว่ายน้ำ",
+          "phonetic": "外南",
+          "chinese": "游泳",
+          "scenario": "活動"
+        },
+        {
+          "thai": "ดำน้ำ",
+          "phonetic": "當南",
+          "chinese": "潛水",
+          "scenario": "活動"
+        },
+        {
+          "thai": "เรือ",
+          "phonetic": "路",
+          "chinese": "船",
+          "scenario": "交通"
+        },
+        {
+          "thai": "เรือเร็ว",
+          "phonetic": "路了",
+          "chinese": "快艇",
+          "scenario": "交通"
+        },
+        {
+          "thai": "เช่าเตียง",
+          "phonetic": "早天",
+          "chinese": "租躺椅",
+          "scenario": "海灘設備"
+        },
+        {
+          "thai": "ครีมกันแดด",
+          "phonetic": "科林甘呆",
+          "chinese": "防曬乳",
+          "scenario": "防曬"
+        },
+        {
+          "thai": "ร่ม",
+          "phonetic": "隆",
+          "chinese": "傘/陽傘",
+          "scenario": "遮陽"
+        },
+        {
+          "thai": "อันตราย",
+          "phonetic": "安打來",
+          "chinese": "危險",
+          "scenario": "警告"
+        },
+        {
+          "thai": "ระวัง",
+          "phonetic": "辣旺",
+          "chinese": "小心",
+          "scenario": "警告"
+        },
+        {
+          "thai": "คลื่นแรง",
+          "phonetic": "困嚷",
+          "chinese": "浪大",
+          "scenario": "海況"
+        },
+        {
+          "thai": "พระอาทิตย์ตก",
+          "phonetic": "帕阿滴多",
+          "chinese": "日落",
+          "scenario": "美景"
+        }
       ]
     },
     {
@@ -470,19 +2321,84 @@
       "icon": "🏨",
       "color": "#2c3e50",
       "phrases": [
-        {"thai": "มีห้องว่างไหม", "phonetic": "米轟旺買", "chinese": "有空房嗎？", "scenario": "訂房"},
-        {"thai": "เช็คอิน", "phonetic": "切因", "chinese": "入住", "scenario": "辦理入住"},
-        {"thai": "เช็คเอาท์", "phonetic": "切奧", "chinese": "退房", "scenario": "退房"},
-        {"thai": "กุญแจห้อง", "phonetic": "滾折轟", "chinese": "房間鑰匙", "scenario": "要鑰匙"},
-        {"thai": "ห้องเดี่ยว", "phonetic": "轟刁", "chinese": "單人房", "scenario": "房型"},
-        {"thai": "ห้องคู่", "phonetic": "轟古", "chinese": "雙人房", "scenario": "房型"},
-        {"thai": "เตียงใหญ่", "phonetic": "天呀", "chinese": "大床", "scenario": "床型"},
-        {"thai": "Wi-Fi รหัสอะไร", "phonetic": "外發辣哈阿萊", "chinese": "WiFi密碼是？", "scenario": "上網"},
-        {"thai": "แอร์", "phonetic": "耶", "chinese": "冷氣", "scenario": "設備"},
-        {"thai": "น้ำร้อน", "phonetic": "南隆", "chinese": "熱水", "scenario": "設備"},
-        {"thai": "ทำความสะอาด", "phonetic": "探框沙阿", "chinese": "打掃", "scenario": "房務"},
-        {"thai": "ผ้าเช็ดตัว", "phonetic": "帕切抖", "chinese": "毛巾", "scenario": "備品"},
-        {"thai": "อาหารเช้า", "phonetic": "阿韓早", "chinese": "早餐", "scenario": "餐點"}
+        {
+          "thai": "มีห้องว่างไหม",
+          "phonetic": "米轟旺買",
+          "chinese": "有空房嗎？",
+          "scenario": "訂房"
+        },
+        {
+          "thai": "เช็คอิน",
+          "phonetic": "切因",
+          "chinese": "入住",
+          "scenario": "辦理入住"
+        },
+        {
+          "thai": "เช็คเอาท์",
+          "phonetic": "切奧",
+          "chinese": "退房",
+          "scenario": "退房"
+        },
+        {
+          "thai": "กุญแจห้อง",
+          "phonetic": "滾折轟",
+          "chinese": "房間鑰匙",
+          "scenario": "要鑰匙"
+        },
+        {
+          "thai": "ห้องเดี่ยว",
+          "phonetic": "轟刁",
+          "chinese": "單人房",
+          "scenario": "房型"
+        },
+        {
+          "thai": "ห้องคู่",
+          "phonetic": "轟古",
+          "chinese": "雙人房",
+          "scenario": "房型"
+        },
+        {
+          "thai": "เตียงใหญ่",
+          "phonetic": "天呀",
+          "chinese": "大床",
+          "scenario": "床型"
+        },
+        {
+          "thai": "Wi-Fi รหัสอะไร",
+          "phonetic": "外發辣哈阿萊",
+          "chinese": "WiFi密碼是？",
+          "scenario": "上網"
+        },
+        {
+          "thai": "แอร์",
+          "phonetic": "耶",
+          "chinese": "冷氣",
+          "scenario": "設備"
+        },
+        {
+          "thai": "น้ำร้อน",
+          "phonetic": "南隆",
+          "chinese": "熱水",
+          "scenario": "設備"
+        },
+        {
+          "thai": "ทำความสะอาด",
+          "phonetic": "探框沙阿",
+          "chinese": "打掃",
+          "scenario": "房務"
+        },
+        {
+          "thai": "ผ้าเช็ดตัว",
+          "phonetic": "帕切抖",
+          "chinese": "毛巾",
+          "scenario": "備品"
+        },
+        {
+          "thai": "อาหารเช้า",
+          "phonetic": "阿韓早",
+          "chinese": "早餐",
+          "scenario": "餐點"
+        }
       ]
     },
     {
@@ -491,14 +2407,54 @@
       "icon": "☀️",
       "color": "#f39c12",
       "phrases": [
-        {"thai": "วันนี้ร้อนมาก", "phonetic": "萬尼隆媽", "chinese": "今天好熱", "scenario": "聊天氣"},
-        {"thai": "ร้อนจัง", "phonetic": "隆將", "chinese": "好熱啊", "scenario": "感嘆"},
-        {"thai": "อากาศดีมาก", "phonetic": "阿嘎滴媽", "chinese": "天氣很好", "scenario": "稱讚天氣"},
-        {"thai": "ฝนตกหรือเปล่า", "phonetic": "風多了包", "chinese": "有下雨嗎？", "scenario": "詢問天氣"},
-        {"thai": "ฝนตกแล้ว", "phonetic": "風多了", "chinese": "下雨了", "scenario": "告知天氣"},
-        {"thai": "อย่าลืมพกร่ม", "phonetic": "亞冷泡隆", "chinese": "別忘帶傘", "scenario": "提醒"},
-        {"thai": "เย็นสบาย", "phonetic": "顏沙敗", "chinese": "涼爽舒服", "scenario": "形容天氣"},
-        {"thai": "แดดแรงมาก", "phonetic": "呆嚷媽", "chinese": "太陽好大", "scenario": "形容天氣"}
+        {
+          "thai": "วันนี้ร้อนมาก",
+          "phonetic": "萬尼隆媽",
+          "chinese": "今天好熱",
+          "scenario": "聊天氣"
+        },
+        {
+          "thai": "ร้อนจัง",
+          "phonetic": "隆將",
+          "chinese": "好熱啊",
+          "scenario": "感嘆"
+        },
+        {
+          "thai": "อากาศดีมาก",
+          "phonetic": "阿嘎滴媽",
+          "chinese": "天氣很好",
+          "scenario": "稱讚天氣"
+        },
+        {
+          "thai": "ฝนตกหรือเปล่า",
+          "phonetic": "風多了包",
+          "chinese": "有下雨嗎？",
+          "scenario": "詢問天氣"
+        },
+        {
+          "thai": "ฝนตกแล้ว",
+          "phonetic": "風多了",
+          "chinese": "下雨了",
+          "scenario": "告知天氣"
+        },
+        {
+          "thai": "อย่าลืมพกร่ม",
+          "phonetic": "亞冷泡隆",
+          "chinese": "別忘帶傘",
+          "scenario": "提醒"
+        },
+        {
+          "thai": "เย็นสบาย",
+          "phonetic": "顏沙敗",
+          "chinese": "涼爽舒服",
+          "scenario": "形容天氣"
+        },
+        {
+          "thai": "แดดแรงมาก",
+          "phonetic": "呆嚷媽",
+          "chinese": "太陽好大",
+          "scenario": "形容天氣"
+        }
       ]
     }
   ]

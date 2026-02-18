@@ -503,6 +503,7 @@
   <script>
     // 泰語資料庫
     let phrasesData = null;
+    let allPhrases = [];
     
     // 從 JSON 檔案載入完整的 410+ 句型
     async function loadPhrasesData() {
@@ -539,17 +540,23 @@
         return;
       }
 
-    // 建立所有句型的扁平陣列
-    let allPhrases = [];
-    phrasesData.categories.forEach(cat => {
-      cat.phrases.forEach(p => {
-        allPhrases.push({
-          ...p,
-          category: cat.name,
-          categoryIcon: cat.icon
+      // 建立所有句型的扁平陣列
+      allPhrases = [];
+      phrasesData.categories.forEach(cat => {
+        cat.phrases.forEach(p => {
+          allPhrases.push({
+            ...p,
+            category: cat.name,
+            categoryIcon: cat.icon
+          });
         });
       });
-    });
+      
+      // 初始化分類標籤
+      initCategoryTabs();
+      
+      // 顯示熱門句型
+      showHotPhrases();
 
     // 初始化分類標籤
     function initCategoryTabs() {
@@ -685,9 +692,8 @@
 
     // 初始化
     document.addEventListener('DOMContentLoaded', () => {
-      initCategoryTabs();
-      showHotPhrases();
-
+      // 等待資料載入，由 loadPhrasesData() 觸發 initializeApp()
+      
       document.getElementById('searchInput').addEventListener('input', (e) => {
         search(e.target.value.trim());
       });

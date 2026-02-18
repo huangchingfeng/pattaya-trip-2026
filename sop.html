@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>實用 SOP 攻略 - 芭達雅之旅 2026</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --neon-pink: #ff00ff;
+      --neon-blue: #00ffff;
+      --neon-purple: #bf00ff;
+      --neon-orange: #ff6b35;
+      --gold: #ffd700;
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: rgba(18, 18, 26, 0.85);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.8);
+      --text-muted: rgba(255, 255, 255, 0.5);
+      --safe-top: env(safe-area-inset-top, 20px);
+      --safe-bottom: env(safe-area-inset-bottom, 20px);
+      --success: #00ff88;
+      --danger: #ff4444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* 頂部導航 */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 12px) 20px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-content {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--neon-pink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .page-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    /* Tab 切換 */
+    .tabs {
+      position: fixed;
+      top: calc(var(--safe-top) + 60px);
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .tab-btn {
+      padding: 12px 24px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 30px;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      border-color: transparent;
+      color: white;
+      box-shadow: 0 4px 20px rgba(255,0,255,0.3);
+    }
+
+    .tab-btn:not(.active):hover {
+      border-color: var(--neon-pink);
+      color: var(--neon-pink);
+    }
+
+    /* 內容區 */
+    .content {
+      padding-top: calc(var(--safe-top) + 130px);
+      padding-bottom: calc(var(--safe-bottom) + 40px);
+      max-width: 600px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* 區塊標題 */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin: 32px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title:first-child {
+      margin-top: 0;
+    }
+
+    /* 價格表格 */
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      background: var(--bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .price-table th {
+      background: rgba(255,0,255,0.15);
+      color: var(--neon-pink);
+      font-weight: 700;
+    }
+
+    .price-table td {
+      color: var(--text-secondary);
+    }
+
+    .price-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .price-table .price {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* 步驟卡片 */
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
+    }
+
+    .step-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .step-content {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .step-content ul {
+      margin: 8px 0;
+      padding-left: 20px;
+    }
+
+    .step-content li {
+      margin: 6px 0;
+    }
+
+    /* 提示框 */
+    .tip-box {
+      background: rgba(0,255,255,0.1);
+      border: 1px solid rgba(0,255,255,0.3);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .tip-box.warning {
+      background: rgba(255,107,53,0.15);
+      border-color: rgba(255,107,53,0.3);
+    }
+
+    .tip-box.success {
+      background: rgba(0,255,136,0.1);
+      border-color: rgba(0,255,136,0.3);
+    }
+
+    .tip-title {
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: var(--neon-blue);
+    }
+
+    .tip-box.warning .tip-title {
+      color: var(--neon-orange);
+    }
+
+    .tip-box.success .tip-title {
+      color: var(--success);
+    }
+
+    .tip-content {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* 對話框 */
+    .dialogue-box {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px 0;
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+
+    .dialogue-line {
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .dialogue-line:last-child {
+      border-bottom: none;
+    }
+
+    .dialogue-you {
+      color: var(--neon-blue);
+    }
+
+    .dialogue-them {
+      color: var(--neon-pink);
+    }
+
+    /* 口訣 */
+    .mantra-box {
+      background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,107,53,0.1));
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 24px 0;
+      text-align: center;
+    }
+
+    .mantra-title {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .mantra-text {
+      font-size: 1.1rem;
+      line-height: 2;
+      color: var(--text-primary);
+    }
+
+    /* 避坑列表 */
+    .avoid-list {
+      list-style: none;
+    }
+
+    .avoid-list li {
+      padding: 12px 16px;
+      background: rgba(255,68,68,0.1);
+      border-left: 4px solid var(--danger);
+      margin: 8px 0;
+      border-radius: 0 8px 8px 0;
+      color: var(--text-secondary);
+    }
+
+    /* 推薦店家 */
+    .shop-grid {
+      display: grid;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .shop-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .shop-icon {
+      font-size: 2rem;
+    }
+
+    .shop-info {
+      flex: 1;
+    }
+
+    .shop-name {
+      font-weight: 900;
+      color: var(--text-primary);
+    }
+
+    .shop-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Checklist */
+    .checklist {
+      list-style: none;
+      margin: 16px 0;
+    }
+
+    .checklist li {
+      padding: 10px 0;
+      padding-left: 32px;
+      position: relative;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .checklist li::before {
+      content: '☐';
+      position: absolute;
+      left: 0;
+      color: var(--neon-pink);
+    }
+
+    /* 底部導航 */
+    .footer-nav {
+      margin-top: 40px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      border-radius: 30px;
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 30px rgba(255,0,255,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .footer-btn.secondary {
+      background: transparent;
+      border: 2px solid var(--neon-pink);
+      color: var(--neon-pink);
+      box-shadow: none;
+    }
+
+    .footer-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* 緊急聯絡 */
+    .emergency-box {
+      background: rgba(255,68,68,0.15);
+      border: 1px solid rgba(255,68,68,0.3);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 24px 0;
+    }
+
+    .emergency-title {
+      font-weight: 900;
+      color: var(--danger);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .emergency-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .emergency-item {
+      text-align: center;
+    }
+
+    .emergency-number {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--text-primary);
+    }
+
+    .emergency-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <a href="resources.html" class="back-btn">← 返回攻略</a>
+      <span class="page-title">實用 SOP</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('gogo')">🎭 GoGo Bar</button>
+    <button class="tab-btn" onclick="switchTab('beer')">🍺 Beer Bar</button>
+  </div>
+
+  <main class="content">
+    <!-- GoGo Bar SOP -->
+    <div id="gogo" class="tab-content active">
+      <h2 class="section-title">💰 預算規劃</h2>
+
+      <table class="price-table">
+        <tr>
+          <th>項目</th>
+          <th>金額 (THB)</th>
+        </tr>
+        <tr>
+          <td>入場費</td>
+          <td class="price">0-200</td>
+        </tr>
+        <tr>
+          <td>自己的飲料</td>
+          <td class="price">150-250</td>
+        </tr>
+        <tr>
+          <td>Lady Drink</td>
+          <td class="price">200-350/杯</td>
+        </tr>
+        <tr>
+          <td>Bar Fine</td>
+          <td class="price">800-1,500</td>
+        </tr>
+        <tr>
+          <td>Short Time</td>
+          <td class="price">2,000-3,000</td>
+        </tr>
+        <tr>
+          <td>Long Time</td>
+          <td class="price">3,000-5,000</td>
+        </tr>
+      </table>
+
+      <div class="tip-box success">
+        <div class="tip-title">💡 預算建議</div>
+        <div class="tip-content">
+          • 純看秀喝酒：500-1,000 THB<br>
+          • 請妹喝酒聊天：1,500-2,500 THB<br>
+          • 帶出場全套：4,000-6,500+ THB
+        </div>
+      </div>
+
+      <h2 class="section-title">⏰ 最佳時間</h2>
+
+      <table class="price-table">
+        <tr>
+          <th>時段</th>
+          <th>特色</th>
+        </tr>
+        <tr>
+          <td>20:00-21:00</td>
+          <td>剛開始熱鬧，人少好選位 ⭐</td>
+        </tr>
+        <tr>
+          <td>21:00-23:00</td>
+          <td>人最多，氣氛最好</td>
+        </tr>
+        <tr>
+          <td>23:00-01:00</td>
+          <td>人開始散，可撿漏</td>
+        </tr>
+        <tr>
+          <td>01:00 後</td>
+          <td>收攤前，議價空間大</td>
+        </tr>
+      </table>
+
+      <h2 class="section-title">📍 進場流程</h2>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">1</span>
+          <span class="step-title">進門找位</span>
+        </div>
+        <div class="step-content">
+          門口會有人招呼，跟著進去找服務生帶位。選視線好的位置。
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">2</span>
+          <span class="step-title">點自己的飲料</span>
+        </div>
+        <div class="step-content">
+          坐下後<strong>立刻點一杯自己的飲料</strong>（必消費）。問清楚價格再點。
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">3</span>
+          <span class="step-title">觀察選人</span>
+        </div>
+        <div class="step-content">
+          <ul>
+            <li>先看台上表演 5-10 分鐘</li>
+            <li>注意每個女孩的外表、態度</li>
+            <li>記住她身上的號碼牌</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">4</span>
+          <span class="step-title">點 Lady Drink</span>
+        </div>
+        <div class="step-content">
+          對服務生說：「Lady drink for number XX」<br>
+          或直接對她招手，她會過來坐你身邊陪聊。
+        </div>
+      </div>
+
+      <h2 class="section-title">🚪 帶出場流程</h2>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">1</span>
+          <span class="step-title">確認意願</span>
+        </div>
+        <div class="step-content">
+          問她：「You can go with me tonight?」<br>
+          「What time you finish?」
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">2</span>
+          <span class="step-title">付 Bar Fine</span>
+        </div>
+        <div class="step-content">
+          跟服務生說：「I want to pay bar fine for her」<br>
+          這筆錢付給酒吧（800-1,500 THB）
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">3</span>
+          <span class="step-title">跟她談價格</span>
+        </div>
+        <div class="step-content">
+          <strong>Bar Fine ≠ 服務費！</strong><br>
+          跟她本人談：「How much for short time / long time?」
+        </div>
+      </div>
+
+      <div class="dialogue-box">
+        <div class="dialogue-line"><span class="dialogue-you">你：</span> How much bar fine?</div>
+        <div class="dialogue-line"><span class="dialogue-them">店：</span> 1,000 baht.</div>
+        <div class="dialogue-line"><span class="dialogue-you">你：</span> OK. (付給店家)</div>
+        <div class="dialogue-line"><span class="dialogue-you">你：</span> How much for short time?</div>
+        <div class="dialogue-line"><span class="dialogue-them">她：</span> 3,000 baht.</div>
+        <div class="dialogue-line"><span class="dialogue-you">你：</span> 2,500?</div>
+        <div class="dialogue-line"><span class="dialogue-them">她：</span> OK, 2,800.</div>
+        <div class="dialogue-line"><span class="dialogue-you">你：</span> Deal!</div>
+      </div>
+
+      <h2 class="section-title">❌ 10 大避坑</h2>
+
+      <ul class="avoid-list">
+        <li>❌ 被甜言蜜語沖昏頭 → 記住這是職業演出</li>
+        <li>❌ 變成「飲料 ATM」→ Lady Drink 最多 3 杯</li>
+        <li>❌ 不核對帳單 → 每次都要仔細看</li>
+        <li>❌ 喝醉失態 → 保持清醒判斷力</li>
+        <li>❌ 想繞過 Bar Fine → 照規矩來，別惹麻煩</li>
+        <li>❌ 拍照錄影 → 絕對禁止，會被驅逐</li>
+        <li>❌ 跟隨到陌生地點 → 堅持去你的飯店</li>
+        <li>❌ 接受陌生人的飲料 → 藥物風險</li>
+        <li>❌ 露富、戴名錶 → 低調為上</li>
+        <li>❌ 省保護措施 → 健康第一</li>
+      </ul>
+
+      <div class="mantra-box">
+        <div class="mantra-title">📝 快速口訣</div>
+        <div class="mantra-text">
+          進場點酒觀察先，<br>
+          Lady Drink 請她坐身邊，<br>
+          Bar Fine 繳了才能帶，<br>
+          服務費用另外談。<br>
+          預算設好別超線，<br>
+          帳單核對眼要尖！
+        </div>
+      </div>
+
+      <h2 class="section-title">⭐ 推薦店家</h2>
+
+      <div class="shop-grid">
+        <div class="shop-card">
+          <span class="shop-icon">🌀</span>
+          <div class="shop-info">
+            <div class="shop-name">Windmill Club</div>
+            <div class="shop-desc">芭達雅步行街・最知名・泡泡淋浴秀</div>
+          </div>
+        </div>
+        <div class="shop-card">
+          <span class="shop-icon">🤠</span>
+          <div class="shop-info">
+            <div class="shop-name">Baccara Agogo</div>
+            <div class="shop-desc">曼谷牛仔街・女孩最多・新手首選</div>
+          </div>
+        </div>
+        <div class="shop-card">
+          <span class="shop-icon">🎪</span>
+          <div class="shop-info">
+            <div class="shop-name">Crazy House</div>
+            <div class="shop-desc">曼谷牛仔街・氣氛熱鬧</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Beer Bar SOP -->
+    <div id="beer" class="tab-content">
+      <h2 class="section-title">🍺 Beer Bar vs GoGo Bar</h2>
+
+      <table class="price-table">
+        <tr>
+          <th>項目</th>
+          <th>Beer Bar</th>
+          <th>GoGo Bar</th>
+        </tr>
+        <tr>
+          <td>環境</td>
+          <td>開放式、路邊</td>
+          <td>室內封閉</td>
+        </tr>
+        <tr>
+          <td>氣氛</td>
+          <td>像朋友家喝酒</td>
+          <td>夜店感</td>
+        </tr>
+        <tr>
+          <td>啤酒</td>
+          <td class="price">60-100</td>
+          <td class="price">100-200</td>
+        </tr>
+        <tr>
+          <td>Lady Drink</td>
+          <td class="price">150-250</td>
+          <td class="price">200-350</td>
+        </tr>
+        <tr>
+          <td>Bar Fine</td>
+          <td class="price">500-800</td>
+          <td class="price">800-1,500</td>
+        </tr>
+        <tr>
+          <td>營業時間</td>
+          <td>下午 14:00 起</td>
+          <td>晚上 20:00 起</td>
+        </tr>
+      </table>
+
+      <div class="tip-box success">
+        <div class="tip-title">💡 選擇建議</div>
+        <div class="tip-content">
+          • 第一次來泰國 → Beer Bar（輕鬆無壓力）<br>
+          • 白天有空 → Beer Bar（Soi 6 下午就開）<br>
+          • 晚上想熱鬧 → GoGo Bar<br>
+          • 預算有限 → Beer Bar（便宜 30-50%）
+        </div>
+      </div>
+
+      <h2 class="section-title">📍 推薦區域</h2>
+
+      <table class="price-table">
+        <tr>
+          <th>區域</th>
+          <th>特色</th>
+          <th>營業</th>
+        </tr>
+        <tr>
+          <td><strong>Soi 6</strong> ⭐</td>
+          <td>80+ 間店、700+ 女孩</td>
+          <td>14:00 起</td>
+        </tr>
+        <tr>
+          <td>Soi Buakhao</td>
+          <td>平價、本地人多</td>
+          <td>17:00 起</td>
+        </tr>
+        <tr>
+          <td>LK Metro</td>
+          <td>小型精緻、不擠</td>
+          <td>18:00 起</td>
+        </tr>
+      </table>
+
+      <h2 class="section-title">📍 進場流程</h2>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">1</span>
+          <span class="step-title">先走一圈</span>
+        </div>
+        <div class="step-content">
+          不要進第一家看到的店！整條街走一遍，觀察哪家女孩順眼。
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">2</span>
+          <span class="step-title">選店觀察</span>
+        </div>
+        <div class="step-content">
+          <ul>
+            <li>女孩數量：越多越有選擇</li>
+            <li>客人數量：太冷清可能有問題</li>
+            <li>女孩態度：太積極拉客的經驗老道</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">3</span>
+          <span class="step-title">確認價格</span>
+        </div>
+        <div class="step-content">
+          坐下前先問：「How much for beer?」「How much for lady drink?」
+        </div>
+      </div>
+
+      <h2 class="section-title">🎲 玩骰子遊戲</h2>
+
+      <table class="price-table">
+        <tr>
+          <th>遊戲</th>
+          <th>玩法</th>
+        </tr>
+        <tr>
+          <td>骰子比大小</td>
+          <td>各搖 5 顆，輸的買單</td>
+        </tr>
+        <tr>
+          <td>猜單雙</td>
+          <td>猜總數單或雙</td>
+        </tr>
+        <tr>
+          <td>Connect 4</td>
+          <td>四子棋</td>
+        </tr>
+      </table>
+
+      <div class="tip-box warning">
+        <div class="tip-title">⚠️ 遊戲須知</div>
+        <div class="tip-content">
+          • 輸多贏少是常態（她們天天玩）<br>
+          • 把它當娛樂費用<br>
+          • 可設定上限：「最多玩 3 輪」<br>
+          • 不想玩直接說 No
+        </div>
+      </div>
+
+      <h2 class="section-title">🚪 帶出場</h2>
+
+      <div class="dialogue-box">
+        <div class="dialogue-line"><span class="dialogue-you">你：</span> How much bar fine?</div>
+        <div class="dialogue-line"><span class="dialogue-them">店：</span> 600 baht.</div>
+        <div class="dialogue-line"><span class="dialogue-you">你：</span> OK. (付給店家)</div>
+        <div class="dialogue-line"><span class="dialogue-you">你：</span> How much for short time?</div>
+        <div class="dialogue-line"><span class="dialogue-them">她：</span> 2,000 baht.</div>
+        <div class="dialogue-line"><span class="dialogue-you">你：</span> 1,500?</div>
+        <div class="dialogue-line"><span class="dialogue-them">她：</span> OK, 1,800.</div>
+        <div class="dialogue-line"><span class="dialogue-you">你：</span> Deal!</div>
+      </div>
+
+      <div class="tip-box success">
+        <div class="tip-title">💡 Soi 6 優勢</div>
+        <div class="tip-content">
+          很多店樓上就有房間，不用另外找旅館！直接上樓即可，省時方便。
+        </div>
+      </div>
+
+      <h2 class="section-title">⭐ 推薦店家</h2>
+
+      <div class="shop-grid">
+        <div class="shop-card">
+          <span class="shop-icon">🌙</span>
+          <div class="shop-info">
+            <div class="shop-name">Night Wish Group</div>
+            <div class="shop-desc">Soi 6 最大集團・20+ 家店</div>
+          </div>
+        </div>
+        <div class="shop-card">
+          <span class="shop-icon">⭐</span>
+          <div class="shop-info">
+            <div class="shop-name">The Better Group</div>
+            <div class="shop-desc">5 家精選：La La Land、Wet Six...</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title">✅ 出發 Checklist</h2>
+
+      <ul class="checklist">
+        <li>只帶計畫花的現金</li>
+        <li>手機充飽電</li>
+        <li>確認飯店地址（給司機看）</li>
+        <li>帶保護措施</li>
+        <li>小額鈔票（20、100 面額）</li>
+      </ul>
+    </div>
+
+    <!-- 共用：緊急聯絡 -->
+    <div class="emergency-box">
+      <div class="emergency-title">
+        <span>🚨</span>
+        <span>緊急聯絡</span>
+      </div>
+      <div class="emergency-grid">
+        <div class="emergency-item">
+          <div class="emergency-number">1155</div>
+          <div class="emergency-label">觀光警察</div>
+        </div>
+        <div class="emergency-item">
+          <div class="emergency-number">191</div>
+          <div class="emergency-label">報警</div>
+        </div>
+        <div class="emergency-item">
+          <div class="emergency-number">1669</div>
+          <div class="emergency-label">救護車</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-nav">
+      <a href="night.html" class="footer-btn">← 夜間行程</a>
+      <a href="resources.html" class="footer-btn secondary">📚 更多攻略</a>
+    </div>
+  </main>
+
+  <script>
+    function switchTab(tab) {
+      // 切換按鈕狀態
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // 切換內容
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      document.getElementById(tab).classList.add('active');
+
+      // 滾動到頂部
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

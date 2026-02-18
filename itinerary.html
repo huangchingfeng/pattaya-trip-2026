@@ -210,6 +210,25 @@
     .timeline-item.night .timeline-time { color: var(--neon-purple); }
     .timeline-item.travel .timeline-time { color: var(--neon-green); }
 
+    /* 雙時區顯示 */
+    .dual-time {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 6px;
+    }
+    .time-th {
+      font-size: 0.95rem;
+      font-weight: 900;
+    }
+    .time-tw {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .time-tw::before {
+      content: '🇹🇼 ';
+    }
+
     .timeline-card {
       background: var(--bg-card);
       border: 1px solid rgba(255,255,255,0.1);
@@ -374,7 +393,10 @@
 
       <div class="timeline">
         <div class="timeline-item travel">
-          <div class="timeline-time">11:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇭 11:00</div>
+            <div class="time-tw">11:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🏠</span>
@@ -385,7 +407,9 @@
         </div>
 
         <div class="timeline-item travel">
-          <div class="timeline-time">13:25</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇼 13:25（台灣起飛）</div>
+          </div>
           <div class="timeline-card" style="border-color: var(--neon-green); background: linear-gradient(135deg, rgba(0,255,136,0.1), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">✈️</span>
@@ -402,7 +426,10 @@
         </div>
 
         <div class="timeline-item travel">
-          <div class="timeline-time">16:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇭 16:30（泰國時間）</div>
+            <div class="time-tw">17:30（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: var(--neon-green); background: linear-gradient(135deg, rgba(0,255,136,0.1), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">🛬</span>
@@ -414,7 +441,10 @@
         </div>
 
         <div class="timeline-item travel">
-          <div class="timeline-time">17:15</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇭 17:15</div>
+            <div class="time-tw">18:15（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">💱</span>
@@ -426,7 +456,10 @@
         </div>
 
         <div class="timeline-item travel">
-          <div class="timeline-time">17:45</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇭 17:45</div>
+            <div class="time-tw">18:45（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: var(--neon-blue); background: linear-gradient(135deg, rgba(0,255,255,0.1), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">🎫</span>
@@ -442,7 +475,10 @@
         </div>
 
         <div class="timeline-item travel">
-          <div class="timeline-time">18:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇭 18:00</div>
+            <div class="time-tw">19:00（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: var(--neon-blue); background: linear-gradient(135deg, rgba(0,255,255,0.1), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">🚌</span>
@@ -458,7 +494,10 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">20:00</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 20:00</div>
+            <div class="time-tw">21:00（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: var(--gold);">
             <div class="timeline-header">
               <span class="timeline-icon">🏨</span>
@@ -474,7 +513,10 @@
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">20:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 20:30</div>
+            <div class="time-tw">21:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🦐</span>
@@ -486,7 +528,10 @@
         </div>
 
         <div class="timeline-item night">
-          <div class="timeline-time">22:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-purple);">🇹🇭 22:00</div>
+            <div class="time-tw">23:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🌙</span>
@@ -498,7 +543,10 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">00:00</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 00:00</div>
+            <div class="time-tw">01:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">😴</span>
@@ -534,7 +582,10 @@
 
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-time">09:00</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 09:00</div>
+            <div class="time-tw">10:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🌅</span>
@@ -545,7 +596,10 @@
         </div>
 
         <div class="timeline-item activity">
-          <div class="timeline-time">10:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-blue);">🇹🇭 10:30</div>
+            <div class="time-tw">11:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">💆</span>
@@ -557,7 +611,10 @@
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">13:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 13:00</div>
+            <div class="time-tw">14:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🍛</span>
@@ -569,7 +626,10 @@
         </div>
 
         <div class="timeline-item night">
-          <div class="timeline-time">14:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-purple);">🇹🇭 14:30</div>
+            <div class="time-tw">15:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🍺</span>
@@ -588,7 +648,10 @@
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">18:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 18:00</div>
+            <div class="time-tw">19:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🍽️</span>
@@ -600,7 +663,10 @@
         </div>
 
         <div class="timeline-item night">
-          <div class="timeline-time">20:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-purple);">🇹🇭 20:00</div>
+            <div class="time-tw">21:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🌙</span>
@@ -611,7 +677,10 @@
         </div>
 
         <div class="timeline-item night">
-          <div class="timeline-time">22:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-purple);">🇹🇭 22:00</div>
+            <div class="time-tw">23:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🎭</span>
@@ -622,7 +691,10 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">01:00</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 01:00</div>
+            <div class="time-tw">02:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🏨</span>
@@ -657,7 +729,10 @@
 
       <div class="timeline">
         <div class="timeline-item" style="--timeline-color: #ff6b6b;">
-          <div class="timeline-time" style="color: #ff6b6b;">05:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: #ff6b6b;">🇹🇭 05:00</div>
+            <div class="time-tw">06:00（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: #ff6b6b; background: linear-gradient(135deg, rgba(255,107,107,0.15), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">⏰</span>
@@ -668,23 +743,27 @@
         </div>
 
         <div class="timeline-item" style="--timeline-color: #ff6b6b;">
-          <div class="timeline-time" style="color: #ff6b6b;">05:30 - 07:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: #ff6b6b;">🇹🇭 05:30-07:30</div>
+            <div class="time-tw">06:30-08:30（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: #ff6b6b; background: linear-gradient(135deg, rgba(255,107,107,0.15), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">💼</span>
               <span class="timeline-title">【線上】華豐分會</span>
             </div>
             <div class="timeline-desc">
-              <strong>BNI 華豐分會例會</strong><br>
-              台灣時間 06:30-08:30<br>
-              泰國時間 05:30-07:30
+              <strong>BNI 華豐分會例會</strong>
             </div>
             <div class="timeline-note">📍 在飯店房間線上參加</div>
           </div>
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">08:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 08:00</div>
+            <div class="time-tw">09:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🥐</span>
@@ -695,7 +774,10 @@
         </div>
 
         <div class="timeline-item activity">
-          <div class="timeline-time">09:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-blue);">🇹🇭 09:00</div>
+            <div class="time-tw">10:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">💆</span>
@@ -707,7 +789,10 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">11:30</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 11:30</div>
+            <div class="time-tw">12:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🏨</span>
@@ -718,7 +803,10 @@
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">12:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 12:00</div>
+            <div class="time-tw">13:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🍜</span>
@@ -729,23 +817,27 @@
         </div>
 
         <div class="timeline-item" style="--timeline-color: #ff6b6b;">
-          <div class="timeline-time" style="color: #ff6b6b;">13:00 - 16:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: #ff6b6b;">🇹🇭 13:00-16:00</div>
+            <div class="time-tw">14:00-17:00（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: #ff6b6b; background: linear-gradient(135deg, rgba(255,107,107,0.15), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">💼</span>
               <span class="timeline-title">【線上】外貿協會課程</span>
             </div>
             <div class="timeline-desc">
-              <strong>AI＋內容轉化力</strong><br>
-              台灣時間 14:00-17:00<br>
-              泰國時間 13:00-16:00
+              <strong>AI＋內容轉化力</strong>
             </div>
             <div class="timeline-note">📍 在飯店房間線上授課</div>
           </div>
         </div>
 
         <div class="timeline-item activity">
-          <div class="timeline-time">16:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-blue);">🇹🇭 16:30</div>
+            <div class="time-tw">17:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🏊</span>
@@ -756,7 +848,10 @@
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">18:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 18:30</div>
+            <div class="time-tw">19:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🥩</span>
@@ -768,7 +863,10 @@
         </div>
 
         <div class="timeline-item night">
-          <div class="timeline-time">20:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-purple);">🇹🇭 20:30</div>
+            <div class="time-tw">21:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🎭</span>
@@ -786,7 +884,10 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">01:00</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 01:00</div>
+            <div class="time-tw">02:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🏨</span>
@@ -822,7 +923,10 @@
 
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-time">10:00</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 10:00</div>
+            <div class="time-tw">11:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">😴</span>
@@ -833,7 +937,10 @@
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">10:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 10:30</div>
+            <div class="time-tw">11:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🥐</span>
@@ -844,7 +951,10 @@
         </div>
 
         <div class="timeline-item activity">
-          <div class="timeline-time">12:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-blue);">🇹🇭 12:00</div>
+            <div class="time-tw">13:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🏊</span>
@@ -855,7 +965,10 @@
         </div>
 
         <div class="timeline-item activity">
-          <div class="timeline-time">14:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-blue);">🇹🇭 14:00</div>
+            <div class="time-tw">15:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">💆</span>
@@ -870,7 +983,10 @@
         </div>
 
         <div class="timeline-item activity">
-          <div class="timeline-time">17:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-blue);">🇹🇭 17:30</div>
+            <div class="time-tw">18:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🛒</span>
@@ -887,7 +1003,10 @@
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">19:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 19:00</div>
+            <div class="time-tw">20:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🍜</span>
@@ -899,7 +1018,10 @@
         </div>
 
         <div class="timeline-item night">
-          <div class="timeline-time">21:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-purple);">🇹🇭 21:00</div>
+            <div class="time-tw">22:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🍺</span>
@@ -916,7 +1038,10 @@
         </div>
 
         <div class="timeline-item night">
-          <div class="timeline-time">23:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-purple);">🇹🇭 23:00</div>
+            <div class="time-tw">00:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🎵</span>
@@ -932,7 +1057,10 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">01:00</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 01:00</div>
+            <div class="time-tw">02:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🏨</span>
@@ -967,7 +1095,10 @@
 
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-time">07:30</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 07:30</div>
+            <div class="time-tw">08:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">⏰</span>
@@ -978,23 +1109,27 @@
         </div>
 
         <div class="timeline-item" style="--timeline-color: #ff6b6b;">
-          <div class="timeline-time" style="color: #ff6b6b;">08:00 - 09:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: #ff6b6b;">🇹🇭 08:00-09:00</div>
+            <div class="time-tw">09:00-10:00（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: #ff6b6b; background: linear-gradient(135deg, rgba(255,107,107,0.15), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">💼</span>
               <span class="timeline-title">【線上】培訓大使會議</span>
             </div>
             <div class="timeline-desc">
-              <strong>華字輩培訓大使會議</strong><br>
-              台灣時間 09:00-10:00<br>
-              泰國時間 08:00-09:00
+              <strong>華字輩培訓大使會議</strong>
             </div>
             <div class="timeline-note">📍 在飯店房間線上參加</div>
           </div>
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">09:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 09:30</div>
+            <div class="time-tw">10:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🥐</span>
@@ -1005,7 +1140,10 @@
         </div>
 
         <div class="timeline-item activity">
-          <div class="timeline-time">10:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-blue);">🇹🇭 10:30</div>
+            <div class="time-tw">11:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">💆</span>
@@ -1017,7 +1155,10 @@
         </div>
 
         <div class="timeline-item activity">
-          <div class="timeline-time">13:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-blue);">🇹🇭 13:00</div>
+            <div class="time-tw">14:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🛕</span>
@@ -1029,7 +1170,10 @@
         </div>
 
         <div class="timeline-item activity">
-          <div class="timeline-time">15:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-blue);">🇹🇭 15:30</div>
+            <div class="time-tw">16:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🛍️</span>
@@ -1040,7 +1184,10 @@
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">18:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 18:00</div>
+            <div class="time-tw">19:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🍜</span>
@@ -1052,7 +1199,10 @@
         </div>
 
         <div class="timeline-item night">
-          <div class="timeline-time">20:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-purple);">🇹🇭 20:00</div>
+            <div class="time-tw">21:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🎮</span>
@@ -1069,7 +1219,10 @@
         </div>
 
         <div class="timeline-item night">
-          <div class="timeline-time">23:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-purple);">🇹🇭 23:00</div>
+            <div class="time-tw">00:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🌙</span>
@@ -1091,7 +1244,10 @@
 
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-time">09:00</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 09:00</div>
+            <div class="time-tw">10:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🌅</span>
@@ -1102,7 +1258,10 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">10:30</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 10:30</div>
+            <div class="time-tw">11:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🏨</span>
@@ -1113,23 +1272,27 @@
         </div>
 
         <div class="timeline-item" style="--timeline-color: #ff6b6b;">
-          <div class="timeline-time" style="color: #ff6b6b;">11:00 - 12:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: #ff6b6b;">🇹🇭 11:00-12:00</div>
+            <div class="time-tw">12:00-13:00（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: #ff6b6b; background: linear-gradient(135deg, rgba(255,107,107,0.15), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">💼</span>
               <span class="timeline-title">【線上】第三堂課</span>
             </div>
             <div class="timeline-desc">
-              <strong>線上課程第三堂</strong><br>
-              台灣時間 12:00-13:00<br>
-              泰國時間 11:00-12:00
+              <strong>線上課程第三堂</strong>
             </div>
             <div class="timeline-note">📍 在飯店房間線上授課</div>
           </div>
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">12:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 12:30</div>
+            <div class="time-tw">13:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🍛</span>
@@ -1140,7 +1303,10 @@
         </div>
 
         <div class="timeline-item activity">
-          <div class="timeline-time">14:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-blue);">🇹🇭 14:00</div>
+            <div class="time-tw">15:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">💆</span>
@@ -1152,7 +1318,10 @@
         </div>
 
         <div class="timeline-item activity">
-          <div class="timeline-time">17:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-blue);">🇹🇭 17:30</div>
+            <div class="time-tw">18:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🛒</span>
@@ -1167,7 +1336,10 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">19:00</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 19:00</div>
+            <div class="time-tw">20:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🧳</span>
@@ -1178,7 +1350,10 @@
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">19:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 19:30</div>
+            <div class="time-tw">20:30（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🥘</span>
@@ -1189,7 +1364,10 @@
         </div>
 
         <div class="timeline-item night">
-          <div class="timeline-time">21:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-purple);">🇹🇭 21:00</div>
+            <div class="time-tw">22:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🎭</span>
@@ -1204,14 +1382,17 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">23:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: #ff4444;">🇹🇭 23:00</div>
+            <div class="time-tw">00:00（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: #ff4444; background: linear-gradient(135deg, rgba(255,68,68,0.1), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">⚠️</span>
               <span class="timeline-title">回飯店！早點睡！</span>
             </div>
             <div class="timeline-desc">
-              <strong style="color: #ff4444;">明天 04:45 要起床！</strong><br>
+              <strong style="color: #ff4444;">明天 04:45（泰）/ 05:45（台）要起床！</strong><br>
               • 05:30 巴士來接<br>
               • 趕 06:00 的早班車<br>
               • 整理好行李再睡
@@ -1232,7 +1413,10 @@
 
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-time">04:45</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: #ff4444;">🇹🇭 04:45</div>
+            <div class="time-tw">05:45（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: #ff4444; background: linear-gradient(135deg, rgba(255,68,68,0.1), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">⏰</span>
@@ -1247,7 +1431,10 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">05:15</div>
+          <div class="dual-time">
+            <div class="time-th">🇹🇭 05:15</div>
+            <div class="time-tw">06:15（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: var(--gold);">
             <div class="timeline-header">
               <span class="timeline-icon">🧳</span>
@@ -1261,7 +1448,10 @@
         </div>
 
         <div class="timeline-item travel">
-          <div class="timeline-time">05:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇭 05:30</div>
+            <div class="time-tw">06:30（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: var(--neon-blue); background: linear-gradient(135deg, rgba(0,255,255,0.1), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">🚐</span>
@@ -1277,7 +1467,10 @@
         </div>
 
         <div class="timeline-item travel">
-          <div class="timeline-time">06:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇭 06:00</div>
+            <div class="time-tw">07:00（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: var(--neon-blue); background: linear-gradient(135deg, rgba(0,255,255,0.1), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">🚌</span>
@@ -1292,7 +1485,10 @@
         </div>
 
         <div class="timeline-item travel">
-          <div class="timeline-time">08:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇭 08:00</div>
+            <div class="time-tw">09:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🛃</span>
@@ -1304,7 +1500,10 @@
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">09:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 09:00</div>
+            <div class="time-tw">10:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🍳</span>
@@ -1315,7 +1514,10 @@
         </div>
 
         <div class="timeline-item activity">
-          <div class="timeline-time">10:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-blue);">🇹🇭 10:00</div>
+            <div class="time-tw">11:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🛍️</span>
@@ -1326,7 +1528,10 @@
         </div>
 
         <div class="timeline-item meal">
-          <div class="timeline-time">12:00</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--gold);">🇹🇭 12:00</div>
+            <div class="time-tw">13:00（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🍜</span>
@@ -1337,7 +1542,10 @@
         </div>
 
         <div class="timeline-item travel">
-          <div class="timeline-time">13:15</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇭 13:15</div>
+            <div class="time-tw">14:15（台灣時間）</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🚶</span>
@@ -1348,7 +1556,10 @@
         </div>
 
         <div class="timeline-item travel">
-          <div class="timeline-time">13:45</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇭 13:45（泰國起飛）</div>
+            <div class="time-tw">14:45（台灣時間）</div>
+          </div>
           <div class="timeline-card" style="border-color: var(--neon-green); background: linear-gradient(135deg, rgba(0,255,136,0.1), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">✈️</span>
@@ -1365,7 +1576,9 @@
         </div>
 
         <div class="timeline-item travel">
-          <div class="timeline-time">18:25</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇼 18:25（台灣抵達）</div>
+          </div>
           <div class="timeline-card" style="border-color: var(--neon-green); background: linear-gradient(135deg, rgba(0,255,136,0.1), transparent);">
             <div class="timeline-header">
               <span class="timeline-icon">🛬</span>
@@ -1377,7 +1590,9 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">19:30</div>
+          <div class="dual-time">
+            <div class="time-th" style="color: var(--neon-green);">🇹🇼 19:30</div>
+          </div>
           <div class="timeline-card">
             <div class="timeline-header">
               <span class="timeline-icon">🏠</span>

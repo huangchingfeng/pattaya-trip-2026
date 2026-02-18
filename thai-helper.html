@@ -536,7 +536,7 @@
 
     function initializeApp() {
       if (!phrasesData || !phrasesData.categories) {
-        console.error('資料未載入');
+        console.error('❌ 資料未載入');
         return;
       }
 
@@ -551,12 +551,15 @@
           });
         });
       });
-      
+
+      console.log(`✅ allPhrases 建立完成，共 ${allPhrases.length} 個句型`);
+
       // 初始化分類標籤
       initCategoryTabs();
-      
+
       // 顯示熱門句型
       showHotPhrases();
+    }
 
     // 初始化分類標籤
     function initCategoryTabs() {
@@ -599,6 +602,8 @@
 
     // 搜尋功能
     function search(query) {
+      console.log('[搜尋] 關鍵字:', query, '| allPhrases 長度:', allPhrases.length);
+
       const clearBtn = document.getElementById('clearBtn');
       clearBtn.classList.toggle('show', query.length > 0);
 
@@ -614,6 +619,8 @@
         p.phonetic.includes(query) ||
         p.scenario.includes(query)
       );
+
+      console.log('[搜尋] 找到', results.length, '個結果');
 
       const container = document.getElementById('results');
       const noResults = document.getElementById('noResults');
@@ -713,10 +720,9 @@
           });
       });
     }
-    }
-    
+
     // 頁面載入時執行
     loadPhrasesData();
-    </script>
+  </script>
 </body>
 </html>

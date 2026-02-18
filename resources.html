@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>夜生活攻略資源 - 芭達雅之旅 2026</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --neon-pink: #ff00ff;
+      --neon-blue: #00ffff;
+      --neon-purple: #bf00ff;
+      --neon-orange: #ff6b35;
+      --gold: #ffd700;
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: rgba(18, 18, 26, 0.85);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.8);
+      --text-muted: rgba(255, 255, 255, 0.5);
+      --safe-top: env(safe-area-inset-top, 20px);
+      --safe-bottom: env(safe-area-inset-bottom, 20px);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* 頂部導航 */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 12px) 20px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-content {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--neon-pink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .page-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    /* 內容區 */
+    .content {
+      padding-top: calc(var(--safe-top) + 80px);
+      padding-bottom: calc(var(--safe-bottom) + 40px);
+      max-width: 600px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    /* 介紹區 */
+    .intro {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .intro-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .intro-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--neon-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .intro-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* 分類標題 */
+    .category-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--neon-pink);
+      margin: 32px 0 16px;
+      padding-left: 12px;
+      border-left: 4px solid var(--neon-pink);
+    }
+
+    /* 資源卡片 */
+    .resource-card {
+      display: block;
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--neon-pink);
+      box-shadow: 0 8px 30px rgba(255,0,255,0.2);
+    }
+
+    .resource-card:active {
+      transform: scale(0.98);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .card-icon {
+      font-size: 1.8rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--text-primary);
+    }
+
+    .card-title-thai {
+      font-size: 0.8rem;
+      color: var(--neon-blue);
+      margin-top: 2px;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      background: rgba(255,0,255,0.15);
+      border: 1px solid rgba(255,0,255,0.3);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: var(--neon-pink);
+    }
+
+    .tag.gold {
+      background: rgba(255,215,0,0.15);
+      border-color: rgba(255,215,0,0.3);
+      color: var(--gold);
+    }
+
+    .tag.blue {
+      background: rgba(0,255,255,0.15);
+      border-color: rgba(0,255,255,0.3);
+      color: var(--neon-blue);
+    }
+
+    .card-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Telegram 群組 */
+    .telegram-section {
+      background: linear-gradient(135deg, rgba(0,136,204,0.2), rgba(0,136,204,0.05));
+      border: 1px solid rgba(0,136,204,0.3);
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 24px;
+    }
+
+    .telegram-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #0088cc;
+      margin-bottom: 16px;
+    }
+
+    .telegram-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .telegram-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: rgba(0,136,204,0.1);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+    }
+
+    .telegram-link:hover {
+      background: rgba(0,136,204,0.2);
+    }
+
+    .telegram-name {
+      font-weight: 700;
+    }
+
+    /* 注意事項 */
+    .warning-box {
+      background: rgba(255,107,53,0.15);
+      border: 1px solid rgba(255,107,53,0.3);
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 32px;
+    }
+
+    .warning-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--neon-orange);
+      margin-bottom: 12px;
+    }
+
+    .warning-list {
+      list-style: none;
+    }
+
+    .warning-list li {
+      padding: 8px 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .warning-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* 底部返回 */
+    .footer-nav {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .footer-btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      border-radius: 30px;
+      text-decoration: none;
+      color: white;
+      font-weight: 900;
+      font-size: 1rem;
+      box-shadow: 0 8px 30px rgba(255,0,255,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .footer-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(255,0,255,0.4);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <a href="index.html" class="back-btn">← 返回首頁</a>
+      <span class="page-title">攻略資源</span>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="intro">
+      <div class="intro-icon">📚</div>
+      <h1 class="intro-title">夜生活攻略資源</h1>
+      <p class="intro-desc">
+        精選華人圈最完整的泰國夜生活指南<br>
+        點擊直接前往原網站查看完整內容
+      </p>
+    </div>
+
+    <!-- 泰國老司機 -->
+    <h2 class="category-title">泰國老司機 Thai Old Driver</h2>
+
+    <a href="https://thaiolddriver.com/guide/agogo-bar/" target="_blank" class="resource-card">
+      <div class="card-header">
+        <span class="card-icon">🍸</span>
+        <div>
+          <div class="card-title">Agogo Bar 新手完整攻略</div>
+          <div class="card-title-thai">คู่มือเริ่มต้น Agogo Bar</div>
+        </div>
+      </div>
+      <div class="card-desc">什麼是 Agogo Bar、消費價格、玩法步驟、10個新手常見錯誤完整避坑指南</div>
+      <div class="card-tags">
+        <span class="tag gold">必讀</span>
+        <span class="tag">新手入門</span>
+        <span class="tag">價格參考</span>
+      </div>
+      <div class="card-arrow">前往閱讀 →</div>
+    </a>
+
+    <a href="https://thaiolddriver.com/nightlife/?_area=pattaya" target="_blank" class="resource-card">
+      <div class="card-header">
+        <span class="card-icon">🏖️</span>
+        <div>
+          <div class="card-title">芭達雅夜生活目錄</div>
+          <div class="card-title-thai">ไนท์ไลฟ์พัทยา</div>
+        </div>
+      </div>
+      <div class="card-desc">Walking Street、Soi 6、LK Metro、Soi Buakhao 完整店家目錄與評價</div>
+      <div class="card-tags">
+        <span class="tag gold">芭達雅</span>
+        <span class="tag blue">店家目錄</span>
+      </div>
+      <div class="card-arrow">前往閱讀 →</div>
+    </a>
+
+    <a href="https://thaiolddriver.com/nightlife/?_area=bangkok" target="_blank" class="resource-card">
+      <div class="card-header">
+        <span class="card-icon">🌃</span>
+        <div>
+          <div class="card-title">曼谷夜生活目錄</div>
+          <div class="card-title-thai">ไนท์ไลฟ์กรุงเทพ</div>
+        </div>
+      </div>
+      <div class="card-desc">娜娜廣場、牛仔街、帕蓬三大紅燈區完整店家目錄</div>
+      <div class="card-tags">
+        <span class="tag gold">曼谷</span>
+        <span class="tag blue">店家目錄</span>
+      </div>
+      <div class="card-arrow">前往閱讀 →</div>
+    </a>
+
+    <a href="https://thaiolddriver.com/guide/bangkok-nightlife/" target="_blank" class="resource-card">
+      <div class="card-header">
+        <span class="card-icon">📖</span>
+        <div>
+          <div class="card-title">曼谷夜生活入門指南</div>
+          <div class="card-title-thai">คู่มือไนท์ไลฟ์กรุงเทพ</div>
+        </div>
+      </div>
+      <div class="card-desc">11種夜生活類型介紹、區域特色、消費指南</div>
+      <div class="card-tags">
+        <span class="tag">入門指南</span>
+        <span class="tag">區域介紹</span>
+      </div>
+      <div class="card-arrow">前往閱讀 →</div>
+    </a>
+
+    <a href="https://thaiolddriver.com/beginner-guide/2025-soi-cowboy-complete-guide/" target="_blank" class="resource-card">
+      <div class="card-header">
+        <span class="card-icon">🤠</span>
+        <div>
+          <div class="card-title">牛仔街完整攻略 2025</div>
+          <div class="card-title-thai">คู่มือ Soi Cowboy 2025</div>
+        </div>
+      </div>
+      <div class="card-desc">四大天王店家推薦、價格比較、最新資訊</div>
+      <div class="card-tags">
+        <span class="tag">牛仔街</span>
+        <span class="tag">店家推薦</span>
+      </div>
+      <div class="card-arrow">前往閱讀 →</div>
+    </a>
+
+    <!-- 其他資源 -->
+    <h2 class="category-title">其他華人攻略</h2>
+
+    <a href="https://kimiyo.tw/pattaya-walking-street/" target="_blank" class="resource-card">
+      <div class="card-header">
+        <span class="card-icon">🐱</span>
+        <div>
+          <div class="card-title">喵爸喵媽 - 步行街攻略</div>
+        </div>
+      </div>
+      <div class="card-desc">芭達雅 Walking Street 紅燈區完整介紹、GoGo Bar 文化解析</div>
+      <div class="card-tags">
+        <span class="tag">Walking Street</span>
+      </div>
+      <div class="card-arrow">前往閱讀 →</div>
+    </a>
+
+    <a href="https://640life.com/bangkok-gogobar/" target="_blank" class="resource-card">
+      <div class="card-header">
+        <span class="card-icon">🌍</span>
+        <div>
+          <div class="card-title">赤子之心 - 曼谷 GoGo Bar</div>
+        </div>
+      </div>
+      <div class="card-desc">曼谷娜娜廣場深度解析、三大紅燈區消費攻略</div>
+      <div class="card-tags">
+        <span class="tag">娜娜廣場</span>
+        <span class="tag">深度攻略</span>
+      </div>
+      <div class="card-arrow">前往閱讀 →</div>
+    </a>
+
+    <a href="https://raknoi.com/" target="_blank" class="resource-card">
+      <div class="card-header">
+        <span class="card-icon">🌙</span>
+        <div>
+          <div class="card-title">RAKNOI 曼谷夜遊</div>
+        </div>
+      </div>
+      <div class="card-desc">曼谷夜遊日常記錄、夜生活體驗分享</div>
+      <div class="card-tags">
+        <span class="tag blue">Vlog</span>
+        <span class="tag">曼谷</span>
+      </div>
+      <div class="card-arrow">前往閱讀 →</div>
+    </a>
+
+    <!-- Telegram 群組 -->
+    <div class="telegram-section">
+      <div class="telegram-title">
+        <span>📱</span>
+        <span>Telegram 華人群組</span>
+      </div>
+      <div class="telegram-list">
+        <a href="https://t.me/taiguomangu1906" target="_blank" class="telegram-link">
+          <span class="telegram-name">泰國曼谷芭提雅交流群</span>
+          <span>加入 →</span>
+        </a>
+        <a href="https://t.me/Kuntai666" target="_blank" class="telegram-link">
+          <span class="telegram-name">泰國曼谷芭提雅華人社群</span>
+          <span>加入 →</span>
+        </a>
+        <a href="https://t.me/s/miloveTG" target="_blank" class="telegram-link">
+          <span class="telegram-name">泰國 MiLove</span>
+          <span>加入 →</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 注意事項 -->
+    <div class="warning-box">
+      <div class="warning-title">
+        <span>⚠️</span>
+        <span>安全注意事項</span>
+      </div>
+      <ul class="warning-list">
+        <li>🚫 不要跟陌生人去二樓或暗巷</li>
+        <li>💰 消費前先確認價格</li>
+        <li>📱 手機錢包隨身保管</li>
+        <li>🍺 不要喝陌生人請的酒</li>
+        <li>🔞 遵守當地法律，理性消費</li>
+      </ul>
+    </div>
+
+    <!-- 底部返回 -->
+    <div class="footer-nav">
+      <a href="night.html" class="footer-btn">← 返回夜間行程</a>
+    </div>
+  </main>
+</body>
+</html>

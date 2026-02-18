@@ -5,7 +5,9 @@
 ### 夜生活指南
 | 網站 | 說明 | 連結 |
 |------|------|------|
-| **泰國老司機** | 最完整的中文夜生活目錄，含 Agogo、泰國浴、夜店、紳士俱樂部等 | https://thaiolddriver.com/nightlife/?_area=pattaya |
+| **泰國老司機** | 最完整的中文夜生活目錄，含 Agogo、泰國浴、夜店、紳士俱樂部等 | https://thaiolddriver.com/nightlife/ |
+| **泰國老司機-曼谷夜生活指南** | 曼谷夜生活入門指南 | https://thaiolddriver.com/guide/bangkok-nightlife/ |
+| **泰國老司機-Agogo指南** | Agogo 酒吧玩法完整攻略 | https://thaiolddriver.com/guide/agogo-bar/ |
 | **喵爸喵媽** | 芭達雅紅燈區攻略（Walking Street） | https://kimiyo.tw/pattaya-walking-street/ |
 | **蔡小妞依玲** | 芭達雅全方位自由行攻略 | https://tsnio.com/pattaya/ |
 | **赤子之心闘世界** | 曼谷 GoGo Bar 深度解析 | https://640life.com/bangkok-gogobar/ |
@@ -76,9 +78,31 @@
 
 ---
 
+---
+
+## 曼谷夜生活區域
+
+### 娜娜廣場 Nana Plaza
+- BTS Nana 站 3 號出口
+- 曼谷最大的 Agogo 酒吧集中地
+- 三層樓建築，約 30+ 家酒吧
+
+### 牛仔街 Soi Cowboy
+- BTS Asok 站或 MRT Sukhumvit 站
+- 霓虹燈一條街，約 30 家 Agogo
+- 價格相對透明
+
+### 帕蓬 Patpong
+- BTS Sala Daeng 站或 MRT Silom 站
+- 曼谷最老的紅燈區
+- 夜市與酒吧並存，二樓 Show 要小心
+
+---
+
 ## 更新紀錄
 
 | 日期 | 更新內容 |
 |------|---------|
+| 2026-02-18 | 新增曼谷夜生活區域（娜娜、牛仔街、帕蓬） |
 | 2026-02-18 | 新增泰國老司機網站資源 |
 | 2026-02-18 | 新增 Telegram 群組、YouTube 關鍵字 |

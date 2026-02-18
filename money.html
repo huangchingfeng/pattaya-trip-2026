@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>換錢攻略 - 芭達雅之旅 2026</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --neon-pink: #ff00ff;
+      --neon-blue: #00ffff;
+      --neon-green: #00ff88;
+      --gold: #ffd700;
+      --bg-primary: #0a0a0f;
+      --bg-card: rgba(18, 18, 26, 0.85);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.8);
+      --text-muted: rgba(255, 255, 255, 0.5);
+      --safe-top: env(safe-area-inset-top, 20px);
+      --safe-bottom: env(safe-area-inset-bottom, 20px);
+      --danger: #ff4444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 12px) 20px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-content {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .back-btn {
+      color: var(--neon-pink);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .page-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    .content {
+      padding-top: calc(var(--safe-top) + 80px);
+      padding-bottom: calc(var(--safe-bottom) + 40px);
+      max-width: 600px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .intro-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .intro-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--neon-green), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin: 32px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    /* 評分卡片 */
+    .rating-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .rating-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .rating-card.best {
+      border-color: var(--neon-green);
+      background: linear-gradient(135deg, rgba(0,255,136,0.1), transparent);
+    }
+
+    .rating-card.good {
+      border-color: var(--gold);
+    }
+
+    .rating-card.bad {
+      border-color: var(--danger);
+      opacity: 0.7;
+    }
+
+    .rating-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .rating-icon {
+      font-size: 1.5rem;
+    }
+
+    .rating-name {
+      font-weight: 900;
+    }
+
+    .rating-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .rating-stars {
+      font-size: 1.2rem;
+      color: var(--gold);
+    }
+
+    .rating-badge {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .rating-badge.best {
+      background: var(--neon-green);
+      color: #000;
+    }
+
+    .rating-badge.good {
+      background: var(--gold);
+      color: #000;
+    }
+
+    .rating-badge.bad {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    /* 地點卡片 */
+    .location-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+
+    .location-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .location-icon {
+      font-size: 2rem;
+    }
+
+    .location-name {
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .location-name-en {
+      font-size: 0.85rem;
+      color: var(--neon-blue);
+    }
+
+    .location-details {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .location-details li {
+      margin: 6px 0;
+      padding-left: 8px;
+    }
+
+    /* 策略框 */
+    .strategy-box {
+      background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(255,215,0,0.05));
+      border: 2px solid var(--neon-green);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 24px 0;
+    }
+
+    .strategy-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--neon-green);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .strategy-steps {
+      list-style: none;
+    }
+
+    .strategy-steps li {
+      padding: 10px 0;
+      padding-left: 32px;
+      position: relative;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .strategy-steps li::before {
+      position: absolute;
+      left: 0;
+      font-weight: 900;
+    }
+
+    .strategy-steps li:nth-child(1)::before { content: '1️⃣'; }
+    .strategy-steps li:nth-child(2)::before { content: '2️⃣'; }
+    .strategy-steps li:nth-child(3)::before { content: '3️⃣'; }
+
+    .strategy-steps li:last-child {
+      border-bottom: none;
+    }
+
+    /* 提醒框 */
+    .tip-box {
+      background: rgba(0,255,255,0.1);
+      border: 1px solid rgba(0,255,255,0.3);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .tip-box.warning {
+      background: rgba(255,68,68,0.1);
+      border-color: rgba(255,68,68,0.3);
+    }
+
+    .tip-title {
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: var(--neon-blue);
+    }
+
+    .tip-box.warning .tip-title {
+      color: var(--danger);
+    }
+
+    .tip-content {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Checklist */
+    .checklist {
+      list-style: none;
+      margin: 16px 0;
+    }
+
+    .checklist li {
+      padding: 10px 0;
+      padding-left: 32px;
+      position: relative;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .checklist li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--neon-green);
+      font-weight: 900;
+    }
+
+    .footer-nav {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .footer-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--neon-green), var(--gold));
+      border-radius: 30px;
+      text-decoration: none;
+      color: #000;
+      font-weight: 900;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <a href="day.html" class="back-btn">← 返回行程</a>
+      <span class="page-title">換錢攻略</span>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="intro">
+      <div class="intro-icon">💱</div>
+      <h1 class="intro-title">泰銖換匯攻略</h1>
+      <p style="color: var(--text-muted);">找 SuperRich 換就對了！</p>
+    </div>
+
+    <h2 class="section-title">📊 匯率比較</h2>
+
+    <div class="rating-grid">
+      <div class="rating-card best">
+        <div class="rating-info">
+          <span class="rating-icon">🏆</span>
+          <div>
+            <div class="rating-name">曼谷市區 SuperRich</div>
+            <div class="rating-desc">水門市場總部</div>
+          </div>
+        </div>
+        <span class="rating-badge best">最佳</span>
+      </div>
+
+      <div class="rating-card good">
+        <div class="rating-info">
+          <span class="rating-icon">✈️</span>
+          <div>
+            <div class="rating-name">機場 B1 SuperRich</div>
+            <div class="rating-desc">素萬那普機場</div>
+          </div>
+        </div>
+        <span class="rating-badge good">不錯</span>
+      </div>
+
+      <div class="rating-card bad">
+        <div class="rating-info">
+          <span class="rating-icon">🏦</span>
+          <div>
+            <div class="rating-name">機場銀行櫃檯</div>
+            <div class="rating-desc">匯率差 20%+</div>
+          </div>
+        </div>
+        <span class="rating-badge bad">避免</span>
+      </div>
+
+      <div class="rating-card">
+        <div class="rating-info">
+          <span class="rating-icon">🌴</span>
+          <div>
+            <div class="rating-name">芭達雅當地</div>
+            <div class="rating-desc">選擇較少</div>
+          </div>
+        </div>
+        <span class="rating-stars">⭐⭐⭐</span>
+      </div>
+    </div>
+
+    <h2 class="section-title">✈️ 機場換錢（素萬那普 BKK）</h2>
+
+    <div class="location-card">
+      <div class="location-header">
+        <span class="location-icon">🟢</span>
+        <div>
+          <div class="location-name">SuperRich / Happy Rich</div>
+          <div class="location-name-en">B1 樓層・Airport Rail Link 方向</div>
+        </div>
+      </div>
+      <ul class="location-details">
+        <li>📍 出關後搭手扶梯到 B1</li>
+        <li>📍 往 Airport Rail Link 方向走</li>
+        <li>🕐 營業：05:00 - 00:00</li>
+        <li>💡 匯率比機場銀行好很多！</li>
+      </ul>
+    </div>
+
+    <div class="tip-box warning">
+      <div class="tip-title">⚠️ 避免在機場「內部銀行」換！</div>
+      <div class="tip-content">
+        機場入境大廳的銀行櫃檯匯率極差，可能差 20% 以上。<br>
+        例：台幣換泰銖只有 0.92，而 SuperRich 可達 1.17！
+      </div>
+    </div>
+
+    <h2 class="section-title">🏙️ 曼谷市區最佳換匯</h2>
+
+    <div class="location-card" style="border-color: var(--neon-green);">
+      <div class="location-header">
+        <span class="location-icon">🏆</span>
+        <div>
+          <div class="location-name">SuperRich 總部</div>
+          <div class="location-name-en">Ratchadamri / 水門市場</div>
+        </div>
+      </div>
+      <ul class="location-details">
+        <li>📍 BTS Chit Lom 站步行 5-10 分鐘</li>
+        <li>🕐 營業：09:00 - 18:00</li>
+        <li>💡 匯率全曼谷最好</li>
+        <li>⚠️ 人多需排隊</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">💡 建議策略</h2>
+
+    <div class="strategy-box">
+      <div class="strategy-title">🎯 最佳換錢策略</div>
+      <ol class="strategy-steps">
+        <li><strong>機場 B1 SuperRich</strong> 換 2,000-3,000 THB（交通+第一天用）</li>
+        <li><strong>曼谷市區 SuperRich</strong> 換主要現金（如果有經過）</li>
+        <li>或直接在<strong>機場 B1 換足夠用的量</strong>（匯率其實也不錯）</li>
+      </ol>
+    </div>
+
+    <h2 class="section-title">📝 換匯注意事項</h2>
+
+    <ul class="checklist">
+      <li>攜帶<strong>護照正本</strong>（必須）</li>
+      <li>大鈔（1000、500）匯率通常比小鈔好</li>
+      <li>年底 SuperRich 會休息 3 天</li>
+      <li>用 <a href="https://www.superrich1965.com/" target="_blank" style="color: var(--neon-blue);">SuperRich 官網</a> 查即時匯率</li>
+    </ul>
+
+    <div class="tip-box">
+      <div class="tip-title">💰 目前匯率參考</div>
+      <div class="tip-content">
+        新台幣 1 元 ≈ 1.005 泰銖<br>
+        實際匯率依當天公告為準
+      </div>
+    </div>
+
+    <div class="footer-nav">
+      <a href="day.html" class="footer-btn">← 返回白天行程</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -474,6 +474,7 @@
   <div class="tabs">
     <button class="tab-btn active" onclick="switchTab('gogo')">🎭 GoGo Bar</button>
     <button class="tab-btn" onclick="switchTab('beer')">🍺 Beer Bar</button>
+    <button class="tab-btn" onclick="switchTab('areas')">🗺️ 區域攻略</button>
   </div>
 
   <main class="content">
@@ -885,6 +886,249 @@
         <li>帶保護措施</li>
         <li>小額鈔票（20、100 面額）</li>
       </ul>
+    </div>
+
+    <!-- 芭達雅各區域攻略 -->
+    <div id="areas" class="tab-content">
+      <h2 class="section-title">🗺️ 芭達雅各區域總覽</h2>
+
+      <div class="tip-box" style="background: rgba(0,255,136,0.1); border-color: rgba(0,255,136,0.3);">
+        <div class="tip-title" style="color: var(--success);">💡 選區建議</div>
+        <div class="tip-content">
+          • <strong>第一次來</strong> → 步行街 Walking Street（最熱鬧）<br>
+          • <strong>省錢體驗</strong> → Soi 6 / Soi 7（中低價位）<br>
+          • <strong>想要房間</strong> → Soi 6 / Soi Bonkot / Soi Chaiyapoon<br>
+          • <strong>高檔體驗</strong> → LK Metro / Walking Street
+        </div>
+      </div>
+
+      <h2 class="section-title">💰 價格等級說明</h2>
+      <table class="price-table">
+        <tr>
+          <th>等級</th>
+          <th>說明</th>
+          <th>預算參考</th>
+        </tr>
+        <tr>
+          <td>$</td>
+          <td>便宜</td>
+          <td class="price">1,000-2,000 THB</td>
+        </tr>
+        <tr>
+          <td>$$</td>
+          <td>中等消費</td>
+          <td class="price">2,000-4,000 THB</td>
+        </tr>
+        <tr>
+          <td>$$$</td>
+          <td>高消費</td>
+          <td class="price">4,000+ THB</td>
+        </tr>
+      </table>
+
+      <h2 class="section-title">🔥 熱門區域（高消費 $$$）</h2>
+
+      <div class="step-card" id="walking-street">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--neon-pink);">🏆</span>
+          <span class="step-title">Walking Street 步行街</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$$$ 高消費｜GoGo Bar 集中地</div>
+          <strong>推薦店家：</strong><br>
+          Dollhouse、Electric Blue、Atlantis、Windmill、Pin Up、X's、Sapphire、Skyfall
+          <div style="margin-top: 8px; color: var(--text-muted);">
+            ⚠️ 芭達雅最著名的夜生活核心，價格較高但品質最好
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card" id="lk-metro">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--neon-purple);">⭐</span>
+          <span class="step-title">LK Metro</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$$$ 高消費｜精緻小巧</div>
+          <strong>推薦店家：</strong><br>
+          Kink、Sugar Sugar、Queen
+          <div style="margin-top: 8px; color: var(--text-muted);">
+            💡 比步行街人少，更輕鬆的選擇
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title">⭐ 推薦區域（中等消費 $$）</h2>
+
+      <div class="step-card" id="soi6">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--success);">6</span>
+          <span class="step-title">Soi 6 六巷</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$$ 中等消費｜🏠 有房間</div>
+          <strong>推薦店家：</strong><br>
+          Nightwish、Ruby Club、Roxy Bar、Toy Box
+          <div style="margin-top: 8px; color: var(--text-muted);">
+            💡 700+ 女孩、下午就開始營業、效率首選
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card" id="soi-buakhao">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--neon-blue);">B</span>
+          <span class="step-title">Soi Buakhao</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$$ 中等消費</div>
+          本地人較多的區域，Freelancer 出沒
+          <div style="margin-top: 8px; color: var(--text-muted);">
+            💡 比較隨性，適合有經驗者
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card" id="soi-boomerang">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--neon-orange);">🪃</span>
+          <span class="step-title">Soi Boomerang</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$$-$$$ 中等至高｜🏠 有房間</div>
+          <strong>推薦店家：</strong><br>
+          Heaven Above、Screamers
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--neon-blue);">5</span>
+          <span class="step-title">Soi Bonkot 5</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$$ 中等消費｜🏠 有房間</div>
+          <strong>推薦店家：</strong>Babylon
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--neon-blue);">8</span>
+          <span class="step-title">Soi Bonkot 8</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$$ 中等消費｜🏠 有房間</div>
+          <strong>推薦店家：</strong>Pirates、Manuya、Purple
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--neon-blue);">C</span>
+          <span class="step-title">Soi Chaiyapoon</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$$ 中等消費｜🏠 有房間</div>
+          <strong>推薦店家：</strong>The Den、High Rollers
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--neon-blue);">E</span>
+          <span class="step-title">Soi Excite</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$$ 中等消費｜🏠 有房間</div>
+          <strong>推薦店家：</strong>Excite Club
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--neon-blue);">H</span>
+          <span class="step-title">Soi Honey</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$$ 中等消費｜🏠 有房間</div>
+          <strong>推薦店家：</strong>Ballers
+        </div>
+      </div>
+
+      <h2 class="section-title">💵 平價區域（便宜 $）</h2>
+
+      <div class="step-card" id="soi7">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--success);">7</span>
+          <span class="step-title">Soi 7</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$ 便宜</div>
+          <strong>推薦店家：</strong>Hook Up Bar、A7-DJ
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--success);">8</span>
+          <span class="step-title">Soi 8</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$ 便宜</div>
+          較少人推薦，可以走走看
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--success);">L</span>
+          <span class="step-title">Soi Lengkee</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$ 便宜｜🏠 有房間</div>
+          <strong>推薦店家：</strong>La Poste（老牌）
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--success);">3</span>
+          <span class="step-title">3rd Road</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$ 便宜｜🏠 有房間</div>
+          <strong>推薦店家：</strong>Babylon Paradise、MClub
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number" style="background: var(--success);">T</span>
+          <span class="step-title">Tree Town</span>
+        </div>
+        <div class="step-content">
+          <div style="color: var(--gold); margin-bottom: 8px;">$ 便宜</div>
+          較少人推薦，可以探索
+        </div>
+      </div>
+
+      <div class="mantra-box">
+        <div class="mantra-title">💰 老司機金句</div>
+        <div class="mantra-text">
+          「你省下來的錢，以為夠了，其實不夠。<br>
+          <strong style="color: var(--gold);">乘以二！相信我，乘以二！</strong>」
+        </div>
+      </div>
+
+      <div class="tip-box warning">
+        <div class="tip-title">⚠️ 重要提醒</div>
+        <div class="tip-content">
+          • 步行街和 LK Metro 是高級區域，體驗最好但價格最貴<br>
+          • 有房間的區域可以直接「上樓」，省去找旅館的麻煩<br>
+          • 價格都要事先談好，避免事後糾紛
+        </div>
+      </div>
     </div>
 
     <!-- 共用：緊急聯絡 -->

@@ -223,6 +223,28 @@
       color: var(--neon-green);
     }
 
+    /* 步驟圖片 */
+    .step-image {
+      margin-top: 12px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .step-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .step-image-caption {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 8px;
+      background: rgba(0,0,0,0.3);
+    }
+
     /* 客服資訊 */
     .support-box {
       background: linear-gradient(135deg, rgba(0,255,255,0.1), rgba(0,255,136,0.05));
@@ -454,6 +476,10 @@
           <li>檢查所有郵件匣（包含垃圾郵件）</li>
           <li>下單後 5 分鐘內會收到</li>
         </ul>
+        <div class="step-image">
+          <img src="images/esim-01-email.webp" alt="eSIM 郵件範例">
+          <div class="step-image-caption">郵件中會有 QR Code</div>
+        </div>
       </div>
     </div>
 
@@ -482,6 +508,10 @@
           <li>設定 → 行動服務</li>
           <li>點選「加入 eSIM」</li>
         </ul>
+        <div class="step-image">
+          <img src="images/esim-02-settings.webp" alt="設定 > 行動服務">
+          <div class="step-image-caption">點選「加入 eSIM」</div>
+        </div>
       </div>
     </div>
 
@@ -498,6 +528,10 @@
           <li>若無法掃描 → 選「手動輸入」</li>
           <li>輸入 SM-DP+ 位址和啟用碼</li>
         </ul>
+        <div class="step-image">
+          <img src="images/esim-03-scan.webp" alt="掃描 QR Code">
+          <div class="step-image-caption">使用行動條碼或手動輸入</div>
+        </div>
       </div>
     </div>
 
@@ -512,6 +546,10 @@
           <li><strong>請勿跳出畫面！</strong></li>
           <li>耐心等待完成</li>
         </ul>
+        <div class="step-image">
+          <img src="images/esim-04-activating.webp" alt="啟用中">
+          <div class="step-image-caption">正在啟用 eSIM...</div>
+        </div>
       </div>
     </div>
 
@@ -526,6 +564,10 @@
           <li>建議選擇「旅遊」</li>
           <li>或自訂「泰國」</li>
         </ul>
+        <div class="step-image">
+          <img src="images/esim-05-label.webp" alt="設定標籤">
+          <div class="step-image-caption">選擇「旅遊」方便辨識</div>
+        </div>
       </div>
     </div>
 
@@ -540,6 +582,10 @@
           <li>預設號碼：選「主要」（台灣門號）</li>
           <li>iMessage/FaceTime：選「主要」</li>
         </ul>
+        <div class="step-image">
+          <img src="images/esim-06-default.webp" alt="預設號碼設定">
+          <div class="step-image-caption">預設號碼選「主要」</div>
+        </div>
       </div>
     </div>
 
@@ -555,6 +601,10 @@
           <li>抵達泰國：選「旅遊」</li>
           <li>「允許行動數據切換」保持<strong>關閉</strong></li>
         </ul>
+        <div class="step-image">
+          <img src="images/esim-07-data.webp" alt="行動數據設定">
+          <div class="step-image-caption">抵達後切換到「旅遊」</div>
+        </div>
       </div>
     </div>
 
@@ -568,6 +618,10 @@
         <li>行動數據 → 選「旅遊」</li>
         <li>訊號格右邊出現 4 個小點 = 成功！</li>
       </ul>
+      <div class="step-image" style="margin-top: 16px;">
+        <img src="images/esim-08-success.webp" alt="設定完成">
+        <div class="step-image-caption">開啟數據漫遊 = 完成！</div>
+      </div>
     </div>
 
     <!-- 客服資訊 -->

@@ -4,6 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>芭達雅之旅 2026</title>
+  <meta name="description" content="芭達雅旅遊全攻略 - 白天行程、夜生活、泰語助手、派對遊戲，支援離線使用！">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#ff00ff">
+
+  <!-- iOS Safari 支援 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pattaya 2026">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
 
@@ -310,5 +323,20 @@
       4 專家並行研究 × 410 泰語句型 × 完整攻略
     </p>
   </div>
+
+  <!-- Service Worker 註冊 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('✅ Service Worker 註冊成功:', registration.scope);
+          })
+          .catch((error) => {
+            console.error('❌ Service Worker 註冊失敗:', error);
+          });
+      });
+    }
+  </script>
 </body>
 </html>

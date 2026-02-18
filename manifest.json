@@ -1,0 +1,28 @@
+{
+  "name": "芭達雅之旅 2026 - 白天行程、夜生活、泰語助手",
+  "short_name": "Pattaya 2026",
+  "description": "你的芭達雅旅遊全攻略：白天景點、夜生活指南、泰語小幫手、派對遊戲，支援離線使用！",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#ff00ff",
+  "background_color": "#0a0a0f",
+  "lang": "zh-TW",
+  "dir": "ltr",
+  "categories": ["travel", "lifestyle", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

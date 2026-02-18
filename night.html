@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>芭達雅夜生活攻略 2026</title>
+  <meta name="description" content="芭達雅夜生活攻略 - Walking Street、酒吧、俱樂部，支援離線瀏覽！">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ff00ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pattaya 2026">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -1098,6 +1107,21 @@
 
     // 初始化
     initPhrasesData();
+  </script>
+
+  <!-- Service Worker 註冊 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('✅ Service Worker 註冊成功:', registration.scope);
+          })
+          .catch((error) => {
+            console.error('❌ Service Worker 註冊失敗:', error);
+          });
+      });
+    }
   </script>
 </body>
 </html>

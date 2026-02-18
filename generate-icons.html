@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>生成 PWA 圖示</title>
+</head>
+<body>
+  <h1>PWA 圖示生成器</h1>
+  <p>開啟瀏覽器開發者工具 (Console) 查看結果</p>
+  <div id="output"></div>
+
+  <script>
+    // 生成 PWA 圖示（使用 Canvas）
+    function generateIcon(size, emoji) {
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      // 背景色（霓虹粉紅 → 霓虹藍漸層）
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#ff00ff');    // 霓虹粉紅
+      gradient.addColorStop(0.5, '#bf00ff');  // 紫色
+      gradient.addColorStop(1, '#00ffff');    // 霓虹藍
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, size, size);
+
+      // Emoji 文字
+      ctx.font = `${size * 0.55}px sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(emoji, size / 2, size / 2);
+
+      return canvas.toDataURL('image/png');
+    }
+
+    // 下載圖示
+    function downloadIcon(dataURL, filename) {
+      const link = document.createElement('a');
+      link.href = dataURL;
+      link.download = filename;
+      link.click();
+    }
+
+    // 生成圖示並顯示
+    const icon192 = generateIcon(192, '🏖️');
+    const icon512 = generateIcon(512, '🏖️');
+
+    // 顯示預覽
+    const output = document.getElementById('output');
+    output.innerHTML = `
+      <h2>192x192 圖示</h2>
+      <img src="${icon192}" style="width: 192px; height: 192px; border: 2px solid #ccc;">
+      <button onclick="downloadIcon('${icon192}', 'icon-192.png')">下載 192x192</button>
+
+      <h2>512x512 圖示</h2>
+      <img src="${icon512}" style="width: 192px; height: 192px; border: 2px solid #ccc;">
+      <button onclick="downloadIcon('${icon512}', 'icon-512.png')">下載 512x512</button>
+
+      <h3>使用說明</h3>
+      <ol>
+        <li>點擊「下載」按鈕儲存圖示</li>
+        <li>將圖示移動到 /icons/ 資料夾</li>
+        <li>重新命名為 icon-192.png 和 icon-512.png</li>
+      </ol>
+    `;
+
+    // 全域函數（供按鈕使用）
+    window.downloadIcon = downloadIcon;
+
+    console.log('✅ 圖示生成完成！請點擊按鈕下載。');
+  </script>
+</body>
+</html>

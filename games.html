@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>เกมปาร์ตี้ 派對遊戲 - 芭達雅之旅 2026</title>
+  <meta name="description" content="芭達雅旅遊攻略，支援離線瀏覽！">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ff00ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pattaya 2026">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+
+
 
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Sans+Thai:wght@400;700;900&display=swap" rel="stylesheet">
 
@@ -1178,6 +1189,21 @@
 
         area.innerHTML = `<span style="font-size: 2.5rem; font-weight: 900">${reactionTime}ms</span><br>${message}<br><span class="thai">${msgThai}</span><br><small style="color: var(--text-muted)">點擊再試一次 กดเพื่อลองอีก</small>`;
       }
+    }
+  </script>
+
+  <!-- Service Worker 註冊 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('✅ Service Worker 註冊成功:', registration.scope);
+          })
+          .catch((error) => {
+            console.error('❌ Service Worker 註冊失敗:', error);
+          });
+      });
     }
   </script>
 </body>

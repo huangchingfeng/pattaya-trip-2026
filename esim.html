@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>eSIM 設定教學 - 芭達雅之旅 2026</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --neon-pink: #ff00ff;
+      --neon-blue: #00ffff;
+      --neon-green: #00ff88;
+      --gold: #ffd700;
+      --peanut-yellow: #f5c842;
+      --bg-primary: #0a0a0f;
+      --bg-card: rgba(18, 18, 26, 0.85);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.8);
+      --text-muted: rgba(255, 255, 255, 0.5);
+      --safe-top: env(safe-area-inset-top, 20px);
+      --safe-bottom: env(safe-area-inset-bottom, 20px);
+      --danger: #ff4444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 12px) 20px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-content {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .back-btn {
+      color: var(--neon-pink);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .page-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--peanut-yellow);
+    }
+
+    .content {
+      padding-top: calc(var(--safe-top) + 80px);
+      padding-bottom: calc(var(--safe-bottom) + 40px);
+      max-width: 600px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .intro-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .intro-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--peanut-yellow), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* 訂單資訊 */
+    .order-box {
+      background: linear-gradient(135deg, rgba(245, 200, 66, 0.2), rgba(255, 215, 0, 0.1));
+      border: 2px solid var(--peanut-yellow);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .order-title {
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--peanut-yellow);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .order-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .order-item {
+      background: rgba(0,0,0,0.3);
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    .order-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .order-value {
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    /* 警告框 */
+    .warning-box {
+      background: linear-gradient(135deg, rgba(255,68,68,0.2), rgba(255,68,68,0.1));
+      border: 2px solid var(--danger);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .warning-title {
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--danger);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .warning-content {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .warning-content strong {
+      color: var(--danger);
+    }
+
+    /* 步驟卡片 */
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--neon-green);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    .step-title {
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    .step-content {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding-left: 48px;
+    }
+
+    .step-content ul {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .step-content li {
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .step-content li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--neon-green);
+    }
+
+    /* 客服資訊 */
+    .support-box {
+      background: linear-gradient(135deg, rgba(0,255,255,0.1), rgba(0,255,136,0.05));
+      border: 1px solid var(--neon-blue);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 24px 0;
+    }
+
+    .support-title {
+      font-weight: 900;
+      color: var(--neon-blue);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .support-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .support-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 8px;
+    }
+
+    .support-icon {
+      font-size: 1.5rem;
+    }
+
+    .support-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .support-value {
+      font-weight: 700;
+      color: var(--neon-green);
+    }
+
+    /* 時間提醒 */
+    .timeline-reminder {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 24px 0;
+    }
+
+    .timeline-title {
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    .timeline-date {
+      min-width: 80px;
+      font-weight: 700;
+      color: var(--neon-pink);
+    }
+
+    .timeline-action {
+      color: var(--text-secondary);
+    }
+
+    /* 抵達後設定 */
+    .arrival-box {
+      background: linear-gradient(135deg, rgba(0,255,136,0.15), rgba(0,255,136,0.05));
+      border: 2px solid var(--neon-green);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 24px 0;
+    }
+
+    .arrival-title {
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--neon-green);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .checklist {
+      list-style: none;
+    }
+
+    .checklist li {
+      padding: 10px 0;
+      padding-left: 32px;
+      position: relative;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .checklist li::before {
+      content: '☐';
+      position: absolute;
+      left: 0;
+      color: var(--neon-green);
+      font-size: 1.2rem;
+    }
+
+    .checklist li:last-child {
+      border-bottom: none;
+    }
+
+    .footer-nav {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .footer-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--peanut-yellow), var(--gold));
+      border-radius: 30px;
+      text-decoration: none;
+      color: #000;
+      font-weight: 900;
+      font-size: 0.95rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin: 32px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <a href="index.html" class="back-btn">← 首頁</a>
+      <span class="page-title">eSIM 設定</span>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="intro">
+      <div class="intro-icon">📶</div>
+      <h1 class="intro-title">泰國 eSIM 設定教學</h1>
+      <p style="color: var(--text-muted);">Peanutmo 花生模擬卡</p>
+    </div>
+
+    <!-- 訂單資訊 -->
+    <div class="order-box">
+      <div class="order-title">🎫 我的 eSIM 訂單</div>
+      <div class="order-grid">
+        <div class="order-item">
+          <div class="order-label">使用天數</div>
+          <div class="order-value">7 天</div>
+        </div>
+        <div class="order-item">
+          <div class="order-label">流量方案</div>
+          <div class="order-value">無限流量</div>
+        </div>
+        <div class="order-item">
+          <div class="order-label">本地通話</div>
+          <div class="order-value">無限通話</div>
+        </div>
+        <div class="order-item">
+          <div class="order-label">啟用日期</div>
+          <div class="order-value">3/16 抵達後</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 重要警告 -->
+    <div class="warning-box">
+      <div class="warning-title">⚠️ 超重要！請務必注意</div>
+      <div class="warning-content">
+        <strong>必須在「抵達泰國後」才能安裝！</strong><br><br>
+        如果在台灣就掃描安裝 → <strong>eSIM 會失效！</strong><br><br>
+        ✅ 正確做法：飛機落地後、連上機場 WiFi 再安裝<br>
+        ❌ 錯誤做法：在台灣提前安裝
+      </div>
+    </div>
+
+    <!-- 時間規劃 -->
+    <div class="timeline-reminder">
+      <div class="timeline-title">📅 eSIM 時間規劃</div>
+      <div class="timeline-item">
+        <div class="timeline-date">3/14 (六)</div>
+        <div class="timeline-action">收到 eSIM QR Code 郵件（出發前 2 天購買）</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">3/16 (一)</div>
+        <div class="timeline-action">抵達曼谷機場後安裝 eSIM</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">3/16-3/22</div>
+        <div class="timeline-action">7 天無限流量使用期間</div>
+      </div>
+    </div>
+
+    <h2 class="section-title">📱 安裝步驟（抵達後操作）</h2>
+
+    <div class="step-card">
+      <div class="step-header">
+        <span class="step-number">1</span>
+        <span class="step-title">找到 eSIM 郵件</span>
+      </div>
+      <div class="step-content">
+        郵件主旨為「eSIM」開頭
+        <ul>
+          <li>檢查所有郵件匣（包含垃圾郵件）</li>
+          <li>下單後 5 分鐘內會收到</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <span class="step-number">2</span>
+        <span class="step-title">連上機場 WiFi</span>
+      </div>
+      <div class="step-content">
+        素萬那普機場有免費 WiFi
+        <ul>
+          <li>搜尋「Free Airport WiFi」</li>
+          <li>連上後再進行安裝</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <span class="step-number">3</span>
+        <span class="step-title">開始安裝 eSIM</span>
+      </div>
+      <div class="step-content">
+        iPhone 設定路徑：
+        <ul>
+          <li>設定 → 行動服務</li>
+          <li>點選「加入 eSIM」</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <span class="step-number">4</span>
+        <span class="step-title">掃描 QR Code</span>
+      </div>
+      <div class="step-content">
+        掃描郵件中的 QR Code
+        <ul>
+          <li>選擇「使用行動條碼」</li>
+          <li>掃描郵件中的 QR Code</li>
+          <li>若無法掃描 → 選「手動輸入」</li>
+          <li>輸入 SM-DP+ 位址和啟用碼</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <span class="step-number">5</span>
+        <span class="step-title">等待啟用</span>
+      </div>
+      <div class="step-content">
+        啟用時間約 2-3 分鐘
+        <ul>
+          <li><strong>請勿跳出畫面！</strong></li>
+          <li>耐心等待完成</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <span class="step-number">6</span>
+        <span class="step-title">設定標籤</span>
+      </div>
+      <div class="step-content">
+        幫 eSIM 取個名字
+        <ul>
+          <li>建議選擇「旅遊」</li>
+          <li>或自訂「泰國」</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <span class="step-number">7</span>
+        <span class="step-title">預設號碼設定</span>
+      </div>
+      <div class="step-content">
+        選擇通話/簡訊使用的號碼
+        <ul>
+          <li>預設號碼：選「主要」（台灣門號）</li>
+          <li>iMessage/FaceTime：選「主要」</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <span class="step-number">8</span>
+        <span class="step-title">行動數據設定</span>
+      </div>
+      <div class="step-content">
+        切換上網使用的 SIM
+        <ul>
+          <li>在台灣：選「主要」</li>
+          <li>抵達泰國：選「旅遊」</li>
+          <li>「允許行動數據切換」保持<strong>關閉</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 抵達後確認 -->
+    <div class="arrival-box">
+      <div class="arrival-title">✅ 抵達泰國後確認清單</div>
+      <ul class="checklist">
+        <li>設定 → 行動服務 → 點選 eSIM（旅遊）</li>
+        <li>「開啟此號碼」→ 開啟（綠色）</li>
+        <li>「數據漫遊」→ 開啟（綠色）</li>
+        <li>行動數據 → 選「旅遊」</li>
+        <li>訊號格右邊出現 4 個小點 = 成功！</li>
+      </ul>
+    </div>
+
+    <!-- 客服資訊 -->
+    <div class="support-box">
+      <div class="support-title">💬 真人中文客服</div>
+      <div class="support-grid">
+        <a href="https://line.me/R/ti/p/@peanutmo" target="_blank" class="support-item" style="text-decoration: none;">
+          <span class="support-icon">💬</span>
+          <div>
+            <div class="support-label">LINE 官方客服</div>
+            <div class="support-value">@peanutmo</div>
+          </div>
+        </a>
+        <a href="https://wa.me/886921963203" target="_blank" class="support-item" style="text-decoration: none;">
+          <span class="support-icon">📱</span>
+          <div>
+            <div class="support-label">WhatsApp</div>
+            <div class="support-value">+886-921-963-203</div>
+          </div>
+        </a>
+        <div class="support-item">
+          <span class="support-icon">🕐</span>
+          <div>
+            <div class="support-label">客服時間</div>
+            <div class="support-value">10:00 - 18:00</div>
+          </div>
+        </div>
+        <div class="support-item">
+          <span class="support-icon">💰</span>
+          <div>
+            <div class="support-label">不穩或未使用</div>
+            <div class="support-value">保證退款</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-nav">
+      <a href="itinerary.html" class="footer-btn">📅 查看完整行程</a>
+    </div>
+  </main>
+</body>
+</html>

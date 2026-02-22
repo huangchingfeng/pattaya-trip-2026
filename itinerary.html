@@ -309,6 +309,56 @@
       color: var(--gold);
     }
 
+    /* Pro Tips 提示卡 */
+    .pro-tip {
+      background: linear-gradient(135deg, rgba(255,107,53,0.15), rgba(255,0,255,0.05));
+      border: 1px solid rgba(255,107,53,0.4);
+      border-left: 4px solid var(--neon-orange);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px 0;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .pro-tip-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-weight: 900;
+      color: var(--neon-orange);
+      font-size: 0.9rem;
+    }
+
+    .pro-tip-content {
+      color: var(--text-secondary);
+    }
+
+    .pro-tip-content strong {
+      color: var(--neon-pink);
+    }
+
+    .pro-tip.danger {
+      background: linear-gradient(135deg, rgba(255,68,68,0.15), rgba(255,0,0,0.05));
+      border-color: rgba(255,68,68,0.4);
+      border-left-color: #ff4444;
+    }
+
+    .pro-tip.danger .pro-tip-header {
+      color: #ff4444;
+    }
+
+    .pro-tip.success {
+      background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,255,255,0.05));
+      border-color: rgba(0,255,136,0.3);
+      border-left-color: var(--neon-green);
+    }
+
+    .pro-tip.success .pro-tip-header {
+      color: var(--neon-green);
+    }
+
     /* Footer */
     .footer-nav {
       margin-top: 40px;
@@ -637,6 +687,15 @@
             </div>
             <div class="timeline-desc">飯店附近海鮮餐廳，慶祝抵達！</div>
             <div class="timeline-price">💰 約 500-1,000 THB</div>
+            <div class="pro-tip success" style="margin-top: 12px;">
+              <div class="pro-tip-header">💡 出門前必做清單</div>
+              <div class="pro-tip-content">
+                • <strong>只帶計畫花的現金</strong>，銀行卡留飯店保險箱<br>
+                • 帶多少花多少 — 帶 3,000 花 3,000，帶 10,000 保證花光<br>
+                • 用有<strong>拉鍊的口袋</strong>或斜背小包，手機錢包放前面<br>
+                • 護照正本鎖保險箱，帶影本就好
+              </div>
+            </div>
           </div>
         </div>
 
@@ -652,6 +711,15 @@
             </div>
             <div class="timeline-desc">第一天先逛逛看環境，不急著消費。觀察店家、價格、熟悉地形。</div>
             <div class="timeline-note">💡 今晚先觀察為主，明天再開戰</div>
+            <div class="pro-tip danger" style="margin-top: 12px;">
+              <div class="pro-tip-header">⚠️ Walking Street 防騙提醒</div>
+              <div class="pro-tip-content">
+                Walking Street 是騙局最多的地方！<strong>逛 30 分鐘就走</strong>，重點觀察地形就好。<br>
+                • 路邊有人兜售假手錶、假包 → 直接無視<br>
+                • 有人擺滿錢的垃圾桶引你過去 → 不要靠近<br>
+                • 帳單灌水最嚴重的區域 → 今晚不要消費
+              </div>
+            </div>
           </div>
         </div>
 
@@ -735,6 +803,13 @@
             </div>
             <div class="timeline-desc">泰式炒河粉、綠咖哩等</div>
             <div class="timeline-price">💰 約 150-300 THB</div>
+            <div class="pro-tip" style="margin-top: 12px;">
+              <div class="pro-tip-header">🍔 出門前吃飽！</div>
+              <div class="pro-tip-content">
+                空腹喝酒 = 提早失控。吃<strong>紮實的食物</strong>（炒飯、漢堡、炒河粉），不要只吃水果沙拉。<br>
+                有人連續兩天醉到睡在沙灘椅上，就是因為沒吃飯就出門！
+              </div>
+            </div>
           </div>
         </div>
 
@@ -757,6 +832,21 @@
             </div>
             <div class="timeline-note">📋 <a href="sop.html" style="color: var(--neon-blue);">Beer Bar SOP</a> ｜ 📍 <a href="sop.html#soi6" style="color: var(--neon-blue);">Soi 6 攻略</a></div>
             <div class="timeline-price">💰 啤酒 60-100 / Lady Drink 150-250 THB</div>
+            <div class="pro-tip danger" style="margin-top: 12px;">
+              <div class="pro-tip-header">🔔 千萬別按鈴（Ring the Bell）！</div>
+              <div class="pro-tip-content">
+                酒吧裡有個鈴鐺，按下去 = <strong>請全場所有人喝一杯</strong>！<br>
+                一次 2,000-3,000 THB 起跳。喝醉後最容易衝動按鈴，隔天醒來看帳單會想哭。
+              </div>
+            </div>
+            <div class="pro-tip success" style="margin-top: 8px;">
+              <div class="pro-tip-header">💡 Lady Drink 不是義務</div>
+              <div class="pro-tip-content">
+                一杯約 150 THB，可以讓女孩陪聊 20-30 分鐘。<br>
+                <strong>不想請可以婉拒</strong>，說「Maybe later」就好。<br>
+                但如果你一杯都不請，只坐在那邊自己喝，氣氛會很尷尬 — 像在舞會邊上看別人跳舞。
+              </div>
+            </div>
           </div>
         </div>
 
@@ -972,6 +1062,13 @@
             </div>
             <div class="timeline-desc">正式大餐，補充能量</div>
             <div class="timeline-price">💰 約 500-800 THB</div>
+            <div class="pro-tip" style="margin-top: 12px;">
+              <div class="pro-tip-header">🧼 出門前打理好自己</div>
+              <div class="pro-tip-content">
+                GoGo Bar 要有儀式感：<strong>洗澡、除臭劑、刷牙</strong>。<br>
+                芭達雅很熱，汗臭味很明顯。穿乾淨的 T-shirt，球鞋或涼鞋，<strong>不要穿大象褲和人字拖</strong>。
+              </div>
+            </div>
           </div>
         </div>
 
@@ -993,6 +1090,20 @@
             </div>
             <div class="timeline-note">📋 <a href="sop.html" style="color: var(--neon-blue);">GoGo Bar SOP</a> ｜ 📍 <a href="sop.html#walking-street" style="color: var(--neon-blue);">步行街攻略</a></div>
             <div class="timeline-price">💰 預算 2,000-5,000 THB</div>
+            <div class="pro-tip success" style="margin-top: 12px;">
+              <div class="pro-tip-header">👩 跟媽媽桑（Mama-san）搞好關係</div>
+              <div class="pro-tip-content">
+                媽媽桑是酒吧的老闆 / 管理者。<strong>對她友善 = 不會被坑</strong>。<br>
+                可以請她喝一杯（100-200 THB），她會幫你介紹好的女孩、確保帳單公正。
+              </div>
+            </div>
+            <div class="pro-tip" style="margin-top: 8px;">
+              <div class="pro-tip-header">📋 每喝一輪就核對帳單</div>
+              <div class="pro-tip-content">
+                點完酒就看帳單（Check Bin），確認數字對。<strong>步行街被灌水的機率最高</strong>。<br>
+                發現問題當場提出。如果每次都檢查，結帳時就不會有意外。
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1148,6 +1259,14 @@
             </div>
             <div class="timeline-note">📍 <a href="sop.html#soi-buakhao" style="color: var(--neon-blue);">Soi Buakhao 攻略</a> ｜ <a href="sop.html#areas" style="color: var(--neon-blue);">各區域總覽</a></div>
             <div class="timeline-price">💰 約 1,000-2,000 THB</div>
+            <div class="pro-tip success" style="margin-top: 12px;">
+              <div class="pro-tip-header">😎 放輕鬆，別太嚴肅</div>
+              <div class="pro-tip-content">
+                這裡是微笑之國！走進酒吧不要緊張兮兮的。<br>
+                <strong>微笑、主動聊天</strong>，你會受到國王般的待遇。<br>
+                一個人來？找間 pre-drinking bar 跟其他遊客搭訕，一起出去玩！
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1167,6 +1286,14 @@
               • Mixx（人氣）
             </div>
             <div class="timeline-price">💰 入場約 300-500 THB（含一杯酒）</div>
+            <div class="pro-tip danger" style="margin-top: 12px;">
+              <div class="pro-tip-header">🚫 絕對不要起衝突</div>
+              <div class="pro-tip-content">
+                泰國警察<strong>永遠不會站在外國人這邊</strong>。<br>
+                被多收錢？忍著。被騙了？認了。這比打架進警局便宜太多了。<br>
+                不要談政治、不要挑釁，有問題直接離開就好。
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1329,6 +1456,20 @@
               • 射龍門
             </div>
             <div class="timeline-note">🎮 用 <a href="games.html" style="color: var(--neon-blue);">派對遊戲</a> 功能</div>
+            <div class="pro-tip success" style="margin-top: 12px;">
+              <div class="pro-tip-header">🎤 上台唱卡拉 OK！</div>
+              <div class="pro-tip-content">
+                有樂隊的酒吧可以上台唱歌，給樂隊 <strong>100 THB 小費</strong>就行。<br>
+                不用唱得好，重點是參與！全場都會為你鼓掌，最快融入氣氛的方式。
+              </div>
+            </div>
+            <div class="pro-tip" style="margin-top: 8px;">
+              <div class="pro-tip-header">🏳️‍🌈 別怕人妖（Katoey）</div>
+              <div class="pro-tip-content">
+                人妖是芭達雅夜生活最有趣的一群人！她們幽默、愛開玩笑、超會帶氣氛。<br>
+                <strong>不要有刻板印象</strong>，把她們當朋友聊天，你會度過最歡樂的夜晚。
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1343,6 +1484,14 @@
               <span class="timeline-title">繼續夜生活或回飯店</span>
             </div>
             <div class="timeline-desc">看體力決定</div>
+            <div class="pro-tip success" style="margin-top: 12px;">
+              <div class="pro-tip-header">⭐ 一個精彩之夜 > 三個平庸之夜</div>
+              <div class="pro-tip-content">
+                今晚是你最適合全力衝刺的一晚！明天沒有早班車要趕。<br>
+                <strong>集中預算，選你這幾天最喜歡的店</strong>，盡情享受芭達雅之夜！<br>
+                不要為了省錢去爛酒吧喝便宜啤酒，10,000 THB 換一個永生難忘的夜晚，值得。
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1493,6 +1642,14 @@
               • 但要早點收工...
             </div>
             <div class="timeline-note">📍 <a href="sop.html#areas" style="color: var(--neon-blue);">查看各區域攻略</a>，選擇最後戰場！</div>
+            <div class="pro-tip danger" style="margin-top: 12px;">
+              <div class="pro-tip-header">⚠️ 最後一晚控制節奏</div>
+              <div class="pro-tip-content">
+                明天 04:45 要起床趕巴士！<br>
+                <strong>不要按鈴、不要 mix 不同酒</strong>，控制飲酒量。<br>
+                醉到錯過巴士 = 毀掉整個回程行程。23:00 前收工！
+              </div>
+            </div>
           </div>
         </div>
 

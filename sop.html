@@ -545,7 +545,7 @@
 <body>
   <header class="header">
     <div class="header-content">
-      <a href="resources.html" class="back-btn">← 返回攻略</a>
+      <a href="night.html" class="back-btn">← 返回夜間</a>
       <span class="page-title">實用 SOP</span>
     </div>
   </header>
@@ -1230,15 +1230,15 @@
       </div>
       <div class="emergency-grid">
         <div class="emergency-item">
-          <div class="emergency-number">1155</div>
+          <a href="tel:1155" class="emergency-number" style="color:var(--neon-blue);text-decoration:none;">1155</a>
           <div class="emergency-label">觀光警察</div>
         </div>
         <div class="emergency-item">
-          <div class="emergency-number">191</div>
+          <a href="tel:191" class="emergency-number" style="color:var(--neon-blue);text-decoration:none;">191</a>
           <div class="emergency-label">報警</div>
         </div>
         <div class="emergency-item">
-          <div class="emergency-number">1669</div>
+          <a href="tel:1669" class="emergency-number" style="color:var(--neon-blue);text-decoration:none;">1669</a>
           <div class="emergency-label">救護車</div>
         </div>
       </div>
@@ -1246,7 +1246,7 @@
 
     <div class="footer-nav">
       <a href="night.html" class="footer-btn">← 夜間行程</a>
-      <a href="resources.html" class="footer-btn secondary">📚 更多攻略</a>
+      <a href="resources.html" class="footer-btn secondary">📚 攻略總覽</a>
     </div>
   </main>
 
@@ -1308,6 +1308,7 @@
 
       // 判斷目標在哪個 tab
       const tabMap = {
+        'areas': 'areas',
         'walking-street': 'areas',
         'lk-metro': 'areas',
         'soi6': 'areas',

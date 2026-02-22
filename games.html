@@ -1518,6 +1518,19 @@
       const min = Math.min(num1, num3);
       const max = Math.max(num1, num3);
 
+      // 當左右兩牌相同時，龍門關閉，自動重新發牌
+      if (min === max) {
+        document.getElementById('dragonResult').innerHTML = `
+          <span>🚫 撞柱！龍門關閉，重新發牌</span>
+          <span class="result-thai">ประตูปิด! แจกใหม่</span>
+        `;
+        document.getElementById('dragonResult').className = 'result-display';
+        setDragonBtnsDisabled(true);
+        gamePhase = 'deal';
+        setTimeout(() => dealCards(), 1500);
+        return;
+      }
+
       document.getElementById('dragonResult').innerHTML = `
         <span>龍門範圍：${min} - ${max}</span>
         <span class="result-thai">ช่วงประตู: ${min} - ${max}</span>
@@ -1575,14 +1588,19 @@
       card2El.className = 'card ' + (suit2 === '♥' || suit2 === '♦' ? 'red' : 'black');
 
       // 判斷結果
+      const isHitPost = (num2 === min || num2 === max); // 撞柱
       const isIn = (num2 > min && num2 < max); // 在裡面
-      const isOut = (num2 < min || num2 > max || num2 === num1 || num2 === num3); // 在外面（包含撞柱）
+      const isOut = (num2 < min || num2 > max); // 在外面（不含撞柱）
 
       let win = false;
       let resultText = '';
       let resultThai = '';
 
-      if (guess === 'in') {
+      if (isHitPost) {
+        // 撞柱獨立判定，無論選 In 或 Out 都要雙倍罰酒
+        resultText = `💀💀 ${card2Val} 撞柱！雙倍罰酒！`;
+        resultThai = `${card2Val} ชนเสา! ดื่มสองเท่า!`;
+      } else if (guess === 'in') {
         if (isIn) {
           win = true;
           resultText = `✅ ${card2Val} 在裡面！過關！`;
@@ -1724,6 +1742,23 @@
 
     function flipKingsCup() {
       if (kcFlipping || kcDeck.length === 0) return;
+
+      // 如果牌已經翻開（flipped 狀態），先重置再翻新牌
+      const kcCardEl = document.getElementById('kcCard');
+      if (kcCardEl.classList.contains('flipped')) {
+        kcFlipping = true;
+        kcCardEl.classList.remove('flipped');
+        document.getElementById('kcRule').style.display = 'none';
+        document.getElementById('kcNextBtn').style.display = 'none';
+        document.getElementById('kcHint').style.display = 'block';
+        // 等翻回動畫完成後再翻新牌
+        setTimeout(() => {
+          kcFlipping = false;
+          flipKingsCup();
+        }, 600);
+        return;
+      }
+
       kcFlipping = true;
 
       const card = kcDeck.pop();
@@ -1873,6 +1908,21 @@
         historyEl.innerHTML += `<span class="guess-tag lower">${playerLabel}: ${guess} ↑</span>`;
         guessCurrentPlayer = guessCurrentPlayer === 1 ? 2 : 1;
         updatePlayerIndicator();
+      }
+
+      // 當範圍收縮到只剩一個數字時，自動揭曉答案
+      if (!guessGameOver && guessLow === guessHigh) {
+        guessGameOver = true;
+        const loser = guessCurrentPlayer === 1 ? 'B' : 'A';
+        setTimeout(() => {
+          resultEl.innerHTML = `
+            <div class="guess-hint correct">🎯 答案只剩 ${guessTarget}！</div>
+            <div class="guess-thai">คำตอบคือ ${guessTarget}!</div>
+            <div style="font-size:1.5rem; margin-top:12px;">🍺 玩家 ${loser} 喝一杯！<br><span style="font-size:1rem; color:var(--gold);">ผู้เล่น ${loser} ดื่มหนึ่งแก้ว!</span></div>
+          `;
+          document.getElementById('guessInput').disabled = true;
+          document.getElementById('guessNewRoundBtn').style.display = 'block';
+        }, 800);
       }
 
       input.focus();

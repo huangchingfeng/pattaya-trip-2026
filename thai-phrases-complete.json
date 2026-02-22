@@ -539,13 +539,13 @@
         },
         {
           "thai": "ไกลไหม",
-          "phonetic": "蓋買",
+          "phonetic": "該買（高音拉長）",
           "chinese": "遠嗎？",
           "scenario": "詢問距離"
         },
         {
           "thai": "ใกล้ไหม",
-          "phonetic": "蓋買",
+          "phonetic": "蓋買（短促降音）",
           "chinese": "近嗎？",
           "scenario": "詢問距離"
         },

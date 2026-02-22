@@ -502,6 +502,7 @@
         <li>榴槤：鮮果不能帶上飛機！榴槤乾/糖可以</li>
         <li>肉類製品：不能帶入台灣</li>
         <li>酒類：每人 1 公升免稅</li>
+        <li>🚬 菸品：每人限帶 1 條（200 支），超量會被罰款</li>
       </ul>
     </div>
 
@@ -945,7 +946,7 @@
       </thead>
       <tbody>
         <tr>
-          <td class="place-name">Big C</td>
+          <td class="place-name">Big C <a href="https://www.google.com/maps/search/Big+C+Extra+Pattaya" target="_blank" style="color:var(--neon-blue);text-decoration:none;font-size:0.85rem;">📍</a></td>
           <td>最便宜，選擇最多</td>
           <td>零食、飲料、藥品</td>
         </tr>
@@ -960,7 +961,7 @@
           <td>美妝、藥品</td>
         </tr>
         <tr>
-          <td class="place-name">Terminal 21</td>
+          <td class="place-name">Terminal 21 <a href="https://www.google.com/maps/search/Terminal+21+Pattaya" target="_blank" style="color:var(--neon-blue);text-decoration:none;font-size:0.85rem;">📍</a></td>
           <td>逛街順便買</td>
           <td>衣服、包包</td>
         </tr>
@@ -1075,13 +1076,17 @@
     // 初始化
     restoreState();
 
-    // 回到頂部按鈕
-    const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
+    // 回到頂部按鈕（等 DOM 完全載入後再取得元素）
+    document.addEventListener('DOMContentLoaded', () => {
+      const backToTopBtn = document.getElementById('backToTop');
+      if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 400) {
+            backToTopBtn.classList.add('visible');
+          } else {
+            backToTopBtn.classList.remove('visible');
+          }
+        });
       }
     });
   </script>

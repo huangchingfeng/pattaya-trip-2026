@@ -661,6 +661,70 @@
       align-items: center;
       animation: fadeIn 0.3s ease;
     }
+
+    /* 區域快速導航 */
+    .area-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 24px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .area-nav-btn {
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .area-nav-btn:hover {
+      border-color: var(--neon-pink);
+      color: var(--neon-pink);
+      transform: translateY(-2px);
+    }
+
+    /* 回到頂部按鈕 */
+    .back-to-top {
+      position: fixed;
+      bottom: calc(var(--safe-bottom) + 80px);
+      right: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      color: white;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(255,0,255,0.4);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .back-to-top:active {
+      transform: scale(0.9);
+    }
   </style>
 </head>
 <body>
@@ -748,8 +812,15 @@
         <p class="section-subtitle">Walking Street & 更多</p>
       </div>
 
+      <!-- 區域快速導航 -->
+      <div class="area-nav">
+        <a href="#nightlife-ws" class="area-nav-btn" onclick="smoothScrollTo('nightlife-ws')">🔥 Walking Street</a>
+        <a href="#nightlife-others" class="area-nav-btn" onclick="smoothScrollTo('nightlife-others')">🎵 其他夜店</a>
+        <a href="#nightlife-rooftop" class="area-nav-btn" onclick="smoothScrollTo('nightlife-rooftop')">🍸 Rooftop Bar</a>
+      </div>
+
       <div class="venue-list">
-        <h3 style="color: var(--neon-pink); margin-bottom: 16px;">🔥 Walking Street 西洋風夜店</h3>
+        <h3 id="nightlife-ws" style="color: var(--neon-pink); margin-bottom: 16px;">🔥 Walking Street 西洋風夜店</h3>
         <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px;">
           ✅ 全泰國最安全的地方・多是老外跟泰妹・不是阿三店・全都 high 到早上
         </p>
@@ -778,7 +849,7 @@
           </div>
         </a>
 
-        <h3 style="color: var(--neon-orange); margin: 24px 0 16px;">🎵 其他人氣夜店</h3>
+        <h3 id="nightlife-others" style="color: var(--neon-orange); margin: 24px 0 16px;">🎵 其他人氣夜店</h3>
 
         <a href="https://www.google.com/maps/search/Club+Insomnia+Pattaya+Walking+Street" target="_blank" class="venue-card-link">
           <div class="venue-card" style="border-color: var(--neon-orange);">
@@ -804,7 +875,7 @@
           </div>
         </a>
 
-        <h3 style="color: var(--neon-blue); margin: 32px 0 16px;">🍸 Rooftop Bar</h3>
+        <h3 id="nightlife-rooftop" style="color: var(--neon-blue); margin: 32px 0 16px;">🍸 Rooftop Bar</h3>
 
         <a href="https://www.google.com/maps/search/Horizon+Rooftop+Bar+Hilton+Pattaya" target="_blank" class="venue-card-link">
           <div class="venue-card" style="border-color: var(--neon-orange);">
@@ -869,6 +940,18 @@
           <em>觀光警察：<strong style="color: var(--neon-blue);">1155</strong>（24小時英語服務）</em>
         </p>
       </div>
+
+      <div class="glass-card" style="background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,107,53,0.05)); border: 2px solid rgba(255,215,0,0.3);">
+        <h3>🍗 周末夜市（現在每天營業）</h3>
+        <p>
+          <strong style="color: #ffd93d;">📍 位置</strong> - 離 Hells Land 飯店步行 10 分鐘<br><br>
+          <strong style="color: #ff6b35;">🎯 特色</strong> - 本地人為主，價格親民<br>
+          外圍商品、中間座位區、裡面餐飲攤位<br><br>
+          <strong style="color: #6bcb77;">⭐ 推薦</strong> - 炸雞店（外酥裡嫩，超好吃！）<br>
+          大象褲也可以在這裡買<br><br>
+          <strong style="color: var(--neon-blue);">🛍️ 加碼</strong> - 夜市旁有 Outlet（營業到 20:00）
+        </p>
+      </div>
     </section>
 
   </div>
@@ -896,6 +979,9 @@
       <span>攻略</span>
     </div>
   </nav>
+
+  <!-- 回到頂部按鈕 -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
   <!-- 泰語 Modal -->
   <div class="thai-modal" id="thaiModal">
@@ -1107,6 +1193,27 @@
 
     // 初始化
     initPhrasesData();
+
+    // 區域快速導航平滑滾動
+    function smoothScrollTo(id) {
+      event.preventDefault();
+      const el = document.getElementById(id);
+      if (el) {
+        const offset = 100;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+
+    // 回到頂部按鈕顯示/隱藏
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
   </script>
 
   <!-- Service Worker 註冊 -->

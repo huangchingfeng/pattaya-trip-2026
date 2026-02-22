@@ -163,7 +163,8 @@
     }
 
     .game-card:active {
-      transform: scale(0.98);
+      transform: scale(0.96);
+      background: rgba(255, 0, 255, 0.08);
     }
 
     .game-icon {
@@ -335,7 +336,7 @@
     }
 
     .dice.rolling {
-      animation: dice-roll 0.1s linear infinite;
+      animation: dice-roll 0.15s linear infinite;
     }
 
     @keyframes dice-roll {
@@ -393,7 +394,7 @@
     }
 
     .result-display {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 900;
       margin: 24px 0;
       min-height: 100px;
@@ -401,7 +402,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 24px;
       border-radius: 16px;
       background: var(--bg-card);
       width: 100%;
@@ -623,14 +624,15 @@
     /* 返回按鈕 */
     .back-to-menu {
       margin-top: 32px;
-      padding: 12px 32px;
-      background: transparent;
-      border: 2px solid var(--text-muted);
+      padding: 16px 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.3);
       border-radius: 25px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      font-weight: 700;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
     }
 
     .back-to-menu:hover {
@@ -638,12 +640,17 @@
       color: var(--neon-blue);
     }
 
+    .back-to-menu:active {
+      transform: scale(0.95);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
     /* ==================== 遊戲5: 國王遊戲 King's Cup ==================== */
     .kingscup-deck {
       position: relative;
-      width: 180px;
-      height: 260px;
-      margin: 24px auto;
+      width: 200px;
+      height: 290px;
+      margin: 20px auto;
       perspective: 800px;
       cursor: pointer;
     }
@@ -704,14 +711,15 @@
     .kingscup-card-front.black { color: #2c3e50; }
 
     .kingscup-remaining {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .kingscup-remaining span {
       color: var(--neon-blue);
       font-weight: 700;
+      font-size: 1.1rem;
     }
 
     .kingscup-king-count {
@@ -722,15 +730,15 @@
     }
 
     .kingscup-king-count .king-slot {
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: var(--bg-card);
       border: 2px solid var(--text-muted);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       transition: all 0.3s ease;
     }
 
@@ -752,28 +760,28 @@
     }
 
     .kingscup-rule-name {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       font-weight: 900;
       color: var(--neon-pink);
       margin-bottom: 8px;
     }
 
     .kingscup-rule-name-thai {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: var(--gold);
       font-family: 'Noto Sans Thai', sans-serif;
       margin-bottom: 12px;
     }
 
     .kingscup-rule-desc {
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 1.1rem;
+      line-height: 1.7;
       color: var(--text-secondary);
     }
 
     .kingscup-rule-desc-thai {
-      font-size: 0.9rem;
-      line-height: 1.6;
+      font-size: 1rem;
+      line-height: 1.7;
       color: var(--gold);
       font-family: 'Noto Sans Thai', sans-serif;
       margin-top: 8px;
@@ -793,6 +801,17 @@
       margin: 24px 0;
       color: var(--neon-blue);
       text-shadow: 0 0 20px var(--neon-blue);
+      transition: all 0.3s ease;
+    }
+
+    .guess-range.shrink {
+      animation: range-shrink 0.4s ease;
+    }
+
+    @keyframes range-shrink {
+      0% { transform: scale(1); }
+      30% { transform: scale(1.15); text-shadow: 0 0 30px var(--neon-blue); }
+      100% { transform: scale(1); }
     }
 
     .guess-range .range-dash {
@@ -807,6 +826,17 @@
       padding: 12px 24px;
       border-radius: 30px;
       transition: all 0.3s ease;
+    }
+
+    .guess-player-indicator.switch-pulse {
+      animation: player-switch 0.5s ease;
+    }
+
+    @keyframes player-switch {
+      0% { transform: scale(1); opacity: 1; }
+      30% { transform: scale(1.1); opacity: 0.6; }
+      60% { transform: scale(0.95); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     .guess-player-indicator.player1 {
@@ -830,17 +860,18 @@
 
     .guess-input {
       flex: 1;
-      padding: 16px 20px;
+      padding: 18px 20px;
       border-radius: 16px;
       border: 3px solid var(--text-muted);
       background: var(--bg-card);
       color: var(--text-primary);
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 700;
       text-align: center;
       outline: none;
       transition: border-color 0.3s ease;
       -webkit-appearance: none;
+      min-height: 60px;
     }
 
     .guess-input:focus {
@@ -848,16 +879,17 @@
     }
 
     .guess-submit-btn {
-      padding: 16px 28px;
+      padding: 18px 32px;
       border-radius: 16px;
       border: none;
       background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
       color: white;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       white-space: nowrap;
+      min-height: 60px;
     }
 
     .guess-submit-btn:hover {
@@ -963,7 +995,7 @@
 
   <!-- 頂部導航 -->
   <nav class="top-nav">
-    <a href="night.html" class="back-btn">← กลับ 返回</a>
+    <a href="index.html" class="back-btn">← กลับ 首頁</a>
     <div class="top-title">
       <div class="top-title-thai">เกมปาร์ตี้</div>
       <div class="top-title-cn">派對遊戲</div>
@@ -1738,6 +1770,9 @@
         } else {
           document.getElementById('kcRestartBtn').style.display = 'inline-block';
         }
+
+        // 解鎖翻牌（讓玩家也可以直接點牌堆翻下一張）
+        kcFlipping = false;
       }, 600);
     }
 
@@ -1777,12 +1812,14 @@
     function updatePlayerIndicator() {
       const el = document.getElementById('guessPlayerIndicator');
       if (guessCurrentPlayer === 1) {
-        el.className = 'guess-player-indicator player1';
+        el.className = 'guess-player-indicator player1 switch-pulse';
         el.innerHTML = '🔴 玩家 A 的回合 | ตาผู้เล่น A';
       } else {
-        el.className = 'guess-player-indicator player2';
+        el.className = 'guess-player-indicator player2 switch-pulse';
         el.innerHTML = '🟢 玩家 B 的回合 | ตาผู้เล่น B';
       }
+      // 移除動畫 class 以便下次可以重新觸發
+      setTimeout(() => el.classList.remove('switch-pulse'), 500);
     }
 
     function submitGuess() {
@@ -1817,6 +1854,7 @@
       } else if (guess > guessTarget) {
         guessHigh = guess - 1;
         document.getElementById('guessHigh').textContent = guessHigh;
+        triggerRangeShrink();
         resultEl.innerHTML = `
           <div class="guess-hint higher">📉 ${guess} 太大了！</div>
           <div class="guess-thai">${guess} มากไป!</div>
@@ -1827,6 +1865,7 @@
       } else {
         guessLow = guess + 1;
         document.getElementById('guessLow').textContent = guessLow;
+        triggerRangeShrink();
         resultEl.innerHTML = `
           <div class="guess-hint lower">📈 ${guess} 太小了！</div>
           <div class="guess-thai">${guess} น้อยไป!</div>
@@ -1837,6 +1876,14 @@
       }
 
       input.focus();
+    }
+
+    function triggerRangeShrink() {
+      const rangeEl = document.getElementById('guessRange');
+      rangeEl.classList.remove('shrink');
+      // Force reflow to restart animation
+      void rangeEl.offsetWidth;
+      rangeEl.classList.add('shrink');
     }
 
     // 支援 Enter 鍵提交

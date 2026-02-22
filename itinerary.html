@@ -25,6 +25,7 @@
       --neon-purple: #bf00ff;
       --gold: #ffd700;
       --neon-green: #00ff88;
+      --neon-orange: #ff6b35;
       --bg-primary: #0a0a0f;
       --bg-card: rgba(18, 18, 26, 0.85);
       --text-primary: #ffffff;
@@ -115,11 +116,17 @@
       background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
       border-color: transparent;
       color: white;
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(255,0,255,0.3);
     }
 
     .day-tab:not(.active):hover {
       border-color: var(--neon-pink);
       color: var(--neon-pink);
+    }
+
+    .day-tab:active {
+      transform: scale(0.95);
     }
 
     .content {
@@ -229,11 +236,12 @@
       margin-bottom: 6px;
     }
     .time-th {
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       font-weight: 900;
+      letter-spacing: 0.5px;
     }
     .time-tw {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
     }
     .time-tw::before {
@@ -423,6 +431,87 @@
       font-size: 0.8rem;
       color: var(--text-muted);
     }
+
+    /* Pro-tip 可折疊 */
+    .pro-tip {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .pro-tip-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: space-between;
+    }
+
+    .pro-tip-toggle {
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .pro-tip.collapsed .pro-tip-toggle {
+      transform: rotate(-90deg);
+    }
+
+    .pro-tip-content {
+      max-height: 500px;
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+      opacity: 1;
+      margin-top: 8px;
+    }
+
+    .pro-tip.collapsed .pro-tip-content {
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0;
+    }
+
+    /* 回到頂部按鈕 */
+    .back-to-top {
+      position: fixed;
+      bottom: calc(var(--safe-bottom) + 20px);
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      border: none;
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+      z-index: 998;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(255,0,255,0.4);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .back-to-top:active {
+      transform: scale(0.9);
+    }
+
+    /* 改善 timeline 間距 */
+    .timeline-item {
+      margin-bottom: 24px;
+    }
+
+    .timeline-card {
+      padding: 18px;
+    }
   </style>
 </head>
 <body>
@@ -501,6 +590,18 @@
           </div>
         </div>
       </div>
+
+      <!-- 行前準備清單快捷入口 -->
+      <a href="checklist.html" style="display: block; background: linear-gradient(135deg, rgba(0,255,136,0.15), rgba(46,213,115,0.08)); border: 2px solid var(--neon-green); border-radius: 16px; padding: 18px 20px; margin-bottom: 24px; text-decoration: none; color: white; transition: all 0.3s ease;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <span style="font-size: 2rem;">✅</span>
+          <div style="flex: 1;">
+            <div style="font-weight: 900; font-size: 1.05rem; color: var(--neon-green);">行前準備清單</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px;">證件・行李・每日出門・回程 共 49 項</div>
+          </div>
+          <span style="font-size: 1.3rem; opacity: 0.6;">→</span>
+        </div>
+      </a>
 
       <div class="timeline">
         <div class="timeline-item travel">
@@ -1595,6 +1696,9 @@
               • 青草膏、藥膏<br>
               • 芒果乾、榴槤糖
             </div>
+            <a href="souvenirs.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding: 10px 16px; background: linear-gradient(135deg, #ffa502, #ff6348); border-radius: 20px; color: white; text-decoration: none; font-weight: 700; font-size: 0.85rem;">
+              🎁 開啟伴手禮指南（27 項推薦）→
+            </a>
           </div>
         </div>
 
@@ -1609,6 +1713,9 @@
               <span class="timeline-title">整理行李</span>
             </div>
             <div class="timeline-desc">明天要走了，先整理好</div>
+            <a href="checklist.html#return" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding: 10px 16px; background: linear-gradient(135deg, #00ff88, #2ed573); border-radius: 20px; color: #1a1a2e; text-decoration: none; font-weight: 700; font-size: 0.85rem;">
+              ✅ 開啟回程準備清單 →
+            </a>
           </div>
         </div>
 
@@ -1799,6 +1906,9 @@
               <span class="timeline-title">逛免稅店</span>
             </div>
             <div class="timeline-desc">最後採買機會！零食、化妝品、菸酒<br>時間很多慢慢逛</div>
+            <a href="souvenirs.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding: 10px 16px; background: linear-gradient(135deg, #ffa502, #ff6348); border-radius: 20px; color: white; text-decoration: none; font-weight: 700; font-size: 0.85rem;">
+              🎁 伴手禮清單對照 →
+            </a>
           </div>
         </div>
 
@@ -1913,6 +2023,9 @@
     </div>
   </main>
 
+  <!-- 回到頂部按鈕 -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">&#8593;</button>
+
   <script>
     function switchDay(day) {
       // 切換按鈕狀態
@@ -1927,7 +2040,40 @@
 
       // 滾動到頂部
       window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // 自動滾動 tab 到可視區域
+      const activeTab = document.querySelectorAll('.day-tab')[day - 1];
+      if (activeTab) {
+        activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
     }
+
+    // 回到頂部按鈕顯示/隱藏
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    // Pro-tip 折疊功能：預設折疊，點擊展開
+    document.querySelectorAll('.pro-tip').forEach(tip => {
+      // 加入折疊圖示
+      const header = tip.querySelector('.pro-tip-header');
+      if (header && !header.querySelector('.pro-tip-toggle')) {
+        const toggle = document.createElement('span');
+        toggle.className = 'pro-tip-toggle';
+        toggle.textContent = '\u25BC';
+        header.appendChild(toggle);
+      }
+
+      // 預設折疊
+      tip.classList.add('collapsed');
+
+      // 點擊切換
+      tip.addEventListener('click', (e) => {
+        e.stopPropagation();
+        tip.classList.toggle('collapsed');
+      });
+    });
   </script>
 
   <!-- Service Worker 註冊 -->

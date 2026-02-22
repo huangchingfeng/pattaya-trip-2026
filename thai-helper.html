@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>泰語小幫手 - 芭達雅之旅 2026</title>
-  <meta name="description" content="泰語小幫手 - 410+ 實用句型，支援離線搜尋！">
+  <meta name="description" content="泰語小幫手 - 445+ 實用句型，支援離線搜尋！">
 
   <!-- PWA Manifest -->
   <link rel="manifest" href="/manifest.json">
@@ -14,7 +14,7 @@
   <meta name="apple-mobile-web-app-title" content="Pattaya 2026">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -22,6 +22,7 @@
       --neon-blue: #00ffff;
       --neon-green: #00ff88;
       --gold: #ffd700;
+      --phonetic-color: #ffd700;
       --bg-primary: #0a0a0f;
       --bg-card: rgba(18, 18, 26, 0.85);
       --text-primary: #ffffff;
@@ -39,6 +40,12 @@
       color: var(--text-primary);
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* 泰文字體 */
+    .thai-text {
+      font-family: 'Noto Sans Thai', 'Noto Sans TC', sans-serif;
     }
 
     .header {
@@ -49,7 +56,8 @@
       z-index: 1000;
       background: rgba(10, 10, 15, 0.95);
       backdrop-filter: blur(20px);
-      padding: calc(var(--safe-top) + 12px) 20px 16px;
+      -webkit-backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 12px) 20px 12px;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
@@ -65,6 +73,7 @@
       color: var(--neon-pink);
       text-decoration: none;
       font-weight: 700;
+      font-size: 0.95rem;
     }
 
     .page-title {
@@ -73,31 +82,33 @@
       color: var(--gold);
     }
 
-    .content {
-      padding-top: calc(var(--safe-top) + 80px);
-      padding-bottom: calc(var(--safe-bottom) + 100px);
-      max-width: 600px;
-      margin: 0 auto;
-      padding-left: 16px;
-      padding-right: 16px;
+    /* 搜尋區域 - 固定在 header 下方 */
+    .search-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(10, 10, 15, 0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 56px) 16px 8px;
+      transition: box-shadow 0.3s ease;
     }
 
-    /* 搜尋區 */
-    .search-section {
-      position: sticky;
-      top: calc(var(--safe-top) + 60px);
-      z-index: 100;
-      background: var(--bg-primary);
-      padding: 16px 0;
+    .search-bar.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
 
     .search-box {
       position: relative;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .search-input {
       width: 100%;
-      padding: 16px 50px 16px 20px;
+      padding: 14px 90px 14px 20px;
       font-size: 1.1rem;
       border: 2px solid var(--neon-blue);
       border-radius: 30px;
@@ -105,6 +116,7 @@
       color: var(--text-primary);
       outline: none;
       transition: all 0.3s ease;
+      font-family: 'Noto Sans TC', sans-serif;
     }
 
     .search-input:focus {
@@ -118,10 +130,11 @@
 
     .search-icon {
       position: absolute;
-      right: 20px;
+      right: 18px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1.5rem;
+      font-size: 1.3rem;
+      pointer-events: none;
     }
 
     .clear-btn {
@@ -129,59 +142,64 @@
       right: 50px;
       top: 50%;
       transform: translateY(-50%);
-      background: none;
+      background: rgba(255,255,255,0.15);
       border: none;
-      color: var(--text-muted);
-      font-size: 1.2rem;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
       cursor: pointer;
       display: none;
+      align-items: center;
+      justify-content: center;
     }
 
     .clear-btn.show {
-      display: block;
-    }
-
-    /* 統計 */
-    .stats {
       display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin: 16px 0;
-      font-size: 0.85rem;
-      color: var(--text-muted);
     }
 
-    .stat-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    /* 分類快捷列 - 水平捲動 */
+    .category-scroll {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 998;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 110px) 0 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .stat-number {
-      color: var(--neon-green);
-      font-weight: 900;
-    }
-
-    /* 分類標籤 */
     .category-tabs {
       display: flex;
-      flex-wrap: wrap;
+      overflow-x: auto;
       gap: 8px;
-      margin: 16px 0;
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 4px 16px;
+      max-width: 632px;
+      margin: 0 auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .category-tabs::-webkit-scrollbar {
+      display: none;
     }
 
     .category-tab {
-      padding: 8px 14px;
+      padding: 7px 14px;
       border-radius: 20px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      border: 1px solid var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.2);
       background: transparent;
       color: var(--text-muted);
       cursor: pointer;
       transition: all 0.3s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .category-tab:hover {
@@ -195,70 +213,180 @@
       color: white;
     }
 
-    /* 結果列表 */
-    .results {
-      margin-top: 16px;
+    /* 統計和收藏快捷 */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 10px 0 4px;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .stat-number {
+      color: var(--neon-green);
+      font-weight: 900;
+    }
+
+    .fav-shortcut {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+      color: var(--gold);
+      background: none;
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 16px;
+      padding: 4px 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .fav-shortcut.active {
+      background: rgba(255,215,0,0.15);
+      border-color: var(--gold);
+    }
+
+    /* 主內容 */
+    .content {
+      padding-top: calc(var(--safe-top) + 170px);
+      padding-bottom: calc(var(--safe-bottom) + 100px);
+      max-width: 600px;
+      margin: 0 auto;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    /* 結果列表 */
+    .results {
+      margin-top: 8px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* 句型卡片 - 重新設計排版 */
     .result-card {
       background: var(--bg-card);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 16px;
       padding: 16px;
-      margin: 12px 0;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .result-card:hover {
-      border-color: var(--neon-blue);
-      transform: translateY(-2px);
+      margin: 10px 0;
+      transition: all 0.2s ease;
+      position: relative;
     }
 
     .result-card:active {
       transform: scale(0.98);
+      border-color: var(--neon-blue);
     }
 
-    .result-header {
+    .card-top-row {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 8px;
-    }
-
-    .result-chinese {
-      font-size: 1.1rem;
-      font-weight: 900;
-      color: var(--text-primary);
+      align-items: center;
+      margin-bottom: 6px;
     }
 
     .result-category {
-      font-size: 0.75rem;
-      padding: 4px 10px;
+      font-size: 0.72rem;
+      padding: 3px 10px;
       border-radius: 12px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.08);
       color: var(--text-muted);
     }
 
+    .fav-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 2px;
+      opacity: 0.3;
+      transition: all 0.2s ease;
+    }
+
+    .fav-btn.saved {
+      opacity: 1;
+    }
+
+    /* 三行排版：泰文(大) -> 中文拼音(醒目) -> 中文翻譯 */
     .result-thai {
-      font-size: 1.3rem;
+      font-family: 'Noto Sans Thai', 'Noto Sans TC', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
       color: var(--neon-blue);
-      margin: 8px 0;
+      margin: 6px 0 8px;
+      line-height: 1.4;
     }
 
     .result-phonetic {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1.2rem;
+      font-size: 1.35rem;
       font-weight: 900;
-      color: var(--neon-green);
+      color: var(--phonetic-color);
+      margin: 6px 0;
+      line-height: 1.3;
+      text-shadow: 0 0 10px rgba(255,215,0,0.3);
+    }
+
+    .result-chinese {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
     }
 
     .result-scenario {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
-      margin-top: 8px;
+      margin-top: 6px;
+    }
+
+    .copy-hint {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      opacity: 0.5;
+    }
+
+    /* 複製提示 toast */
+    .copy-toast {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--neon-green);
+      color: #000;
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-weight: 900;
+      font-size: 0.9rem;
+      z-index: 3000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
 
     /* 無結果 */
@@ -299,21 +427,6 @@
       box-shadow: 0 8px 25px rgba(66, 133, 244, 0.4);
     }
 
-    /* 熱門句型 */
-    .hot-section {
-      margin: 24px 0;
-    }
-
-    .section-title {
-      font-size: 1rem;
-      font-weight: 900;
-      color: var(--gold);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
     /* 詳細 Modal */
     .modal {
       display: none;
@@ -322,6 +435,7 @@
       z-index: 2000;
       background: rgba(0,0,0,0.8);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       align-items: center;
       justify-content: center;
       padding: 20px;
@@ -332,7 +446,7 @@
     }
 
     .modal-content {
-      background: var(--bg-card);
+      background: linear-gradient(180deg, rgba(30,30,45,0.98), rgba(15,15,25,0.98));
       border: 2px solid var(--neon-pink);
       border-radius: 24px;
       padding: 32px 24px;
@@ -348,41 +462,68 @@
     }
 
     .modal-chinese {
-      font-size: 1.3rem;
-      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--text-secondary);
       margin-bottom: 16px;
     }
 
     .modal-thai {
-      font-size: 2rem;
+      font-family: 'Noto Sans Thai', 'Noto Sans TC', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
       color: var(--neon-blue);
-      margin: 16px 0;
+      margin: 12px 0;
+      line-height: 1.3;
     }
 
     .modal-phonetic {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 900;
-      color: var(--neon-green);
+      color: var(--phonetic-color);
       margin: 16px 0;
-      padding: 16px;
-      background: rgba(0,255,136,0.1);
+      padding: 18px;
+      background: rgba(255,215,0,0.1);
+      border: 1px solid rgba(255,215,0,0.2);
       border-radius: 16px;
+      text-shadow: 0 0 15px rgba(255,215,0,0.3);
     }
 
     .modal-scenario {
       font-size: 0.9rem;
       color: var(--text-muted);
-      margin-top: 16px;
+      margin-top: 12px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      justify-content: center;
+    }
+
+    .modal-copy-btn {
+      padding: 12px 24px;
+      background: rgba(0,255,255,0.15);
+      border: 1px solid var(--neon-blue);
+      border-radius: 25px;
+      color: var(--neon-blue);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .modal-copy-btn:active {
+      background: rgba(0,255,255,0.3);
     }
 
     .modal-close {
-      margin-top: 24px;
-      padding: 12px 40px;
+      padding: 12px 32px;
       background: var(--neon-pink);
       border: none;
       border-radius: 25px;
       color: white;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       cursor: pointer;
     }
@@ -395,6 +536,7 @@
       right: 0;
       background: rgba(10, 10, 15, 0.95);
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       padding: 12px 16px calc(var(--safe-bottom) + 12px);
       display: flex;
       justify-content: space-around;
@@ -419,42 +561,73 @@
     .nav-item span:first-child {
       font-size: 1.5rem;
     }
+
+    /* 回到頂部按鈕 */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 90px;
+      right: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--neon-pink);
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255,0,255,0.4);
+    }
+
+    .scroll-top-btn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
   </style>
 </head>
 <body>
   <header class="header">
     <div class="header-content">
-      <a href="index.html" class="back-btn">← 返回首頁</a>
+      <a href="index.html" class="back-btn">← 返回</a>
       <span class="page-title">🇹🇭 泰語小幫手</span>
     </div>
   </header>
 
-  <main class="content">
-    <div class="search-section">
-      <div class="search-box">
-        <input type="text" class="search-input" id="searchInput"
-               placeholder="輸入中文，找泰語唸法..." autocomplete="off">
-        <button class="clear-btn" id="clearBtn" onclick="clearSearch()">✕</button>
-        <span class="search-icon">🔍</span>
-      </div>
-      <div class="stats">
-        <div class="stat-item">
-          <span class="stat-number" id="resultCount">410</span>
-          <span>句型</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">26</span>
-          <span>分類</span>
-        </div>
-      </div>
+  <!-- 搜尋區 - 固定在 header 下方 -->
+  <div class="search-bar" id="searchBar">
+    <div class="search-box">
+      <input type="text" class="search-input" id="searchInput"
+             placeholder="搜尋中文或拼音..." autocomplete="off" enterkeyhint="search">
+      <button class="clear-btn" id="clearBtn" onclick="clearSearch()">✕</button>
+      <span class="search-icon">🔍</span>
     </div>
+  </div>
 
-    <!-- 分類標籤 -->
+  <!-- 分類快捷列 - 水平捲動 -->
+  <div class="category-scroll">
     <div class="category-tabs" id="categoryTabs">
       <button class="category-tab active" data-category="all">全部</button>
       <button class="category-tab" data-category="hot">🔥 熱門</button>
     </div>
+    <div class="stats-row">
+      <div class="stat-item">
+        <span class="stat-number" id="resultCount">0</span>
+        <span>句型</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="catCount">0</span>
+        <span>分類</span>
+      </div>
+      <button class="fav-shortcut" id="favShortcut" onclick="toggleFavorites()">
+        ⭐ 收藏 <span id="favCount">0</span>
+      </button>
+    </div>
+  </div>
 
+  <main class="content">
     <!-- 結果區 -->
     <div class="results" id="results"></div>
 
@@ -476,9 +649,18 @@
       <div class="modal-thai" id="modalThai"></div>
       <div class="modal-phonetic" id="modalPhonetic">🗣️ <span id="modalPhoneticText"></span></div>
       <div class="modal-scenario" id="modalScenario"></div>
-      <button class="modal-close" onclick="closeModal()">關閉</button>
+      <div class="modal-actions">
+        <button class="modal-copy-btn" id="modalCopyBtn" onclick="copyThaiFromModal()">📋 複製泰文</button>
+        <button class="modal-close" onclick="closeModal()">關閉</button>
+      </div>
     </div>
   </div>
+
+  <!-- 複製提示 -->
+  <div class="copy-toast" id="copyToast">已複製泰文！</div>
+
+  <!-- 回到頂部 -->
+  <button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
   <!-- 底部導航 -->
   <nav class="bottom-nav">
@@ -504,55 +686,60 @@
     // 泰語資料庫
     let phrasesData = null;
     let allPhrases = [];
-    
-    // 從 JSON 檔案載入完整的 410+ 句型
+    let favorites = JSON.parse(localStorage.getItem('thai-favorites') || '[]');
+    let showingFavorites = false;
+    let currentModalThai = '';
+
+    // 載入句型資料
     async function loadPhrasesData() {
       try {
         const response = await fetch('thai-phrases-complete.json');
         phrasesData = await response.json();
-        console.log(`✅ 已載入 ${phrasesData.metadata.total_phrases} 個泰語句型`);
+        console.log(`已載入 ${phrasesData.metadata.total_phrases} 個泰語句型`);
         initializeApp();
       } catch (error) {
-        console.error('❌ 載入泰語資料失敗:', error);
-        // Fallback: 使用基本資料
-        phrasesData = {"metadata":{"total_phrases":0},"categories":[]};
+        console.error('載入泰語資料失敗:', error);
+        phrasesData = {"metadata":{"total_phrases":0,"categories":0},"categories":[]};
         initializeApp();
       }
     }
 
     // 熱門句型（手動挑選最常用的）
     const hotPhrases = [
-      {"thai":"เท่าไหร่","phonetic":"逃萊","chinese":"多少錢？","scenario":"詢問價格","category":"購物"},
+      {"thai":"สวัสดีครับ","phonetic":"薩瓦滴咖","chinese":"你好","scenario":"見面打招呼","category":"基本"},
       {"thai":"ขอบคุณครับ","phonetic":"靠坤咖","chinese":"謝謝","scenario":"表達感謝","category":"基本"},
+      {"thai":"เท่าไหร่","phonetic":"逃萊","chinese":"多少錢？","scenario":"詢問價格","category":"購物"},
+      {"thai":"ลดได้ไหม","phonetic":"落代買","chinese":"可以便宜一點嗎？","scenario":"殺價","category":"購物"},
       {"thai":"ไม่เผ็ด","phonetic":"麥配","chinese":"不要辣","scenario":"點餐備註","category":"餐廳"},
       {"thai":"เช็คบิลครับ","phonetic":"切賓咖","chinese":"買單","scenario":"結帳","category":"餐廳"},
-      {"thai":"ลดได้ไหม","phonetic":"落代買","chinese":"可以便宜一點嗎？","scenario":"殺價","category":"購物"},
-      {"thai":"ไปที่นี่","phonetic":"拜替尼","chinese":"去這裡（指地圖）","scenario":"指著地圖","category":"交通"},
+      {"thai":"ไปที่นี่","phonetic":"拜替尼","chinese":"去這裡（指地圖）","scenario":"指著地圖給司機","category":"交通"},
       {"thai":"เบาหน่อย","phonetic":"包挪","chinese":"輕一點","scenario":"力道調整","category":"按摩"},
       {"thai":"ชนแก้ว","phonetic":"衝給","chinese":"乾杯！","scenario":"碰杯","category":"酒吧"},
       {"thai":"สวยมาก","phonetic":"蘇威媽","chinese":"好漂亮","scenario":"稱讚","category":"讚美"},
-      {"thai":"ขอไลน์ได้ไหม","phonetic":"靠賴代買","chinese":"可以加Line嗎？","scenario":"要Line","category":"撩妹"}
+      {"thai":"ขอไลน์ได้ไหม","phonetic":"靠賴代買","chinese":"可以加Line嗎？","scenario":"要Line","category":"撩妹"},
+      {"thai":"หนักหน่อย","phonetic":"那挪","chinese":"重一點","scenario":"力道調整","category":"按摩"}
     ];
 
     function initializeApp() {
-      if (!phrasesData || !phrasesData.categories) {
-        console.error('❌ 資料未載入');
-        return;
-      }
+      if (!phrasesData || !phrasesData.categories) return;
 
-      // 建立所有句型的扁平陣列
+      // 建立扁平陣列
       allPhrases = [];
       phrasesData.categories.forEach(cat => {
         cat.phrases.forEach(p => {
           allPhrases.push({
             ...p,
             category: cat.name,
-            categoryIcon: cat.icon
+            categoryIcon: cat.icon,
+            categoryId: cat.id
           });
         });
       });
 
-      console.log(`✅ allPhrases 建立完成，共 ${allPhrases.length} 個句型`);
+      // 更新統計
+      document.getElementById('resultCount').textContent = allPhrases.length;
+      document.getElementById('catCount').textContent = phrasesData.categories.length;
+      updateFavCount();
 
       // 初始化分類標籤
       initCategoryTabs();
@@ -574,35 +761,46 @@
       });
     }
 
-    // 顯示熱門句型
-    function showHotPhrases() {
-      const container = document.getElementById('results');
-      container.innerHTML = `
-        <div class="section-title">🔥 熱門常用句</div>
-      `;
-      hotPhrases.forEach(p => {
-        container.innerHTML += createResultCard(p);
-      });
-    }
-
-    // 建立結果卡片
+    // 建立結果卡片 - 新排版
     function createResultCard(phrase) {
+      const isFav = favorites.includes(phrase.thai);
+      // 對單引號做跳脫處理
+      const safeC = (phrase.chinese || '').replace(/'/g, "\\'");
+      const safeT = (phrase.thai || '').replace(/'/g, "\\'");
+      const safeP = (phrase.phonetic || '').replace(/'/g, "\\'");
+      const safeS = (phrase.scenario || '').replace(/'/g, "\\'");
+
       return `
-        <div class="result-card" onclick="showDetail('${phrase.chinese}', '${phrase.thai}', '${phrase.phonetic}', '${phrase.scenario}')">
-          <div class="result-header">
-            <div class="result-chinese">${phrase.chinese}</div>
-            <div class="result-category">${phrase.category || ''}</div>
+        <div class="result-card" onclick="showDetail('${safeC}', '${safeT}', '${safeP}', '${safeS}')">
+          <div class="card-top-row">
+            <span class="result-category">${phrase.category || ''}</span>
+            <button class="fav-btn ${isFav ? 'saved' : ''}" onclick="event.stopPropagation(); toggleFav(this, '${safeT}')">
+              ${isFav ? '⭐' : '☆'}
+            </button>
           </div>
-          <div class="result-thai">${phrase.thai}</div>
+          <div class="result-thai thai-text">${phrase.thai}</div>
           <div class="result-phonetic">🗣️ ${phrase.phonetic}</div>
-          <div class="result-scenario">💡 ${phrase.scenario}</div>
+          <div class="result-chinese">${phrase.chinese}</div>
+          ${phrase.scenario ? `<div class="result-scenario">💡 ${phrase.scenario}</div>` : ''}
+          <span class="copy-hint">點擊查看大字</span>
         </div>
       `;
     }
 
+    // 顯示熱門句型
+    function showHotPhrases() {
+      showingFavorites = false;
+      document.getElementById('favShortcut').classList.remove('active');
+      const container = document.getElementById('results');
+      let html = '<div class="section-title">🔥 熱門常用句</div>';
+      hotPhrases.forEach(p => { html += createResultCard(p); });
+      container.innerHTML = html;
+    }
+
     // 搜尋功能
     function search(query) {
-      console.log('[搜尋] 關鍵字:', query, '| allPhrases 長度:', allPhrases.length);
+      showingFavorites = false;
+      document.getElementById('favShortcut').classList.remove('active');
 
       const clearBtn = document.getElementById('clearBtn');
       clearBtn.classList.toggle('show', query.length > 0);
@@ -611,16 +809,19 @@
         showHotPhrases();
         document.getElementById('noResults').style.display = 'none';
         document.getElementById('resultCount').textContent = allPhrases.length;
+        // 重設分類 tab
+        setActiveTab('all');
         return;
       }
 
+      const q = query.toLowerCase();
       const results = allPhrases.filter(p =>
-        p.chinese.includes(query) ||
-        p.phonetic.includes(query) ||
-        p.scenario.includes(query)
+        p.chinese.toLowerCase().includes(q) ||
+        p.phonetic.toLowerCase().includes(q) ||
+        (p.scenario && p.scenario.toLowerCase().includes(q)) ||
+        (p.category && p.category.toLowerCase().includes(q)) ||
+        p.thai.includes(query)
       );
-
-      console.log('[搜尋] 找到', results.length, '個結果');
 
       const container = document.getElementById('results');
       const noResults = document.getElementById('noResults');
@@ -633,10 +834,9 @@
           `https://translate.google.com/?sl=zh-TW&tl=th&text=${encodeURIComponent(query)}&op=translate`;
       } else {
         noResults.style.display = 'none';
-        container.innerHTML = `<div class="section-title">🔍 找到 ${results.length} 個結果</div>`;
-        results.forEach(p => {
-          container.innerHTML += createResultCard(p);
-        });
+        let html = `<div class="section-title">🔍 找到 ${results.length} 個結果</div>`;
+        results.forEach(p => { html += createResultCard(p); });
+        container.innerHTML = html;
       }
 
       document.getElementById('resultCount').textContent = results.length || allPhrases.length;
@@ -644,10 +844,9 @@
 
     // 分類篩選
     function filterByCategory(categoryId) {
-      // 更新 Tab 狀態
-      document.querySelectorAll('.category-tab').forEach(tab => {
-        tab.classList.toggle('active', tab.dataset.category === categoryId);
-      });
+      showingFavorites = false;
+      document.getElementById('favShortcut').classList.remove('active');
+      setActiveTab(categoryId);
 
       const container = document.getElementById('results');
       document.getElementById('noResults').style.display = 'none';
@@ -656,6 +855,7 @@
 
       if (categoryId === 'all') {
         showHotPhrases();
+        document.getElementById('resultCount').textContent = allPhrases.length;
         return;
       }
 
@@ -666,20 +866,120 @@
 
       const cat = phrasesData.categories.find(c => c.id === categoryId);
       if (cat) {
-        container.innerHTML = `<div class="section-title">${cat.icon} ${cat.name}</div>`;
+        let html = `<div class="section-title">${cat.icon} ${cat.name}（${cat.phrases.length}）</div>`;
         cat.phrases.forEach(p => {
-          container.innerHTML += createResultCard({...p, category: cat.name});
+          html += createResultCard({...p, category: cat.name});
         });
+        container.innerHTML = html;
+        document.getElementById('resultCount').textContent = cat.phrases.length;
+      }
+
+      // 自動捲回頂部
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    function setActiveTab(id) {
+      document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.category === id);
+      });
+      // 自動捲動分類列到可見位置
+      const activeTab = document.querySelector(`.category-tab[data-category="${id}"]`);
+      if (activeTab) {
+        activeTab.scrollIntoView({behavior: 'smooth', inline: 'center', block: 'nearest'});
       }
     }
 
-    // 顯示詳細
+    // 收藏功能
+    function toggleFav(btn, thai) {
+      const idx = favorites.indexOf(thai);
+      if (idx > -1) {
+        favorites.splice(idx, 1);
+        btn.classList.remove('saved');
+        btn.textContent = '☆';
+      } else {
+        favorites.push(thai);
+        btn.classList.add('saved');
+        btn.textContent = '⭐';
+      }
+      localStorage.setItem('thai-favorites', JSON.stringify(favorites));
+      updateFavCount();
+    }
+
+    function updateFavCount() {
+      document.getElementById('favCount').textContent = favorites.length;
+    }
+
+    function toggleFavorites() {
+      if (showingFavorites) {
+        showingFavorites = false;
+        document.getElementById('favShortcut').classList.remove('active');
+        showHotPhrases();
+        setActiveTab('all');
+        return;
+      }
+
+      showingFavorites = true;
+      document.getElementById('favShortcut').classList.add('active');
+      setActiveTab('');
+      document.getElementById('searchInput').value = '';
+      document.getElementById('clearBtn').classList.remove('show');
+
+      const favPhrases = allPhrases.filter(p => favorites.includes(p.thai));
+      const container = document.getElementById('results');
+
+      if (favPhrases.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; padding:40px 20px;">
+            <div style="font-size:3rem; margin-bottom:16px;">⭐</div>
+            <div style="color:var(--text-muted); font-size:1rem;">
+              還沒有收藏句型<br>
+              <span style="font-size:0.85rem;">點卡片上的 ☆ 收藏常用句</span>
+            </div>
+          </div>
+        `;
+      } else {
+        let html = `<div class="section-title">⭐ 我的收藏（${favPhrases.length}）</div>`;
+        favPhrases.forEach(p => { html += createResultCard(p); });
+        container.innerHTML = html;
+      }
+    }
+
+    // 顯示詳細 Modal
     function showDetail(chinese, thai, phonetic, scenario) {
+      currentModalThai = thai;
       document.getElementById('modalChinese').textContent = chinese;
       document.getElementById('modalThai').textContent = thai;
       document.getElementById('modalPhoneticText').textContent = phonetic;
-      document.getElementById('modalScenario').textContent = `💡 ${scenario}`;
+      document.getElementById('modalScenario').textContent = scenario ? `💡 ${scenario}` : '';
       document.getElementById('modal').classList.add('show');
+    }
+
+    // 複製泰文
+    function copyThaiFromModal() {
+      copyToClipboard(currentModalThai);
+    }
+
+    function copyToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showCopyToast());
+      } else {
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showCopyToast();
+      }
+    }
+
+    function showCopyToast() {
+      const toast = document.getElementById('copyToast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1500);
     }
 
     // 關閉 Modal
@@ -693,16 +993,28 @@
     function clearSearch() {
       document.getElementById('searchInput').value = '';
       document.getElementById('clearBtn').classList.remove('show');
-      showHotPhrases();
       document.getElementById('noResults').style.display = 'none';
+      showHotPhrases();
+      setActiveTab('all');
+      document.getElementById('resultCount').textContent = allPhrases.length;
+      document.getElementById('searchInput').focus();
     }
+
+    // 回到頂部按鈕顯示邏輯
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('scrollTopBtn');
+      btn.classList.toggle('show', window.scrollY > 400);
+    }, {passive: true});
 
     // 初始化
     document.addEventListener('DOMContentLoaded', () => {
-      // 等待資料載入，由 loadPhrasesData() 觸發 initializeApp()
-      
       document.getElementById('searchInput').addEventListener('input', (e) => {
         search(e.target.value.trim());
+      });
+
+      // ESC 關閉 Modal
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
       });
     });
   </script>
@@ -712,12 +1024,8 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js')
-          .then((registration) => {
-            console.log('✅ Service Worker 註冊成功:', registration.scope);
-          })
-          .catch((error) => {
-            console.error('❌ Service Worker 註冊失敗:', error);
-          });
+          .then((reg) => console.log('SW registered:', reg.scope))
+          .catch((err) => console.error('SW failed:', err));
       });
     }
 

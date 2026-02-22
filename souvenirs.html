@@ -414,6 +414,52 @@
       border-color: var(--neon-pink);
       color: var(--neon-pink);
     }
+
+    /* 表格橫向滾動容器 */
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 16px 0;
+    }
+
+    .table-scroll .place-table {
+      margin: 0;
+      min-width: 400px;
+    }
+
+    /* 回到頂部按鈕 */
+    .back-to-top {
+      position: fixed;
+      bottom: calc(var(--safe-bottom) + 20px);
+      right: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      color: white;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(255,0,255,0.4);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .back-to-top:active {
+      transform: scale(0.9);
+    }
   </style>
 </head>
 <body>
@@ -888,6 +934,7 @@
 
     <!-- 購買地點總整理 -->
     <div class="section-title" style="margin-top:36px;">📍 購買地點總整理</div>
+    <div class="table-scroll">
     <table class="place-table">
       <thead>
         <tr>
@@ -929,6 +976,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
 
     <div class="tip-box" style="margin-top:20px;">
       <div class="tip-title">💡 購物小技巧</div>
@@ -1026,6 +1074,34 @@
 
     // 初始化
     restoreState();
+
+    // 回到頂部按鈕
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+  </script>
+
+  <!-- 回到頂部按鈕 -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <!-- Service Worker 註冊 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('Service Worker registered:', registration.scope);
+          })
+          .catch((error) => {
+            console.error('Service Worker registration failed:', error);
+          });
+      });
+    }
   </script>
 
 </body>

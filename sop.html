@@ -401,6 +401,74 @@
       color: var(--neon-pink);
     }
 
+    /* 表格橫向滾動容器 */
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 16px 0;
+    }
+
+    .table-scroll .price-table {
+      margin: 0;
+      min-width: 320px;
+    }
+
+    /* 可點擊的 Checklist */
+    .checklist li {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .checklist li:active {
+      transform: scale(0.98);
+    }
+
+    .checklist li.checked {
+      color: var(--success);
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+
+    .checklist li.checked::before {
+      content: '✅';
+    }
+
+    /* 回到頂部按鈕 */
+    .back-to-top {
+      position: fixed;
+      bottom: calc(var(--safe-bottom) + 20px);
+      right: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      color: white;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(255,0,255,0.4);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .back-to-top:active {
+      transform: scale(0.9);
+    }
+
     /* 底部導航 */
     .footer-nav {
       margin-top: 40px;
@@ -493,6 +561,7 @@
     <div id="gogo" class="tab-content active">
       <h2 class="section-title">💰 預算規劃</h2>
 
+      <div class="table-scroll">
       <table class="price-table">
         <tr>
           <th>項目</th>
@@ -523,6 +592,7 @@
           <td class="price">3,000-5,000</td>
         </tr>
       </table>
+      </div>
 
       <div class="tip-box success">
         <div class="tip-title">💡 預算建議</div>
@@ -535,6 +605,7 @@
 
       <h2 class="section-title">⏰ 最佳時間</h2>
 
+      <div class="table-scroll">
       <table class="price-table">
         <tr>
           <th>時段</th>
@@ -557,6 +628,7 @@
           <td>收攤前，議價空間大</td>
         </tr>
       </table>
+      </div>
 
       <h2 class="section-title">📍 進場流程</h2>
 
@@ -709,6 +781,7 @@
     <div id="beer" class="tab-content">
       <h2 class="section-title">🍺 Beer Bar vs GoGo Bar</h2>
 
+      <div class="table-scroll">
       <table class="price-table">
         <tr>
           <th>項目</th>
@@ -746,6 +819,7 @@
           <td>晚上 20:00 起</td>
         </tr>
       </table>
+      </div>
 
       <div class="tip-box success">
         <div class="tip-title">💡 選擇建議</div>
@@ -759,6 +833,7 @@
 
       <h2 class="section-title">📍 推薦區域</h2>
 
+      <div class="table-scroll">
       <table class="price-table">
         <tr>
           <th>區域</th>
@@ -781,6 +856,7 @@
           <td>18:00 起</td>
         </tr>
       </table>
+      </div>
 
       <h2 class="section-title">📍 進場流程</h2>
 
@@ -820,6 +896,7 @@
 
       <h2 class="section-title">🎲 玩骰子遊戲</h2>
 
+      <div class="table-scroll">
       <table class="price-table">
         <tr>
           <th>遊戲</th>
@@ -838,6 +915,7 @@
           <td>四子棋</td>
         </tr>
       </table>
+      </div>
 
       <div class="tip-box warning">
         <div class="tip-title">⚠️ 遊戲須知</div>
@@ -914,6 +992,7 @@
       </div>
 
       <h2 class="section-title">💰 價格等級說明</h2>
+      <div class="table-scroll">
       <table class="price-table">
         <tr>
           <th>等級</th>
@@ -936,6 +1015,7 @@
           <td class="price">4,000+ THB</td>
         </tr>
       </table>
+      </div>
 
       <h2 class="section-title">🔥 熱門區域（高消費 $$$）</h2>
 
@@ -1170,6 +1250,9 @@
     </div>
   </main>
 
+  <!-- 回到頂部按鈕 -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
   <script>
     function switchTab(tab) {
       // 切換按鈕狀態
@@ -1183,6 +1266,91 @@
       // 滾動到頂部
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // 可點擊的 Checklist
+    const CHECKLIST_KEY = 'pattaya-sop-checklist';
+
+    function getChecklistState() {
+      try { return JSON.parse(localStorage.getItem(CHECKLIST_KEY)) || {}; } catch { return {}; }
+    }
+
+    function saveChecklistState(state) {
+      localStorage.setItem(CHECKLIST_KEY, JSON.stringify(state));
+    }
+
+    document.querySelectorAll('.checklist li').forEach((li, index) => {
+      li.addEventListener('click', () => {
+        const state = getChecklistState();
+        const key = 'item-' + index;
+        if (state[key]) {
+          delete state[key];
+          li.classList.remove('checked');
+        } else {
+          state[key] = true;
+          li.classList.add('checked');
+        }
+        saveChecklistState(state);
+      });
+
+      // 還原狀態
+      const state = getChecklistState();
+      if (state['item-' + index]) {
+        li.classList.add('checked');
+      }
+    });
+
+    // 處理錨點連結（從 itinerary.html 過來的 #soi6, #walking-street 等）
+    function handleHashNavigation() {
+      const hash = window.location.hash;
+      if (!hash) return;
+
+      const targetId = hash.substring(1);
+
+      // 判斷目標在哪個 tab
+      const tabMap = {
+        'walking-street': 'areas',
+        'lk-metro': 'areas',
+        'soi6': 'areas',
+        'soi-buakhao': 'areas',
+        'soi-boomerang': 'areas',
+        'soi7': 'areas',
+      };
+
+      const targetTab = tabMap[targetId] || null;
+      if (targetTab) {
+        // 切換到目標 tab
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+        const tabBtn = document.querySelector(`.tab-btn[onclick*="${targetTab}"]`);
+        if (tabBtn) tabBtn.classList.add('active');
+        const tabContent = document.getElementById(targetTab);
+        if (tabContent) tabContent.classList.add('active');
+
+        // 延遲滾動到目標元素
+        setTimeout(() => {
+          const target = document.getElementById(targetId);
+          if (target) {
+            const offset = 140;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    }
+
+    // 頁面載入時處理錨點
+    handleHashNavigation();
+
+    // 回到頂部按鈕
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
   </script>
 
   <!-- Service Worker 註冊 -->

@@ -348,12 +348,101 @@
       font-weight: 900;
       font-size: 0.95rem;
     }
+
+    /* 換算器 */
+    .converter-box {
+      background: var(--bg-card);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+
+    .converter-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .converter-input-group {
+      flex: 1;
+    }
+
+    .converter-label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .converter-input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.3);
+      color: var(--gold);
+      font-size: 1.3rem;
+      font-weight: 900;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .converter-input:focus {
+      border-color: var(--gold);
+    }
+
+    .converter-input::placeholder {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+
+    .converter-arrow {
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-top: 24px;
+    }
+
+    .converter-rate {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .converter-presets {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      justify-content: center;
+    }
+
+    .preset-btn {
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,215,0,0.3);
+      background: rgba(255,215,0,0.1);
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:active {
+      background: var(--gold);
+      color: #000;
+    }
   </style>
 </head>
 <body>
   <header class="header">
     <div class="header-content">
-      <a href="day.html" class="back-btn">← 返回行程</a>
+      <a href="index.html" class="back-btn">← 首頁</a>
       <span class="page-title">換錢攻略</span>
     </div>
   </header>
@@ -477,18 +566,60 @@
       <li>用 <a href="https://www.superrich1965.com/" target="_blank" style="color: var(--neon-blue);">SuperRich 官網</a> 查即時匯率</li>
     </ul>
 
-    <div class="tip-box">
-      <div class="tip-title">💰 目前匯率參考</div>
-      <div class="tip-content">
-        新台幣 1 元 ≈ 1.005 泰銖<br>
-        實際匯率依當天公告為準
+    <h2 class="section-title">🧮 即時換算器</h2>
+
+    <div class="converter-box">
+      <div class="converter-row">
+        <div class="converter-input-group">
+          <label class="converter-label">🇹🇼 台幣 TWD</label>
+          <input type="number" id="twd-input" class="converter-input" placeholder="輸入台幣" inputmode="numeric">
+        </div>
+        <div class="converter-arrow">⇄</div>
+        <div class="converter-input-group">
+          <label class="converter-label">🇹🇭 泰銖 THB</label>
+          <input type="number" id="thb-input" class="converter-input" placeholder="輸入泰銖" inputmode="numeric">
+        </div>
+      </div>
+      <div class="converter-rate">
+        參考匯率：1 TWD ≈ <strong style="color: var(--gold);">1.005</strong> THB（實際依當天公告為準）
+      </div>
+      <div class="converter-presets">
+        <button class="preset-btn" data-amount="1000">1,000</button>
+        <button class="preset-btn" data-amount="3000">3,000</button>
+        <button class="preset-btn" data-amount="5000">5,000</button>
+        <button class="preset-btn" data-amount="10000">10,000</button>
       </div>
     </div>
 
     <div class="footer-nav">
-      <a href="day.html" class="footer-btn">← 返回白天行程</a>
+      <a href="index.html" class="footer-btn">← 返回首頁</a>
     </div>
   </main>
+
+  <!-- 換算器邏輯 -->
+  <script>
+    const RATE = 1.005;
+    const twdInput = document.getElementById('twd-input');
+    const thbInput = document.getElementById('thb-input');
+
+    twdInput.addEventListener('input', function() {
+      const twd = parseFloat(this.value);
+      thbInput.value = isNaN(twd) ? '' : Math.round(twd * RATE);
+    });
+
+    thbInput.addEventListener('input', function() {
+      const thb = parseFloat(this.value);
+      twdInput.value = isNaN(thb) ? '' : Math.round(thb / RATE);
+    });
+
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const amount = parseInt(this.dataset.amount);
+        twdInput.value = amount;
+        thbInput.value = Math.round(amount * RATE);
+      });
+    });
+  </script>
 
   <!-- Service Worker 註冊 -->
   <script>

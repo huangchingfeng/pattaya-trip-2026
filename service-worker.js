@@ -1,10 +1,10 @@
 // Pattaya Trip 2026 - Service Worker
 // Version: 1.0.0
 
-const CACHE_VERSION = 'v2.0.0';
+const CACHE_VERSION = 'v2.1.0';
 const CACHE_NAME = `pattaya-2026-${CACHE_VERSION}`;
 
-// 核心頁面（9/11 頁，MVP 範圍）
+// 核心頁面
 const CORE_PAGES = [
   '/',
   '/index.html',
@@ -19,7 +19,14 @@ const CORE_PAGES = [
   '/truth-or-dare.html',
   '/checklist.html',
   '/souvenirs.html',
-  '/resources.html'
+  '/resources.html',
+  '/offline.html'
+];
+
+// JSON 資料檔
+const DATA_FILES = [
+  '/thai-phrases-complete.json',
+  '/thai-advanced-phrases.json'
 ];
 
 // CDN 資源
@@ -30,7 +37,7 @@ const CDN_RESOURCES = [
 ];
 
 // 預快取資源清單
-const PRE_CACHE_URLS = [...CORE_PAGES, ...CDN_RESOURCES];
+const PRE_CACHE_URLS = [...CORE_PAGES, ...DATA_FILES, ...CDN_RESOURCES];
 
 // Install Event: 預快取核心資源
 self.addEventListener('install', (event) => {
@@ -104,10 +111,11 @@ self.addEventListener('fetch', (event) => {
               return cachedResponse;
             }
 
-            // 如果快取也沒有 → 返回離線頁面（未來實作）
-            // return caches.match('/offline.html');
+            // 快取也沒有 → 返回離線頁面
+            if (request.mode === 'navigate') {
+              return caches.match('/offline.html');
+            }
 
-            // 目前 MVP：返回錯誤
             return new Response('Offline - Resource not cached', {
               status: 503,
               statusText: 'Service Unavailable'

@@ -99,13 +99,28 @@
     .date {
       font-size: 1rem;
       opacity: 0.7;
-      margin-bottom: 48px;
+      margin-bottom: 8px;
     }
 
-    .choose-text {
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .section-icon {
+      font-size: 1.3rem;
+    }
+
+    .section-title {
       font-size: 1rem;
-      opacity: 0.8;
-      margin-bottom: 24px;
+      font-weight: 700;
+      opacity: 0.85;
+      letter-spacing: 0.05em;
     }
 
     .mode-buttons {
@@ -180,8 +195,8 @@
 
     .stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
       margin-top: 48px;
       padding-top: 32px;
       border-top: 1px solid rgba(255,255,255,0.1);
@@ -192,7 +207,7 @@
     }
 
     .stat-number {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 900;
       color: #ffd93d;
     }
@@ -218,9 +233,66 @@
     <p class="subtitle">Pattaya Trip 2026</p>
     <p class="date">2026/3/16 - 3/22</p>
 
-    <p class="choose-text">選擇你要探索的行程</p>
+    <!-- 出發前準備 -->
+    <div class="section-divider">
+      <span class="section-icon">✈️</span>
+      <span class="section-title">出發前準備</span>
+    </div>
 
     <div class="mode-buttons">
+      <a href="checklist.html" class="mode-btn" style="background: linear-gradient(135deg, #00ff88, #2ed573); color: #1a1a2e; box-shadow: 0 8px 30px rgba(0, 255, 136, 0.4);">
+        <span class="mode-icon">✅</span>
+        <div class="mode-info">
+          <div class="mode-title">行前準備清單</div>
+          <div class="mode-desc">證件・行李・每日出門・回程</div>
+        </div>
+        <span class="mode-arrow">→</span>
+      </a>
+
+      <a href="https://tdac.immigration.go.th/arrival-card/#/home" target="_blank" class="mode-btn" style="background: linear-gradient(135deg, #74b9ff, #0984e3); color: white; box-shadow: 0 8px 30px rgba(9, 132, 227, 0.4);">
+        <span class="mode-icon">📋</span>
+        <div class="mode-info">
+          <div class="mode-title">TDAC 入境卡</div>
+          <div class="mode-desc">出發前 72 小時內填寫・必填！</div>
+        </div>
+        <span class="mode-arrow">↗</span>
+      </a>
+
+      <a href="esim.html" class="mode-btn" style="background: linear-gradient(135deg, #f5c842, #ff9500); color: #1a1a2e; box-shadow: 0 8px 30px rgba(245, 200, 66, 0.4);">
+        <span class="mode-icon">📶</span>
+        <div class="mode-info">
+          <div class="mode-title">eSIM 設定教學</div>
+          <div class="mode-desc">7天無限流量・抵達後安裝</div>
+        </div>
+        <span class="mode-arrow">→</span>
+      </a>
+
+      <a href="money.html" class="mode-btn" style="background: linear-gradient(135deg, #00ff88, #00cc66); color: #1a1a2e; box-shadow: 0 8px 30px rgba(0, 255, 136, 0.4);">
+        <span class="mode-icon">💱</span>
+        <div class="mode-info">
+          <div class="mode-title">換錢攻略</div>
+          <div class="mode-desc">SuperRich・機場・芭達雅</div>
+        </div>
+        <span class="mode-arrow">→</span>
+      </a>
+    </div>
+
+    <!-- 芭達雅現場 -->
+    <div class="section-divider">
+      <span class="section-icon">🌴</span>
+      <span class="section-title">芭達雅現場</span>
+    </div>
+
+    <div class="mode-buttons">
+      <a href="itinerary.html" class="mode-btn" style="background: linear-gradient(135deg, #00d4ff, #0099cc); color: white; box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);">
+        <span class="mode-icon">📅</span>
+        <div class="mode-info">
+          <div class="mode-title">7天完整行程</div>
+          <div class="mode-desc">每日幾點幾分做什麼</div>
+        </div>
+        <span class="mode-arrow">→</span>
+      </a>
+
       <a href="day.html" class="mode-btn day-btn">
         <span class="mode-icon">☀️</span>
         <div class="mode-info">
@@ -248,29 +320,11 @@
         <span class="mode-arrow">→</span>
       </a>
 
-      <a href="resources.html" class="mode-btn" style="background: linear-gradient(135deg, #ffd700, #ff9500); color: #1a1a2e; box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);">
-        <span class="mode-icon">📚</span>
+      <a href="thai-helper.html" class="mode-btn" style="background: linear-gradient(135deg, #ff6b9d, #c56cf0); color: white; box-shadow: 0 8px 30px rgba(197, 108, 240, 0.4);">
+        <span class="mode-icon">🗣️</span>
         <div class="mode-info">
-          <div class="mode-title">攻略資源</div>
-          <div class="mode-desc">泰國老司機・避坑指南・TG群</div>
-        </div>
-        <span class="mode-arrow">→</span>
-      </a>
-
-      <a href="itinerary.html" class="mode-btn" style="background: linear-gradient(135deg, #00d4ff, #0099cc); color: white; box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);">
-        <span class="mode-icon">📅</span>
-        <div class="mode-info">
-          <div class="mode-title">7天完整行程</div>
-          <div class="mode-desc">每日幾點幾分做什麼</div>
-        </div>
-        <span class="mode-arrow">→</span>
-      </a>
-
-      <a href="checklist.html" class="mode-btn" style="background: linear-gradient(135deg, #00ff88, #2ed573); color: #1a1a2e; box-shadow: 0 8px 30px rgba(0, 255, 136, 0.4);">
-        <span class="mode-icon">✅</span>
-        <div class="mode-info">
-          <div class="mode-title">行前準備清單</div>
-          <div class="mode-desc">證件・行李・每日出門・回程</div>
+          <div class="mode-title">泰語發音助手</div>
+          <div class="mode-desc">中文輸入→泰語發音・445句型</div>
         </div>
         <span class="mode-arrow">→</span>
       </a>
@@ -284,38 +338,11 @@
         <span class="mode-arrow">→</span>
       </a>
 
-      <a href="money.html" class="mode-btn" style="background: linear-gradient(135deg, #00ff88, #00cc66); color: #1a1a2e; box-shadow: 0 8px 30px rgba(0, 255, 136, 0.4);">
-        <span class="mode-icon">💱</span>
+      <a href="resources.html" class="mode-btn" style="background: linear-gradient(135deg, #ffd700, #ff9500); color: #1a1a2e; box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);">
+        <span class="mode-icon">📚</span>
         <div class="mode-info">
-          <div class="mode-title">換錢攻略</div>
-          <div class="mode-desc">SuperRich・機場・芭達雅</div>
-        </div>
-        <span class="mode-arrow">→</span>
-      </a>
-
-      <a href="esim.html" class="mode-btn" style="background: linear-gradient(135deg, #f5c842, #ff9500); color: #1a1a2e; box-shadow: 0 8px 30px rgba(245, 200, 66, 0.4);">
-        <span class="mode-icon">📶</span>
-        <div class="mode-info">
-          <div class="mode-title">eSIM 設定教學</div>
-          <div class="mode-desc">7天無限流量・抵達後安裝</div>
-        </div>
-        <span class="mode-arrow">→</span>
-      </a>
-
-      <a href="https://tdac.immigration.go.th/arrival-card/#/home" target="_blank" class="mode-btn" style="background: linear-gradient(135deg, #74b9ff, #0984e3); color: white; box-shadow: 0 8px 30px rgba(9, 132, 227, 0.4);">
-        <span class="mode-icon">📋</span>
-        <div class="mode-info">
-          <div class="mode-title">TDAC 入境卡</div>
-          <div class="mode-desc">出發前 72 小時內填寫・必填！</div>
-        </div>
-        <span class="mode-arrow">↗</span>
-      </a>
-
-      <a href="thai-helper.html" class="mode-btn" style="background: linear-gradient(135deg, #ff6b9d, #c56cf0); color: white; box-shadow: 0 8px 30px rgba(197, 108, 240, 0.4);">
-        <span class="mode-icon">🗣️</span>
-        <div class="mode-info">
-          <div class="mode-title">泰語發音助手</div>
-          <div class="mode-desc">中文輸入→泰語發音・445句型</div>
+          <div class="mode-title">攻略資源</div>
+          <div class="mode-desc">泰國老司機・避坑指南・TG群</div>
         </div>
         <span class="mode-arrow">→</span>
       </a>
@@ -327,18 +354,22 @@
         <div class="stat-label">天行程</div>
       </div>
       <div class="stat">
+        <div class="stat-number">49</div>
+        <div class="stat-label">項清單</div>
+      </div>
+      <div class="stat">
         <div class="stat-number">445</div>
         <div class="stat-label">泰語句型</div>
       </div>
       <div class="stat">
-        <div class="stat-number">6</div>
-        <div class="stat-label">派對遊戲</div>
+        <div class="stat-number">27</div>
+        <div class="stat-label">伴手禮</div>
       </div>
     </div>
 
     <p class="footer">
       由 Claude Agent Team 協作產出<br>
-      4 專家並行研究 × 410 泰語句型 × 完整攻略
+      4 專家並行研究 × 445 泰語句型 × 完整攻略
     </p>
   </div>
 

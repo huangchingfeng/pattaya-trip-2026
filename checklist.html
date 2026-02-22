@@ -176,6 +176,13 @@
       gap: 10px;
       margin-bottom: 16px;
       padding-bottom: 10px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      min-height: 48px;
+    }
+
+    .section-header:active {
+      opacity: 0.7;
     }
 
     .section-icon {
@@ -192,6 +199,38 @@
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--text-muted);
+    }
+
+    .section-toggle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: transform 0.3s ease;
+      margin-left: 8px;
+    }
+
+    .section.collapsed .section-toggle {
+      transform: rotate(-90deg);
+    }
+
+    .section-body {
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      max-height: 2000px;
+      opacity: 1;
+    }
+
+    .section.collapsed .section-body {
+      max-height: 0;
+      opacity: 0;
+    }
+
+    /* 區塊完成樣式 */
+    .section.all-done .section-header {
+      opacity: 0.6;
+    }
+
+    .section.all-done .section-progress {
+      color: var(--neon-green);
     }
 
     /* 區塊顏色 */
@@ -226,13 +265,14 @@
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      padding: 12px 14px;
+      padding: 14px 16px;
+      min-height: 48px;
       background: var(--bg-card);
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 10px;
       margin-bottom: 8px;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -240,8 +280,13 @@
       border-color: rgba(255,255,255,0.15);
     }
 
+    .check-item:active {
+      transform: scale(0.98);
+    }
+
     .check-item.checked {
-      opacity: 0.5;
+      opacity: 0.45;
+      border-color: rgba(0,255,136,0.15);
     }
 
     .check-item.checked .check-label {
@@ -249,34 +294,53 @@
       color: var(--text-muted);
     }
 
+    /* 勾選動畫 */
+    .check-item.just-checked {
+      animation: checkPop 0.4s ease;
+    }
+
+    @keyframes checkPop {
+      0% { transform: scale(1); }
+      30% { transform: scale(1.03); border-color: var(--neon-green); }
+      100% { transform: scale(1); }
+    }
+
     .check-box {
-      width: 22px;
-      height: 22px;
-      min-width: 22px;
+      width: 26px;
+      height: 26px;
+      min-width: 26px;
       border: 2px solid rgba(255,255,255,0.3);
       border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 1px;
-      transition: all 0.2s ease;
+      margin-top: 0;
+      transition: all 0.3s ease;
     }
 
     .check-item.checked .check-box {
       background: var(--neon-green);
       border-color: var(--neon-green);
+      box-shadow: 0 0 10px rgba(0,255,136,0.3);
     }
 
     .check-mark {
       display: none;
       color: var(--bg-primary);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 900;
       line-height: 1;
     }
 
     .check-item.checked .check-mark {
       display: block;
+      animation: checkmarkPop 0.3s ease;
+    }
+
+    @keyframes checkmarkPop {
+      0% { transform: scale(0); }
+      60% { transform: scale(1.3); }
+      100% { transform: scale(1); }
     }
 
     .check-label {
@@ -336,6 +400,137 @@
     .footer-btn:hover {
       transform: translateY(-2px);
     }
+
+    /* 重置確認對話框 */
+    .reset-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .reset-overlay.show {
+      display: flex;
+    }
+
+    .reset-dialog {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(255,68,68,0.3);
+      border-radius: 20px;
+      padding: 28px 24px;
+      text-align: center;
+      max-width: 320px;
+      width: 100%;
+      animation: dialogIn 0.3s ease;
+    }
+
+    @keyframes dialogIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .reset-dialog-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--danger);
+      margin-bottom: 8px;
+    }
+
+    .reset-dialog-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .reset-dialog-btns {
+      display: flex;
+      gap: 12px;
+    }
+
+    .reset-dialog-btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 12px;
+      border: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-family: inherit;
+      min-height: 48px;
+    }
+
+    .reset-dialog-btn--cancel {
+      background: rgba(255,255,255,0.1);
+      color: var(--text-secondary);
+    }
+
+    .reset-dialog-btn--confirm {
+      background: var(--danger);
+      color: white;
+    }
+
+    /* 完成慶祝 */
+    .celebration {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .celebration.show {
+      display: flex;
+    }
+
+    .celebration-content {
+      text-align: center;
+      animation: celebrateIn 0.5s ease;
+    }
+
+    @keyframes celebrateIn {
+      from { transform: scale(0.5); opacity: 0; }
+      50% { transform: scale(1.1); }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .celebration-emoji {
+      font-size: 4rem;
+      margin-bottom: 16px;
+    }
+
+    .celebration-text {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    .celebration-sub {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 8px;
+    }
+
+    /* 進度條 100% 時的光效 */
+    .progress-fill.complete {
+      background: linear-gradient(90deg, var(--neon-green), var(--gold), var(--neon-green));
+      background-size: 200% 100%;
+      animation: progressGlow 2s ease infinite;
+    }
+
+    @keyframes progressGlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
   </style>
 </head>
 <body>
@@ -362,11 +557,13 @@
 
     <!-- 區塊 1：出發前準備 -->
     <div class="section section--before" data-section="before">
-      <div class="section-header">
+      <div class="section-header" onclick="toggleSection(this)">
         <span class="section-icon">✈️</span>
         <span class="section-title">出發前準備</span>
         <span class="section-progress" id="progress-before"></span>
+        <span class="section-toggle">&#9660;</span>
       </div>
+      <div class="section-body">
 
       <div class="sub-title">📄 證件類</div>
       <div class="check-item" data-id="passport" onclick="toggleCheck(this)">
@@ -507,15 +704,18 @@
         <div class="check-box"><span class="check-mark">✓</span></div>
         <div class="check-label">衛生紙<span class="check-hint">泰國不一定有提供</span></div>
       </div>
+      </div>
     </div>
 
     <!-- 區塊 2：飯店 Check-in -->
     <div class="section section--checkin" data-section="checkin">
-      <div class="section-header">
+      <div class="section-header" onclick="toggleSection(this)">
         <span class="section-icon">🏨</span>
         <span class="section-title">飯店 Check-in 必備</span>
         <span class="section-progress" id="progress-checkin"></span>
+        <span class="section-toggle">&#9660;</span>
       </div>
+      <div class="section-body">
 
       <div class="check-item" data-id="ci-passport" onclick="toggleCheck(this)">
         <div class="check-box"><span class="check-mark">✓</span></div>
@@ -533,15 +733,18 @@
         <div class="check-box"><span class="check-mark">✓</span></div>
         <div class="check-label">確認 WiFi 密碼</div>
       </div>
+      </div>
     </div>
 
     <!-- 區塊 3：每日出門 Checklist -->
     <div class="section section--daily" data-section="daily">
-      <div class="section-header">
+      <div class="section-header" onclick="toggleSection(this)">
         <span class="section-icon">🌙</span>
         <span class="section-title">每日出門 Checklist</span>
         <span class="section-progress" id="progress-daily"></span>
+        <span class="section-toggle">&#9660;</span>
       </div>
+      <div class="section-body">
 
       <div class="check-item" data-id="daily-cash" onclick="toggleCheck(this)">
         <div class="check-box"><span class="check-mark">✓</span></div>
@@ -567,15 +770,18 @@
         <div class="check-box"><span class="check-mark">✓</span></div>
         <div class="check-label">護照影本<span class="check-hint">正本鎖保險箱</span></div>
       </div>
+      </div>
     </div>
 
     <!-- 區塊 4：回程前 Checklist -->
-    <div class="section section--return" data-section="return">
-      <div class="section-header">
+    <div id="return" class="section section--return" data-section="return">
+      <div class="section-header" onclick="toggleSection(this)">
         <span class="section-icon">🏠</span>
         <span class="section-title">回程前 Checklist</span>
         <span class="section-progress" id="progress-return"></span>
+        <span class="section-toggle">&#9660;</span>
       </div>
+      <div class="section-body">
 
       <div class="check-item" data-id="ret-pack" onclick="toggleCheck(this)">
         <div class="check-box"><span class="check-mark">✓</span></div>
@@ -605,6 +811,7 @@
         <div class="check-box"><span class="check-mark">✓</span></div>
         <div class="check-label">eSIM 還有流量嗎<span class="check-hint">回程需要</span></div>
       </div>
+      </div>
     </div>
 
     <div class="footer-nav">
@@ -612,6 +819,27 @@
       <a href="itinerary.html" class="footer-btn secondary">📅 行程表</a>
     </div>
   </main>
+
+  <!-- 重置確認對話框 -->
+  <div class="reset-overlay" id="resetOverlay">
+    <div class="reset-dialog">
+      <div class="reset-dialog-title">確定要全部重置？</div>
+      <div class="reset-dialog-desc">所有勾選紀錄將被清除，此動作無法復原。</div>
+      <div class="reset-dialog-btns">
+        <button class="reset-dialog-btn reset-dialog-btn--cancel" onclick="closeResetDialog()">取消</button>
+        <button class="reset-dialog-btn reset-dialog-btn--confirm" onclick="confirmReset()">確定重置</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 完成慶祝 -->
+  <div class="celebration" id="celebration" onclick="this.classList.remove('show')">
+    <div class="celebration-content">
+      <div class="celebration-emoji">🎉🧳✈️</div>
+      <div class="celebration-text">準備完成！</div>
+      <div class="celebration-sub">行李打包好了，出發吧！</div>
+    </div>
+  </div>
 
   <script>
     const STORAGE_KEY = 'pattaya-checklist';
@@ -638,17 +866,42 @@
       state[id] = isChecked;
       saveState(state);
       el.classList.toggle('checked', isChecked);
+
+      // 勾選動畫
+      if (isChecked) {
+        el.classList.add('just-checked');
+        setTimeout(() => el.classList.remove('just-checked'), 400);
+      }
+
       updateProgress();
     }
 
-    // 全部重置
+    // 全部重置 - 顯示確認對話框
     function resetAll() {
-      if (!confirm('確定要全部重置嗎？')) return;
+      document.getElementById('resetOverlay').classList.add('show');
+    }
+
+    function closeResetDialog() {
+      document.getElementById('resetOverlay').classList.remove('show');
+    }
+
+    function confirmReset() {
+      closeResetDialog();
       localStorage.removeItem(STORAGE_KEY);
       document.querySelectorAll('.check-item').forEach(el => {
         el.classList.remove('checked');
       });
+      // 展開所有區塊
+      document.querySelectorAll('.section').forEach(s => {
+        s.classList.remove('collapsed', 'all-done');
+      });
       updateProgress();
+    }
+
+    // 區塊折疊/展開
+    function toggleSection(headerEl) {
+      const section = headerEl.closest('.section');
+      section.classList.toggle('collapsed');
     }
 
     // 更新進度
@@ -664,7 +917,10 @@
 
       // 總進度
       document.getElementById('progressCount').textContent = done + '/' + total;
-      document.getElementById('progressFill').style.width = (total > 0 ? (done / total * 100) : 0) + '%';
+      const pct = total > 0 ? (done / total * 100) : 0;
+      const fill = document.getElementById('progressFill');
+      fill.style.width = pct + '%';
+      fill.classList.toggle('complete', pct === 100);
 
       // 各區塊進度
       document.querySelectorAll('.section').forEach(section => {
@@ -678,7 +934,21 @@
         if (progressEl) {
           progressEl.textContent = sectionDone + '/' + items.length;
         }
+
+        // 全部完成的區塊自動標記
+        const allDone = sectionDone === items.length && items.length > 0;
+        section.classList.toggle('all-done', allDone);
       });
+
+      // 全部完成時慶祝
+      if (done === total && total > 0) {
+        setTimeout(() => {
+          document.getElementById('celebration').classList.add('show');
+          setTimeout(() => {
+            document.getElementById('celebration').classList.remove('show');
+          }, 3000);
+        }, 500);
+      }
     }
 
     // 初始化：載入已存狀態

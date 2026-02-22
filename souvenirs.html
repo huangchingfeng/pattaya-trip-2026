@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>伴手禮指南 - 芭達雅之旅 2026</title>
+  <meta name="description" content="泰國伴手禮購物指南，支援離線瀏覽！">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ff00ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pattaya 2026">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --neon-pink: #ff00ff;
+      --neon-blue: #00ffff;
+      --neon-green: #00ff88;
+      --neon-purple: #bf00ff;
+      --neon-orange: #ff6b35;
+      --gold: #ffd700;
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: rgba(18, 18, 26, 0.85);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.8);
+      --text-muted: rgba(255, 255, 255, 0.5);
+      --safe-top: env(safe-area-inset-top, 20px);
+      --safe-bottom: env(safe-area-inset-bottom, 20px);
+      --success: #00ff88;
+      --danger: #ff4444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* 頂部導航 */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 12px) 20px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-content {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--neon-pink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .page-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    /* 進度條 */
+    .progress-bar {
+      position: fixed;
+      top: calc(var(--safe-top) + 58px);
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 10px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .progress-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .progress-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon-green), var(--neon-blue));
+      border-radius: 3px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    /* Tab 切換 */
+    .tabs {
+      position: fixed;
+      top: calc(var(--safe-top) + 102px);
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 30px;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      border-color: transparent;
+      color: white;
+      box-shadow: 0 4px 20px rgba(255,0,255,0.3);
+    }
+
+    .tab-btn:not(.active):hover {
+      border-color: var(--neon-pink);
+      color: var(--neon-pink);
+    }
+
+    /* 內容區 */
+    .content {
+      padding-top: calc(var(--safe-top) + 172px);
+      padding-bottom: calc(var(--safe-bottom) + 40px);
+      max-width: 600px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* 警告框 */
+    .warning-box {
+      background: rgba(255,68,68,0.15);
+      border: 1px solid rgba(255,68,68,0.4);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .warning-title {
+      font-weight: 900;
+      color: var(--danger);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .warning-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .warning-list li {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .warning-list li::before {
+      content: '⚠';
+      position: absolute;
+      left: 0;
+    }
+
+    /* 商品卡片 */
+    .item-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 18px;
+      margin: 12px 0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .item-card.checked {
+      border-color: var(--neon-green);
+      background: rgba(0, 255, 136, 0.08);
+    }
+
+    .item-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .item-checkbox {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      margin-top: 2px;
+      font-size: 0.9rem;
+    }
+
+    .item-card.checked .item-checkbox {
+      background: var(--neon-green);
+      border-color: var(--neon-green);
+      color: #000;
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .item-name {
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin-bottom: 2px;
+    }
+
+    .item-name-en {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .item-card.checked .item-name {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+
+    .item-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+
+    .tag-price {
+      background: rgba(0, 255, 136, 0.15);
+      color: var(--neon-green);
+    }
+
+    .tag-place {
+      background: rgba(0, 255, 255, 0.12);
+      color: var(--neon-blue);
+    }
+
+    .tag-target {
+      background: rgba(255, 0, 255, 0.12);
+      color: var(--neon-pink);
+    }
+
+    .tag-warning {
+      background: rgba(255, 68, 68, 0.15);
+      color: var(--danger);
+    }
+
+    /* 區塊標題 */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin: 32px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title:first-child {
+      margin-top: 0;
+    }
+
+    /* 購買地點表格 */
+    .place-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      background: var(--bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .place-table th,
+    .place-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.88rem;
+    }
+
+    .place-table th {
+      background: rgba(255,0,255,0.15);
+      color: var(--neon-pink);
+      font-weight: 700;
+    }
+
+    .place-table td {
+      color: var(--text-secondary);
+    }
+
+    .place-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .place-name {
+      color: var(--neon-blue);
+      font-weight: 700;
+    }
+
+    /* 提示框 */
+    .tip-box {
+      background: rgba(0,255,255,0.1);
+      border: 1px solid rgba(0,255,255,0.3);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .tip-title {
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: var(--neon-blue);
+    }
+
+    .tip-content {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* 全選 / 清除 */
+    .actions-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .action-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .action-btn:hover {
+      border-color: var(--neon-pink);
+      color: var(--neon-pink);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部導航 -->
+  <div class="header">
+    <div class="header-content">
+      <a href="index.html" class="back-btn">← 首頁</a>
+      <div class="page-title">🛍️ 伴手禮指南</div>
+    </div>
+  </div>
+
+  <!-- 進度條 -->
+  <div class="progress-bar">
+    <div class="progress-inner">
+      <div class="progress-text">
+        <span id="progressLabel">已買 0 / 27 項</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 切換 -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="snacks">🍿 零食類</button>
+    <button class="tab-btn" data-tab="health">💊 藥品美妝</button>
+    <button class="tab-btn" data-tab="daily">🎁 日用紀念品</button>
+  </div>
+
+  <div class="content">
+
+    <!-- 飛機限制提醒 -->
+    <div class="warning-box">
+      <div class="warning-title">✈️ 飛機攜帶限制</div>
+      <ul class="warning-list">
+        <li>液體：隨身行李 100ml 以下，託運沒限制</li>
+        <li>榴槤：鮮果不能帶上飛機！榴槤乾/糖可以</li>
+        <li>肉類製品：不能帶入台灣</li>
+        <li>酒類：每人 1 公升免稅</li>
+      </ul>
+    </div>
+
+    <!-- Tab 1：零食類 -->
+    <div class="tab-content active" id="tab-snacks">
+      <div class="actions-row">
+        <button class="action-btn" onclick="clearTab('snacks')">清除勾選</button>
+      </div>
+
+      <div class="item-card" data-id="snack-1" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">小老板海苔</div>
+            <div class="item-name-en">Tao Kae Noi</div>
+            <div class="item-tags">
+              <span class="tag tag-price">60-120 THB</span>
+              <span class="tag tag-place">Big C / 7-11</span>
+              <span class="tag tag-target">同事零食首選</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="snack-2" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">手標泰式奶茶</div>
+            <div class="item-name-en">ChaTraMue 紅茶包</div>
+            <div class="item-tags">
+              <span class="tag tag-price">45-80 THB</span>
+              <span class="tag tag-place">Big C</span>
+              <span class="tag tag-target">家人 / 自用</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="snack-3" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">芒果乾</div>
+            <div class="item-name-en">Dried Mango</div>
+            <div class="item-tags">
+              <span class="tag tag-price">100-200 THB</span>
+              <span class="tag tag-place">Big C / 機場</span>
+              <span class="tag tag-target">人人都愛</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="snack-4" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">榴槤糖 / 榴槤乾</div>
+            <div class="item-name-en">Durian Candy / Dried Durian</div>
+            <div class="item-tags">
+              <span class="tag tag-price">150-350 THB</span>
+              <span class="tag tag-place">Big C</span>
+              <span class="tag tag-target">喜歡榴槤的人</span>
+              <span class="tag tag-warning">鮮榴槤不能上飛機</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="snack-5" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">泰式辣醬</div>
+            <div class="item-name-en">Sriracha</div>
+            <div class="item-tags">
+              <span class="tag tag-price">40-80 THB</span>
+              <span class="tag tag-place">Big C</span>
+              <span class="tag tag-target">愛吃辣的朋友</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="snack-6" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">Tom Yum 酸辣蝦湯包</div>
+            <div class="item-name-en">Tom Yum Soup Pack</div>
+            <div class="item-tags">
+              <span class="tag tag-price">30-60 THB</span>
+              <span class="tag tag-place">Big C / 7-11</span>
+              <span class="tag tag-target">喜歡煮飯的人</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="snack-7" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">皇家蜂蜜</div>
+            <div class="item-name-en">Royal Project Honey</div>
+            <div class="item-tags">
+              <span class="tag tag-price">120-250 THB</span>
+              <span class="tag tag-place">Big C</span>
+              <span class="tag tag-target">注重養生的長輩</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="snack-8" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">Bento 魷魚片</div>
+            <div class="item-name-en">Bento Squid Snack</div>
+            <div class="item-tags">
+              <span class="tag tag-price">20-40 THB</span>
+              <span class="tag tag-place">7-11</span>
+              <span class="tag tag-target">便宜大量送同事</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="snack-9" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">泰國即溶咖啡</div>
+            <div class="item-name-en">Khao Shong Coffee</div>
+            <div class="item-tags">
+              <span class="tag tag-price">60-100 THB</span>
+              <span class="tag tag-place">Big C</span>
+              <span class="tag tag-target">咖啡愛好者</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="snack-10" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">椰子脆片</div>
+            <div class="item-name-en">Coconut Chips</div>
+            <div class="item-tags">
+              <span class="tag tag-price">50-80 THB</span>
+              <span class="tag tag-place">Big C / 7-11</span>
+              <span class="tag tag-target">零食控</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2：藥品美妝 -->
+    <div class="tab-content" id="tab-health">
+      <div class="actions-row">
+        <button class="action-btn" onclick="clearTab('health')">清除勾選</button>
+      </div>
+
+      <div class="item-card" data-id="health-1" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">臥佛牌青草膏</div>
+            <div class="item-name-en">Wat Pho Herbal Balm</div>
+            <div class="item-tags">
+              <span class="tag tag-price">50-150 THB</span>
+              <span class="tag tag-place">藥局 / Big C</span>
+              <span class="tag tag-target">長輩最愛，萬用藥膏</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="health-2" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">五蜈蚣止咳丸</div>
+            <div class="item-name-en">Five Centipede Cough Pill</div>
+            <div class="item-tags">
+              <span class="tag tag-price">80-150 THB</span>
+              <span class="tag tag-place">藥局</span>
+              <span class="tag tag-target">家庭常備</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="health-3" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">虎標萬金油</div>
+            <div class="item-name-en">Tiger Balm</div>
+            <div class="item-tags">
+              <span class="tag tag-price">60-120 THB</span>
+              <span class="tag tag-place">藥局 / 7-11</span>
+              <span class="tag tag-target">經典伴手禮</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="health-4" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">Snail White 蝸牛霜</div>
+            <div class="item-name-en">Snail White Cream</div>
+            <div class="item-tags">
+              <span class="tag tag-price">200-400 THB</span>
+              <span class="tag tag-place">Boots / Watsons</span>
+              <span class="tag tag-target">女性朋友</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="health-5" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">Mistine 彩妝</div>
+            <div class="item-name-en">Mistine Cosmetics</div>
+            <div class="item-tags">
+              <span class="tag tag-price">100-300 THB</span>
+              <span class="tag tag-place">7-11 / Watsons</span>
+              <span class="tag tag-target">平價好用</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="health-6" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">椰子油</div>
+            <div class="item-name-en">Coconut Oil</div>
+            <div class="item-tags">
+              <span class="tag tag-price">80-200 THB</span>
+              <span class="tag tag-place">Big C</span>
+              <span class="tag tag-target">自用 / 護膚</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="health-7" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">蘆薈凝膠</div>
+            <div class="item-name-en">Aloe Vera Gel</div>
+            <div class="item-tags">
+              <span class="tag tag-price">50-100 THB</span>
+              <span class="tag tag-place">7-11 / Watsons</span>
+              <span class="tag tag-target">曬後修復，自用</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="health-8" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">泰國青草藥膏貼布</div>
+            <div class="item-name-en">Herbal Patch</div>
+            <div class="item-tags">
+              <span class="tag tag-price">40-100 THB</span>
+              <span class="tag tag-place">藥局</span>
+              <span class="tag tag-target">肩頸痠痛的人</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="health-9" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">Dentiste 牙膏</div>
+            <div class="item-name-en">Dentiste Toothpaste</div>
+            <div class="item-tags">
+              <span class="tag tag-price">80-150 THB</span>
+              <span class="tag tag-place">Boots</span>
+              <span class="tag tag-target">泰國高人氣牙膏</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="health-10" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">興太太鼻通棒</div>
+            <div class="item-name-en">Poy-Sian</div>
+            <div class="item-tags">
+              <span class="tag tag-price">15-30 THB</span>
+              <span class="tag tag-place">到處都有</span>
+              <span class="tag tag-target">便宜量大</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3：日用品/紀念品 -->
+    <div class="tab-content" id="tab-daily">
+      <div class="actions-row">
+        <button class="action-btn" onclick="clearTab('daily')">清除勾選</button>
+      </div>
+
+      <div class="item-card" data-id="daily-1" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">大象褲</div>
+            <div class="item-name-en">Elephant Pants</div>
+            <div class="item-tags">
+              <span class="tag tag-price">100-200 THB</span>
+              <span class="tag tag-place">夜市 / 路邊攤</span>
+              <span class="tag tag-target">送人穿很可愛</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="daily-2" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">手工皂</div>
+            <div class="item-name-en">Handmade Soap</div>
+            <div class="item-tags">
+              <span class="tag tag-price">50-150 THB</span>
+              <span class="tag tag-place">夜市</span>
+              <span class="tag tag-target">女性朋友</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="daily-3" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">精油</div>
+            <div class="item-name-en">Essential Oil</div>
+            <div class="item-tags">
+              <span class="tag tag-price">100-300 THB</span>
+              <span class="tag tag-place">按摩店 / 夜市</span>
+              <span class="tag tag-target">喜歡香氛的人</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="daily-4" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">泰絲圍巾</div>
+            <div class="item-name-en">Jim Thompson / Night Market</div>
+            <div class="item-tags">
+              <span class="tag tag-price">200-500 THB</span>
+              <span class="tag tag-place">Jim Thompson / 夜市</span>
+              <span class="tag tag-target">送媽媽 / 長輩</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="daily-5" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">椰子殼碗</div>
+            <div class="item-name-en">Coconut Shell Bowl</div>
+            <div class="item-tags">
+              <span class="tag tag-price">50-150 THB</span>
+              <span class="tag tag-place">夜市</span>
+              <span class="tag tag-target">文青風裝飾</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="daily-6" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">泰國零錢包 / 小包</div>
+            <div class="item-name-en">Thai Coin Purse</div>
+            <div class="item-tags">
+              <span class="tag tag-price">50-200 THB</span>
+              <span class="tag tag-place">夜市</span>
+              <span class="tag tag-target">女同事</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-id="daily-7" onclick="toggleItem(this)">
+        <div class="item-card-header">
+          <div class="item-checkbox"></div>
+          <div class="item-info">
+            <div class="item-name">NARAYA 曼谷包</div>
+            <div class="item-name-en">NaRaYa Bag</div>
+            <div class="item-tags">
+              <span class="tag tag-price">200-500 THB</span>
+              <span class="tag tag-place">NARAYA 門市</span>
+              <span class="tag tag-target">經典泰國包</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 購買地點總整理 -->
+    <div class="section-title" style="margin-top:36px;">📍 購買地點總整理</div>
+    <table class="place-table">
+      <thead>
+        <tr>
+          <th>地點</th>
+          <th>特色</th>
+          <th>適合買</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="place-name">Big C</td>
+          <td>最便宜，選擇最多</td>
+          <td>零食、飲料、藥品</td>
+        </tr>
+        <tr>
+          <td class="place-name">7-11</td>
+          <td>方便，到處都有</td>
+          <td>小量零食、鼻通棒</td>
+        </tr>
+        <tr>
+          <td class="place-name">Boots / Watsons</td>
+          <td>美妝藥品專門</td>
+          <td>美妝、藥品</td>
+        </tr>
+        <tr>
+          <td class="place-name">Terminal 21</td>
+          <td>逛街順便買</td>
+          <td>衣服、包包</td>
+        </tr>
+        <tr>
+          <td class="place-name">夜市</td>
+          <td>殺價空間大</td>
+          <td>紀念品、衣服</td>
+        </tr>
+        <tr>
+          <td class="place-name">機場免稅店</td>
+          <td>最後補貨機會</td>
+          <td>酒類、香菸、巧克力</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box" style="margin-top:20px;">
+      <div class="tip-title">💡 購物小技巧</div>
+      <div class="tip-content">
+        Big C 是最划算的一站式採購點，建議留 1-2 小時慢慢逛。夜市記得殺價，通常可以打 6-7 折。7-11 適合最後一天補貨小東西。
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // localStorage key
+    const STORAGE_KEY = 'pattaya-souvenirs';
+    const TOTAL_ITEMS = 27;
+
+    // 讀取已勾選狀態
+    function getCheckedItems() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+      } catch { return {}; }
+    }
+
+    function saveCheckedItems(items) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    }
+
+    // 切換勾選
+    function toggleItem(card) {
+      const id = card.dataset.id;
+      const items = getCheckedItems();
+
+      if (items[id]) {
+        delete items[id];
+        card.classList.remove('checked');
+        card.querySelector('.item-checkbox').textContent = '';
+      } else {
+        items[id] = true;
+        card.classList.add('checked');
+        card.querySelector('.item-checkbox').textContent = '✓';
+      }
+
+      saveCheckedItems(items);
+      updateProgress();
+    }
+
+    // 清除特定 tab 的勾選
+    function clearTab(tabName) {
+      const items = getCheckedItems();
+      const prefix = tabName === 'snacks' ? 'snack-' : tabName === 'health' ? 'health-' : 'daily-';
+
+      Object.keys(items).forEach(key => {
+        if (key.startsWith(prefix)) delete items[key];
+      });
+
+      saveCheckedItems(items);
+      restoreState();
+    }
+
+    // 更新進度
+    function updateProgress() {
+      const items = getCheckedItems();
+      const count = Object.keys(items).length;
+      const percent = Math.round((count / TOTAL_ITEMS) * 100);
+
+      document.getElementById('progressLabel').textContent = `已買 ${count} / ${TOTAL_ITEMS} 項`;
+      document.getElementById('progressPercent').textContent = `${percent}%`;
+      document.getElementById('progressFill').style.width = `${percent}%`;
+    }
+
+    // 還原勾選狀態
+    function restoreState() {
+      const items = getCheckedItems();
+      document.querySelectorAll('.item-card').forEach(card => {
+        const id = card.dataset.id;
+        if (items[id]) {
+          card.classList.add('checked');
+          card.querySelector('.item-checkbox').textContent = '✓';
+        } else {
+          card.classList.remove('checked');
+          card.querySelector('.item-checkbox').textContent = '';
+        }
+      });
+      updateProgress();
+    }
+
+    // Tab 切換
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // 初始化
+    restoreState();
+  </script>
+
+</body>
+</html>

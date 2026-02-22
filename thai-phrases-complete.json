@@ -1,10 +1,10 @@
 {
   "metadata": {
     "title": "芭達雅旅遊泰語完整寶典",
-    "description": "芭達雅之旅 2026 專用泰語會話集 - 410+ 實用句型",
-    "total_phrases": 410,
-    "categories": 22,
-    "last_updated": "2026-02-18"
+    "description": "芭達雅之旅 2026 專用泰語會話集 - 445 實用句型",
+    "total_phrases": 445,
+    "categories": 24,
+    "last_updated": "2026-02-22"
   },
   "categories": [
     {
@@ -426,6 +426,60 @@
           "phonetic": "麥動統",
           "chinese": "不用袋子",
           "scenario": "環保"
+        },
+        {
+          "thai": "ซื้อสองชิ้นลดไหม",
+          "phonetic": "蘇松親落買",
+          "chinese": "買兩件算便宜嗎？",
+          "scenario": "量多殺價"
+        },
+        {
+          "thai": "มีส่วนลดไหม",
+          "phonetic": "米蘇安落買",
+          "chinese": "有沒有折扣？",
+          "scenario": "詢問折扣"
+        },
+        {
+          "thai": "คิดราคาเท่าไหร่",
+          "phonetic": "key辣咖逃萊",
+          "chinese": "算我多少？",
+          "scenario": "問總價"
+        },
+        {
+          "thai": "ลดให้หน่อยเถอะ",
+          "phonetic": "落害挪特",
+          "chinese": "算我便宜一點啦",
+          "scenario": "撒嬌殺價"
+        },
+        {
+          "thai": "ของแท้ไหม",
+          "phonetic": "孔替買",
+          "chinese": "是正品嗎？",
+          "scenario": "確認真偽"
+        },
+        {
+          "thai": "ของก๊อปไหม",
+          "phonetic": "孔告買",
+          "chinese": "是仿冒的嗎？",
+          "scenario": "確認真偽"
+        },
+        {
+          "thai": "เปลี่ยนได้ไหม",
+          "phonetic": "變代買",
+          "chinese": "可以換嗎？",
+          "scenario": "退換貨"
+        },
+        {
+          "thai": "คืนได้ไหม",
+          "phonetic": "坤代買",
+          "chinese": "可以退嗎？",
+          "scenario": "退貨"
+        },
+        {
+          "thai": "ห่อของขวัญ",
+          "phonetic": "豪孔完",
+          "chinese": "包成禮物",
+          "scenario": "禮品包裝"
         }
       ]
     },
@@ -1944,6 +1998,364 @@
           "phonetic": "特科圖央",
           "chinese": "你是我的一切",
           "scenario": "表達深情"
+        }
+      ]
+    },
+    {
+      "id": "pickup",
+      "name": "搭訕撩妹",
+      "icon": "💕",
+      "color": "#ff6b9d",
+      "phrases": [
+        {
+          "thai": "ขอรู้จักได้ไหม",
+          "phonetic": "靠路扎代買",
+          "chinese": "可以認識你嗎？",
+          "scenario": "搭訕開場白"
+        },
+        {
+          "thai": "คุณมาคนเดียวเหรอ",
+          "phonetic": "坤媽坤丟了",
+          "chinese": "你一個人來嗎？",
+          "scenario": "搭訕開場白"
+        },
+        {
+          "thai": "นั่งด้วยได้ไหม",
+          "phonetic": "囊對代買",
+          "chinese": "可以坐這裡嗎？",
+          "scenario": "搭訕開場"
+        },
+        {
+          "thai": "คุณอายุเท่าไหร่",
+          "phonetic": "坤阿優逃萊",
+          "chinese": "你幾歲？",
+          "scenario": "基本問答"
+        },
+        {
+          "thai": "คุณมีแฟนไหม",
+          "phonetic": "坤米反買",
+          "chinese": "你有男朋友嗎？",
+          "scenario": "確認感情狀態"
+        },
+        {
+          "thai": "คุณเป็นคนที่ไหน",
+          "phonetic": "坤奔坤替乃",
+          "chinese": "你是哪裡人？",
+          "scenario": "詢問家鄉"
+        },
+        {
+          "thai": "คุณทำงานที่ไหน",
+          "phonetic": "坤探安替乃",
+          "chinese": "你在哪裡工作？",
+          "scenario": "了解對方"
+        },
+        {
+          "thai": "ขอไลน์ได้ไหม",
+          "phonetic": "靠賴代買",
+          "chinese": "可以加LINE嗎？",
+          "scenario": "要聯絡方式"
+        },
+        {
+          "thai": "ขอเบอร์โทรได้ไหม",
+          "phonetic": "靠被偷代買",
+          "chinese": "可以給我電話嗎？",
+          "scenario": "要電話號碼"
+        },
+        {
+          "thai": "ไปทานข้าวด้วยกันไหม",
+          "phonetic": "拜但考對甘買",
+          "chinese": "一起去吃飯好嗎？",
+          "scenario": "邀約吃飯"
+        },
+        {
+          "thai": "คืนนี้ว่างไหม",
+          "phonetic": "坤尼旺買",
+          "chinese": "今晚有空嗎？",
+          "scenario": "邀約"
+        },
+        {
+          "thai": "วันนี้คุณเลิกงานกี่โมง",
+          "phonetic": "萬尼坤勒安key猛",
+          "chinese": "你今天幾點下班？",
+          "scenario": "詢問時間好邀約"
+        },
+        {
+          "thai": "ไปเที่ยวด้วยกันไหม",
+          "phonetic": "拜條對甘買",
+          "chinese": "一起去玩好嗎？",
+          "scenario": "邀約出遊"
+        },
+        {
+          "thai": "ฉันพาไปกินของอร่อย",
+          "phonetic": "餐帕拜gin孔阿蘿依",
+          "chinese": "我帶你去吃好吃的",
+          "scenario": "邀約吃美食"
+        },
+        {
+          "thai": "คุณยิ้มสวยมาก",
+          "phonetic": "坤因蘇威媽",
+          "chinese": "你笑起來很好看",
+          "scenario": "讚美笑容"
+        },
+        {
+          "thai": "คุณตาสวยมาก",
+          "phonetic": "坤達蘇威媽",
+          "chinese": "你眼睛好漂亮",
+          "scenario": "讚美眼睛"
+        },
+        {
+          "thai": "คุณแต่งตัวสวยมาก",
+          "phonetic": "坤當抖蘇威媽",
+          "chinese": "你穿得好好看",
+          "scenario": "讚美穿著"
+        },
+        {
+          "thai": "คุณไม่เหมือนคนอื่น",
+          "phonetic": "坤買孟坤聞",
+          "chinese": "你跟別人不一樣",
+          "scenario": "讚美獨特"
+        },
+        {
+          "thai": "ฉันชอบคุณมาก",
+          "phonetic": "餐翹坤媽",
+          "chinese": "我很喜歡你",
+          "scenario": "表達好感"
+        },
+        {
+          "thai": "อยากเจอคุณอีก",
+          "phonetic": "壓皆坤億",
+          "chinese": "想再見到你",
+          "scenario": "表達想再見"
+        },
+        {
+          "thai": "พรุ่งนี้ฉันมาอีกนะ",
+          "phonetic": "砰尼餐媽億那",
+          "chinese": "明天我還會來喔",
+          "scenario": "約明天再來"
+        },
+        {
+          "thai": "คุณทำให้ใจเต้น",
+          "phonetic": "坤探害災等",
+          "chinese": "你讓我心跳加速",
+          "scenario": "浪漫表達"
+        },
+        {
+          "thai": "เหนื่อยไหม วิ่งอยู่ในใจฉันทั้งวัน",
+          "phonetic": "內買 穩尤乃災餐唐萬",
+          "chinese": "累嗎？在我心裡跑了一整天",
+          "scenario": "經典撩妹金句"
+        },
+        {
+          "thai": "รอยยิ้มของคุณสวยที่สุด",
+          "phonetic": "蘿因孔坤蘇威替速",
+          "chinese": "你的笑容最美",
+          "scenario": "讚美笑容"
+        },
+        {
+          "thai": "คุณหล่อเหมือนดารา",
+          "phonetic": "坤羅孟達辣",
+          "chinese": "你帥得像明星",
+          "scenario": "回讚對方（女生用）"
+        },
+        {
+          "thai": "ขอบคุณที่ชม",
+          "phonetic": "靠坤替衝",
+          "chinese": "謝謝你的讚美",
+          "scenario": "回應讚美"
+        },
+        {
+          "thai": "ขอคิดก่อนนะ",
+          "phonetic": "靠key棍那",
+          "chinese": "讓我考慮一下",
+          "scenario": "不急著答應"
+        },
+        {
+          "thai": "ไว้วันหลังนะ",
+          "phonetic": "外萬朗那",
+          "chinese": "改天吧",
+          "scenario": "委婉拒絕邀約"
+        },
+        {
+          "thai": "ฉันโสด",
+          "phonetic": "餐索",
+          "chinese": "我單身",
+          "scenario": "表明感情狀態"
+        },
+        {
+          "thai": "คุณชอบผู้ชายแบบไหน",
+          "phonetic": "坤翹普差北乃",
+          "chinese": "你喜歡什麼樣的男生？",
+          "scenario": "了解對方喜好"
+        },
+        {
+          "thai": "ฝันดีนะ",
+          "phonetic": "反滴那",
+          "chinese": "做個好夢",
+          "scenario": "晚安道別（曖昧）"
+        },
+        {
+          "thai": "ส่งถึงบ้านนะ",
+          "phonetic": "送停班那",
+          "chinese": "我送你回家",
+          "scenario": "紳士護送"
+        }
+      ]
+    },
+    {
+      "id": "bar-talk",
+      "name": "酒吧實戰",
+      "icon": "🍺",
+      "color": "#f5c842",
+      "phrases": [
+        {
+          "thai": "ขอเบียร์หนึ่งแก้ว",
+          "phonetic": "靠比能給",
+          "chinese": "給我一杯啤酒",
+          "scenario": "點酒"
+        },
+        {
+          "thai": "เอาเย็นๆ",
+          "phonetic": "奧顏顏",
+          "chinese": "要冰的",
+          "scenario": "點冰啤酒"
+        },
+        {
+          "thai": "อีกแก้วหนึ่ง",
+          "phonetic": "億給能",
+          "chinese": "再來一杯",
+          "scenario": "續杯"
+        },
+        {
+          "thai": "เอาเหมือนเดิม",
+          "phonetic": "奧孟登",
+          "chinese": "跟剛才一樣",
+          "scenario": "續點同款"
+        },
+        {
+          "thai": "แก้วนี้เท่าไหร่",
+          "phonetic": "給尼逃萊",
+          "chinese": "這杯多少錢？",
+          "scenario": "問酒價"
+        },
+        {
+          "thai": "ขอดูบิลหน่อย",
+          "phonetic": "靠肚賓挪",
+          "chinese": "帳單給我看一下",
+          "scenario": "查看帳單"
+        },
+        {
+          "thai": "แพงไป",
+          "phonetic": "碰拜",
+          "chinese": "太貴了",
+          "scenario": "覺得價格太高"
+        },
+        {
+          "thai": "ขอเลี้ยงคุณแก้วนึงได้ไหม",
+          "phonetic": "靠涼坤給能代買",
+          "chinese": "可以請你喝一杯嗎？",
+          "scenario": "請對方喝酒"
+        },
+        {
+          "thai": "เลดี้ดริ้งค์เท่าไหร่",
+          "phonetic": "雷滴丁逃萊",
+          "chinese": "Lady Drink多少？",
+          "scenario": "詢問Lady Drink價格"
+        },
+        {
+          "thai": "ไม่ต้อง ขอบคุณ",
+          "phonetic": "麥動 靠坤",
+          "chinese": "不用了，謝謝",
+          "scenario": "婉拒推銷"
+        },
+        {
+          "thai": "เพลงนี้เพราะมาก",
+          "phonetic": "冷尼破媽",
+          "chinese": "這首歌很好聽",
+          "scenario": "稱讚音樂"
+        },
+        {
+          "thai": "ร้องเพลงได้ไหม",
+          "phonetic": "隆冷代買",
+          "chinese": "可以唱歌嗎？",
+          "scenario": "詢問能否點歌唱"
+        },
+        {
+          "thai": "ให้ทิปวงดนตรี",
+          "phonetic": "害替翁東翠",
+          "chinese": "給樂隊小費",
+          "scenario": "打賞樂隊"
+        },
+        {
+          "thai": "ฉันแค่มาดื่ม",
+          "phonetic": "餐克媽東",
+          "chinese": "我只是來喝酒的",
+          "scenario": "拒絕搭訕"
+        },
+        {
+          "thai": "ไม่เอา",
+          "phonetic": "麥奧",
+          "chinese": "不要",
+          "scenario": "直接拒絕"
+        },
+        {
+          "thai": "เดี๋ยวก่อน",
+          "phonetic": "刁棍",
+          "chinese": "等一下",
+          "scenario": "請對方稍等"
+        },
+        {
+          "thai": "ไว้ทีหลัง",
+          "phonetic": "外替朗",
+          "chinese": "等一下再說/Maybe later",
+          "scenario": "委婉推遲"
+        },
+        {
+          "thai": "ค่าตัวเท่าไหร่",
+          "phonetic": "咖抖逃萊",
+          "chinese": "Bar Fine多少？",
+          "scenario": "詢問帶出費用"
+        },
+        {
+          "thai": "เธอไปกับฉันได้ไหม",
+          "phonetic": "特拜嘎餐代買",
+          "chinese": "她可以跟我走嗎？",
+          "scenario": "詢問Bar Fine（對媽媽桑說）"
+        },
+        {
+          "thai": "ฉันต้องไปแล้ว",
+          "phonetic": "餐動拜了",
+          "chinese": "我要走了",
+          "scenario": "準備離場"
+        },
+        {
+          "thai": "เจอกันพรุ่งนี้",
+          "phonetic": "皆甘砰尼",
+          "chinese": "明天見",
+          "scenario": "道別約再見"
+        },
+        {
+          "thai": "เช็คบิลด้วย",
+          "phonetic": "切賓對",
+          "chinese": "結帳",
+          "scenario": "買單離場"
+        },
+        {
+          "thai": "คิดรวมทั้งหมดเท่าไหร่",
+          "phonetic": "key路湯莫逃萊",
+          "chinese": "全部加起來多少？",
+          "scenario": "確認總金額"
+        },
+        {
+          "thai": "แฮปปี้อาวร์ไหม",
+          "phonetic": "嗨皮奧買",
+          "chinese": "有Happy Hour嗎？",
+          "scenario": "詢問優惠時段"
+        },
+        {
+          "thai": "มีโปรโมชั่นไหม",
+          "phonetic": "米泡猛衝買",
+          "chinese": "有促銷嗎？",
+          "scenario": "詢問優惠活動"
         }
       ]
     },

@@ -637,6 +637,325 @@
       border-color: var(--neon-blue);
       color: var(--neon-blue);
     }
+
+    /* ==================== 遊戲5: 國王遊戲 King's Cup ==================== */
+    .kingscup-deck {
+      position: relative;
+      width: 180px;
+      height: 260px;
+      margin: 24px auto;
+      perspective: 800px;
+      cursor: pointer;
+    }
+
+    .kingscup-card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+
+    .kingscup-card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .kingscup-card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    .kingscup-card-back {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border: 4px solid rgba(255,255,255,0.3);
+    }
+
+    .kingscup-card-back::after {
+      content: '👑';
+      font-size: 4rem;
+    }
+
+    .kingscup-card-front {
+      transform: rotateY(180deg);
+      background: white;
+      border: 4px solid #ddd;
+    }
+
+    .kingscup-card-front .kc-value {
+      font-size: 3.5rem;
+      line-height: 1;
+    }
+
+    .kingscup-card-front .kc-suit {
+      font-size: 2rem;
+      margin-top: 4px;
+    }
+
+    .kingscup-card-front.red { color: #e74c3c; }
+    .kingscup-card-front.black { color: #2c3e50; }
+
+    .kingscup-remaining {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .kingscup-remaining span {
+      color: var(--neon-blue);
+      font-weight: 700;
+    }
+
+    .kingscup-king-count {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .kingscup-king-count .king-slot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 2px solid var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .kingscup-king-count .king-slot.filled {
+      border-color: var(--gold);
+      background: rgba(255, 215, 0, 0.2);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .kingscup-rule {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 24px;
+      width: 100%;
+      margin: 16px 0;
+      border-left: 4px solid var(--neon-pink);
+      text-align: left;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .kingscup-rule-name {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--neon-pink);
+      margin-bottom: 8px;
+    }
+
+    .kingscup-rule-name-thai {
+      font-size: 0.9rem;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+      margin-bottom: 12px;
+    }
+
+    .kingscup-rule-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    .kingscup-rule-desc-thai {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--gold);
+      font-family: 'Noto Sans Thai', sans-serif;
+      margin-top: 8px;
+    }
+
+    .kingscup-tap-hint {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      animation: pulse 2s ease infinite;
+    }
+
+    /* ==================== 遊戲6: 喝酒猜數字 ==================== */
+    .guess-range {
+      font-size: 3rem;
+      font-weight: 900;
+      margin: 24px 0;
+      color: var(--neon-blue);
+      text-shadow: 0 0 20px var(--neon-blue);
+    }
+
+    .guess-range .range-dash {
+      color: var(--text-muted);
+      margin: 0 12px;
+    }
+
+    .guess-player-indicator {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      padding: 12px 24px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .guess-player-indicator.player1 {
+      background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(238, 90, 36, 0.2));
+      color: #ff6b6b;
+      border: 2px solid #ff6b6b;
+    }
+
+    .guess-player-indicator.player2 {
+      background: linear-gradient(135deg, rgba(0, 184, 148, 0.2), rgba(0, 206, 201, 0.2));
+      color: #00b894;
+      border: 2px solid #00b894;
+    }
+
+    .guess-input-area {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+
+    .guess-input {
+      flex: 1;
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 3px solid var(--text-muted);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.3s ease;
+      -webkit-appearance: none;
+    }
+
+    .guess-input:focus {
+      border-color: var(--neon-pink);
+    }
+
+    .guess-submit-btn {
+      padding: 16px 28px;
+      border-radius: 16px;
+      border: none;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .guess-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(255, 0, 255, 0.4);
+    }
+
+    .guess-submit-btn:active {
+      transform: scale(0.95);
+    }
+
+    .guess-result-display {
+      width: 100%;
+      padding: 24px;
+      border-radius: 16px;
+      background: var(--bg-card);
+      text-align: center;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .guess-result-display .guess-hint {
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .guess-result-display .guess-hint.higher {
+      color: #ff6b6b;
+      text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+    }
+
+    .guess-result-display .guess-hint.lower {
+      color: #00b894;
+      text-shadow: 0 0 20px rgba(0, 184, 148, 0.5);
+    }
+
+    .guess-result-display .guess-hint.correct {
+      color: var(--gold);
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      animation: pulse 0.5s ease;
+    }
+
+    .guess-result-display .guess-thai {
+      font-size: 1rem;
+      font-family: 'Noto Sans Thai', sans-serif;
+      color: var(--gold);
+      margin-top: 8px;
+    }
+
+    .guess-history {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .guess-tag {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .guess-tag.higher {
+      background: rgba(255, 107, 107, 0.2);
+      color: #ff6b6b;
+    }
+
+    .guess-tag.lower {
+      background: rgba(0, 184, 148, 0.2);
+      color: #00b894;
+    }
+
+    .guess-new-round-btn {
+      padding: 16px 40px;
+      border-radius: 30px;
+      border: none;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(255, 0, 255, 0.4);
+      display: none;
+    }
+
+    .guess-new-round-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 0, 255, 0.6);
+    }
   </style>
 </head>
 <body>
@@ -687,6 +1006,26 @@
           <div class="game-name-thai">ทดสอบปฏิกิริยา</div>
           <div class="game-name-cn">反應力挑戰</div>
           <div class="game-desc">測試反應速度！เมาแล้วยากขึ้น 喝了更刺激</div>
+        </div>
+        <span class="game-arrow">→</span>
+      </div>
+
+      <div class="game-card" onclick="startGame('kingscup')">
+        <span class="game-icon">👑</span>
+        <div class="game-info">
+          <div class="game-name-thai">เกมราชา</div>
+          <div class="game-name-cn">國王遊戲</div>
+          <div class="game-desc">翻牌喝酒！經典 King's Cup</div>
+        </div>
+        <span class="game-arrow">→</span>
+      </div>
+
+      <div class="game-card" onclick="startGame('guessnumber')">
+        <span class="game-icon">🔢</span>
+        <div class="game-info">
+          <div class="game-name-thai">ทายตัวเลข</div>
+          <div class="game-name-cn">喝酒猜數字</div>
+          <div class="game-desc">猜中數字，對方喝酒！</div>
         </div>
         <span class="game-arrow">→</span>
       </div>
@@ -815,6 +1154,107 @@
       <button class="back-to-menu" onclick="backToMenu()">← กลับ 返回選單</button>
     </div>
 
+    <!-- 遊戲5: 國王遊戲 King's Cup -->
+    <div id="kingscupGame" class="game-area">
+      <div class="game-intro">
+        <div class="game-intro-title">👑 國王遊戲 King's Cup</div>
+        <div class="game-intro-title-thai">เกมราชา (King's Cup)</div>
+        <div class="game-intro-text">
+          酒吧最經典的喝酒遊戲！一副52張牌，輪流翻牌。<br>
+          每張牌對應一個規則，第4張K要喝光公杯！🍺<br>
+          點擊牌堆翻牌，跟著規則做！
+        </div>
+        <div class="game-intro-text-thai">
+          เกมดื่มคลาสสิกที่สุดในบาร์! ไพ่ 52 ใบ สลับกันเปิด<br>
+          แต่ละใบมีกฎ K ใบที่ 4 ต้องดื่มหมดแก้ว! 🍺<br>
+          แตะกองไพ่เพื่อเปิด ทำตามกฎ!
+        </div>
+      </div>
+
+      <div class="kingscup-king-count" id="kingSlots">
+        <div class="king-slot" id="kingSlot0">👑</div>
+        <div class="king-slot" id="kingSlot1">👑</div>
+        <div class="king-slot" id="kingSlot2">👑</div>
+        <div class="king-slot" id="kingSlot3">👑</div>
+      </div>
+
+      <div class="kingscup-remaining">剩餘 <span id="kcRemaining">52</span> 張 | เหลือ <span id="kcRemainingThai">52</span> ใบ</div>
+
+      <div class="kingscup-deck" id="kcDeck" onclick="flipKingsCup()">
+        <div class="kingscup-card" id="kcCard">
+          <div class="kingscup-card-face kingscup-card-back"></div>
+          <div class="kingscup-card-face kingscup-card-front" id="kcCardFront">
+            <span class="kc-value" id="kcValue"></span>
+            <span class="kc-suit" id="kcSuit"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="kingscup-tap-hint" id="kcHint">👆 點擊牌堆翻牌 | แตะเพื่อเปิดไพ่</div>
+
+      <div class="kingscup-rule" id="kcRule" style="display:none;">
+        <div class="kingscup-rule-name" id="kcRuleName"></div>
+        <div class="kingscup-rule-name-thai" id="kcRuleNameThai"></div>
+        <div class="kingscup-rule-desc" id="kcRuleDesc"></div>
+        <div class="kingscup-rule-desc-thai" id="kcRuleDescThai"></div>
+      </div>
+
+      <button class="btn btn-primary" id="kcNextBtn" onclick="resetKingsCupCard()" style="display:none; margin-top:16px;">
+        下一張 ถัดไป
+      </button>
+
+      <button class="btn btn-primary" id="kcRestartBtn" onclick="initKingsCup()" style="display:none; margin-top:16px;">
+        🔄 重新洗牌 สับไพ่ใหม่
+      </button>
+
+      <button class="back-to-menu" onclick="backToMenu()">← กลับ 返回選單</button>
+    </div>
+
+    <!-- 遊戲6: 喝酒猜數字 -->
+    <div id="guessnumberGame" class="game-area">
+      <div class="game-intro">
+        <div class="game-intro-title">🔢 喝酒猜數字</div>
+        <div class="game-intro-title-thai">ทายตัวเลขดื่ม</div>
+        <div class="game-intro-text">
+          系統隨機選一個 1-100 的數字。<br>
+          兩人輪流猜，系統會告訴你「大了」或「小了」。<br>
+          猜中的人 → 對方喝酒！🍺
+        </div>
+        <div class="game-intro-text-thai">
+          ระบบสุ่มตัวเลข 1-100<br>
+          สองคนสลับกันทาย ระบบจะบอกว่า "มากไป" หรือ "น้อยไป"<br>
+          คนที่ทายถูก → อีกคนต้องดื่ม! 🍺
+        </div>
+      </div>
+
+      <div class="guess-player-indicator player1" id="guessPlayerIndicator">
+        🔴 玩家 A 的回合 | ตาผู้เล่น A
+      </div>
+
+      <div class="guess-range" id="guessRange">
+        <span id="guessLow">1</span>
+        <span class="range-dash">~</span>
+        <span id="guessHigh">100</span>
+      </div>
+
+      <div class="guess-input-area" id="guessInputArea">
+        <input type="number" class="guess-input" id="guessInput" placeholder="?" min="1" max="100" inputmode="numeric">
+        <button class="guess-submit-btn" onclick="submitGuess()">猜！<br><span style="font-size:0.7rem;">ทาย!</span></button>
+      </div>
+
+      <div class="guess-result-display" id="guessResultDisplay">
+        <span style="color: var(--text-muted)">輸入數字開始猜！<br>ใส่ตัวเลขเพื่อเริ่มทาย!</span>
+      </div>
+
+      <div class="guess-history" id="guessHistory"></div>
+
+      <button class="guess-new-round-btn" id="guessNewRoundBtn" onclick="initGuessNumber()">
+        🔄 新一局 เกมใหม่
+      </button>
+
+      <button class="back-to-menu" onclick="backToMenu()">← กลับ 返回選單</button>
+    </div>
+
     <!-- 遊戲4: 反應力挑戰 -->
     <div id="reactionGame" class="game-area">
       <div class="game-intro">
@@ -872,6 +1312,8 @@
       document.getElementById(gameId + 'Game').classList.add('active');
 
       if (gameId === 'dragon') initDragon();
+      if (gameId === 'kingscup') initKingsCup();
+      if (gameId === 'guessnumber') initGuessNumber();
     }
 
     function backToMenu() {
@@ -1135,6 +1577,274 @@
       setDragonBtnsDisabled(true);
       gamePhase = 'result';
     }
+
+    // ==================== 遊戲5: 國王遊戲 King's Cup ====================
+    let kcDeck = [];
+    let kcKingCount = 0;
+    let kcFlipping = false;
+
+    const kcRules = {
+      'A': {
+        name: '🌊 瀑布', nameThai: 'น้ำตก (Waterfall)',
+        desc: '全場一起喝！等上家停了你才能停。從翻牌者開始，依序往下。',
+        descThai: 'ทุกคนดื่มพร้อมกัน! ต้องรอคนก่อนหน้าหยุดก่อนถึงจะหยุดได้'
+      },
+      '2': {
+        name: '👉 指定喝', nameThai: 'ชี้คนดื่ม',
+        desc: '你可以指定任何一個人喝一杯！',
+        descThai: 'คุณเลือกใครก็ได้ให้ดื่มหนึ่งแก้ว!'
+      },
+      '3': {
+        name: '🍺 自己喝', nameThai: 'ดื่มเอง',
+        desc: '自己喝一杯！沒得商量。',
+        descThai: 'ดื่มเองหนึ่งแก้ว! ไม่มีข้อแม้'
+      },
+      '4': {
+        name: '⬇️ 地板', nameThai: 'พื้น (Floor)',
+        desc: '所有人趕快摸地板！最後摸到的人喝一杯。',
+        descThai: 'ทุกคนรีบแตะพื้น! คนสุดท้ายที่แตะต้องดื่ม'
+      },
+      '5': {
+        name: '👦 男生喝', nameThai: 'ผู้ชายดื่ม',
+        desc: '所有男生喝一杯！',
+        descThai: 'ผู้ชายทุกคนดื่ม!'
+      },
+      '6': {
+        name: '👧 女生喝', nameThai: 'ผู้หญิงดื่ม',
+        desc: '所有女生喝一杯！',
+        descThai: 'ผู้หญิงทุกคนดื่ม!'
+      },
+      '7': {
+        name: '🙌 天堂', nameThai: 'สวรรค์ (Heaven)',
+        desc: '所有人趕快舉手！最後舉手的人喝一杯。',
+        descThai: 'ทุกคนรีบยกมือ! คนสุดท้ายที่ยกต้องดื่ม'
+      },
+      '8': {
+        name: '👫 找伴', nameThai: 'หาคู่ (Mate)',
+        desc: '指定一個人當你的酒伴，之後你喝他也要一起喝！',
+        descThai: 'เลือกคนหนึ่งเป็นคู่ดื่ม หลังจากนี้คุณดื่มเมื่อไหร่เขาก็ต้องดื่มด้วย!'
+      },
+      '9': {
+        name: '🎵 押韻', nameThai: 'คำคล้องจอง (Rhyme)',
+        desc: '說一個詞，大家輪流說押韻的詞。說不出來或重複的人喝！',
+        descThai: 'พูดคำหนึ่ง ทุกคนสลับพูดคำที่คล้องจอง พูดไม่ได้หรือซ้ำต้องดื่ม!'
+      },
+      '10': {
+        name: '📋 話題', nameThai: 'หมวดหมู่ (Categories)',
+        desc: '說一個類別（例如：汽車品牌），大家輪流說。說不出來的人喝！',
+        descThai: 'พูดหมวดหมู่ (เช่น ยี่ห้อรถ) ทุกคนสลับพูด พูดไม่ได้ต้องดื่ม!'
+      },
+      'J': {
+        name: '📜 出規則', nameThai: 'ตั้งกฎ (Rule)',
+        desc: '你可以出一條新規則（例如：不能說「喝」），違反的人喝！規則持續到下一張J。',
+        descThai: 'ตั้งกฎใหม่ (เช่น ห้ามพูดคำว่า "ดื่ม") คนที่ทำผิดต้องดื่ม! กฎมีผลจนกว่าจะเปิด J ใบต่อไป'
+      },
+      'Q': {
+        name: '❓ 問題王', nameThai: 'ราชินีคำถาม (Question)',
+        desc: '你變成問題王！被你問問題的人不能回答，回答了就要喝！持續到下一張Q。',
+        descThai: 'คุณเป็นราชินีคำถาม! คนที่ถูกถามห้ามตอบ ตอบแล้วต้องดื่ม! มีผลจนกว่าจะเปิด Q ใบต่อไป'
+      },
+      'K': {
+        name: '🍻 倒酒', nameThai: 'เทเหล้า (King\'s Cup)',
+        desc: '', // 動態生成
+        descThai: ''
+      }
+    };
+
+    function buildKCDeck() {
+      const values = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+      const suits = ['♠','♥','♦','♣'];
+      const deck = [];
+      for (const v of values) {
+        for (const s of suits) {
+          deck.push({ value: v, suit: s });
+        }
+      }
+      // Fisher-Yates 洗牌
+      for (let i = deck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [deck[i], deck[j]] = [deck[j], deck[i]];
+      }
+      return deck;
+    }
+
+    function initKingsCup() {
+      kcDeck = buildKCDeck();
+      kcKingCount = 0;
+      kcFlipping = false;
+
+      document.getElementById('kcRemaining').textContent = kcDeck.length;
+      document.getElementById('kcRemainingThai').textContent = kcDeck.length;
+
+      // 重置 King 計數
+      for (let i = 0; i < 4; i++) {
+        document.getElementById('kingSlot' + i).classList.remove('filled');
+      }
+
+      // 重置牌面
+      document.getElementById('kcCard').classList.remove('flipped');
+      document.getElementById('kcRule').style.display = 'none';
+      document.getElementById('kcNextBtn').style.display = 'none';
+      document.getElementById('kcRestartBtn').style.display = 'none';
+      document.getElementById('kcHint').style.display = 'block';
+      document.getElementById('kcDeck').style.display = 'block';
+    }
+
+    function flipKingsCup() {
+      if (kcFlipping || kcDeck.length === 0) return;
+      kcFlipping = true;
+
+      const card = kcDeck.pop();
+      const isRed = card.suit === '♥' || card.suit === '♦';
+      const frontEl = document.getElementById('kcCardFront');
+      frontEl.className = 'kingscup-card-face kingscup-card-front ' + (isRed ? 'red' : 'black');
+      document.getElementById('kcValue').textContent = card.value;
+      document.getElementById('kcSuit').textContent = card.suit;
+
+      // 翻牌動畫
+      document.getElementById('kcCard').classList.add('flipped');
+      document.getElementById('kcHint').style.display = 'none';
+
+      // 更新剩餘
+      document.getElementById('kcRemaining').textContent = kcDeck.length;
+      document.getElementById('kcRemainingThai').textContent = kcDeck.length;
+
+      // 顯示規則
+      setTimeout(() => {
+        const rule = kcRules[card.value];
+        const ruleEl = document.getElementById('kcRule');
+
+        if (card.value === 'K') {
+          kcKingCount++;
+          document.getElementById('kingSlot' + (kcKingCount - 1)).classList.add('filled');
+
+          if (kcKingCount < 4) {
+            rule.desc = `往公杯倒酒！這是第 ${kcKingCount} 張K，還差 ${4 - kcKingCount} 張。`;
+            rule.descThai = `เทเหล้าลงแก้วกลาง! นี่คือ K ใบที่ ${kcKingCount} เหลืออีก ${4 - kcKingCount} ใบ`;
+          } else {
+            rule.desc = '🚨 第4張K！你要喝光公杯裡所有的酒！！！';
+            rule.descThai = '🚨 K ใบที่ 4! คุณต้องดื่มหมดแก้วกลาง!!!';
+          }
+        }
+
+        document.getElementById('kcRuleName').textContent = rule.name;
+        document.getElementById('kcRuleNameThai').textContent = rule.nameThai;
+        document.getElementById('kcRuleDesc').textContent = rule.desc;
+        document.getElementById('kcRuleDescThai').textContent = rule.descThai;
+        ruleEl.style.display = 'block';
+
+        if (kcDeck.length > 0) {
+          document.getElementById('kcNextBtn').style.display = 'inline-block';
+        } else {
+          document.getElementById('kcRestartBtn').style.display = 'inline-block';
+        }
+      }, 600);
+    }
+
+    function resetKingsCupCard() {
+      document.getElementById('kcCard').classList.remove('flipped');
+      document.getElementById('kcRule').style.display = 'none';
+      document.getElementById('kcNextBtn').style.display = 'none';
+      document.getElementById('kcHint').style.display = 'block';
+      kcFlipping = false;
+    }
+
+    // ==================== 遊戲6: 喝酒猜數字 ====================
+    let guessTarget = 0;
+    let guessLow = 1;
+    let guessHigh = 100;
+    let guessCurrentPlayer = 1;
+    let guessGameOver = false;
+
+    function initGuessNumber() {
+      guessTarget = Math.floor(Math.random() * 100) + 1;
+      guessLow = 1;
+      guessHigh = 100;
+      guessCurrentPlayer = 1;
+      guessGameOver = false;
+
+      document.getElementById('guessLow').textContent = '1';
+      document.getElementById('guessHigh').textContent = '100';
+      document.getElementById('guessInput').value = '';
+      document.getElementById('guessInput').disabled = false;
+      document.getElementById('guessHistory').innerHTML = '';
+      document.getElementById('guessNewRoundBtn').style.display = 'none';
+      document.getElementById('guessInputArea').style.display = 'flex';
+      document.getElementById('guessResultDisplay').innerHTML = '<span style="color: var(--text-muted)">輸入數字開始猜！<br>ใส่ตัวเลขเพื่อเริ่มทาย!</span>';
+      updatePlayerIndicator();
+    }
+
+    function updatePlayerIndicator() {
+      const el = document.getElementById('guessPlayerIndicator');
+      if (guessCurrentPlayer === 1) {
+        el.className = 'guess-player-indicator player1';
+        el.innerHTML = '🔴 玩家 A 的回合 | ตาผู้เล่น A';
+      } else {
+        el.className = 'guess-player-indicator player2';
+        el.innerHTML = '🟢 玩家 B 的回合 | ตาผู้เล่น B';
+      }
+    }
+
+    function submitGuess() {
+      if (guessGameOver) return;
+
+      const input = document.getElementById('guessInput');
+      const guess = parseInt(input.value);
+
+      if (isNaN(guess) || guess < guessLow || guess > guessHigh) {
+        input.style.borderColor = '#ff6b6b';
+        setTimeout(() => { input.style.borderColor = 'var(--text-muted)'; }, 500);
+        return;
+      }
+
+      input.value = '';
+      const resultEl = document.getElementById('guessResultDisplay');
+      const historyEl = document.getElementById('guessHistory');
+      const playerLabel = guessCurrentPlayer === 1 ? 'A' : 'B';
+
+      if (guess === guessTarget) {
+        // 猜中了！
+        guessGameOver = true;
+        const loser = guessCurrentPlayer === 1 ? 'B' : 'A';
+        resultEl.innerHTML = `
+          <div class="guess-hint correct">🎯 猜中了！答案是 ${guessTarget}</div>
+          <div class="guess-thai">ทายถูก! คำตอบคือ ${guessTarget}</div>
+          <div style="font-size:1.5rem; margin-top:12px;">🍺 玩家 ${loser} 喝一杯！<br><span style="font-size:1rem; color:var(--gold);">ผู้เล่น ${loser} ดื่มหนึ่งแก้ว!</span></div>
+        `;
+        document.getElementById('guessInput').disabled = true;
+        document.getElementById('guessNewRoundBtn').style.display = 'block';
+        historyEl.innerHTML += `<span class="guess-tag" style="background:rgba(255,215,0,0.2);color:var(--gold);">${playerLabel}: ${guess} 🎯</span>`;
+      } else if (guess > guessTarget) {
+        guessHigh = guess - 1;
+        document.getElementById('guessHigh').textContent = guessHigh;
+        resultEl.innerHTML = `
+          <div class="guess-hint higher">📉 ${guess} 太大了！</div>
+          <div class="guess-thai">${guess} มากไป!</div>
+        `;
+        historyEl.innerHTML += `<span class="guess-tag higher">${playerLabel}: ${guess} ↓</span>`;
+        guessCurrentPlayer = guessCurrentPlayer === 1 ? 2 : 1;
+        updatePlayerIndicator();
+      } else {
+        guessLow = guess + 1;
+        document.getElementById('guessLow').textContent = guessLow;
+        resultEl.innerHTML = `
+          <div class="guess-hint lower">📈 ${guess} 太小了！</div>
+          <div class="guess-thai">${guess} น้อยไป!</div>
+        `;
+        historyEl.innerHTML += `<span class="guess-tag lower">${playerLabel}: ${guess} ↑</span>`;
+        guessCurrentPlayer = guessCurrentPlayer === 1 ? 2 : 1;
+        updatePlayerIndicator();
+      }
+
+      input.focus();
+    }
+
+    // 支援 Enter 鍵提交
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && document.getElementById('guessInput') === document.activeElement) {
+        submitGuess();
+      }
+    });
 
     // ==================== 遊戲4: 反應力挑戰 ====================
     let reactionState = 'idle';

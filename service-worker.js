@@ -1,7 +1,7 @@
 // Pattaya Trip 2026 - Service Worker
 // Version: 1.0.0
 
-const CACHE_VERSION = 'v1.0.0';
+const CACHE_VERSION = 'v2.0.0';
 const CACHE_NAME = `pattaya-2026-${CACHE_VERSION}`;
 
 // 核心頁面（9/11 頁，MVP 範圍）
@@ -15,7 +15,11 @@ const CORE_PAGES = [
   '/sop.html',
   '/money.html',
   '/esim.html',
-  '/games.html'
+  '/games.html',
+  '/truth-or-dare.html',
+  '/checklist.html',
+  '/souvenirs.html',
+  '/resources.html'
 ];
 
 // CDN 資源

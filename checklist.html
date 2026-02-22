@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>旅行 Checklist - 芭達雅之旅 2026</title>
+  <meta name="description" content="芭達雅旅遊攻略，支援離線瀏覽！">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ff00ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pattaya 2026">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --neon-pink: #ff00ff;
+      --neon-blue: #00ffff;
+      --neon-green: #00ff88;
+      --neon-purple: #bf00ff;
+      --neon-orange: #ff6b35;
+      --gold: #ffd700;
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: rgba(18, 18, 26, 0.85);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.8);
+      --text-muted: rgba(255, 255, 255, 0.5);
+      --safe-top: env(safe-area-inset-top, 20px);
+      --safe-bottom: env(safe-area-inset-bottom, 20px);
+      --success: #00ff88;
+      --danger: #ff4444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* 頂部導航 */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: calc(var(--safe-top) + 12px) 20px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-content {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--neon-pink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .page-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    /* 進度條區域 */
+    .progress-bar-wrapper {
+      position: fixed;
+      top: calc(var(--safe-top) + 56px);
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 12px 20px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .progress-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .progress-text {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .progress-count {
+      color: var(--neon-green);
+      font-weight: 900;
+    }
+
+    .reset-btn {
+      padding: 6px 14px;
+      border: 1px solid rgba(255,68,68,0.5);
+      border-radius: 20px;
+      background: rgba(255,68,68,0.1);
+      color: var(--danger);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+
+    .reset-btn:hover {
+      background: rgba(255,68,68,0.25);
+      border-color: var(--danger);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon-green), var(--neon-blue));
+      border-radius: 3px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    /* 內容區 */
+    .content {
+      padding-top: calc(var(--safe-top) + 120px);
+      padding-bottom: calc(var(--safe-bottom) + 40px);
+      max-width: 600px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    /* 區塊 */
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+    }
+
+    .section-icon {
+      font-size: 1.4rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .section-progress {
+      margin-left: auto;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* 區塊顏色 */
+    .section--before .section-header { border-bottom: 2px solid var(--neon-pink); }
+    .section--before .section-title { color: var(--neon-pink); }
+    .section--before .sub-title { color: var(--neon-pink); }
+
+    .section--checkin .section-header { border-bottom: 2px solid var(--neon-blue); }
+    .section--checkin .section-title { color: var(--neon-blue); }
+
+    .section--daily .section-header { border-bottom: 2px solid var(--neon-green); }
+    .section--daily .section-title { color: var(--neon-green); }
+
+    .section--return .section-header { border-bottom: 2px solid var(--gold); }
+    .section--return .section-title { color: var(--gold); }
+
+    /* 子分類標題 */
+    .sub-title {
+      font-size: 0.95rem;
+      font-weight: 900;
+      margin: 18px 0 8px;
+      padding-left: 4px;
+      color: var(--text-secondary);
+    }
+
+    .sub-title:first-of-type {
+      margin-top: 0;
+    }
+
+    /* Checkbox 項目 */
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .check-item:hover {
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .check-item.checked {
+      opacity: 0.5;
+    }
+
+    .check-item.checked .check-label {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .check-box {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+      transition: all 0.2s ease;
+    }
+
+    .check-item.checked .check-box {
+      background: var(--neon-green);
+      border-color: var(--neon-green);
+    }
+
+    .check-mark {
+      display: none;
+      color: var(--bg-primary);
+      font-size: 0.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .check-item.checked .check-mark {
+      display: block;
+    }
+
+    .check-label {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .check-hint {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* 連結項目 */
+    .check-link {
+      color: var(--neon-blue);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .check-link:hover {
+      text-decoration: underline;
+    }
+
+    /* 底部導航 */
+    .footer-nav {
+      margin-top: 40px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      border-radius: 30px;
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 30px rgba(255,0,255,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .footer-btn.secondary {
+      background: transparent;
+      border: 2px solid var(--neon-pink);
+      color: var(--neon-pink);
+      box-shadow: none;
+    }
+
+    .footer-btn:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <a href="index.html" class="back-btn">&larr; 首頁</a>
+      <span class="page-title">Checklist</span>
+    </div>
+  </header>
+
+  <div class="progress-bar-wrapper">
+    <div class="progress-inner">
+      <div class="progress-info">
+        <span class="progress-text"><span class="progress-count" id="progressCount">0/0</span> 已完成</span>
+        <button class="reset-btn" onclick="resetAll()">全部重置</button>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="content">
+
+    <!-- 區塊 1：出發前準備 -->
+    <div class="section section--before" data-section="before">
+      <div class="section-header">
+        <span class="section-icon">✈️</span>
+        <span class="section-title">出發前準備</span>
+        <span class="section-progress" id="progress-before"></span>
+      </div>
+
+      <div class="sub-title">📄 證件類</div>
+      <div class="check-item" data-id="passport" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">護照<span class="check-hint">確認效期 6 個月以上</span></div>
+      </div>
+      <div class="check-item" data-id="tdac" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">TDAC 數位入境卡<span class="check-hint">出發前 72 小時填寫</span></div>
+      </div>
+      <div class="check-item" data-id="ticket" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">機票電子憑證截圖</div>
+      </div>
+      <div class="check-item" data-id="hotel-confirm" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">飯店訂房確認信截圖</div>
+      </div>
+      <div class="check-item" data-id="insurance" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">旅遊平安險保單</div>
+      </div>
+      <div class="check-item" data-id="passport-copy" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">護照影本<span class="check-hint">帶一份紙本</span></div>
+      </div>
+
+      <div class="sub-title">🔌 電子設備</div>
+      <div class="check-item" data-id="charger" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">手機充電線 + 充電頭</div>
+      </div>
+      <div class="check-item" data-id="powerbank" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">行動電源<span class="check-hint">不能託運！隨身帶</span></div>
+      </div>
+      <div class="check-item" data-id="esim" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">eSIM QR Code 截圖<span class="check-hint">到泰國才安裝</span></div>
+      </div>
+      <div class="check-item" data-id="adapter" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">萬用轉接頭<span class="check-hint">泰國多數可直插，但帶著保險</span></div>
+      </div>
+      <div class="check-item" data-id="earphone" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">耳機</div>
+      </div>
+
+      <div class="sub-title">👕 衣物</div>
+      <div class="check-item" data-id="tshirt" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">輕便 T-shirt x 7</div>
+      </div>
+      <div class="check-item" data-id="shorts" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">短褲 x 4</div>
+      </div>
+      <div class="check-item" data-id="swimwear" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">泳褲</div>
+      </div>
+      <div class="check-item" data-id="clean-shorts" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">乾淨的出門短褲<span class="check-hint">不要海灘褲</span></div>
+      </div>
+      <div class="check-item" data-id="shoes" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">球鞋或涼鞋<span class="check-hint">不要人字拖出門</span></div>
+      </div>
+      <div class="check-item" data-id="slippers" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">拖鞋<span class="check-hint">飯店內穿</span></div>
+      </div>
+      <div class="check-item" data-id="sunglasses" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">太陽眼鏡</div>
+      </div>
+
+      <div class="sub-title">💊 藥品 / 日用品</div>
+      <div class="check-item" data-id="stomach-med" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">腸胃藥<span class="check-hint">泰國食物可能不適應</span></div>
+      </div>
+      <div class="check-item" data-id="painkiller" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">止痛藥</div>
+      </div>
+      <div class="check-item" data-id="bandaid" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">OK繃</div>
+      </div>
+      <div class="check-item" data-id="mosquito" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">防蚊液</div>
+      </div>
+      <div class="check-item" data-id="sunscreen" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">防曬乳<span class="check-hint">SPF 50+</span></div>
+      </div>
+      <div class="check-item" data-id="protection-before" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">保護措施<span class="check-hint">自備品質較好</span></div>
+      </div>
+
+      <div class="sub-title">💰 金融</div>
+      <div class="check-item" data-id="thb-cash" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">泰銖現金<span class="check-hint">至少 20,000 THB 或等值，入境抽查用</span></div>
+      </div>
+      <div class="check-item" data-id="credit-card" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">信用卡<span class="check-hint">鎖在飯店保險箱，不帶出門</span></div>
+      </div>
+      <div class="check-item" data-id="bank-phone" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">記下銀行海外掛失電話</div>
+      </div>
+      <div class="check-item" data-id="small-bills" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">小額鈔票準備<span class="check-hint">20、100 面額給小費用</span></div>
+      </div>
+
+      <div class="sub-title">🎒 其他</div>
+      <div class="check-item" data-id="crossbody" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">小型斜背包或胸包<span class="check-hint">拉鍊式</span></div>
+      </div>
+      <div class="check-item" data-id="lock" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">小鎖頭<span class="check-hint">鎖行李箱用</span></div>
+      </div>
+      <div class="check-item" data-id="wet-tissue" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">濕紙巾</div>
+      </div>
+      <div class="check-item" data-id="tissue" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">衛生紙<span class="check-hint">泰國不一定有提供</span></div>
+      </div>
+    </div>
+
+    <!-- 區塊 2：飯店 Check-in -->
+    <div class="section section--checkin" data-section="checkin">
+      <div class="section-header">
+        <span class="section-icon">🏨</span>
+        <span class="section-title">飯店 Check-in 必備</span>
+        <span class="section-progress" id="progress-checkin"></span>
+      </div>
+
+      <div class="check-item" data-id="ci-passport" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">護照正本</div>
+      </div>
+      <div class="check-item" data-id="ci-booking" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">訂房確認信<span class="check-hint">紙本或手機截圖</span></div>
+      </div>
+      <div class="check-item" data-id="ci-deposit" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">現金押金<span class="check-hint">泰國飯店常要求</span></div>
+      </div>
+      <div class="check-item" data-id="ci-wifi" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">確認 WiFi 密碼</div>
+      </div>
+    </div>
+
+    <!-- 區塊 3：每日出門 Checklist -->
+    <div class="section section--daily" data-section="daily">
+      <div class="section-header">
+        <span class="section-icon">🌙</span>
+        <span class="section-title">每日出門 Checklist</span>
+        <span class="section-progress" id="progress-daily"></span>
+      </div>
+
+      <div class="check-item" data-id="daily-cash" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">只帶今晚計畫花的現金<span class="check-hint">建議 3,000-5,000 THB</span></div>
+      </div>
+      <div class="check-item" data-id="daily-bag" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">拉鍊口袋或斜背小包</div>
+      </div>
+      <div class="check-item" data-id="daily-phone" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">手機充飽電</div>
+      </div>
+      <div class="check-item" data-id="daily-hotel" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">飯店名片或地址截圖<span class="check-hint">給司機看</span></div>
+      </div>
+      <div class="check-item" data-id="daily-protection" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">保護措施</div>
+      </div>
+      <div class="check-item" data-id="daily-passport-copy" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">護照影本<span class="check-hint">正本鎖保險箱</span></div>
+      </div>
+    </div>
+
+    <!-- 區塊 4：回程前 Checklist -->
+    <div class="section section--return" data-section="return">
+      <div class="section-header">
+        <span class="section-icon">🏠</span>
+        <span class="section-title">回程前 Checklist</span>
+        <span class="section-progress" id="progress-return"></span>
+      </div>
+
+      <div class="check-item" data-id="ret-pack" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">行李全部打包完成</div>
+      </div>
+      <div class="check-item" data-id="ret-souvenir" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">伴手禮都買了嗎？ <a href="souvenirs.html" class="check-link" onclick="event.stopPropagation()">查看推薦清單 &rarr;</a></div>
+      </div>
+      <div class="check-item" data-id="ret-safe" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">飯店保險箱清空</div>
+      </div>
+      <div class="check-item" data-id="ret-charger" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">充電器、轉接頭沒忘</div>
+      </div>
+      <div class="check-item" data-id="ret-checkout" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">退房時間確認<span class="check-hint">12:00 前</span></div>
+      </div>
+      <div class="check-item" data-id="ret-bus" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">巴士憑證準備好</div>
+      </div>
+      <div class="check-item" data-id="ret-esim" onclick="toggleCheck(this)">
+        <div class="check-box"><span class="check-mark">✓</span></div>
+        <div class="check-label">eSIM 還有流量嗎<span class="check-hint">回程需要</span></div>
+      </div>
+    </div>
+
+    <div class="footer-nav">
+      <a href="index.html" class="footer-btn">&larr; 回首頁</a>
+      <a href="itinerary.html" class="footer-btn secondary">📅 行程表</a>
+    </div>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'pattaya-checklist';
+
+    // 讀取已存狀態
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+      } catch {
+        return {};
+      }
+    }
+
+    // 儲存狀態
+    function saveState(state) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    // 切換勾選
+    function toggleCheck(el) {
+      const id = el.dataset.id;
+      const state = loadState();
+      const isChecked = !state[id];
+      state[id] = isChecked;
+      saveState(state);
+      el.classList.toggle('checked', isChecked);
+      updateProgress();
+    }
+
+    // 全部重置
+    function resetAll() {
+      if (!confirm('確定要全部重置嗎？')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      document.querySelectorAll('.check-item').forEach(el => {
+        el.classList.remove('checked');
+      });
+      updateProgress();
+    }
+
+    // 更新進度
+    function updateProgress() {
+      const state = loadState();
+      const allItems = document.querySelectorAll('.check-item');
+      const total = allItems.length;
+      let done = 0;
+
+      allItems.forEach(el => {
+        if (state[el.dataset.id]) done++;
+      });
+
+      // 總進度
+      document.getElementById('progressCount').textContent = done + '/' + total;
+      document.getElementById('progressFill').style.width = (total > 0 ? (done / total * 100) : 0) + '%';
+
+      // 各區塊進度
+      document.querySelectorAll('.section').forEach(section => {
+        const sectionName = section.dataset.section;
+        const items = section.querySelectorAll('.check-item');
+        let sectionDone = 0;
+        items.forEach(el => {
+          if (state[el.dataset.id]) sectionDone++;
+        });
+        const progressEl = document.getElementById('progress-' + sectionName);
+        if (progressEl) {
+          progressEl.textContent = sectionDone + '/' + items.length;
+        }
+      });
+    }
+
+    // 初始化：載入已存狀態
+    function init() {
+      const state = loadState();
+      document.querySelectorAll('.check-item').forEach(el => {
+        if (state[el.dataset.id]) {
+          el.classList.add('checked');
+        }
+      });
+      updateProgress();
+    }
+
+    init();
+  </script>
+
+  <!-- Service Worker 註冊 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('Service Worker 註冊成功:', registration.scope);
+          })
+          .catch((error) => {
+            console.error('Service Worker 註冊失敗:', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
